@@ -1,0 +1,306 @@
+/* 초기화 */
+* {
+  vertical-align: baseline;
+}
+html {
+  text-size-adjust: 100%;
+}
+/* HTML5 display-role reset for older browsers */
+/*
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+*/
+
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h4 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+hr {
+  box-sizing: content-box;
+  overflow: visible;
+}
+button,
+input {
+  overflow: visible;
+}
+input {
+  appearance: none;
+  border-radius: 0px;
+}
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+/* main */
+main {
+  width: 1074px;
+  margin: auto;
+}
+.adminHome .adminOuterWrap {
+  max-width: 1200px;
+  min-height: calc(100vh - 73px);
+  margin: 0px auto;
+  padding: 40px 30px 100px;
+  font-family: NotoSansCJKkr;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(125, 125, 125, 0.05) 0px 0px 15px 0px;
+}
+.adminOuterWrap .adminInnerWrap {
+  max-width: 964px;
+  min-height: calc(100vh - 73px);
+  margin: 0 auto;
+}
+.adminInnerWrap::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+h2#admin {
+  width: 100%;
+  margin: 0px;
+  padding-bottom: 40px;
+  font-size: 40px;
+  line-height: 59px;
+  letter-spacing: -1px;
+}
+h2#admin a {
+  color: #000;
+  font-weight: bold;
+}
+/* TopNav */
+.adminOuterTopNav {
+  display: flex;
+  padding: 37px 60px;
+  background-color: #f7f7f7;
+  min-height: 107px;
+  margin-bottom: 65px;
+}
+.adminInnerTopNav {
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.leftTopNav {
+  display: flex;
+  align-items: center;
+}
+.leftTopNav .client {
+  display: flex;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.topNavIcons {
+  display: flex;
+  gap: 42px;
+}
+.topNavIconWrap {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-top: 11px;
+  min-width: 56px;
+}
+.topNavIcon {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 26px;
+}
+.topNavIconWrap span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+.reveiwIcon {
+  width: 18px;
+  height: 18px;
+  margin-bottom: 8px;
+}
+.couponIcon {
+  width: 31px;
+  height: 18px;
+  margin-bottom: 8px;
+}
+.pointIcon {
+  width: 18px;
+  height: 18px;
+  margin-bottom: 8px;
+}
+/* TabNav */
+aside {
+  display: block;
+}
+aside.adminTabNav {
+  float: left;
+  width: 15%;
+  color: rgb(155, 155, 155);
+  margin-right: 11%;
+  background-color: #fff;
+}
+.tabNavIcon {
+  height: 55px;
+  overflow: hidden;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.tabNavIcon img {
+  height: 100%;
+}
+
+nav.adminMenuList li.adminParentMenu {
+  padding-top: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.3px;
+}
+nav.adminMenuList li.adminParentMenu b {
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+nav.adminMenuList li.adminMenu {
+  padding-top: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+}
+nav.adminMenuList li.adminMenu a {
+  cursor: pointer;
+  color: #9b9b9b;
+}
+/* Content */
+.adminContentSection {
+  float: right;
+  width: 74%;
+  background-color: #fff;
+}
+.adminSectionWrap * {
+  letter-spacing: -0.5px;
+}
+.adminSectionWrap section {
+  margin-bottom: 64px;
+}
+/* 최근주문 */
+.adminSection .adminSectionTitle {
+  margin: 0px;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 38px;
+}
+.lastOrder * {
+  font-size: 13px;
+  font-weight: 500;
+}
+.adminTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.lastOrderCaption {
+  position: relative;
+  text-align: right;
+  height: 24px;
+}
+/* 최근주문 테이블 */
+.lastOrderTableHead > tr > th {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  line-height: 19px;
+  padding-top: 13px;
+  padding-bottom: 11px;
+  text-align: left;
+}
+.lastOrderTableBody tr {
+  cursor: pointer;
+}
+.lastOrderTableBody tr.isEmpty {
+  text-align: center;
+}
+.lastOrderTableBody > tr.isEmpty > td {
+  height: 20px;
+  line-height: 20px;
+  padding: 64px 0;
+  font-family: "NotoSansCJKkr";
+  font-size: 14px;
+  color: rgb(155, 155, 155);
+  cursor: auto;
+}
+.lastOrderTableBody > tr > td {
+  border-bottom: 1px solid rgb(237, 237, 237);
+  height: 124px;
+  box-sizing: content-box;
+  padding: 0px;
+}
+/* 내 활동 */
+.adminCntnt hr {
+  height: 1px;
+  margin: 24px 0;
+  background-color: #000;
+  border: none;
+}
+.contentCategory {
+  margin-top: 24px;
+  padding-bottom: 24px;
+  box-shadow: rgb(217, 217, 217) 0px -0.5px 0px 0px inset;
+}
+.contentCategorySubTitleWrap {
+  margin-bottom: 15px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.contentCategorySubTitle {
+  font-size: 18px;
+}
+
+.contentCategoryCntnt {
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  margin: 53px 0px 56px;
+  font-size: 14px;
+  color: rgb(155, 155, 155);
+}

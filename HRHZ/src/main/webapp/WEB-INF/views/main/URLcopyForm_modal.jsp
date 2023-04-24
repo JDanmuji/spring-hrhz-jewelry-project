@@ -35,11 +35,11 @@
         <script type="text/javascript">
             $(function () {
                 $(".copyBtn").on("click", function (event) {
-                    $("section.sectionBackground").css("display", "flex");
-
-                    $(".modalCloseBnt, .confirmBnt").on("click", function (event) {
-                        $("section.sectionBackground").css("display", "none");
-                    });
+                    $("section.sectionBackGround").css("display", "flex");
+                });
+                
+                $(".modalCloseBtn, .confirmBtn").on("click", function (event) {
+                    $("section.sectionBackGround").css("display", "none");
                 });
             });
         </script>
