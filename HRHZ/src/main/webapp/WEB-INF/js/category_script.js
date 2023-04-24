@@ -1,18 +1,45 @@
+$(document).ready(function () {
+    var checkHTML = $("<img>")
+        .addClass("checkIcon")
+        .attr("src", "../images/category/check_icon.png")
+        .attr("alt", "check icon")
+        .hide();
+
+    // add check img
+    $(".filterDiv").append(checkHTML);
+    $(".categoryToggle > p").append(checkHTML);
+});
+
 // ---------------------------------------------------
 //                category nav
 // ---------------------------------------------------
 // Show the first category when the page loads
 $(".categoryWrap:not(:first)")
     .find(".categoryToggle")
-    .slideToggle(".categoryToggle");
+    .slideUp()
+    .attr("src", "../images/category/expand_black_btn.png");
 
-$(function () {
-    $(".categoryTitle img").on("click", function (event) {
-        $(this)
-            .parents(".categoryWrap")
-            .find(".categoryToggle")
-            .slideToggle(".categoryToggle");
-    });
+$(".expandBtn").on("click", function () {
+    $(".checkIcon").hide();
+    $(".categoryToggle > p").removeClass("checkedCategory");
+    $(".categoryToggle").slideUp(); // close all toggles
+    // open selected toggle
+    $(this).parents(".categoryWrap").find(".categoryToggle").slideDown();
+
+    // change icon
+    $(".expandBtn").attr("src", "../images/category/expand_black_btn.png");
+    $(this).attr("src", "../images/common/filter_reset_btn.png");
+});
+
+// show check
+$(document).on("click", ".categoryToggle > p", function () {
+    $(this).find(".checkIcon").show();
+    $(this).addClass("checkedCategory");
+});
+// hide check
+$(document).on("click", ".checkedCategory", function () {
+    $(this).find(".checkIcon").hide();
+    $(this).removeClass("checkedCategory");
 });
 
 // ---------------------------------------------------
@@ -69,10 +96,10 @@ $(".filterMenu > p:nth-child(4)").click(function (event) {
 // brand filter search input
 function fontColor(thisClass) {
     if (thisClass.val() != "") {
-    	thisClass.css("color", "#000");
-    	thisClass.css("font-weight", "500");
+        thisClass.css("color", "#000");
+        thisClass.css("font-weight", "500");
     }
-};
+}
 $(".brandFilter > div > input").on("focus", function (event) {
     $(".brandFilterSearchDiv").css("border-bottom", "1px solid #000");
     fontColor($(this));
@@ -84,9 +111,61 @@ $(".brandFilter > div > input").on("blur", function (event) {
     $(".brandFilterSearchDiv").css("border-bottom", "1px solid #d9d9d9");
     fontColor($(this));
     if ($(this).val() == "") {
-    	$(this).css("color", "#d9d9d9");
+        $(this).css("color", "#d9d9d9");
         $(this).val("브랜드명을 입력해 주세요");
     }
+});
+
+// ---------------------------------------------------
+//                   filter select
+// ---------------------------------------------------
+function tagUpdate() {
+    $(".tagSpan").remove();
+    $(".checkedFilter").each(function () {
+        let filterName = $(this).find("> p").text();
+        $(".tagArea").append(
+            "<span class='tagSpan'>" + filterName + " X</span>"
+        );
+    });
+}
+
+// check
+$(".filterBox").on("click", ".filterDiv", function () {
+    $(this).find(".checkIcon").show();
+    $(this).css("font-weight", "700");
+    $(this).addClass("checkedFilter");
+    tagUpdate();
+});
+// uncheck
+$(".filterBox").on("click", ".checkedFilter", function (event) {
+    $(this).find(".checkIcon").hide();
+    $(this).css("font-weight", "500");
+    $(this).removeClass("checkedFilter");
+    tagUpdate();
+});
+
+// reset btn
+$(".filterBox").on("click", ".filterResetBtn", function (event) {
+    $(".checkIcon").hide();
+    $(".filterDiv").css("font-weight", "500");
+    $(".tagSpan").remove();
+});
+
+// tag delete
+$(document).on("click", ".tagSpan", function () {
+    let tagName = $(this).text();
+    console.log(tagName);
+
+    $(".checkedFilter").each(function () {
+        let filterName = $(this).find("> p").text() + " X";
+        console.log(filterName);
+
+        if (filterName === tagName) {
+            $(this).find(".checkIcon").hide();
+            $(this).css("font-weight", "500").removeClass("checkedFilter");
+        }
+    });
+    $(this).remove();
 });
 
 // ---------------------------------------------------
@@ -100,63 +179,3 @@ $(".heartIconViolet").on("click", function (event) {
     $(this).css("display", "none");
     $(this).parent().find(".heartIconWhite").css("display", "block");
 });
-
-// ---------------------------------------------------
-//                 Best List
-// ---------------------------------------------------
-function bestProductList() {
-	var optionItem;
-	
-	$.ajax({
-		type: 'post',
-		url : '/bestCategoryPorductList',
-		data : 'json',
-		suceess : function(data){
-		
-			$.each(data, function(index, items){
-			
-			optionItem = $(
-			
-			"<div class='articleContent'>" +
-             	"<a href='/purchase/productDetail'>" +
-             		"<div class='articleImg'>"+
-                        "<img src='storage/" + items.imgPath+"'/>" +
-                    "</div>" +
-                    "<div class='articleDesc'>" +
-                    	"<span><strong>" + items.brandName+"</strong></span>"+
-                    	"<span>" + items.porductName + "</span>" +
-                    	
-                    	"<div class='atriclePrice'>" +
-                    		"<span class='percentage'>" +
-                    			"<span>" +
-                    				"<strong>13</strong>" + items.price + "</strong>" +
-                    				"</span>원</span>" +
-                    				
-                    	"</div>" +
-                    "</div>" +
-                    "<div class ='likeNumber'>" +
-                    	"종아요"+ 
-                    	"<span>" + items.likeCount +"</span>" +
-                    "</div>" +
-                 "</a>" +
-                 "<img class='heartIcon heartIconWhite' src='../images/category/heart.jpg'/>" +
-                 "<img class='heartIcon heartIconViolet' src='../images/category/heart_violet.jpg'/>" +
-               "</div>"			
-        		
-        	);
-        	
-        	$('.articleContents').append(optionItem);
-                    
-          });          				
-                    	
-	},
-	error:function(err){
-		console.log(err);
-	}
-		
-	});
-}
-
-
-
-
