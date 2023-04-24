@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="brandSQL">
+
+    <select id="getBrandList" resultType="map">
+		SELECT code AS "code", name AS "name", 'like' AS "like",
+		img_path AS "imgPath", img_name AS "imgName"
+		FROM brand
+		JOIN brand_image ON code=brand_code
+    </select>
+
+</mapper>

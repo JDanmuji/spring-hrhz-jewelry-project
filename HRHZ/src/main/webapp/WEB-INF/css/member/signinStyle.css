@@ -1,0 +1,209 @@
+@charset "UTF-8";
+
+/* 로그인 폼 */
+.background{
+  background-color: #fafafa;
+}
+.outerWrapper{
+  background-color: #ffffff;
+  margin: 0 160px;
+  border: none;
+  box-shadow: 0px 0px 5px #F7F7F7;
+}
+.container {
+  margin: 0 auto;
+  width: 50%;
+  display: flex;	
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 로그인 제목 */
+.signinTitle {
+  line-height: 32.2px;
+  font-size: 28px;
+  text-align: center;
+  flex-grow: 1;
+  font-weight: 700;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+
+/* 이메일, 비밀번호 */
+.inputContainer {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.inputContainer label {
+  display: block;
+  font-size: 12px;
+  color: #b8b9b8;
+  font-weight: 400;
+}
+
+.inputContainer input {
+  font-family: 'Barlow', sans-serif;
+  border: none;
+  width: 370px;
+  height: 50px;
+  font-size: 14px;
+  padding-left: 5px;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+.inputContainer .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 370px;
+  height: 1px;
+  background-color: #ededed;
+}
+
+.inputContainer input:focus ~ .underline {
+  background-color: #000000;
+}
+
+.inputContainer input:focus {
+  outline: none;
+}
+
+/* 로그인 유지하기 버튼*/
+.checkboxContainer {
+  font-size:12px;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+  padding-left: 25px;
+  margin-right: 15px;
+  line-height: 13.8px;
+  float: left;
+  font-weight: 400;
+  text-align: start;
+}
+
+.checkboxContainer input {
+  display: none;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 10px;
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.checkboxContainer input:checked ~ .checkmark {
+  background-color: #6200f0;
+  border-color: #6200f0;
+}
+
+.checkboxContainer input:checked ~ span {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: scale(0.9) rotate(45deg);
+}
+
+.checkboxContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* 아이디 찾기, 비밀번호 찾기*/
+
+.finder {
+	text-align: right;
+	font-size: 12px;
+	position: relative;
+  right: 10px;
+	float: right;
+	line-height: 13.8px;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+
+/* 로그인 버튼 */
+.signinButton {
+  width: 370px;
+  height: 45px;
+  background-color: #dddddd; /* 버튼 배경색 */
+  color: #ffffff; /* 버튼 텍스트 색상 */
+  font-size: 14px; /* 버튼 텍스트 크기 */
+  border: none; /* 버튼 테두리 없애기 */
+  border-radius: 3px; /* 버튼 모서리 둥글게 만들기 */
+  cursor: pointer; /* 커서를 포인터로 변경하여 버튼임을 알리기 */
+  margin-top: 20px;
+}
+
+/* 일반 텍스트 */
+.text1, .text2{
+	font-size: 12px;
+	color: #b8b9b8;
+	text-align: center;
+	margin-bottom: 15px;
+	font-weight: 400;
+}
+
+/* 회원가입 버튼 */
+.signupButton {
+  width: 370px;
+  height: 45px;
+  background-color: #ffffff; /* 버튼 배경색 */
+  color: #000000; /* 버튼 텍스트 색상 */
+  font-size: 14px; /* 버튼 텍스트 크기 */
+  font-weight: normal; /* 버튼 텍스트 굵기 */
+  border: 1px solid #e1e1e1; /* 버튼 테두리 없애기 */
+  border-radius: 3px; /* 버튼 모서리 둥글게 만들기 */
+  cursor: pointer; /* 커서를 포인터로 변경하여 버튼임을 알리기 */
+}
+
+/* SNS 계정 버튼 */
+.socialIcon {
+	text-align: center;
+	align-items: center;
+}
+.socialIconKakao, .socialIconNaver, .socialIconFacebook, .socialIconApple {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 10px;
+  cursor: pointer;
+  margin-bottom: 100px;
+}
+.socialIconKakao {
+	  background-image: url('./img/auth_social_kakao_round_btn.png');
+}
+.socialIconNaver {
+	  background-image: url('./img/auth_social_naver_round_btn.png');
+}
+.socialIconFacebook {
+	  background-image: url('./img/auth_social_facebook_round_btn.png');
+}
+.socialIconApple {
+	  background-image: url('./img/auth_social_apple_round_btn.png');
+}

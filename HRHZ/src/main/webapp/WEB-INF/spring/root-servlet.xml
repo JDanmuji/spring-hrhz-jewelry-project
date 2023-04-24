@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- admin -->
+	<context:component-scan base-package="admin.service"/>
+	<context:component-scan base-package="admin.dao"/>
+
+	<!-- brand -->
+	<context:component-scan base-package="brand.service"/>
+	<context:component-scan base-package="brand.dao"/>
+
+	<!-- category -->
+	<context:component-scan base-package="category.service"/>
+	<context:component-scan base-package="category.dao"/>
+
+	<!-- main -->
+	<context:component-scan base-package="main.service"/>	
+	<context:component-scan base-package="main.dao"/>
+
+	<!-- member -->
+	<context:component-scan base-package="member.service"/>
+	<context:component-scan base-package="member.dao"/>
+
+	<!-- my -->
+	<context:component-scan base-package="my.service"/>
+	<context:component-scan base-package="my.dao"/>
+	
+	<!--purchase -->
+	<context:component-scan base-package="purchase.service"/>
+	<context:component-scan base-package="purchase.dao"/>
+	
+	<!-- spring -->
+	<context:component-scan base-package="spring.conf"/>
+	
+
+
+</beans>

@@ -1,0 +1,61 @@
+/* global reset (from stack overflow) */
+html, body, div,
+dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6,
+pre, form, fieldset, input, textarea,
+p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+address, caption, cite, code, dfn, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+ol, ul {
+    list-style: none;
+}
+caption, th {
+    text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+q:before, q:after {
+    content: "";
+}
+abbr, acronym {
+    border: 0;
+}
+
+/* added reset (by Jihye) */
+* {
+    font-family: "Noto Sans KR", sans-serif;
+}
+body {
+    margin: 0 auto;
+    line-height: 1.15;
+}
+input {
+    border: none;
+    outline: none;
+}
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+	color: inherit;
+}
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}

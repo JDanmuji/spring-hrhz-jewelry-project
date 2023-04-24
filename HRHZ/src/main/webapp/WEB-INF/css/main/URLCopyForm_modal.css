@@ -1,0 +1,61 @@
+* {
+    font-family: "Noto Sans KR", sans-serif;
+}
+section.sectionBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.modal-body {
+    position: relative;
+    width: 320px;
+    min-height: 160px;
+    border-radius: 2px;
+    background-color: #fff;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    text-align: center;
+}
+.modal-body > div {
+    text-align: center;
+}
+.modalCloseBnt {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.copyText {
+    margin-top: 45px;
+    font-size: 16px;
+}
+.modal-footer {
+    margin-top: 30px;
+}
+
+.confirmBnt {
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid transparent;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    height: 35px;
+    width: 250px;
+    font-size: 14px;
+}
+
+.closingIcon {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
