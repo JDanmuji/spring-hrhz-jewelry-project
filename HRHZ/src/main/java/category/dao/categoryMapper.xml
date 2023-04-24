@@ -3,4 +3,37 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="categorySQL">
+
+	<select id ="getCategoryBestProductList" resultType="java.util.HshMap">
+		SELECT 
+			*
+  		FROM (SELECT 
+		       		p.code AS "productCode"
+		       	,	p.name AS "productName"
+		        ,   P.brand_code as "brandCode"
+		        ,   (P.brand_code || '/' ||  pi.img_origin_name)as "imgPath"
+		        ,   pi.img_origin_name as "imgOriginName"
+		       	,	(SELECT name FROM brand WHERE  code = p.brand_code) as "brandName"
+		       	, 	TO_CHAR(p.price, 'FM999,999,999,999') AS "price" 
+		       	,	p.like_count AS "likeCount"
+		        ,   ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.SEQ DESC) AS "RN"
+				FROM   product p
+		       	INNER JOIN (SELECT  a.product_code
+		                           ,  a.img_origin_name
+		                          , MIN(a.seq) AS SEQ
+		                   	FROM   product_image a
+		                   	WHERE  a.thumbanil_yn = 'Y'
+		                   	GROUP  BY a.product_code, a.img_origin_name
+		                    ) pi
+		        ON p.code = pi.product_code
+				WHERE  
+					1 = 1
+		       	ORDER  BY p.like_count
+		       ) k
+		WHERE 
+            1=1
+        AND RN = 1
+        AND ROWNUM  <![CDATA[<]]>  30
+    </select>
+
 </mapper>
