@@ -1,5 +1,5 @@
 .mypageSection h3 {
-  margin: 0px 0px 24px;
+  margin: 0 0 24px;
   font-size: 26px;
   font-weight: bold;
   line-height: 38px;
@@ -81,7 +81,7 @@
   color: rgb(155, 155, 155);
 }
 .reviewContentInstruction dl {
-  margin: 24px 0px 0px;
+  margin: 24px 0 0;
 }
 .reviewContentInstruction dl button {
   font-family: NotoSansCJKkr;
@@ -142,14 +142,14 @@
   display: inline-block;
   width: 3px;
   height: 3px;
-  margin-top: 6.5px;
+  margin-top: 7px;
   margin-right: 4px;
   border-radius: 50%;
   background-color: rgb(155, 155, 155);
   vertical-align: middle;
 }
 div.reviewEmpty {
-  margin: 100px auto 0px;
+  margin: 100px auto 0;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.5px;
@@ -186,7 +186,7 @@ section.mypageSection {
 
 .couponAddForm > div input {
   width: 100%;
-  padding: 16px 72px 8px 0px;
+  padding: 16px 72px 8px 0;
   font-family: NotoSansCJKkr;
   font-size: 16px;
   font-weight: bold;
@@ -208,7 +208,7 @@ section.mypageSection {
   position: absolute;
   top: auto;
   bottom: 8px;
-  right: 0px;
+  right: 0;
   z-index: 10;
 }
 .couponAddForm > div .addOn .submitBtn {
@@ -247,7 +247,7 @@ section.mypageSection {
   border-bottom: 1px solid #000;
 }
 .mypageTable thead th {
-  padding: 12px 0px;
+  padding: 12px 0;
   text-align: left;
   font-size: 13px;
   font-weight: normal;
@@ -321,16 +321,16 @@ td.empty .goShopBtn {
   height: 53px;
   background-color: rgb(217, 217, 217);
 }
-.statusBoard .statusBoradItem {
+.statusBoard .statusBoardItem {
   display: inline-block;
   width: 50%;
   padding: 24px 0;
   text-align: center;
 }
-.statusBoard .statusBoradItem:first-of-type {
+.statusBoard .statusBoardItem:first-of-type {
   float: left;
 }
-.statusBoard .statusBoradItem span {
+.statusBoard .statusBoardItem span {
   display: inline-block;
   font-family: Barlow;
   font-size: 34px;
@@ -339,27 +339,27 @@ td.empty .goShopBtn {
   letter-spacing: -0.63px;
   margin-bottom: 8px;
 }
-.statusBoard .statusBoradItem span.point {
+.statusBoard .statusBoardItem span.point {
   color: #000;
 }
-.statusBoard .statusBoradItem span::after {
+.statusBoard .statusBoardItem span::after {
   content: "P";
   display: inline-block;
 }
 
-.statusBoard .statusBoradItem p {
+.statusBoard .statusBoardItem p {
   font-size: 13px;
   line-height: 19px;
   letter-spacing: -0.5px;
   color: #000;
 }
-.statusBoard .statusBoradItem:last-of-type {
+.statusBoard .statusBoardItem:last-of-type {
   float: right;
 }
-.statusBoard .statusBoradItem .usedPoint {
+.statusBoard .statusBoardItem .usedPoint {
   color: rgb(155, 155, 155);
 }
-.statusBoard .statusBoradItem span.usedPoint::before {
+.statusBoard .statusBoardItem span.usedPoint::before {
   content: "-";
   display: inline-block;
 }
@@ -487,7 +487,7 @@ h3.userCheckHead {
 }
 .userPwdWrap input {
   width: 100%;
-  padding: 9px 24px 10px 0px;
+  padding: 9px 24px 10px 0;
   font-size: 14px;
   border-bottom: 1px solid rgb(225, 225, 225);
   outline: none;
@@ -498,12 +498,25 @@ h3.userCheckHead {
 .userPwdWrap label {
   position: absolute;
   bottom: 8px;
-  left: 0px;
+  left: 0;
   font-size: 13px;
   letter-spacing: -0.5px;
   color: rgb(155, 155, 155);
   pointer-events: none;
 }
+.userPwdWrapForLabel label{
+  top: -13px;
+  font-size: 12px;
+  letter-spacing: -0.3px;
+}
+.inputCheckIcon {
+  position: absolute;
+  top: 6px;
+  right: 0px;
+  width: 24px;
+  height: 24px;
+}
+
 .userCheckBtn:disabled {
   background-color: rgb(221, 221, 221);
 }
@@ -523,10 +536,10 @@ h3.userCheckHead {
   font-weight: bold;
   line-height: 24px;
   letter-spacing: -0.3px;
-  padding: 12px 0px;
-  margin: 0px;
-  box-shadow: rgb(0, 0, 0) 0px 1px 0px 0px inset,
-    rgb(237, 237, 237) 0px -1px 0px 0px inset;
+  padding: 12px 0;
+  margin: 0;
+  box-shadow: rgb(0, 0, 0) 0 1px 0 0 inset,
+    rgb(237, 237, 237) 0 -1px 0 0 inset;
 }
 .userInfoFormArea::after {
   content: "";
@@ -550,17 +563,10 @@ h3.userCheckHead {
   width: 316px;
 }
 
-.userInfoFormArea .formRight .formInput,
-.userInfoFormArea .formRight .formText {
-  display: inline-block;
-  width: 316px;
-  height: 36px;
-  line-height: 36px;
-}
 
 .normalLogin .passwordForm {
   width: 100%;
-  padding: 9px 0px 10px;
+  padding: 9px 0 10px;
   font-size: 14px;
   border-bottom: 0.5px solid rgb(225, 225, 225);
   outline: none;
@@ -595,10 +601,48 @@ h3.userCheckHead {
 .userInfoFormArea .formRight .btnWrap button {
   height: 48px;
 }
+
+/* article userNewPwdWrap */
+.inputPlaceholder {
+  position: relative;
+}
+
+.inputPlaceholder label {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  font-size: 13px;
+  letter-spacing: -0.5px;
+  color: rgb(155, 155, 155);
+  pointer-events: none;
+}
+.userNewPwdWrap .btnWrap {
+  display: flex;
+}
+.userInfoFormArea .formRight .formInput,
+.userInfoFormArea .formRight .formText {
+  display: inline-block;
+  width: 316px;
+  /*height: 36px;*/
+  line-height: 36px;
+}
+.userInfoFormArea .formRight .formInput:not(:first-of-type){
+  margin-top: 16px;
+}
+.userNewPwdWrap .btnWrap .cancelBnt,
+.userNewPwdWrap .btnWrap .submitBtn {
+  width: calc(50% - 8px);
+  margin-bottom: 56px;
+}
+.userNewPwdWrap .btnWrap .cancelBnt {
+  border-color: #000;
+  margin-right: 16px;
+}
+
 /* SNS Login */
 .mypageManage .snsLogin {
   text-align: center;
-  padding: 64px 0px 120px;
+  padding: 64px 0 120px;
 }
 
 .mypageManage .snsLogin .snsMainText {
@@ -623,46 +667,22 @@ h3.userCheckHead {
 }
 
 /* UserInfo */
-
+.manageUserInfo .formInput input[name="userName"] {
+  font-size: 13px;
+}
 .userInfoFormWrap .userInfoFormArea .formLeft label.formLabel.required::after {
   display: inline-block;
   content: "*";
   color: rgb(98, 0, 240);
 }
 
-.inputPlaceholder {
-  position: relative;
-}
 
-.inputPlaceholder input {
-  width: 100%;
-  height: 36px;
-  padding: 9px 24px 10px 0px;
-  font-size: 14px;
-  border-image: initial;
-  border-bottom: 1px solid rgb(225, 225, 225);
-  outline: none;
-  background: transparent;
-  color: #000;
-  font-family: Barlow;
-}
-
-.userInfoFormWrap .formInput input {
-  font-size: 13px;
-}
-.userInfoFormWrap .formInput input::placeholder {
+.userInfoFormWrap .formInput input::placeholder,
+.userNewPwdWrap .formInput input::placeholder {
   color: rgb(155, 155, 155);
 }
 
-.inputPlaceholder label {
-  position: absolute;
-  bottom: 8px;
-  left: 0px;
-  font-size: 13px;
-  letter-spacing: -0.5px;
-  color: rgb(155, 155, 155);
-  pointer-events: none;
-}
+
 .userInfoFormWrap .formRight label {
   margin-right: 32px;
   height: 19px;
@@ -670,7 +690,7 @@ h3.userCheckHead {
   line-height: 19px;
   letter-spacing: -0.5px;
 }
-.formRight .infoErrorMsg {
+.infoErrorMsg {
   line-height: 17px;
   margin-top: 4px;
   font-size: 11px;
@@ -681,6 +701,21 @@ h3.userCheckHead {
   font-family: Barlow;
   font-size: 14px;
   font-weight: 500;
+}
+.formRight .formInput input{
+  width: 100%;
+  height: 36px;
+  padding: 9px 24px 10px 0;
+  font-size: 14px;
+  border-image: initial;
+  border-bottom: 1px solid rgb(225, 225, 225);
+  outline: none;
+  background: transparent;
+  color: #000;
+  font-family: Barlow;
+}
+.manageLoginInfo .formInput input {
+  font-size: 13px;
 }
 .userInfoFormWrap .infoFormMsg {
   margin-top: 4px;
@@ -700,11 +735,11 @@ h3.userCheckHead {
   position: absolute;
   width: 1px;
   height: 1px;
-  padding: 0px;
+  padding: 0;
   margin: -1px;
   overflow: hidden;
   clip: rect(0px, 0px, 0px, 0px);
-  border: 0px;
+  border: 0;
 }
 .snsCheckbox input + label {
   display: inline-block;
@@ -724,11 +759,11 @@ h3.userCheckHead {
   text-align: center;
   vertical-align: middle;
   margin-right: 8px;
-  background-image: url(./mypageManageImg/uncheck_round_icon.png);
+  background-image: url("../../images/my/uncheck_round_icon.png");
   background-size: cover;
 }
 .snsCheckbox input:checked + label::before {
-  background-image: url(./mypageManageImg/check_round_purple_icon.png);
+  background-image: url("../../images/my/check_round_purple_icon.png");
   background-size: cover;
 }
 .snsCheckbox label > span {
@@ -767,7 +802,7 @@ h3.userCheckHead {
 .datepickBtn img {
   position: absolute;
   top: 6px;
-  right: 0px;
+  right: 0;
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -782,7 +817,7 @@ h3.userCheckHead {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  border: 0px;
+  border: 0;
 }
 .formRight .genderWrap input + label {
   display: inline-block;
@@ -799,11 +834,11 @@ h3.userCheckHead {
   margin-right: 8px;
   text-align: center;
   vertical-align: top;
-  background-image: url(./mypageManageImg/radio-btn-off.png);
+  background-image: url(../../images/my/radio-btn-off.png);
   background-size: contain;
 }
 .formRight .genderWrap input:checked + label::before {
-  background-image: url(./mypageManageImg/radio-btn-on.png);
+  background-image: url(../../images/my/radio-btn-on.png);
 }
 .userInfoFormArea .formRight .btnWrap {
   margin-top: 32px;
@@ -811,7 +846,7 @@ h3.userCheckHead {
 .userInfoFormArea .formRight .btnWrap .submitBtn:disabled {
   background-color: rgb(221, 221, 221);
 }
-.btnWrap .submitBtn {
+.manageUserInfo .btnWrap .submitBtn {
   width: 100%;
 }
 

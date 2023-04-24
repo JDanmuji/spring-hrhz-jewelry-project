@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <section class="mypageContentSection">
   <section class="mypageSection">
     <section>
@@ -6,7 +7,7 @@
       <section class="mypageManage">
         <article class="manageLoginInfo">
           <h4 class="manageLoginHead">로그인 정보</h4>
-          <!-- 일반 로그인 -->
+<%--          일반 로그인 --%>
           <div class="normalLogin">
             <form class="" novalidate>
               <div class="userInfoFormArea">
@@ -14,7 +15,7 @@
                   <label class="formLabel">아이디</label>
                 </div>
                 <div class="formRight">
-                  <div class="formText">아이디비번세션값@gmail.com</div>
+                  <div class="formText">${memberDTO.email }</div>
                 </div>
               </div>
               <div class="userInfoFormArea">
@@ -22,27 +23,48 @@
                   <label class="formLabel">비밀번호</label>
                 </div>
                 <div class="formRight">
-                  <input class="passwordForm" type="password" readonly value="0000000" />
-                  <div class="btnWrap">
-                    <button class="whiteBtn modifyPwdBtn">
-                      비밀번호 수정
-                    </button>
-                  </div>
+                  <article class="modifyPwdBtnWrap">
+                    <input class="passwordForm" type="password" readonly value="0000000" />
+                    <div class="btnWrap">
+                      <button class="whiteBtn modifyPwdBtn" type="button">
+                        비밀번호 수정
+                      </button>
+                    </div>
+                  </article>
+
+                  <article class="userNewPwdWrap" style="display: none">
+                    <div class="inputPlaceholder formInput">
+                      <input name="userPassword" type="password" maxlength="15" placeholder="현재 비밀번호를 입력해 주세요.">
+                    </div>
+                    <div class="inputPlaceholder formInput">
+                      <input name="userNewPassword" type="password" maxlength="15" placeholder="새 비밀번호를 입력해 주세요.">
+                    </div>
+                    <div class="inputPlaceholder formInput">
+                      <input name="userCheckPassword" type="password" maxlength="15" placeholder="새 비밀번호를 한번 더 입력해 주세요.">
+                    </div>
+                    <div class="btnWrap">
+                      <button class="whiteBtn cancelBnt" type="button">취소</button>
+                      <button class="goShopBtn submitBtn" type="button" disabled>수정</button>
+                    </div>
+                  </article>
                 </div>
               </div>
             </form>
           </div>
 
-          <!-- snsLogin -->
-          <!-- <div class="snsLogin">
-              <p class="snsMainText">
-                <span class="snsType">카카오</span>
-                로 로그인 하였습니다.
-              </p>
-              <p class="snsSubText">
-                SNS로 가입하신 분들은 SNS계정에서 비밀번호를 바꿔주세요.
-              </p>
-            </div> -->
+<%--          snsLogin--%>
+<%--          <c:if test="${memberDTO.joinPath eq 'hrhz'}">--%>
+<%--            <div class="snsLogin">--%>
+<%--                <p class="snsMainText">--%>
+<%--                  <span class="snsType">${memberDTO.joinPath } </span>--%>
+<%--                  로 로그인 하였습니다.--%>
+<%--                </p>--%>
+<%--                <p class="snsSubText">--%>
+<%--                  SNS로 가입하신 분들은 SNS계정에서 비밀번호를 바꿔주세요.--%>
+<%--                </p>--%>
+<%--              </div>--%>
+<%--          </c:if>--%>
+
         </article>
         <article class="manageUserInfo">
           <h4>회원 정보</h4>
@@ -55,13 +77,9 @@
                 <div class="formRight">
                   <div class="inputPlaceholder formInput">
                     <input type="text" name="userName" maxlength="20" placeholder="이름을 입력해 주세요." />
-                    <label for="userName"></label>
-                    <!-- <img
-                        class="inputCheckIcon"
-                        alt=""
-                        src="./mypageManageImg/valid-input-check-icon.png"
-                      /> -->
-                    <!-- <p class="infoErrorMsg">1~20자의 이름을 입력해 주세요.</p> -->
+                    <label></label>
+<%--                    <img class="inputCheckIcon" src="./mypageManageImg/valid-input-check-icon.png" /> --%>
+<%--                    <p class="infoErrorMsg">1~20자의 이름을 입력해 주세요.</p>--%>
                   </div>
                 </div>
               </div>
@@ -70,7 +88,7 @@
                   <label class="formLabel">휴대폰 번호</label>
                 </div>
                 <div class="formRight">
-                  <div class="formText">010-1234-1234(세션)</div>
+                  <div class="formText">${memberDTO.phone}</div>
                 </div>
               </div>
               <div class="userInfoFormArea">
@@ -79,8 +97,8 @@
                 </div>
                 <div class="formRight">
                   <div class="formInput">
-                    <input type="text" name="userEmail" maxlength="80" placeholder="이메일을 입력해 주세요." />
-                    <label for="userEmail"></label>
+                    <input type="text" name="userEmail" maxlength="80" placeholder="이메일을 입력해 주세요." value="${memberDTO.email}" />
+                    <label></label>
                   </div>
                   <!-- <p class="infoErrorMsg">유효한 이메일을 입력해 주세요.</p> -->
                   <p class="infoFormMsg">
@@ -96,7 +114,7 @@
                   <div class="formInput receiveWrap">
                     <div class="snsCheckbox">
                       <input type="checkbox" name="smsReceive" id="smsReceive" />
-                      <label for="smsReceive"><span>SNS 수신동의</span></label>
+                      <label for="smsReceive"><span>SMS 수신동의</span></label>
                     </div>
                     <div class="snsCheckbox">
                       <input type="checkbox" name="emailReceive" id="emailReceive" />
@@ -118,7 +136,7 @@
                     <div class="reactDatepicker">
                       <button type="button" class="datepickBtn">
                         <div class="placeholder">날짜를 선택해주세요.</div>
-                        <img alt="Date" src="./mypageManageImg/date_picker_icon.png" />
+                        <img alt="Date" src="../../images/my/date_picker_icon.png" />
                       </button>
                     </div>
                   </div>
@@ -139,7 +157,7 @@
                     <label for="userGenderM">남자</label>
                   </div>
                   <div class="btnWrap">
-                    <button type="button" class="goShopBtn submitBtn" disabled>
+                    <button type="button" class="goShopBtn submitBtn" type="button" disabled>
                       수정
                     </button>
                   </div>
