@@ -1,3 +1,4 @@
+const checkIconImg = "<img class='inputCheckIcon' src='../../images/my/valid-input-check-icon.png' />";
 $('.reviewBtn').on("click",function (){
     var index = $(this).parent().index()+1;
     $(this).parent().removeClass('reviewTopListTitle1').addClass('reviewTopListTitle0');
@@ -12,7 +13,6 @@ $('.reviewBtn').on("click",function (){
 $('.userPwdWrap input[name="userPwd"]').on({
     "keyup" : function() {
         const errMsg = "<p class='infoErrorMsg'>비밀번호를 입력해 주세요.</p>";
-        const checkIconImg = "<img class='inputCheckIcon' src='../../images/my/valid-input-check-icon.png' />";
         const parent = $(this).parent();
         if ($(this).val().length > 0) {
             if (!parent.find('.inputCheckIcon').length) {
@@ -70,6 +70,7 @@ $('.userCheckContent .userCheckBtn').on(
     }
 );
 
+//-------------------------------------------------------------------
 // my page manage modify password
 $('.formRight .btnWrap .modifyPwdBtn').on('click',function () {
     $('.formRight .modifyPwdBtnWrap').css('display', 'none');
@@ -93,7 +94,7 @@ $('.userNewPwdWrap .formInput input').on({
         let errMsg;
         const errSubMsg1 = "<p class='infoErrorMsg'>영문, 숫자, 특수기호 포함 8자 이상 입력해 주세요.</p>";
         const errSubMsg2 = "<p class='infoErrorMsg'>새 비밀번호와 일치하지 않습니다.</p>";
-        const checkIconImg = "<img class='inputCheckIcon' src='../../images/my/valid-input-check-icon.png' />";
+
 
         switch (index){
             case 0: errMsg = "<p class='infoErrorMsg'>현재 비밀번호를 입력해 주세요.</p>"; break;
@@ -178,26 +179,43 @@ $('.userNewPwdWrap .btnWrap .submitBtn').on('click',function (){
                     url: '/myPage/updateNewPwd',
                     data: { checkPassword : checkPassword},
                     success: function (data) {
-                        alert("비밀번호가 수정되었습니다.");
-                        location.reload();
+                        // Open modal in AJAX callback
+                        $.get("/myPage/updatePwdModal", function (html) {
+                            $(html).appendTo('body').modal({
+                                escapeClose: false,
+                                clickClose: false,
+                                showClose: false
+                            });
+                        });
                     },
                     err: function (err) { console.log(err) }
                 });
-
             }
         },
         err: function(err) { console.log(err)}
     });
 });
 
+//-------------------------------------------------------------------
 //manage user info
 //update input text "name"
 $('.manageUserInfo input[name="userName"]').on("keyup", function (){
-    if ($(this).val().length > 0)
+    const  errMsg = "<p class='infoErrorMsg'>1~20자의 이름을 입력해 주세요.</p>";
+
+    if ($(this).val().length > 0){
+        $(this).parent().find('.infoErrorMsg').remove(); // error msg init
         $('.manageUserInfo .btnWrap .submitBtn').removeAttr("disabled");
-    else
-        $('.manageUserInfo .btnWrap .submitBtn').attr("disabled",true);
+        if(!$(this).parent().find('.inputCheckIcon').length)
+            $(this).parent().append(checkIconImg);
+    }
+    else {
+        $(this).parent().find('.inputCheckIcon').remove(); // img init
+        $('.manageUserInfo .btnWrap .submitBtn').attr("disabled", true);
+        if (! $(this).parent().find('.infoErrorMsg').length)
+            $(this).parent().append(errMsg);
+    }
 });
+
 
 // email check
 $('.manageUserInfo input[name="userEmail"]').on("keyup", function () {
@@ -210,9 +228,32 @@ $('.manageUserInfo input[name="userEmail"]').on("keyup", function () {
     } else $(this).parent().find('.infoErrorMsg').remove();
 });
 
-
+//------------------------------
 // delete member
-$('.userRemove button').on("click", function (){
-
+$('.userRemove button').on("click", function (e){
+    e.preventDefault();
+    this.blur();
+    $.get("/myPage/deleteMemberModal", function (html) {
+        $(html).appendTo('body').modal({
+            escapeClose: false,
+            clickClose: false,
+            showClose: false,
+        });
+    });
 });
+//------------------------------
+// delete modal
+// close the modal
+$(document).on('click', '.deleteModal .whiteBtn, .modalCloseBtn', function() {
+    $(this).closest('.modal').remove();
+});
+// delete member
+$(document).on('click', '.deleteModal .goShopBtn', function() {
+    $.post('/myPage/deleteMember', function (){
+            location.href = "/signIn";
+    });
+});
+
+
+
 

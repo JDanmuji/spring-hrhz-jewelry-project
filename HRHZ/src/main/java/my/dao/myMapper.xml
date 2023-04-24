@@ -12,7 +12,13 @@
         select * from member where id=#{id} and password=#{password}
     </select>
 
+    <!-- password update   -->
     <update id="updateNewPwd" parameterType="java.util.Map">
         update member set password=#{password} where id=#{id}
+    </update>
+
+    <!-- member delete   -->
+    <update id="deleteMember" parameterType="String">
+        update member set del_flag='Y' where id=#{id}
     </update>
 </mapper>
