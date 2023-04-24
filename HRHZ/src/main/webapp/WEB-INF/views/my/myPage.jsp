@@ -69,7 +69,7 @@
               <!--//TopNav -->
               <!-- Tap & Content -->
               <div class="myPageContent">
-                <%@ include file="/WEB-INF/views/my/myPageNav.jsp" %>
+                <%@ include file="/WEB-INF/views/admin/adminNav.jsp" %>
                 <!-- Content -->
                 <!-- 동적할당 -->
                 <c:choose>

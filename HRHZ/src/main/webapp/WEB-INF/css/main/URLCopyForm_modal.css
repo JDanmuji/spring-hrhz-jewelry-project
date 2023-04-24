@@ -1,7 +1,7 @@
 * {
     font-family: "Noto Sans KR", sans-serif;
 }
-section.sectionBackground {
+section.sectionBackGround {
     position: absolute;
     top: 0;
     left: 0;
@@ -12,46 +12,72 @@ section.sectionBackground {
     justify-content: center;
     align-items: center;
 }
-.modal-body {
-    position: relative;
-    width: 320px;
-    min-height: 160px;
-    border-radius: 2px;
-    background-color: #fff;
-    font-weight: 500;
-    line-height: 20px;
-    letter-spacing: -0.5px;
-    text-align: center;
+
+.modalBox {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: rgb(255, 255, 255);
+   border-radius: 2px;
+   z-index: 102;
 }
-.modal-body > div {
-    text-align: center;
+
+.modalBox .modalCloseBtn {
+   width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    display: inline-block;
 }
-.modalCloseBnt {
+
+.modalCloseBtn {
     width: 25px;
     height: 25px;
     cursor: pointer;
 }
 
 .copyText {
-    margin-top: 45px;
-    font-size: 16px;
-}
-.modal-footer {
-    margin-top: 30px;
+    width: 250px;
+    margin: 44px 32px 24px;
+    letter-spacing: -0.5px;
+    text-align: center;
 }
 
-.confirmBnt {
+.copyText span {
+    padding-bottom: 8px;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.modalFooter {
+    margin: 0px 24px 24px;
+}
+
+
+.modalFooter button {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+}
+
+.confirmBtn {
     border-radius: 2px;
     outline: none;
     border: 1px solid transparent;
     text-align: center;
+    cursor: pointer;
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
+    font-size: 13px;
     font-weight: 500;
     letter-spacing: -0.3px;
-    height: 35px;
-    width: 250px;
-    font-size: 14px;
+    height: 40px;
+    width: 181px;
+    line-height: 40px;
+}
 }
 
 .closingIcon {
