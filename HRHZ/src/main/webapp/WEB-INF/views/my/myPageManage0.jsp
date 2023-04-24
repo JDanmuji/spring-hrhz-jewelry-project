@@ -11,13 +11,13 @@
         <form class="userCheckForm" novalidate>
           <div class="userEmail">
             <label>아이디</label>
-            <div>세션에서 값 받아오기</div>
+            <div>${memberDTO.email }</div>
           </div>
           <div class="userPwdWrap">
             <input type="password" name="userPwd" maxlength="15" />
-            <label for="userPwd">비밀번호</label>
+            <label>비밀번호</label>
           </div>
-          <button class="goShopBtn userCheckBtn" type="submit" disabled>
+          <button class="goShopBtn userCheckBtn" type="button" disabled>
             확인
           </button>
         </form>
