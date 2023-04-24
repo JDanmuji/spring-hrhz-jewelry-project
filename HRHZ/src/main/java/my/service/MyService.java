@@ -9,4 +9,6 @@ public interface MyService {
     String getMember(String id, String password);
 
     void updateNewPwd(String id, String checkPassword);
+
+    void deleteMember(String id);
 }

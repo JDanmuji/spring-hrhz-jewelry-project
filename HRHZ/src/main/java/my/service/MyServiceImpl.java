@@ -27,5 +27,10 @@ public class MyServiceImpl implements MyService{
         myDAO.updateNewPwd(id, checkPassword);
     }
 
+    @Override
+    public void deleteMember(String id) {
+        myDAO.deleteMember(id);
+    }
+
 
 }

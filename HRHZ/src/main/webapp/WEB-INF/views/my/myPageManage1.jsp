@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <section class="mypageContentSection">
   <section class="mypageSection">
     <section>
@@ -76,10 +75,11 @@
                 </div>
                 <div class="formRight">
                   <div class="inputPlaceholder formInput">
-                    <input type="text" name="userName" maxlength="20" placeholder="이름을 입력해 주세요." />
+                    <input type="text" name="userName" maxlength="20" placeholder="이름을 입력해 주세요." value="${memberDTO.name}">
+
+<%--                    not empty memberDTO.name --%>
+<%--                    <input type="text" name="userName" maxlength="20" placeholder="이름을 입력해 주세요." value="${memberDTO.name}">--%>
                     <label></label>
-<%--                    <img class="inputCheckIcon" src="./mypageManageImg/valid-input-check-icon.png" /> --%>
-<%--                    <p class="infoErrorMsg">1~20자의 이름을 입력해 주세요.</p>--%>
                   </div>
                 </div>
               </div>
@@ -132,9 +132,9 @@
                   <label class="formLabel">생일</label>
                 </div>
                 <div class="formRight">
-                  <div class="reactDatepickerWrap">
-                    <div class="reactDatepicker">
-                      <button type="button" class="datepickBtn">
+                  <div class="datepickerWrap">
+                    <div class="datepicker">
+                      <button type="button" class="datePickBtn">
                         <div class="placeholder">날짜를 선택해주세요.</div>
                         <img alt="Date" src="../../images/my/date_picker_icon.png" />
                       </button>
