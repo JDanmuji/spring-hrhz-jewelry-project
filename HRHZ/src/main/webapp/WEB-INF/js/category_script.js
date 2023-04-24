@@ -1,9 +1,5 @@
 $(document).ready(function () {
-    var checkHTML = $("<img>")
-        .addClass("checkIcon")
-        .attr("src", "../images/category/check_icon.png")
-        .attr("alt", "check icon")
-        .hide();
+    var checkHTML = $("<img>").addClass("checkIcon").attr("src", "../images/category/check_icon.png").attr("alt", "check icon").hide();
 
     // add check img
     $(".filterDiv").append(checkHTML);
@@ -14,10 +10,7 @@ $(document).ready(function () {
 //                category nav
 // ---------------------------------------------------
 // Show the first category when the page loads
-$(".categoryWrap:not(:first)")
-    .find(".categoryToggle")
-    .slideUp()
-    .attr("src", "../images/category/expand_black_btn.png");
+$(".categoryWrap:not(:first)").find(".categoryToggle").slideUp().attr("src", "../images/category/expand_black_btn.png");
 
 $(".expandBtn").on("click", function () {
     $(".checkIcon").hide();
@@ -123,9 +116,7 @@ function tagUpdate() {
     $(".tagSpan").remove();
     $(".checkedFilter").each(function () {
         let filterName = $(this).find("> p").text();
-        $(".tagArea").append(
-            "<span class='tagSpan'>" + filterName + " X</span>"
-        );
+        $(".tagArea").append("<span class='tagSpan'>" + filterName + " X</span>");
     });
 }
 
@@ -171,11 +162,194 @@ $(document).on("click", ".tagSpan", function () {
 // ---------------------------------------------------
 //                  Like heart
 // ---------------------------------------------------
-$(".heartIconWhite").on("click", function (event) {
+$(document).on("click", ".heartIconWhite", function () {
+    var memberId = $("#memberId").val();
+    var code = $(this).parents().eq(0).children("input").val();
+    var division = "I";
+
+    console.log(code);
+
+    if (!memberId) {
+        $("section.sectionBackGround").css("display", "flex");
+        return;
+    }
+
+    likeCount(memberId, code, division);
+
     $(this).css("display", "none");
     $(this).parent().find(".heartIconViolet").css("display", "block");
 });
-$(".heartIconViolet").on("click", function (event) {
+
+$(document).on("click", ".heartIconViolet", function () {
+    var division = "D";
+    var memberId = $("#memberId").val();
+    var code = $(this).parents().eq(0).children("input").val();
+
+    console.log(code);
+
+    if (!memberId) {
+        $("section.sectionBackGround").css("display", "flex");
+        return;
+    }
+
+    likeCount(memberId, code, division);
+
     $(this).css("display", "none");
     $(this).parent().find(".heartIconWhite").css("display", "block");
 });
+
+$(document).on("click", ".heartIcon", function (event) {
+    var heartIconColor = event.target.classList.item(1);
+    var code = $(this).parents().eq(0).children("input").val();
+
+    if (!$("#memberId").val()) {
+        $("section.sectionBackGround").css("display", "flex");
+        return;
+    }
+    $(this).css("display", "none");
+    $(this).prev().css("display", "block");
+});
+
+$(".modalCloseBtn, .cancleModalBtn").click(function () {
+    $("section.sectionBackGround").css("display", "none");
+});
+
+$(".confirmModalBtn").click(function () {
+    location.href = "/signIn";
+});
+
+// ---------------------------------------------------
+//                 Best List
+// ---------------------------------------------------
+function articleContents() {
+    var optionItem;
+
+    $.ajax({
+        type: "post",
+        url: "/bestCategoryPorductList",
+
+        success: function (data) {
+            console.log(data);
+
+            $.each(data, function (index, items) {
+                console.log(items.productCode);
+                optionItem = $(
+                    "<div class='articleContent'>" +
+                        "<input type='hidden' name='code' value='" +
+                        items.productCode +
+                        "'/>" +
+                        "<a href='/purchase/productDetail'>" +
+                        "<div class='articleImg'>" +
+                        "<img src='storage/" +
+                        items.imgPath +
+                        "'/>" +
+                        "</div>" +
+                        "<div class='articleDesc'>" +
+                        "<span><strong>" +
+                        items.brandName +
+                        "</strong></span>" +
+                        "<span>" +
+                        items.productName +
+                        "</span>" +
+                        "<div class='atriclePrice'>" +
+                        "<span class='percentage'>" +
+                        "<span>" +
+                        "<strong>13</strong>" +
+                        "<strong>%</strong>" +
+                        "<span class='price'>" +
+                        "<span><strong>" +
+                        items.price +
+                        "</strong>" +
+                        "</span>원</span>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class ='likeNumber'>" +
+                        "종아요" +
+                        "<span>" +
+                        items.likeCount +
+                        "</span>" +
+                        "</div>" +
+                        "</a>" +
+                        "<img class='heartIcon heartIconWhite' src='../images/category/heart.jpg'/>" +
+                        "<img class='heartIcon heartIconViolet' src='../images/category/heart_violet.jpg'/>" +
+                        "</div>"
+                );
+
+                $(".articleContents").append(optionItem);
+            });
+        },
+        error: function (err) {
+            console.log(err);
+        },
+    });
+}
+
+// ---------------------------------------------------
+// 			likeCount
+// ---------------------------------------------------
+function likeCount(id, code, division) {
+    var optionItem;
+
+    $.ajax({
+        type: "post",
+        url: "/categorylikeCount",
+        data: {
+            id: id,
+            code: code,
+            codeType: code.charAt(0),
+            division: division,
+        },
+        success: function (data) {
+            $.each(data, function (index, items) {
+                console.log(items.productCode);
+
+                optionItem = $(
+                    "<div class='articleContent'>" +
+                        "<input type='hidden' name='code' value='" +
+                        items.productCode +
+                        "'/>" +
+                        "<a href='/purchase/productDetail'>" +
+                        "<div class='articleImg'>" +
+                        "<img src='storage/" +
+                        items.imgPath +
+                        "'/>" +
+                        "</div>" +
+                        "<div class='articleDesc'>" +
+                        "<span><strong>" +
+                        items.brandName +
+                        "</strong></span>" +
+                        "<span>" +
+                        items.productName +
+                        "</span>" +
+                        "<div class='atriclePrice'>" +
+                        "<span class='percentage'>" +
+                        "<span>" +
+                        "<strong>13</strong>" +
+                        "<strong>%</strong>" +
+                        "<span class='price'>" +
+                        "<span><strong>" +
+                        items.price +
+                        "</strong>" +
+                        "</span>원</span>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class ='likeNumber'>" +
+                        "종아요" +
+                        "<span>" +
+                        items.likeCount +
+                        "</span>" +
+                        "</div>" +
+                        "</a>" +
+                        "<img class='heartIcon heartIconWhite' src='../images/category/heart.jpg'/>" +
+                        "<img class='heartIcon heartIconViolet' src='../images/category/heart_violet.jpg'/>" +
+                        "</div>"
+                );
+
+                $(".articleContents").append(optionItem);
+            });
+        },
+        error: function (err) {
+            console.log(err);
+        },
+    });
+}

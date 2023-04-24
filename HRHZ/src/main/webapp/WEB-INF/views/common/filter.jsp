@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <div class="filterBox">
+
     <span>인기순</span>
     <div class="sortToggle">
         <div><a href="">인기순</a></div>

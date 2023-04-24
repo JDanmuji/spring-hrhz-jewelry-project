@@ -2,6 +2,34 @@
 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
+   <head>
+      <meta charset="UTF-8" />
+      <link rel="icon" href="/images/favicon48.ico">
+      <title>HRHZ</title>
+	  <link rel="stylesheet" href="../../css/common/reset.css" />
+	  <link rel="stylesheet" href="../../css/common/header_footer.css" />
+      <link rel="stylesheet" href="../../css/category/category_style.css" />
+	  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+	  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet" />
+   </head>
+   <body>
+   <input type="hidden" id="memberId" value="test"/>
+      <%@ include file="/WEB-INF/views/common/header.jsp" %>
+      <main>
+          <%@ include file="/WEB-INF/views/category/categoryNav.jsp" %>
+         <section class="rightSection">
+            <div class="stickyMenu">
+               <div class="selectedCategory">
+                  <img src="../images/category/category_arrow.png" alt="arrow icon" />
+                  <span>BEST</span>
+               </div>
+               <%@ include file="/WEB-INF/views/common/filter.jsp" %>
+            </div>
+                <div class="articleContents">
+                   
+ 
+=======
     <head>
         <meta charset="UTF-8" />
         <link rel="icon" href="/images/favicon48.ico" />
@@ -150,6 +178,7 @@ pageEncoding="UTF-8"%>
                             src="../images/category/heart_violet.jpg"
                         />
                     </div>
+>>>>>>> 2a932e071e5b35bf78e32472e63eade333a75e78
                 </div>
             </section>
         </main>
