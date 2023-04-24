@@ -28,19 +28,18 @@ public class MemberController {
     	return "/views/member/signUp_3";
     }
 
-    //�씤利앸쾲�샇 �쟾�넚
     @PostMapping(value = "/signUp/sendSMS")
     @ResponseBody
     public String sendSMS(@RequestParam String phone){
         System.out.println(phone);
         String verify = memberService.getMember(phone); // duplicate check
         System.out.println(verify);
-        if(verify.equalsIgnoreCase("exist")){
+        
+        if (verify.equalsIgnoreCase("exist")) {
             return "exist";
         } else {
             Random random = new Random();
             String numStr = "";
-            //6�옄由� �궃�닔 �깮�꽦
             for (int i = 0; i < 6; i++) {
                 String ran = Integer.toString(random.nextInt(10));
                 numStr += ran;

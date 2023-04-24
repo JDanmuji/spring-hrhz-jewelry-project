@@ -7,8 +7,9 @@
         <title>MAGAZINE_ABC</title>
         <link rel="stylesheet" href="../../css/common/reset.css" />
         <link rel="stylesheet"  href="../../css/common/style.css" />
-        <link rel="stylesheet" href="css/common/header_footer.css" />
+        <link rel="stylesheet" href="../../css/common/header_footer.css" />
         <link rel="stylesheet" href="../../css/main/magazine.css" />
+        <link rel="stylesheet" href="../../css/main/URLCopyForm_modal.css" />
         <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap" rel="stylesheet" />
     </head>
@@ -35,5 +36,9 @@
             </section>
 		</main>
 		  <%@ include file="/WEB-INF/views/common/footer.jsp" %>
+		  <%@ include file="/WEB-INF/views/common/URLCopyForm.jsp" %>
+		  
+	  	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
+	  	<script type="text/javascript" src="../../js/URLCopy.js"></script>
     </body>
 </html>

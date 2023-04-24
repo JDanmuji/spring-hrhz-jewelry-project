@@ -37,4 +37,9 @@ public class MyDAOMyBatis implements  MyDAO{
 
         sqlSession.selectOne("mySQL.updateNewPwd",parameter);
     }
+
+    @Override
+    public void deleteMember(String id) {
+        sqlSession.selectOne("mySQL.deleteMember",id);
+    }
 }

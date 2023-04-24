@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="../../css/my/navForm.css" />
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet" />
+
+    <%-- flatpickr  --%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <%-- jquery-modal   --%>
+  <%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />--%>
   </head>
   <body>
     <div id="">
@@ -69,7 +74,7 @@
               <!--//TopNav -->
               <!-- Tap & Content -->
               <div class="myPageContent">
-                <%@ include file="/WEB-INF/views/my/myPageNav.jsp" %>
+                <%@ include file="/WEB-INF/views/admin/adminNav.jsp" %>
                 <!-- Content -->
                 <!-- 동적할당 -->
                 <c:choose>
@@ -92,8 +97,13 @@
       <%@ include file="/WEB-INF/views/common/footer.jsp" %>
       <%@ include file="/WEB-INF/views/common/loginForm.jsp" %>
     </div>
-    
-    <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- jQuery Modal -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <%-- flatpickr  --%>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 	<script type="text/javascript" src="../../js/header_footer.js"></script>
     <script type="text/javascript" src="../../js/my/myPage.js"></script>
   </body>

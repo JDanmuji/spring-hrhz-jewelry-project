@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -96,6 +97,23 @@ public class MyController {
     public void updateNewPwd(@RequestParam("checkPassword") String checkPassword) {
         String id = "a00001"; //hard coding
         myService.updateNewPwd(id, checkPassword);
+    }
+
+//  modal Form
+    @GetMapping(value = "updatePwdModal")
+    public String updatePwdModal(){
+        return "/views/my/updatePwdForm";
+    }
+    @GetMapping(value = "deleteMemberModal")
+    public String deleteMemberModal(){
+        return "/views/my/deleteMemberForm";
+    }
+
+    @PostMapping(value = "deleteMember")
+    @ResponseBody
+    public void deleteMember() {
+        String id = "a00001"; //hard coding
+        myService.deleteMember(id);
     }
 
 }

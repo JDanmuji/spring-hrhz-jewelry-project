@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
 <div class="filterBox">
 
     <span>인기순</span>
@@ -19,58 +20,74 @@
 
         <div class="brandFilter filterPage">
             <div class="brandFilterSearchDiv">
-                <img class="searchIcon" src="../../images/common/search_btn.png" alt="search icon" />
+                <img
+                    class="searchIcon"
+                    src="../../images/common/search_btn.png"
+                    alt="search icon"
+                />
                 <input type="text" value="브랜드명을 입력해 주세요" />
             </div>
 
             <div class="recommendBrand">
                 <h3>추천 브랜드</h3>
-                <a href="">
-                    <img class="brandImg" src="../../images/common/test.jpg" alt="brand image" />
+                <div class="filterDiv">
+                    <img
+                        class="brandImg"
+                        src="../../images/common/test.jpg"
+                        alt="brand image"
+                    />
                     <p>브랜드명</p>
-                </a>
-                <a href="">
-                    <img class="brandImg" src="../../images/common/test.jpg" alt="brand image" />
+                </div>
+                <div class="filterDiv">
+                    <img
+                        class="brandImg"
+                        src="../../images/common/test.jpg"
+                        alt="brand image"
+                    />
                     <p>브랜드명</p>
-                </a>
-                <a href="">
-                    <img class="brandImg" src="../../images/common/test.jpg" alt="brand image" />
+                </div>
+                <div class="filterDiv">
+                    <img
+                        class="brandImg"
+                        src="../../images/common/test.jpg"
+                        alt="brand image"
+                    />
                     <p>브랜드명</p>
-                </a>
+                </div>
             </div>
         </div>
 
         <div class="colorFilter filterPage">
-            <p>실버</p>
-            <p>골드</p>
-            <p>화이트</p>
-            <p>블랙</p>
-            <p>멀티</p>
-            <p></p>
+            <div class="filterDiv"><p>실버</p></div>
+            <div class="filterDiv"><p>골드</p></div>
+            <div class="filterDiv"><p>화이트</p></div>
+            <div class="filterDiv"><p>블랙</p></div>
+            <div class="filterDiv"><p>멀티</p></div>
         </div>
 
         <div class="priceFilter filterPage">
             <div class="priceFilterChoice">
-                <p>1만원~3만원</p>
-                <p>3만원~5만원</p>
-                <p>5만원~10만원</p>
-                <p>10만원 이상</p>
+                <div class="filterDiv"><p>1만원~3만원</p></div>
+                <div class="filterDiv"><p>3만원~5만원</p></div>
+                <div class="filterDiv"><p>5만원~10만원</p></div>
+                <div class="filterDiv"><p>10만원 이상</p></div>
             </div>
 
             <div class="priceFilterInput">
-                <input type="text" value="2,000" /><span>원 - </span> <input type="text" value="9,999,999" /><span>원</span>
+                <input type="text" value="2,000" /><span>원 - </span>
+                <input type="text" value="9,999,999" /><span>원</span>
 
                 <button>적용</button>
             </div>
         </div>
 
+        <div class="tagArea"></div>
+
         <div class="filterBtn">
             <button class="filterResetBtn">
                 <img src="../../images/common/filter_reset_btn.png" />
             </button>
-            <button class="filterResultBtn">
-                검색결과 보기
-            </button>
+            <button class="filterResultBtn">검색결과 보기</button>
         </div>
     </div>
 </div>
