@@ -101,6 +101,62 @@ $(".heartIconViolet").on("click", function (event) {
     $(this).parent().find(".heartIconWhite").css("display", "block");
 });
 
+// ---------------------------------------------------
+//                 Best List
+// ---------------------------------------------------
+function bestProductList() {
+	var optionItem;
+	
+	$.ajax({
+		type: 'post',
+		url : '/bestCategoryPorductList',
+		data : 'json',
+		suceess : function(data){
+		
+			$.each(data, function(index, items){
+			
+			optionItem = $(
+			
+			"<div class='articleContent'>" +
+             	"<a href='/purchase/productDetail'>" +
+             		"<div class='articleImg'>"+
+                        "<img src='storage/" + items.imgPath+"'/>" +
+                    "</div>" +
+                    "<div class='articleDesc'>" +
+                    	"<span><strong>" + items.brandName+"</strong></span>"+
+                    	"<span>" + items.porductName + "</span>" +
+                    	
+                    	"<div class='atriclePrice'>" +
+                    		"<span class='percentage'>" +
+                    			"<span>" +
+                    				"<strong>13</strong>" + items.price + "</strong>" +
+                    				"</span>원</span>" +
+                    				
+                    	"</div>" +
+                    "</div>" +
+                    "<div class ='likeNumber'>" +
+                    	"종아요"+ 
+                    	"<span>" + items.likeCount +"</span>" +
+                    "</div>" +
+                 "</a>" +
+                 "<img class='heartIcon heartIconWhite' src='../images/category/heart.jpg'/>" +
+                 "<img class='heartIcon heartIconViolet' src='../images/category/heart_violet.jpg'/>" +
+               "</div>"			
+        		
+        	);
+        	
+        	$('.articleContents').append(optionItem);
+                    
+          });          				
+                    	
+	},
+	error:function(err){
+		console.log(err);
+	}
+		
+	});
+}
+
 
 
 
