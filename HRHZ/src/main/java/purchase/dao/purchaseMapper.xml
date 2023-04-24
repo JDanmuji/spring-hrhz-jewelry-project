@@ -3,4 +3,39 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="purchaseSQL">
+
+    <select id="getProductDetail" parameterType="String" resultType="map">
+	    SELECT p.name AS "productName", detail_type AS "detailType",
+	    	   price AS "price", "LIKE" AS "like", p."COMMENT" AS "comment",
+		       pd.name AS "detailName",
+		       b.code AS "brandCode", b.name AS "brandName",
+		       bi.img_path AS "brandImgPath", img_name AS "brandImgName"
+		FROM product p
+		JOIN product_detail pd ON p.code=pd.product_code
+		JOIN brand b ON p.brand_code=b.code
+		JOIN brand_image bi ON p.brand_code=bi.brand_code
+		WHERE p.code = #{productCode}
+	</select>
+
+	<select id="getProductImages" parameterType="String" resultType="map">
+		SELECT brand_code AS "brandCode", img_origin_name AS "imgName", thumbanil_yn AS "thumbnailYn"
+		FROM product
+		JOIN product_image ON code=product_code
+		WHERE product_code = #{productCode}
+    </select>
+
+	<select id="getProductReviews" parameterType="String" resultType="map">
+		SELECT member_id AS "memberId", content AS "content",
+		       "LIKE" AS "like", reg_date AS "regDate",
+		       (SELECT COUNT(*) FROM (SELECT *
+		       						  FROM review
+		                              WHERE product_code = #{productCode})) AS "reviewCount"
+		FROM review
+		WHERE product_code = #{productCode}
+    </select>
+    
+    <insert id="reviewUpload" parameterType="review">
+    	INSERT INTO review VALUES(seq_review.nextval, #{productCode}, #{brandCode}, #{memberId},
+    							  #{content}, #{like}, SYSDATE, NULL)
+    </insert>
 </mapper>

@@ -1,5 +1,13 @@
 package purchase.dao;
 
-public interface PurchaseDAO {
+import java.util.List;
+import java.util.Map;
 
+import hrhz.dto.ReviewDTO;
+
+public interface PurchaseDAO {
+	public List<Map<String, Object>> getProductDetail(String productCode);
+	public List<Map<String, Object>> getProductImages(String productCode);
+	public List<Map<String, Object>> getProductReviews(String productCode);
+	public void reviewUpload(ReviewDTO reviewDTO, List<String> fileNameList);
 }
