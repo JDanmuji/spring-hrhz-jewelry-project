@@ -13,6 +13,7 @@
 	  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet" />
    </head>
    <body>
+   <input type="hidden" id="memberId" value="test"/>
       <%@ include file="/WEB-INF/views/common/header.jsp" %>
       <main>
           <%@ include file="/WEB-INF/views/category/categoryNav.jsp" %>
@@ -25,122 +26,7 @@
                <%@ include file="/WEB-INF/views/common/filter.jsp" %>
             </div>
                 <div class="articleContents">
-                    <div class="articleContent">
-                        <a href="/purchase/productDetail">
-                            <div class="articleImg">
-                                <img src="../images/category/test.jpg" />
-                            </div>
-                            <div class="articleDesc">
-                                <span><strong>브랜드명</strong></span>
-                                <span>상품명</span>
-
-                                <div class="articlePrice">
-                                    <span class="percentage"
-                                        ><span><strong>13</strong></span
-                                        >%</span
-                                    >
-                                    <span class="price"
-                                        ><span><strong>164,330</strong></span
-                                        >원</span
-                                    >
-                                    <img
-                                        class="deliveryIcon"
-                                        src="../images/category/delivery_today.jpg"
-                                        alt="delivery today icon"
-                                    />
-                                </div>
-                            </div>
-                            <div class="likeNumber">
-                                좋아요 <span>4,400</span>
-                            </div>
-                        </a>
-                        <img
-                            class="heartIcon heartIconWhite"
-                            src="../images/category/heart.jpg"
-                        />
-                        <img
-                            class="heartIcon heartIconViolet"
-                            src="../images/category/heart_violet.jpg"
-                        />
-                    </div>
-
-					<div class="articleContent">
-                        <a href="/purchase/productDetail">
-                            <div class="articleImg">
-                                <img src="../images/category/test.jpg" />
-                            </div>
-                            <div class="articleDesc">
-                                <span><strong>브랜드명</strong></span>
-                                <span>상품명</span>
-
-                                <div class="articlePrice">
-                                    <span class="percentage"
-                                        ><span><strong>13</strong></span
-                                        >%</span
-                                    >
-                                    <span class="price"
-                                        ><span><strong>164,330</strong></span
-                                        >원</span
-                                    >
-                                    <img
-                                        class="deliveryIcon"
-                                        src="../images/category/delivery_today.jpg"
-                                        alt="delivery today icon"
-                                    />
-                                </div>
-                            </div>
-                            <div class="likeNumber">
-                                좋아요 <span>4,400</span>
-                            </div>
-                        </a>
-                        <img
-                            class="heartIcon heartIconWhite"
-                            src="../images/category/heart.jpg"
-                        />
-                        <img
-                            class="heartIcon heartIconViolet"
-                            src="../images/category/heart_violet.jpg"
-                        />
-                    </div>
-                    
-					<div class="articleContent">
-                        <a href="/purchase/productDetail">
-                            <div class="articleImg">
-                                <img src="../images/category/test.jpg" />
-                            </div>
-                            <div class="articleDesc">
-                                <span><strong>브랜드명</strong></span>
-                                <span>상품명</span>
-
-                                <div class="articlePrice">
-                                    <span class="percentage"
-                                        ><span><strong>13</strong></span
-                                        >%</span
-                                    >
-                                    <span class="price"
-                                        ><span><strong>164,330</strong></span
-                                        >원</span
-                                    >
-                                    <img
-                                        class="deliveryIcon"
-                                        src="../images/category/delivery_today.jpg"
-                                        alt="delivery today icon"
-                                    />
-                                </div>
-                            </div>
-                            <div class="likeNumber">
-                                좋아요 <span>4,400</span>
-                            </div>
-                        </a>
-                        <img
-                            class="heartIcon heartIconWhite"
-                            src="../images/category/heart.jpg"
-                        />
-                        <img
-                            class="heartIcon heartIconViolet"
-                            src="../images/category/heart_violet.jpg"
-                        />
-                    </div>
+                   
  
                 </div>
             </section>

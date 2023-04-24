@@ -1,5 +1,6 @@
 package category.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,8 +17,15 @@ public class CategorySeviceImpl implements CategoryService {
 	
 
 	@Override
-	public List<Map<String, Object>> getCategoryBestProductList() {
+	public List<Map<String, Object>> getCategoryBestProductList() throws Exception{
 		return categoryDAO.getCategoryBestProductList();
+	}
+
+
+	@Override
+	public void categorylikeCount(HashMap<String, String> dataMap) {
+		categoryDAO.categorylikeCount(dataMap);
+		
 	}
 
 }

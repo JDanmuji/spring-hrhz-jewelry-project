@@ -1,5 +1,6 @@
 package category.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,8 +17,21 @@ public class CategoryDAOMyBatis implements CategoryDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<Map<String, Object>> getCategoryBestProductList() {
+	public List<Map<String, Object>> getCategoryBestProductList() throws Exception{
 		return sqlSession.selectList("categorySQL.getCategoryBestProductList");
+	}
+
+	@Override
+	public void categorylikeCount(HashMap<String, String> dataMap) {
+		System.out.println(dataMap);
+		if (dataMap.get("division").equals("I")) {
+			sqlSession.insert("categorySQL.categorylikeInsert", dataMap);
+		} else {
+			sqlSession.delete("categorySQL.categorylikeDelete", dataMap);
+		}
+		
+		sqlSession.update("categorySQL.categorylikeCount", dataMap);
+		
 	}
 
 }

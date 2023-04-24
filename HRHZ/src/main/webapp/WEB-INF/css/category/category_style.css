@@ -64,9 +64,21 @@ main {
 }
 .categoryToggle p {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 24px;
+    width: 130px;
 }
 .categoryToggle p:hover {
     color: #000;
+}
+.checkedCategory {
+    color: #000;
+}
+.checkIcon {
+    width: 24px;
+    height: 24px;
 }
 
 /* right section */
@@ -74,8 +86,9 @@ main {
 .rightSection {
     padding: 0 40px;
     width: 80%;
-    height: 1000px;
     position: relative;
+    align-items: center;
+    margin-bottom: 100px;
 }
 .stickyMenu {
     position: sticky;
@@ -93,6 +106,8 @@ main {
     align-items: center;
     gap: 10px;
     padding-bottom: 20px;
+    width: 784px;
+    padding-left: 40px;
 }
 .filterBox {
     margin: 0px auto;
@@ -216,13 +231,6 @@ main {
     font-weight: 500;
     letter-spacing: -0.5px;
 }
-.recommendBrand > a {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    cursor: pointer;
-    color: #000;
-}
 .filterToggle .brandImg {
     width: 48px;
     height: 48px;
@@ -235,11 +243,34 @@ main {
     letter-spacing: -0.5px;
     line-height: 24px;
 }
+.filterDiv {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    color: #000;
+    font-weight: 500;
+}
+.filterDiv p {
+    font-weight: inherit;
+}
 .filterBtn {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 16px;
+}
+.tagArea {
+    margin: 16px 0 0 16px;
+}
+.tagArea .tagSpan {
+    display: inline-block;
+    margin: 8px 8px 0px 0px;
+    padding: 6px;
+    background-color: #fafafa;
+    border-radius: 2px;
+    border: none !important;
+    cursor: pointer;
 }
 .filterResetBtn {
     margin: 6px 0 6px;
@@ -279,7 +310,7 @@ main {
     margin-bottom: 0;
     gap: 16px;
 }
-.colorFilter > p {
+.colorFilter > div {
     cursor: pointer;
     color: #000;
     font-weight: 400;
@@ -298,7 +329,7 @@ main {
     flex-direction: column;
     gap: 16px;
 }
-.priceFilterChoice > p {
+.priceFilterChoice > div {
     font-weight: 400;
     cursor: pointer;
 }
@@ -336,11 +367,14 @@ main {
 }
 .articleContent {
     position: relative;
+    display: flex;
+    width: 230px;
+    height: 230px;
+    height: 100%;
+    justify-content: space-between;
 }
 .articleImg {
     width: 100%;
-    height: 230px;
-    width: 224.8px;
     overflow: hidden;
     margin-bottom: 10px;
 }
@@ -367,7 +401,8 @@ main {
     color: #6200f0;
 }
 .price {
-    margin: 0 10px 0 4px;
+    margin-left: 5px;
+    color: black;
 }
 .deliveryIcon {
     width: 60px;
