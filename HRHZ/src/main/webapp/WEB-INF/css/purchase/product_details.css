@@ -1,16 +1,5 @@
-* {
-    font-family: "Noto Sans KR", sans-serif;
-}
-*,
-::before,
-::after {
-    box-sizing: inherit;
-}
-a:link,
-a:visited,
-a:hover,
-a:active {
-    color: #000;
+.sessionData {
+    display: none;
 }
 
 .background {
@@ -168,7 +157,7 @@ a:active {
     line-height: 20px;
 }
 
-/* 더보기, 접기*/
+/* ������, ����*/
 .storeNoticeOpenBtn,
 .storeNoticeCloseBtn {
     margin: 10px 0 16px;
@@ -178,33 +167,26 @@ a:active {
 .storeNoticeCloseBtn {
     display: none;
 }
-.customerServiceInfo {
-    line-height: 19px;
-    font-size: 13px;
-    letter-spacing: -0.5px;
-    margin-top: 10px;
-}
-.orderReturnExchangeBtn {
-    margin-bottom: 12px;
-}
-.orderReturnExchangeBtn > img {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    margin-right: 7px;
-}
-.customerServiceInfo span {
-    cursor: pointer;
-}
+
+/* info modal btns */
+.refundInfoBtn,
 .asInfoBtn {
-    margin-bottom: 24px;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.5px;
+    margin: 12px 0 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
 }
+.refundInfoBtn > img,
 .asInfoBtn > img {
     width: 16px;
     height: 16px;
-    vertical-align: middle;
-    margin-right: 7px;
 }
+
 .underline {
     display: inline-block;
     height: 1px;
@@ -213,7 +195,7 @@ a:active {
     margin: 5px 0;
 }
 
-/* 왼쪽 칸 이미지 */
+/* ���� ĭ �̹��� */
 .productDetailImages {
     overflow: hidden;
 }
@@ -226,13 +208,13 @@ a:active {
     max-width: 100%;
 }
 
-/* 오른쪽 칸: productInfoSection */
+/* ������ ĭ: productInfoSection */
 .productInfoSection {
     position: sticky;
     padding-top: 40px;
     top: 0;
     width: 400px;
-    height: 500px;
+    height: 750px;
 }
 .storeInfo {
     margin-bottom: 0;
@@ -296,16 +278,18 @@ a:active {
     justify-content: center;
     line-height: 26px;
     margin-left: 10px;
-    /* width 없으면 url 아이콘 밀림 */
+    /* width ������ url ������ �и� */
     width: 70px;
 }
 .productLikeHeart {
     height: 16px;
+    width: 19px;
     cursor: pointer;
 }
 .productLikeHeartViolet {
     display: none;
     height: 17px;
+    width: 19px;
     cursor: pointer;
 }
 
@@ -510,7 +494,7 @@ a:active {
     font-family: "Barlow", sans-serif;
 }
 
-/* 장바구니, 구매하기 */
+/* ��ٱ���, �����ϱ� */
 .productBuyBtnList {
     display: flex;
     gap: 10px;
@@ -527,8 +511,11 @@ a:active {
     background: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
+.addCartForm {
+    display: none;
+}
 
-/* 아래칸 : 상품 상세 정보*/
+/* �Ʒ�ĭ : ��ǰ �� ����*/
 .bottomSection {
     margin: 80px auto;
     width: 1000px;
@@ -561,7 +548,7 @@ a:active {
     gap: 16px;
 }
 
-/* 상품 구매 후기 */
+/* ��ǰ ���� �ı� */
 .productReviewSection {
     margin-top: 80px;
     display: block;
@@ -633,15 +620,24 @@ a:active {
     font-size: 12px;
     color: #fff;
 }
-.rate > img {
-    width: 12px;
-    height: 12px;
+.productReviewList {
+    display: flex;
+    flex-direction: column;
+}
+.productReviewList > a {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: solid 1px #eee;
 }
 .reviewInfo {
     display: flex;
     gap: 10px;
     align-items: center;
     margin-bottom: 16px;
+}
+.rate > img {
+    width: 12px;
+    height: 12px;
 }
 .accountAndDate {
     display: flex;
@@ -656,10 +652,9 @@ a:active {
     font-size: 13px;
     line-height: 22px;
     letter-spacing: -0.5px;
-    margin-bottom: 20px;
 }
 
-/* 비슷한 상품 */
+/* ����� ��ǰ */
 .recommendProductSection {
     margin-top: 80px;
 }
@@ -724,24 +719,6 @@ a:active {
     color: rgb(98, 0, 240);
     margin-right: 2px;
 }
-.swiperButton {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: absolute;
-    top: 74px;
-    z-index: 10;
-    cursor: pointer;
-}
-.swiperButtonPrev1 {
-    left: 10px;
-}
-.swiperButtonNext1 {
-    right: 10px;
-}
 
 /*
 .swiperPagination{
@@ -760,6 +737,182 @@ a:active {
     margin: 0px;
     border-radius: 0px;
 }
-*/
 
-/* 오른쪽 네비게이션 바 */
+
+
+/* info modals */
+body {
+    position: relative;
+}
+section.modalWindow {
+    display: none;
+    position: absolute;
+    z-index: 20;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+div.modalBackground {
+    position: sticky;
+    top: 80px;
+    width: 100%;
+    max-height: calc(100vh - 80px);
+    background-color: rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.infoModal {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: calc(100vh - 80px);
+    border-radius: 2px;
+    background-color: #fff;
+
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+}
+.stickyTitle {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    padding: 26px 24px;
+}
+.infoModalContent {
+    overflow-y: scroll;
+    padding: 0 24px 26px;
+}
+.infoModal > div:nth-child(4) {
+    border-bottom: none;
+}
+.infoModal h2 {
+    font-weight: 700;
+    font-size: 16px;
+}
+.infoModalContent .paddingBottom {
+    padding-bottom: 26px;
+    border-bottom: 1px solid rgb(237, 237, 237);
+}
+.infoModalContent h2 {
+    padding-top: 26px;
+    border-top: 1px solid rgb(237, 237, 237);
+}
+
+.infoModal h3 {
+    margin-bottom: 8px;
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.infoModal h3:first-child {
+    margin-top: 0;
+}
+.infoModal p {
+    font-size: 13px;
+    color: rgb(102, 102, 102);
+    line-height: 22px;
+}
+
+/* review modal */
+.photoUploadBtn,
+.reviewWriteBtn {
+    width: 80px;
+    height: 35px;
+    font-size: 13px;
+    letter-spacing: -0.3px;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #000;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+.photoUploadBtn,
+.reviewWriteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reviewWriteBtn {
+    width: 100%;
+    padding: 20px 0;
+}
+.reviewModal {
+    position: absolute;
+    width: 500px;
+    min-height: 550px;
+    border-radius: 2px;
+    background-color: #fff;
+    padding: 0 24px;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+}
+.reviewModal > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 26px 0;
+    border-bottom: 1px solid rgb(237, 237, 237);
+}
+.reviewModal > div:nth-child(4) {
+    border-bottom: none;
+}
+
+.reviewModal h2 {
+    font-weight: 700;
+    font-size: 16px;
+}
+.modalCloseBtn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.reviewStars {
+    display: flex;
+    gap: 10px;
+}
+.reviewStarIcon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.reviewWriteDiv {
+    flex-direction: column;
+    gap: 18px;
+}
+.reviewWriteDiv textarea {
+    overflow-y: scroll;
+    outline: none;
+    border: medium none;
+    resize: none;
+    height: 162px;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+}
+.reviewPhotoDiv {
+    padding-left: 0;
+}
+.reviewPhotoDiv span {
+    font-size: 12px;
+    letter-spacing: -0.3px;
+    color: #9b9b9b;
+    align-self: center;
+}
+.photoUploadInput {
+    display: none;
+}
+.hiddenInputs {
+    display: none;
+}
+.reviewWriteBtn {
+    background-color: #ddd;
+    cursor: default;
+}
