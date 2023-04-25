@@ -16,9 +16,10 @@ public class CategoryDAOMyBatis implements CategoryDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Map<String, Object>> getCategoryBestProductList() throws Exception{
-		return sqlSession.selectList("categorySQL.getCategoryBestProductList");
+	public List<Map<String, Object>> getCategoryBestProductList(Map<String, Integer> map) throws Exception{
+		return sqlSession.selectList("categorySQL.getCategoryBestProductList", map);
 	}
 
 	@Override
@@ -34,4 +35,10 @@ public class CategoryDAOMyBatis implements CategoryDAO {
 		
 	}
 
+	@Override
+	public int getTotalA() {
+		return sqlSession.selectOne("categorySQL.getTotalA");
+	}
+
+	
 }

@@ -58,11 +58,11 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="colorFilter filterPage">
-            <div class="filterDiv"><p>실버</p></div>
-            <div class="filterDiv"><p>골드</p></div>
-            <div class="filterDiv"><p>화이트</p></div>
-            <div class="filterDiv"><p>블랙</p></div>
-            <div class="filterDiv"><p>멀티</p></div>
+            <div class="filterDiv"><span>S</span><p>실버</p></div>
+            <div class="filterDiv"><span>G</span><p>골드</p></div>
+            <div class="filterDiv"><span>W</span><p>화이트</p></div>
+            <div class="filterDiv"><span>B</span><p>블랙</p></div>
+            <div class="filterDiv"><span>M</span><p>멀티</p></div>
         </div>
 
         <div class="priceFilter filterPage">

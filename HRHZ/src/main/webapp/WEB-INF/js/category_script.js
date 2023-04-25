@@ -1,9 +1,10 @@
 $(document).ready(function () {
     var checkHTML = $("<img>").addClass("checkIcon").attr("src", "../images/category/check_icon.png").attr("alt", "check icon").hide();
-
+	articleContents();
     // add check img
     $(".filterDiv").append(checkHTML);
     $(".categoryToggle > p").append(checkHTML);
+  
 });
 
 // ---------------------------------------------------
@@ -130,7 +131,7 @@ $(".filterBox").on("click", ".filterDiv", function () {
 // uncheck
 $(".filterBox").on("click", ".checkedFilter", function (event) {
     $(this).find(".checkIcon").hide();
-    $(this).css("font-weight", "500");
+    $(this).css("font-weight", "400");
     $(this).removeClass("checkedFilter");
     tagUpdate();
 });
@@ -138,8 +139,9 @@ $(".filterBox").on("click", ".checkedFilter", function (event) {
 // reset btn
 $(".filterBox").on("click", ".filterResetBtn", function (event) {
     $(".checkIcon").hide();
-    $(".filterDiv").css("font-weight", "500");
+    $(".filterDiv").css("font-weight", "400");
     $(".tagSpan").remove();
+    $(".checkedFilter").removeClass("checkedFilter");
 });
 
 // tag delete
@@ -153,7 +155,7 @@ $(document).on("click", ".tagSpan", function () {
 
         if (filterName === tagName) {
             $(this).find(".checkIcon").hide();
-            $(this).css("font-weight", "500").removeClass("checkedFilter");
+            $(this).css("font-weight", "400").removeClass("checkedFilter");
         }
     });
     $(this).remove();
@@ -219,6 +221,22 @@ $(".confirmModalBtn").click(function () {
 });
 
 // ---------------------------------------------------
+//                숫자 3자리 콤마 찍기
+// ---------------------------------------------------
+String.prototype.formatNumber = function () {
+    if (this == 0) return 0;
+
+    let regex = /(^[+-]?\d+)(\d)/;
+
+    let nstr = this + "";
+
+    while (regex.test(nstr)) nstr = nstr.replace(regex, "$1" + "," + "$2");
+
+    return nstr;
+};
+
+
+// ---------------------------------------------------
 //                 Best List
 // ---------------------------------------------------
 function articleContents() {
@@ -227,12 +245,14 @@ function articleContents() {
     $.ajax({
         type: "post",
         url: "/bestCategoryPorductList",
+        data : "pg=" + $("#pg").val(),
+        dataType : 'json',
 
         success: function (data) {
             console.log(data);
 
-            $.each(data, function (index, items) {
-                console.log(items.productCode);
+            $.each(data.list, function (index, items) {
+                
                 optionItem = $(
                     "<div class='articleContent'>" +
                         "<input type='hidden' name='code' value='" +
@@ -264,9 +284,9 @@ function articleContents() {
                         "</div>" +
                         "</div>" +
                         "<div class ='likeNumber'>" +
-                        "종아요" +
+                        "좋아요" +
                         "<span>" +
-                        items.likeCount +
+                        items.likeCount.toLocaleString() +
                         "</span>" +
                         "</div>" +
                         "</a>" +
@@ -277,6 +297,9 @@ function articleContents() {
 
                 $(".articleContents").append(optionItem);
             });
+            
+            //pagging 
+            $(".pagingDiv").html(data.categoryPaging.pagingHTML);
         },
         error: function (err) {
             console.log(err);
@@ -285,7 +308,7 @@ function articleContents() {
 }
 
 // ---------------------------------------------------
-// 			likeCount
+// 					likeCount
 // ---------------------------------------------------
 function likeCount(id, code, division) {
     var optionItem;
@@ -294,15 +317,37 @@ function likeCount(id, code, division) {
         type: "post",
         url: "/categorylikeCount",
         data: {
-            id: id,
-            code: code,
-            codeType: code.charAt(0),
-            division: division,
+            'id': id,
+            'code': code,
+            'codeType': code.charAt(0),
+            'division': division
         },
         success: function (data) {
-            $.each(data, function (index, items) {
-                console.log(items.productCode);
+            console.log(data);
+        },
+        error: function (err) {
+            console.log(err);
+        },
+    });
+}
+// ---------------------------------------------------
+//              colorSelectProductList
+// ---------------------------------------------------
+$(document).on("click", ".filterResultBtn", function () {
+	var color = $(".checkedFilter span").text();
+	console.log(color);
 
+	$.ajax({
+		type : "post",
+		url:"/categoryColorList",
+		data: "color",
+		dataType : 'json',
+
+        success: function (data) {
+            console.log(data);
+
+            $.each(data.list, function (index, items) {
+                
                 optionItem = $(
                     "<div class='articleContent'>" +
                         "<input type='hidden' name='code' value='" +
@@ -334,9 +379,9 @@ function likeCount(id, code, division) {
                         "</div>" +
                         "</div>" +
                         "<div class ='likeNumber'>" +
-                        "종아요" +
+                        "좋아요" +
                         "<span>" +
-                        items.likeCount +
+                        items.likeCount.toLocaleString() +
                         "</span>" +
                         "</div>" +
                         "</a>" +
@@ -347,9 +392,18 @@ function likeCount(id, code, division) {
 
                 $(".articleContents").append(optionItem);
             });
+            
+            //pagging 
+            $(".pagingDiv").html(data.categoryPaging.pagingHTML);
         },
         error: function (err) {
             console.log(err);
         },
     });
-}
+  
+  });
+ 
+  
+
+	
+

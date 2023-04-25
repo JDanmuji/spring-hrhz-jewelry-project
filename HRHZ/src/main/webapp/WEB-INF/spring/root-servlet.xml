@@ -34,6 +34,7 @@
 	
 	<!-- spring -->
 	<context:component-scan base-package="spring.conf"/>
+	<context:component-scan base-package="hrhz.dto"/>
 	
 
 
