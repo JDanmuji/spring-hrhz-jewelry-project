@@ -25,17 +25,40 @@
     </select>
 
 	<select id="getProductReviews" parameterType="String" resultType="map">
-		SELECT member_id AS "memberId", content AS "content",
-		       "LIKE" AS "like", reg_date AS "regDate",
-		       (SELECT COUNT(*) FROM (SELECT *
-		       						  FROM review
-		                              WHERE product_code = #{productCode})) AS "reviewCount"
-		FROM review
-		WHERE product_code = #{productCode}
+		SELECT 
+		        
+		       r.seq                             	AS "seq",
+		       ri.seq                            	AS "imgSeq",
+		       r.member_id                       	AS "memberId",
+		       r.content                         	AS "content",
+		       r.like_count                         AS "like",
+		       To_char(r.reg_date, 'YYYY.MM.DD') 	AS "regDate",
+		       ri.img_origin_name                	AS "imgName",
+		       (ri.img_path || ri.img_origin_name)  AS "imgPath"
+		FROM   review r
+		       inner join (SELECT seq,
+		                          review_seq,
+		                          img_origin_name,
+		                          img_path
+		                   FROM   review_image) ri
+		               ON r.seq = ri.review_seq
+		WHERE  1 = 1
+		       AND product_code = 'P00000072'
+		       order by r.seq
+    </select>
+    
+    <select id="getReviewSeq" resultType="int">
+    	SELECT seq_review.NEXTVAL FROM DUAL
     </select>
     
     <insert id="reviewUpload" parameterType="review">
-    	INSERT INTO review VALUES(seq_review.nextval, #{productCode}, #{brandCode}, #{memberId},
+    	INSERT INTO review VALUES(#{seq}, #{productCode}, #{brandCode}, #{memberId},
     							  #{content}, #{like}, SYSDATE, NULL)
     </insert>
+    
+    <insert id="reviewImageUpload" parameterType="reviewImage">
+    	INSERT INTO review_image VALUES(seq_reviewimage.NEXTVAL, #{reviewSeq},
+    							  #{imgOriginName}, #{imgPath}, #{regId}, NULL, SYSDATE, NULL)
+    </insert>
+    
 </mapper>

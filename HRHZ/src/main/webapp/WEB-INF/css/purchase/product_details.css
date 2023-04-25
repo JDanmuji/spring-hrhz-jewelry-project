@@ -550,7 +550,7 @@
 
 /* ��ǰ ���� �ı� */
 .productReviewSection {
-    margin-top: 80px;
+    padding-top: 80px;
     display: block;
 }
 .reviewSectionTitle,
@@ -628,6 +628,13 @@
     margin-bottom: 24px;
     padding-bottom: 24px;
     border-bottom: solid 1px #eee;
+}
+.reviewPhoto {
+    display: flex;
+    gap: 8px;
+}
+.reviewPhoto img {
+    height: 100px;
 }
 .reviewInfo {
     display: flex;
@@ -899,12 +906,52 @@ div.modalBackground {
 }
 .reviewPhotoDiv {
     padding-left: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 !important;
+    height: 89px;
 }
-.reviewPhotoDiv span {
+.imgPreview {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 400px;
+    overflow-y: hidden;
+    overflow-x: overlay;
+}
+/* scroll bar design */
+.imgPreview::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+.imgPreview::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 10px;
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.15);
+}
+.imgPreview::-webkit-scrollbar-thumb:hover {
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.3);
+}
+.imgPreview::-webkit-scrollbar-track {
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.imgPreview span {
+    width: 60px;
+    height: 60px;
+}
+.imgPreview img {
+    width: 60px;
+    height: 100%;
+    object-fit: cover;
+}
+.maximum3 {
     font-size: 12px;
     letter-spacing: -0.3px;
     color: #9b9b9b;
-    align-self: center;
 }
 .photoUploadInput {
     display: none;

@@ -13,6 +13,10 @@
 		<property name="prefix" value="/WEB-INF/" ></property>
 		<property name="suffix" value=".jsp" ></property>
 	</bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="5000000" /> <!-- 5MB -->
+	</bean>
 
 	<!-- controller -->
 	<context:component-scan base-package="admin.controller"/>
