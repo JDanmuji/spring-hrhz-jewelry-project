@@ -6,6 +6,7 @@
  		<typeAlias type="hrhz.dto.MemberDTO" alias="member"/>
  		<typeAlias type="hrhz.dto.BrandDTO" alias="brand"/>
  		<typeAlias type="hrhz.dto.ReviewDTO" alias="review"/>
+ 		<typeAlias type="hrhz.dto.ReviewImageDTO" alias="reviewImage"/>
 	</typeAliases>
 
 </configuration>

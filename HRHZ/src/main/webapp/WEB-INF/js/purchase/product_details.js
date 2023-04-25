@@ -134,11 +134,33 @@ $(document).ready(function () {
         success: function (data) {
             $(".productReviewMoreText span").text(data[0].reviewCount);
             $(".productReviewTotalCnt").text("(" + data[0].reviewCount + ")");
+            var reviewImg = "";
+            var reviewSeq = data[0].seq;
 
             $.each(data, function (index, items) {
-                let reviewContent = $(
-                    "<a href='#'>" +
+                console.log(reviewSeq);
+                console.log(items.seq);
+
+                if (reviewSeq == items.seq) {
+                    reviewImg =
+                        reviewImg +
+                        "<img src='/storage/review/" +
+                        items.imgName +
+                        "'/>";
+                    reviewSeq = items.seq;
+                } else {
+                    reviewImg =
+                        reviewImg +
+                        "<img src='/storage/review/" +
+                        items.imgName +
+                        "'/>";
+
+                    let reviewHTML =
+                        "<a href='#'>" +
                         "<div class='productReviewItem'>" +
+                        "<div class='reviewSeq'>" +
+                        items.seq +
+                        "</div>" +
                         "<div class='reviewInfo'>" +
                         "<div class='rate'>" +
                         "<img src='../../images/purchase/product_review_star_on.png' alt='star icon' />".repeat(
@@ -158,16 +180,49 @@ $(document).ready(function () {
                         "<div class='reviewContent'>" +
                         items.content +
                         "</div>" +
-                        "</div>" +
-                        "</a>"
-                );
-                $(".productReviewList").append(reviewContent);
+                        "<div class='reviewPhoto'>";
+
+                    reviewHTML = reviewHTML + reviewImg + "</div></div></a>";
+                    console.log(reviewImg);
+
+                    $(".productReviewList").append(reviewHTML);
+                    reviewImg = "";
+                    reviewSeq = items.seq;
+                } //else
             }); //each
         },
         error: function (err) {
             console.log(err);
         },
     });
+
+    // ---------------------------------------------------
+    //                  getReviewImages
+    // ---------------------------------------------------
+
+    // $(".reviewSeq").each(function () {
+    //     const reviewSeqClass = $(this);
+    //     $.ajax({
+    //         type: "post",
+    //         data: "reviewSeq=" + parseInt(reviewSeqClass.text()),
+    //         url: "/purchase/getReviewImages",
+    //         success: function (data) {
+    //             console.log(data);
+
+    //             $.each(data, function (index, imgOriginName) {
+    //                 let reviewImages = $(
+    //                     "<img src='/storage/review/" + imgOriginName + "'/>"
+    //                 );
+    //                 reviewSeqClass
+    //                     .siblings(".reviewPhoto")
+    //                     .append(reviewImages);
+    //             }); //each
+    //         },
+    //         error: function (err) {
+    //             console.log(err);
+    //         },
+    //     });
+    // });
 
     // ---------------------------------------------------
     //                  thumbnail btns
@@ -372,13 +427,13 @@ $(document).ready(function () {
         const optionCountInput = $("<input>")
             .attr("name", "optionCountList")
             .val(JSON.stringify(optionCountList));
-        $(".addCartForm").append(productCodeInput).append(optionCountInput);
+        $(".buyNowForm").append(productCodeInput).append(optionCountInput);
 
         if (optionCountSum == 0) {
             alert("선택된 옵션이 없습니다.");
         } else {
             // send productCode & quantity list
-            $(".addCartForm").submit();
+            $(".buyNowForm").submit();
         }
     });
 
@@ -461,6 +516,63 @@ $(document).ready(function () {
     // hidden inputs data insert
     $(".hiddenInputs input[name='productCode']").val(productCode);
     $(".hiddenInputs input[name='memberId']").val(memberId);
+
+    // review photo preview
+    $(".photoUploadInput").change(function () {
+        readURL(this);
+    });
+
+    // $(document).on("click", ".imgPreview > span", function (event) {
+    //     $(this).index();
+    //     $(this).remove();
+    // });
+
+    function readURL(input) {
+        $(".imgPreview").html("");
+
+        for (let i = 0; i < input.files.length; i++) {
+            console.log(i);
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(".imgPreview").append(
+                    "<span><img src='" + e.target.result + "'/></span>"
+                );
+            };
+            reader.readAsDataURL(input.files[i]);
+        }
+    }
+
+    // function readURL(input) {
+    //     $(".imgPreview").html("");
+
+    //     for (let i = 0; i < 3; i++) {
+    //         var reader = new FileReader();
+    //         reader.onload = function (e) {
+    //             $(".imgPreview").append(
+    //                 "<span><img src='" + e.target.result + "'/></span>"
+    //             );
+    //         };
+    //         reader.readAsDataURL(input.files[i]);
+    //     }
+    // }
+
+    // review upload
+    $(".reviewWriteBtn").click(function () {
+        var formData = new FormData($(".reviewModal")[0]);
+
+        $.ajax({
+            type: "post",
+            url: "/purchase/reviewUpload",
+            enctype: "multipart/form-data",
+            processData: false,
+            contentType: false,
+            data: formData,
+            error: function (err) {
+                console.log(err);
+            },
+        });
+    });
 
     // ---------------------------------------------------
     //                  modals close btn

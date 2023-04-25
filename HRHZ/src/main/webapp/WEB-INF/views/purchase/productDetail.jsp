@@ -309,7 +309,7 @@ pageEncoding="UTF-8"%>
                                     <button class="purchase">구매하기</button>
                                 </div>
                                 <form
-                                    class="addCartForm"
+                                    class="buyNowForm"
                                     method="post"
                                     action="/purchase/payment"
                                 ></form>
@@ -656,12 +656,7 @@ pageEncoding="UTF-8"%>
                 </div>
 
                 <!-- review modal -->
-                <form
-                    class="reviewModal"
-                    method="post"
-                    action="/purchase/reviewUpload"
-                >
-                    <!-- enctype="multipart/form-data" -->
+                <form class="reviewModal">
                     <div>
                         <h2>상품 후기 작성</h2>
                         <img
@@ -714,10 +709,13 @@ pageEncoding="UTF-8"%>
                             class="photoUploadInput"
                             name="img[]"
                             type="file"
-                            multiple="multiple"
+                            multiple
                             accept="image/*"
                         />
-                        <span>최대 3장 업로드 가능합니다.</span>
+                        <div class="imgPreview"></div>
+                        <!-- <span class="maximum3"
+                            >최대 3장 업로드 가능합니다.</span
+                        > -->
                     </div>
 
                     <span class="hiddenInputs">
@@ -727,7 +725,7 @@ pageEncoding="UTF-8"%>
                         <input class="starCount" name="like" value="5" />
                     </span>
 
-                    <button class="reviewWriteBtn" type="submit">등록</button>
+                    <button class="reviewWriteBtn" disabled>등록</button>
                 </form>
             </div>
         </section>
