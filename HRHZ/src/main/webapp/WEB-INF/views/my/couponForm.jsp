@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<section class="mypageContentSection">
-  <section class="mypageSection">
+<section class="myPageContentSection">
+  <section class="myPageSection">
     <h3>쿠폰</h3>
     <div class="couponSection">
       <form novalidate>
         <div class="couponAddForm">
-          <label for="couponCode">쿠폰 등록</label>
+          <label >쿠폰 등록</label>
           <div>
             <input type="text" name="couponCode" maxlength="20" placeholder="쿠폰 코드를 입력해 주세요" value="" />
             <span class="addOn">
@@ -17,7 +17,7 @@
         </div>
       </form>
     </div>
-    <table class="mypageTable couponTable">
+    <table class="myPageTable couponTable">
       <caption>
         나의 쿠폰
         <span class="couponCount">0개</span>

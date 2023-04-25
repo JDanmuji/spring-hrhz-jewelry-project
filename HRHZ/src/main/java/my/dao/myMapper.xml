@@ -5,7 +5,12 @@
 <mapper namespace="mySQL">
 
     <select id="getMemberInfo" parameterType="String" resultType="member">
-        select * from member where id=#{id}
+        select id, email, phone, password, name, gender, member_date as "date",
+                join_path as "joinPath", del_flag as "delFlag",
+                del_date as "delDate", reg_date as "regDate",
+                mod_date as "modDate", sms_alarm as "smsAlarm",
+                email_alarm as "emailAlarm"
+        from member where id=#{id}
     </select>
 
     <select id="getMember" parameterType="java.util.Map" resultType="member">
@@ -20,5 +25,13 @@
     <!-- member delete   -->
     <update id="deleteMember" parameterType="String">
         update member set del_flag='Y' where id=#{id}
+    </update>
+
+    <!--  member update  -->
+    <update id="updateMember" parameterType="member">
+        update member
+        set name=#{name}, email=#{email}, gender=#{gender},
+            member_date=#{date}, sms_alarm=#{smsAlarm}, email_alarm=#{emailAlarm}
+        where phone=#{phone}
     </update>
 </mapper>

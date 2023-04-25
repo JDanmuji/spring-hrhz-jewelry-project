@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="../../css/common/reset.css" />
 	<link rel="stylesheet" href="../../css/common/header_footer.css" />
-    <link rel="stylesheet" href="../../css/my/mypage.css" />
+    <link rel="stylesheet" href="../../css/my/myPage.css" />
     <link rel="stylesheet" href="../../css/my/navForm.css" />
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet" />
@@ -24,13 +24,13 @@
       <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
       <main>
-        <div class="mypageHome">
-          <div class="mypageOuterWrap">
-            <div class="mypageInnerWrap">
-              <h2 id="mypage"><a href="#">마이페이지</a></h2>
+        <div class="myPageHome">
+          <div class="myPageOuterWrap">
+            <div class="myPageInnerWrap">
+              <h2 id="myPage"><a href="#">마이페이지</a></h2>
               <!--TopNav-->
-              <div class="mypageOuterTopNav">
-                <div class="mypageInnerTopNav">
+              <div class="myPageOuterTopNav">
+                <div class="myPageInnerTopNav">
                   <div class="leftTopNav">
                     <h4 class="client">
                       <div>고객</div>
@@ -42,7 +42,7 @@
                       <a class="" href="/myPage/reviewForm">
                         <div class="topNavIconWrap">
                           <div width="18" class="topNavIcon reveiwIcon">
-                            <img src="../images/my/mypage_review_icon.png" alt="후기 아이콘 이미지" style="width: 18;" />
+                            <img src="../images/my/myPage_review_icon.png" alt="후기 아이콘 이미지" style="width: 18;" />
                           </div>
                           <span>후기</span>
                         </div>
@@ -52,7 +52,7 @@
                       <a href="/myPage/couponForm">
                         <div class="topNavIconWrap">
                           <div class="topNavIcon couponIcon">
-                            <img src="../images/my/mypage_coupon_icon.png" alt="쿠폰 아이콘 이미지" style="width: 31;" />
+                            <img src="../images/my/myPage_coupon_icon.png" alt="쿠폰 아이콘 이미지" style="width: 31;" />
                           </div>
                           <span>쿠폰</span>
                         </div>
@@ -62,7 +62,7 @@
                       <a href="/myPage/pointForm">
                         <div class="topNavIconWrap">
                           <div class="topNavIcon pointIcon">
-                            <img src="../images/my/mypage_point_icon.png" alt="포인트 아이콘 이미지" style="width: 18;" />
+                            <img src="../images/my/myPage_point_icon.png" alt="포인트 아이콘 이미지" style="width: 18;" />
                           </div>
                           <span>포인트</span>
                         </div>
@@ -74,7 +74,7 @@
               <!--//TopNav -->
               <!-- Tap & Content -->
               <div class="myPageContent">
-                <%@ include file="/WEB-INF/views/admin/adminNav.jsp" %>
+                <%@ include file="/WEB-INF/views/my/myPageNav.jsp" %>
                 <!-- Content -->
                 <!-- 동적할당 -->
                 <c:choose>
@@ -88,9 +88,9 @@
               </div>
               <!-- //Tap & Content -->
             </div>
-            <!--//mypageInnerWrapper -->
+            <!--//myPageInnerWrapper -->
           </div>
-          <!--//mypageOuterWrapper-->
+          <!--//myPageOuterWrapper-->
         </div>
       </main>
 	

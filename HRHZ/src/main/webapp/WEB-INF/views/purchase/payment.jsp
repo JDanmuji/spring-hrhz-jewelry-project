@@ -39,22 +39,33 @@
                                     <tbody>
                                         <tr>
                                             <td class="productInfoBox">
+<%--                                                <input type="text" name="productCodeList" value="{P00000072, P00000020}"  hidden />--%>
+<%--                                                <input type="text" name="optionCountList" ${(param.optionCountList)}--%>
+<%--                                                <div id="optionCountList">${(param.optionCountList)}</div>--%>
+                                                <input type="text" class="optionCountList" hidden
+                                                    value='{"P00000072": {"D00000179":1,"D00000180": 0,"D00000181":1,"D00000182":0,"D00000183":0,"D00000184":0 },
+                                                    "P00000020":{"D00000023": 0,"D00000024": 1,"D00000025": 0,"D00000026": 0,"D00000027": 0,"D00000028": 0}}'
+                                                />
                                                 <div class="productInfoImgBox">
                                                     <span class="productImg">
+<%--                                                        --%>
                                                         <img src="../images/purchase/product.jpeg" />
                                                     </span>
                                                 </div>
 
                                                 <div class="productInfo">
                                                     <div class="productName">
+<%--                                                        --%>
                                                         14K 슬라이드 볼 네추럴 스톤 팔찌
                                                     </div>
                                                     <div class="productOption">
+<%--                                                        --%>
                                                         배송 : 14K 슬라이드 볼 네추럴 스톤 팔찌
                                                     </div>
                                                     <div class="productCountAndPrice">
                                                         <span class="productPrice">
                                                             <span class="amount">
+<%--                                                                --%>
                                                                 227,050
                                                             </span>
                                                             <span class="unit">
@@ -66,9 +77,11 @@
                                             </td>
                                             <td class="productCount">
                                                 <span class="amount">
+<%--                                                    --%>
                                                     1
                                                 </span>
                                                 <span class="unit">
+<%--                                                    --%>
                                                     개
                                                 </span>
                                             </td>

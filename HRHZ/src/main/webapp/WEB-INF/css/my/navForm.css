@@ -1,4 +1,4 @@
-.mypageSection h3 {
+.myPageSection h3 {
   margin: 0 0 24px;
   font-size: 26px;
   font-weight: bold;
@@ -164,10 +164,10 @@ div.reviewEmpty {
 }
 /* couponForm */
 /* couponAdd */
-section.mypageSection {
+section.myPageSection {
   width: 100%;
 }
-.mypageSection .couponSection {
+.myPageSection .couponSection {
   margin-bottom: 40px;
 }
 .couponAddForm > label {
@@ -242,11 +242,11 @@ section.mypageSection {
 .couponTable .couponCount {
   font-weight: bold;
 }
-.mypageTable thead {
+.myPageTable thead {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
 }
-.mypageTable thead th {
+.myPageTable thead th {
   padding: 12px 0;
   text-align: left;
   font-size: 13px;
@@ -445,8 +445,8 @@ td.empty .goShopBtn {
   height: 40px;
 }
 
-/* mypageManage */
-/* mypage0 */
+/* myPageManage */
+/* myPage0 */
 /* userCheck */
 h3.userCheckHead {
   margin: 0;
@@ -525,13 +525,13 @@ h3.userCheckHead {
   height: 40px;
   margin-top: 40px;
 }
-/* mypage1 */
+/* myPage1 */
 /* LoginInfo */
-.mypageManage .userInfoFormArea {
+.myPageManage .userInfoFormArea {
   width: 400px;
   margin-top: 24px;
 }
-.mypageManage h4 {
+.myPageManage h4 {
   font-size: 16px;
   font-weight: bold;
   line-height: 24px;
@@ -640,26 +640,26 @@ h3.userCheckHead {
 }
 
 /* SNS Login */
-.mypageManage .snsLogin {
+.myPageManage .snsLogin {
   text-align: center;
   padding: 64px 0 120px;
 }
 
-.mypageManage .snsLogin .snsMainText {
+.myPageManage .snsLogin .snsMainText {
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: -0.44px;
   margin-bottom: 8px;
 }
-.mypageManage .snsLogin .snsMainText .snsType {
+.myPageManage .snsLogin .snsMainText .snsType {
   color: rgb(98, 0, 240);
 }
-.mypageManage .snsLogin .snsMainText .snsType::before {
+.myPageManage .snsLogin .snsMainText .snsType::before {
   content: "*";
   display: inline;
 }
-.mypageManage .snsLogin .snsSubText {
+.myPageManage .snsLogin .snsSubText {
   font-size: 13px;
   line-height: 19px;
   letter-spacing: -0.5px;
@@ -781,7 +781,7 @@ h3.userCheckHead {
   display: inline-block;
   width: 100%;
 }
-.datePickBtn {
+.datepickerBtn {
   position: relative;
   font-family: NotoSansCJKkr;
   height: 36px;
@@ -798,8 +798,24 @@ h3.userCheckHead {
   background-color: transparent;
   text-align: left;
   outline: none;
+  cursor: none;
 }
-.datePickBtn img {
+
+.datepickerBtn .placeholder {
+  width: 90%;
+  font-family: NotoSansCJKkr;
+  line-height: 36px;
+  font-size: 13px;
+  color: rgb(155, 155, 155);
+  letter-spacing: -0.5px;
+  text-align: left;
+}
+.flatpickr-input .placeholder{
+  color: rgb(0, 0, 0);
+  font-family: Barlow;
+  font-size: 14px;
+}
+.datepickerBtn img {
   position: absolute;
   top: 6px;
   right: 0;
@@ -807,6 +823,8 @@ h3.userCheckHead {
   height: 24px;
   cursor: pointer;
 }
+
+/* gender Wrap */
 .formRight .genderWrap {
   position: relative;
 }

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<section class="mypageContentSection">
-  <div class="mypageSectionWrap">
-    <section class="mypageSection">
-      <h3 class="mypageSectionTitle">최근 주문</h3>
+<section class="myPageContentSection">
+  <div class="myPageSectionWrap">
+    <section class="myPageSection">
+      <h3 class="myPageSectionTitle">최근 주문</h3>
       <article class="lastOrder">
-        <table class="mypageTable">
+        <table class="myPageTable">
           <caption class="lastOrderCaption"></caption>
           <thead class="lastOrderTableHead">
             <tr>
@@ -25,9 +25,9 @@
         </table>
       </article>
     </section>
-    <section class="mypageSection">
-      <h3 class="mypageSectionTitle">내 활동</h3>
-      <div class="mypageCntnt">
+    <section class="myPageSection">
+      <h3 class="myPageSectionTitle">내 활동</h3>
+      <div class="myPageCntnt">
         <hr />
         <article class="contentCategory">
           <div class="contentCategorySubTitleWrap">

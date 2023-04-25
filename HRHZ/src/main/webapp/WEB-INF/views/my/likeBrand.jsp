@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<section class="mypageContentSection">
-  <section class="mypageSection">
+<section class="myPageContentSection">
+  <section class="myPageSection">
     <section>
       <h3>좋아요한 브랜드</h3>
       <article class="likeBrandListContent">

@@ -11,4 +11,6 @@ public interface MyService {
     void updateNewPwd(String id, String checkPassword);
 
     void deleteMember(String id);
+
+    void updateMember(MemberDTO memberDTO);
 }

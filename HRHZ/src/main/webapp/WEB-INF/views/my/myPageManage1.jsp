@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<section class="mypageContentSection">
-  <section class="mypageSection">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<section class="myPageContentSection">
+  <section class="myPageSection">
     <section>
       <h3>회원정보수정</h3>
-      <section class="mypageManage">
+      <section class="myPageManage">
         <article class="manageLoginInfo">
           <h4 class="manageLoginHead">로그인 정보</h4>
 <%--          일반 로그인 --%>
@@ -75,10 +75,7 @@
                 </div>
                 <div class="formRight">
                   <div class="inputPlaceholder formInput">
-                    <input type="text" name="userName" maxlength="20" placeholder="이름을 입력해 주세요." value="${memberDTO.name}">
-
-<%--                    not empty memberDTO.name --%>
-<%--                    <input type="text" name="userName" maxlength="20" placeholder="이름을 입력해 주세요." value="${memberDTO.name}">--%>
+                    <input type="text" name="name" maxlength="20" placeholder="이름을 입력해 주세요." value="${memberDTO.name}" />
                     <label></label>
                   </div>
                 </div>
@@ -88,7 +85,7 @@
                   <label class="formLabel">휴대폰 번호</label>
                 </div>
                 <div class="formRight">
-                  <div class="formText">${memberDTO.phone}</div>
+                  <input class="formText" name="phone" value="${memberDTO.phone}" readonly>
                 </div>
               </div>
               <div class="userInfoFormArea">
@@ -96,11 +93,10 @@
                   <label class="formLabel">이메일</label>
                 </div>
                 <div class="formRight">
-                  <div class="formInput">
-                    <input type="text" name="userEmail" maxlength="80" placeholder="이메일을 입력해 주세요." value="${memberDTO.email}" />
+                  <div class="inputPlaceholder formInput">
+                    <input type="text" name="email" maxlength="80" placeholder="이메일을 입력해 주세요." value="${memberDTO.email}" />
                     <label></label>
                   </div>
-                  <!-- <p class="infoErrorMsg">유효한 이메일을 입력해 주세요.</p> -->
                   <p class="infoFormMsg">
                     이메일 입력 시 할인, 쿠폰 등 할인 혜택을 알려드립니다.
                   </p>
@@ -113,11 +109,13 @@
                 <div class="formRight">
                   <div class="formInput receiveWrap">
                     <div class="snsCheckbox">
-                      <input type="checkbox" name="smsReceive" id="smsReceive" />
+                      <input class="smsCheck" value="${memberDTO.smsAlarm}" hidden>
+                      <input type="checkbox" name="smsAlarm" id="smsReceive" />
                       <label for="smsReceive"><span>SMS 수신동의</span></label>
                     </div>
                     <div class="snsCheckbox">
-                      <input type="checkbox" name="emailReceive" id="emailReceive" />
+                      <input class="emailCheck" value="${memberDTO.emailAlarm}" hidden>
+                      <input type="checkbox" name="emailAlarm" id="emailReceive" />
                       <label for="emailReceive"><span>E-Mail 수신동의</span></label>
                     </div>
                   </div>
@@ -134,10 +132,10 @@
                 <div class="formRight">
                   <div class="datepickerWrap">
                     <div class="datepicker">
-                      <button type="button" class="datePickBtn">
-                        <div class="placeholder">날짜를 선택해주세요.</div>
+                      <div class="datepickerBtn" >
+                        <input class="placeholder" name="date" placeholder="날짜를 선택해주세요." value="${memberDTO.date}" readonly/>
                         <img alt="Date" src="../../images/my/date_picker_icon.png" />
-                      </button>
+                      </div>
                     </div>
                   </div>
                   <p class="infoFormMsg">
@@ -150,23 +148,25 @@
                   <label class="formLabel">성별</label>
                 </div>
                 <div class="formRight">
-                  <div class="formInput genderWrap">
-                    <input type="radio" name="userGender" id="userGenderW" class="genderInput" value="0" checked="checked" />
-                    <label for="userGenderW">여자</label>
-                    <input type="radio" name="userGender" id="userGenderM" class="genderInput" value="1" />
-                    <label for="userGenderM">남자</label>
-                  </div>
-                  <div class="btnWrap">
-                    <button type="button" class="goShopBtn submitBtn" type="button" disabled>
-                      수정
-                    </button>
+                    <div class="formInput genderWrap">
+                        <input class="memberGender" value="${memberDTO.gender}" hidden>
+                        <input type="radio" name="gender" id="userGenderW" class="genderInput" value="F" checked/>
+                        <label for="userGenderW">여자</label>
+                        <input type="radio" name="gender" id="userGenderM" class="genderInput" value="M" />
+                        <label for="userGenderM">남자</label>
+                    </input>
+                    <div class="btnWrap">
+                      <button type="button" class="goShopBtn submitBtn" disabled>
+                        수정
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="userInfoFormArea">
-                <div class="formRight">
-                  <div class="userRemove">
-                    <button type="button">회원탈퇴</button>
+                <div class="userInfoFormArea">
+                  <div class="formRight">
+                    <div class="userRemove">
+                      <button type="button">회원탈퇴</button>
+                    </div>
                   </div>
                 </div>
               </div>
