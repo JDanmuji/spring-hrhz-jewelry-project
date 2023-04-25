@@ -1,6 +1,9 @@
 package member.dao;
 
 import hrhz.dto.MemberDTO;
+
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,4 +22,9 @@ public class MemberDAOMyBatis implements MemberDAO {
         System.out.println(memberDTO);
         return memberDTO;
     }
+
+	@Override
+	public void memberInsert(HashMap<String, Object> dataMap) {
+		sqlSession.insert("memberSQL.memberInsert", dataMap);
+	}
 }

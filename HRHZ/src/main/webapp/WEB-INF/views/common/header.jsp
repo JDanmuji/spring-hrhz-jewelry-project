@@ -26,7 +26,7 @@
 		                alt="amondz logo"
 		        /></a>
 		        <div class="mainMenu">
-		            <a href="/category">카테고리</a>
+		            <a href="/category?pg=1">카테고리</a>
 		            <a href="/brand">브랜드</a>
 		        </div>
 		        <div class="search">
