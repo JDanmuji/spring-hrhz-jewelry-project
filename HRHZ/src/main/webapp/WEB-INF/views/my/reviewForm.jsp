@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<section class="mypageContentSection">
-  <section class="mypageSection">
+<section class="myPageContentSection">
+  <section class="myPageSection">
     <h3>상품 구매후기</h3>
     <div>
       <ul class="reviewTopList">

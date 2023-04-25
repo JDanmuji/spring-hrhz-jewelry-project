@@ -32,7 +32,6 @@ public class PurchaseController {
 	 public String productDetail(Model model){
 		 return "/views/purchase/productDetail";
 	 }	
-	
 
 	 @PostMapping(value="payment")
 	 public String payment(Model model){

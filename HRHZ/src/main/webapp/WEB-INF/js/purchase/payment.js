@@ -28,4 +28,24 @@ function summaryInfoAnimation() {
             $(".paySummaryInfo").removeClass("fixed");
         }
     });
-}
+};
+
+
+//-----------------------------------
+// product
+$(function (){
+    console.log("11");
+
+    const $optionCountList = JSON.stringify($('.optionCountList').val());
+    console.log($optionCountList);
+    $.ajax({
+        contentType: "application/json",
+        type: "post",
+        url: "/purchase/getProductInfo",
+        data:  $optionCountList,
+        success: function (data) {
+            alert("성공?");
+        },
+        err: function (err) {console.log(err)}
+    });
+});

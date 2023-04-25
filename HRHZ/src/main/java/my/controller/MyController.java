@@ -6,11 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Collection;
 
 
 @Controller
@@ -60,7 +58,7 @@ public class MyController {
 
     @GetMapping(value = "myPageManage")
     public String myPageManage(Model model, HttpServletRequest request){
-        String id = "a00001"; //hard coding
+        String id = "k00001"; //hard coding
 
         MemberDTO memberDTO = myService.getMemberInfo(id); //memberDTO 가져오기
         model.addAttribute("memberDTO",memberDTO);
@@ -76,7 +74,7 @@ public class MyController {
     }
     @GetMapping(value = "myPageManage1")
     public String myPageManage1(Model model){
-        String id = "a00001"; //hard coding
+        String id = "k00001"; //hard coding
 
         MemberDTO memberDTO = myService.getMemberInfo(id); //memberDTO 가져오기
         model.addAttribute("memberDTO",memberDTO);
@@ -88,32 +86,50 @@ public class MyController {
     @PostMapping(value = "getMember")
     @ResponseBody
     public String getMember(@RequestParam String password, HttpServletRequest request){
-        String id = "a00001"; //hard coding
+        String id = "k00001"; //hard coding
         return myService.getMember(id, password);
     }
 
+
+    //---------------------------------------
+    // update pwd
     @PostMapping(value = "updateNewPwd")
     @ResponseBody
     public void updateNewPwd(@RequestParam("checkPassword") String checkPassword) {
-        String id = "a00001"; //hard coding
+        String id = "k00001"; //hard coding
         myService.updateNewPwd(id, checkPassword);
     }
 
-//  modal Form
     @GetMapping(value = "updatePwdModal")
     public String updatePwdModal(){
         return "/views/my/updatePwdForm";
+    }
+
+
+    //---------------------------------------
+    // delete member
+    @PostMapping(value = "deleteMember")
+    @ResponseBody
+    public void deleteMember() {
+        String id = "k00001"; //hard coding
+        myService.deleteMember(id);
     }
     @GetMapping(value = "deleteMemberModal")
     public String deleteMemberModal(){
         return "/views/my/deleteMemberForm";
     }
 
-    @PostMapping(value = "deleteMember")
+    //---------------------------------------
+    // update member info
+    @PostMapping(value = "updateMember")
     @ResponseBody
-    public void deleteMember() {
-        String id = "a00001"; //hard coding
-        myService.deleteMember(id);
+    public void updateMember(@ModelAttribute MemberDTO memberDTO) {
+        String id = "k00001"; //hard coding
+        myService.updateMember(memberDTO);
+    }
+    @GetMapping(value = "updateMemberModal")
+    public String updateMemberModal(){
+        return "/views/my/updateMemberInfo";
     }
 
 }

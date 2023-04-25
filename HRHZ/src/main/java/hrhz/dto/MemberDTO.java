@@ -19,4 +19,6 @@ public class MemberDTO {
     private String delDate;
     private String regDate;
     private String modDate;
+    private String smsAlarm;
+    private String emailAlarm;
 }
