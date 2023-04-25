@@ -1,9 +1,22 @@
 package member.service;
 
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
 import hrhz.dto.MemberDTO;
 
 public interface MemberService {
-    void certifiedPhoneNumber(String phoneNumber, String numStr);
+    public void certifiedPhoneNumber(String phoneNumber, String numStr);
 
-    String getMember(String phone);
+    public String getMember(String phone);
+
+	public void memberInsert(HashMap<String, Object> dataMap) throws InvalidKeyException, 
+																	  UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException;
 }

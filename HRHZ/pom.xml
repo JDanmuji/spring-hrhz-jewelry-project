@@ -34,6 +34,10 @@
       </resources>
   </build>
   
+  <properties>
+  	<security-version>4.2.2.RELEASE</security-version>
+  </properties>
+  
   <dependencies>
       <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
       <dependency>
@@ -158,6 +162,32 @@
           <version>4.0.1</version>
       </dependency>
 
+		<!-- Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${security-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${security-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${security-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${security-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<version>${security-version}</version>
+		</dependency>
 
   </dependencies>
 </project>

@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<section class="mypageContentSection">
-  <section class="mypageSection">
+<section class="myPageContentSection">
+  <section class="myPageSection">
     <div class="pointStatus">
       <h3>포인트</h3>
       <div class="statusBoard">
-        <div class="statusBoradItem">
+        <div class="statusBoardItem">
           <span class="point">0</span>
           <p>현재포인트</p>
         </div>
-        <div class="statusBoradItem">
+        <div class="statusBoardItem">
           <span class="usedPoint">0</span>
           <p>사용한포인트</p>
         </div>
@@ -17,7 +17,7 @@
     <div class="pointTable">
       <h3 class="tableTitle">포인트 내역</h3>
       <div class="">
-        <table class="mypageTable">
+        <table class="myPageTable">
           <thead>
             <tr>
               <th>포인트</th>
