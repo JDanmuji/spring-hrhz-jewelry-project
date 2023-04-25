@@ -242,45 +242,8 @@ function likeCount(id, code, division) {
         },
         success: function (data){
                     
-	        $.each(data, function(index, items){
-	        
-	        	optionItem = $(
-	        	
-	        	"<div class='articleContent'>" + 
-                        "<a href='/purchase/productDetail'>" + 
-                            "<div class='articleImg'>" +
-                                "<img src='/storage/" + items.imgPath +"' />" +
-                            "</div>"+
-                            "<div class='articleDesc'>" +
-                                "<span><strong>" + items.brandName +"</strong></span>" +
-                                "<span>" + items.productName +"</span>" +
-
-                                "<div class='articlePrice'>" + 
-                                    "<span class='percentage'>" +
-                                    	"<span>" +
-                                    		"<strong>20</strong>" +
-                                    	"</span>%</span>"+
-                                    "<span class='price'>" +
-                                    	"<span><strong>"+ items.price + "</strong>" +
-                                    	"</span>원</span>" +
-                                    
-                                "</div>"+
-                            "</div>" + 
-                            "<div class='likeNumber'>" +
-                                "좋아요" + 
-                               "<span>"+ items.likeCount +"</span>" +
-                            "</div>" +
-                        "</a>" +
-                        "<img class='heartIcon heartIconWhite' src='../images/category/heart.jpg'/>" +
-                        "<img class='heartIcon heartIconViolet' src='../images/category/heart_violet.jpg'/>" +
-                    "</div>"			
-        		
-        		
-        		);
-	        	
-	        	$('.top100Article .articleList').append(optionItem);
-	        	
-			});
+            console.log(data);
+	
         
         },
         err: function (err){ 

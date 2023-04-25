@@ -1,49 +1,56 @@
-.background{
+@charset "UTF-8";
+
+.backGround{
 	background-color: #fafafa;
 }
-.outerWrapper{
-	background-color: #ffffff;
-	margin: 0 160px;
-	border: none;
-	box-shadow: 0px 0px 5px #F7F7F7;
+
+.wrapper {
+	max-width: 1200px;
+    min-height: calc(100vh - 73px);
+    margin: 0px auto;
+    padding: 70px 0px 100px;
+    font-family: NotoSansCJKkr;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(125, 125, 125, 0.05) 0px 0px 15px 0px;
 }
 
 .formContainer {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
+	max-width: 964px;
+	margin: 0px auto;
+	width: 554px;
 }
 
-.form1 {
-	margin-top: 30px;
-	align-items: left;
-	text-align: left;
+.formHeader {
 	position: relative;
-	flex-direction: column;
+	letter-spacing: -0.5px;
 }
 
 /* 회원가입 제목 */
-.signupTitle {
+.signUpTitle span {
 	display: inline-block;
 	position: relative;
 	font-size: 40px;
-	font-weight: 700;
-	text-align: left;
-	line-height: 60px;
-	margin-right: 50px;
-	margin-top: 70px;
+	font-weight: bold;
+	line-height: 59px;
+	letter-spacing: -1px;
 }
 
-.form1 .signupOrder {
-	display: inline-block;
-	position: relative;
-	left: 80px;
-	bottom: 17px;
-	text-align: right;
+.formHeader .signUpOrder {
+	position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
-.signupOrderActive {
+
+.signUpOrder img {
+	width: 12px;
+    height: 12px;
+    margin: 0px 8px;
+    vertical-align: middle;
+}
+
+.signUpOrderActive {
 	font-size: 13px;
 	font-weight: 400;
 	text-align: right;
@@ -53,7 +60,7 @@
 	margin: 0;
 }
 
-.signupOrderInactive {
+.signUpOrderInactive {
 	font-size: 13px;
 	font-weight: 400;
 	text-align: right;
@@ -63,27 +70,20 @@
 	margin: 0;
 }
 
-.signupText {
-	font-size: 15px;
-	font-weight: 400;
-	text-align: left;
-	color: #000000;
+.signUpText {
 	margin-top: 10px;
-	margin-bottom: 70px;
+	margin-bottom: 80px;
 }
 
-/* 활성화 비활성화 이미지 */
-.signupTitle img {
-	width: 13px;
-	height: auto;
-	vertical-align: middle;
-	margin: 0;
+.signUpText span {
+	margin-top: 10px;
+	margin-bottom: 80px;
 }
 
-/* 이메일 비밀번호 비밀번호 확인*/
 .inputContainer {
 	position: relative;
-	margin-bottom: 10px;
+	margin-bottom: 2px;
+	margin-top: 20px;
 	color: #000000;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .emailError, .passwordErrorCheck, .passwordError{
-	color: red;
+	color: rgb(254, 79, 0);
 	font-size: 11px;
 	font-weight: 400;
 	margin-top: 0px;
@@ -150,6 +150,7 @@
 
 /* 다음 버튼 */
 .nextButton {
+	display: inline-block;
 	width: 550px;
 	height: 45px;
 	background-color: #DDDDDD;
@@ -159,5 +160,9 @@
 	border-radius: 3px;
 	cursor: pointer;
 	margin-top: 20px;
-	margin-bottom: 170px;
+	margin-bottom: 130px;
 }
+
+
+
+

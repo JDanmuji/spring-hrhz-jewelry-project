@@ -5,7 +5,8 @@
 	<context-param> <!-- init-param 지역변수, context-param 전역변수 -->
 		 <!-- - 스프링프레임 워크가 동작하기 위한 설정파일의 위치를 알려주는 파라미터 -->
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-servlet.xml</param-value>
+		<param-value>/WEB-INF/spring/root-servlet.xml
+					/WEB-INF/spring/spring-security.xml</param-value>
 	</context-param>
 
 	<listener>
