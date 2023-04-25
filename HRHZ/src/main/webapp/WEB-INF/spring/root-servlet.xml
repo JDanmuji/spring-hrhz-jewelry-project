@@ -5,10 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 		
-	<!-- spring -->
-	<context:component-scan base-package="spring.conf"/>
-	<context:component-scan base-package="hrhz.dto"/>
-			
+	
 		
 	<!-- admin -->
 	<context:component-scan base-package="admin.service"/>
@@ -38,7 +35,9 @@
 	<context:component-scan base-package="purchase.service"/>
 	<context:component-scan base-package="purchase.dao"/>
 	
-	
+	<!-- spring -->
+	<context:component-scan base-package="spring.conf"/>
+	<context:component-scan base-package="hrhz.dto"/>
 
 
 </beans>
