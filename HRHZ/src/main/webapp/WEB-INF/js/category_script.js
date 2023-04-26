@@ -335,13 +335,16 @@ function likeCount(id, code, division) {
 // ---------------------------------------------------
 $(document).on("click", ".filterResultBtn", function () {
 	var color = $(".checkedFilter span").text();
-	console.log(color);
+	var colorArr = color.split("");
+	console.log(colorArr);
+	
+
 
 	$.ajax({
 		type : "post",
 		url:"/categoryColorList",
-		data: "color",
-		dataType : 'json',
+		data: {'colorArr' : colorArr} ,
+		
 
         success: function (data) {
             console.log(data);

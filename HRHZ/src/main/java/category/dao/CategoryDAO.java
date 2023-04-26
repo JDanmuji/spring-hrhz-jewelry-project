@@ -12,6 +12,9 @@ public interface CategoryDAO {
 
 	public int getTotalA();
 
+	public List<Map<String, Object>> CategoryColorList(List<String> colorArr);
+
+
 	
 	
 
