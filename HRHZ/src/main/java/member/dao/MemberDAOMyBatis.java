@@ -27,4 +27,9 @@ public class MemberDAOMyBatis implements MemberDAO {
 	public void memberInsert(HashMap<String, Object> dataMap) {
 		sqlSession.insert("memberSQL.memberInsert", dataMap);
 	}
+
+	@Override
+	public String loginCheck(HashMap<String, Object> dataMap) {
+		return sqlSession.selectOne("memberSQL.loginCheck", dataMap);
+	}
 }

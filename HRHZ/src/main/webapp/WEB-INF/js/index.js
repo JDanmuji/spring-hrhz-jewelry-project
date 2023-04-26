@@ -242,11 +242,13 @@ function likeCount(id, code, division) {
         },
         success: function (data){
                     
+          
             console.log(data);
 	
         
         },
         err: function (err){ 
+
         	console.log(err); 
         }
     });

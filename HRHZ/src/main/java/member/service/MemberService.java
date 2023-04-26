@@ -17,6 +17,7 @@ public interface MemberService {
 
     public String getMember(String phone);
 
-	public void memberInsert(HashMap<String, Object> dataMap) throws InvalidKeyException, 
-																	  UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException;
+	public void memberInsert(HashMap<String, Object> dataMap) throws Exception;
+
+	public String loginCheck(HashMap<String, Object> dataMap);
 }
