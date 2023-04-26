@@ -178,7 +178,7 @@ public class MemberServiceImpl implements MemberService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		memberDAO.memberInsert(dataMap);
 		
 	}
