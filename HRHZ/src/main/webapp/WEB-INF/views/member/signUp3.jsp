@@ -74,8 +74,6 @@
 	<script type="text/javascript" src="../../js/header_footer.js"></script>
     <script type="text/javascript" src="../../js/member/signUp3.js"></script>
 		
-   
-</script>
 
 </body>
 </html>

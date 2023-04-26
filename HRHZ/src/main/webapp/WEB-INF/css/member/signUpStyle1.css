@@ -204,6 +204,7 @@ button.certification { padding: 0;}
 	line-height: 40px;
 	margin-top: 30px;
 }
+
 .nextButton:disabled {
 	background-color: rgb(211, 211, 211);
 }

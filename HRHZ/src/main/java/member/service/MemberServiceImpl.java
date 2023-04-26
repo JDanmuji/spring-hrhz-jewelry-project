@@ -1,5 +1,6 @@
 package member.service;
 
+import hrhz.dto.AES256;
 import hrhz.dto.MemberDTO;
 import member.dao.MemberDAO;
 import net.sf.json.JSONArray;
@@ -32,15 +33,12 @@ import java.util.HashMap;
 
 @PropertySource("classpath:hrhz/conf/login.properties")
 @Service
-
 public class MemberServiceImpl implements MemberService {
     @Autowired
     private MemberDAO memberDAO;
-    
+ 
     @Autowired
-    private BCryptPasswordEncoder passEncoder;
-    
-    
+    private AES256 aes256;
     
     @Value("${sms.accessKey}")
     private String accessKey;   // 네이버 클라우드 플랫폼 회원에게 발급되는 개인 인증키
@@ -50,7 +48,7 @@ public class MemberServiceImpl implements MemberService {
     private String serviceId;   // 프로젝트에 할당된 SMS 서비스 ID
     @Value("${sms.myPhone}")
     private String myPhone;
-    @Value("${aesutil.Key}")
+    @Value("${aes256.key}")
 	private String key;    //key는 16자 이상
 
     private String makeSignature(String url, String timestamp, String method) {
@@ -169,19 +167,38 @@ public class MemberServiceImpl implements MemberService {
     }
 
 	@Override
-	public void memberInsert(HashMap<String, Object> dataMap) throws InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+	public void memberInsert(HashMap<String, Object> dataMap) {
 		
-		String password = dataMap.get("password").toString();
-		
-		System.out.println(password);
-		String test = passEncoder.encode(password);
-		System.out.println();
-		passDe(test);
-		System.out.println(passEncoder.encode(password));
-	
+    	String password = dataMap.get("password").toString();
+    	
+    	//password encode
+    	try {
+    		aes256.setAlg(key);
+			dataMap.put("password", aes256.encrypt(password));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		memberDAO.memberInsert(dataMap);
 		
+	}
+
+	@Override
+	public String loginCheck(HashMap<String, Object> dataMap) {
+
+		String password = dataMap.get("password").toString();
+    	
+    	//password encode
+    	try {
+    		aes256.setAlg(key);
+			dataMap.put("password", aes256.encrypt(password));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	
+    	
+		
+		return memberDAO.loginCheck(dataMap);
 	}
 
 }

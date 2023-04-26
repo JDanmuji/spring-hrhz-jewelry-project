@@ -40,7 +40,8 @@ $('.passwordCheck').on('input', function(){
  	
 
 $('.nextButton').on('click', function() {
-	//var smsAlarm = $('input[name=smsAlarm]').val() === 'on' ? 'Y' :
+	var smsAlarm =( $('input[name=smsAlarm]').val() ) === 'on' ? 'Y' : 'N';
+	var emailAlarm = ($('input[name=emailAlarm]').val()) === 'on' ? 'Y' : 'N';
      	
    $.ajax({
        type: 'post',
@@ -49,8 +50,8 @@ $('.nextButton').on('click', function() {
        		'email' : $('#email').val(),
        		'password' : $('#password').val(),
        		'phone' : $('input[name=phone]').val(),
-       		'smsAlarm' : $('input[name=smsAlarm]').val(),
-       		'emailAlarm' : $('input[name=emailAlarm]').val(),
+       		'smsAlarm' : smsAlarm,
+       		'emailAlarm' : emailAlarm,
        		'joinPath' : 'A'
        },
        success: function (data){

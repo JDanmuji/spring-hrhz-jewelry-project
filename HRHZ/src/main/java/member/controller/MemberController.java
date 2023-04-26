@@ -1,6 +1,5 @@
 package member.controller;
 
-import hrhz.dto.MemberDTO;
 import member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,10 +9,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class MemberController {
     @Autowired
     private MemberService memberService;
+    
+   
 
     @GetMapping(value = "/signUp1")
     public String signUp1(){
@@ -66,13 +70,26 @@ public class MemberController {
     
     @PostMapping(value = "/memberInsert")
     @ResponseBody
-    public void memberInsert(@RequestParam HashMap<String, Object> dataMap) throws Exception{
-    	System.out.println(dataMap);
-    	
+    public void memberInsert(@RequestParam HashMap<String, Object> dataMap) throws Exception {
     	memberService.memberInsert(dataMap); //send authentication number
-
-
         
+    }
+    
+    @PostMapping(value = "/signIn")
+    @ResponseBody
+    public String signIn(@RequestParam HashMap<String, Object> dataMap, HttpServletRequest request) throws Exception {
+    	String result;
+    	HttpSession session = request.getSession();
+
+    	String id = memberService.loginCheck(dataMap);  
+    	
+    	if (id != null) { // 로그인 성공 시
+    	   session.setAttribute("sessionId", id);
+    	   result = "success";
+    	} else { // 로그인 실패 시
+    	   result = "error";
+    	}
         
+	    return result;
     }
 }
