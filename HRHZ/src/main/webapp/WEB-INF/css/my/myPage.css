@@ -73,7 +73,8 @@ main {
   width: 1074px;
   margin: auto;
 }
-.mypageHome .mypageOuterWrap {
+
+.myPageHome .myPageOuterWrap {
   max-width: 1200px;
   min-height: calc(100vh - 73px);
   margin: 0px auto;
@@ -83,17 +84,21 @@ main {
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(125, 125, 125, 0.05) 0px 0px 15px 0px;
 }
-.mypageOuterWrap .mypageInnerWrap {
+
+.myPageOuterWrap .myPageInnerWrap {
+
   max-width: 964px;
   min-height: calc(100vh - 73px);
   margin: 0 auto;
 }
-.mypageInnerWrap::after {
+
+.myPageInnerWrap::after {
   content: "";
   display: block;
   clear: both;
 }
-h2#mypage {
+
+h2#myPage {
   width: 100%;
   margin: 0px;
   padding-bottom: 40px;
@@ -101,19 +106,24 @@ h2#mypage {
   line-height: 59px;
   letter-spacing: -1px;
 }
-h2#mypage a {
+
+h2#myPage a {
   color: #000;
   font-weight: bold;
 }
 /* TopNav */
-.mypageOuterTopNav {
+
+.myPageOuterTopNav {
+
   display: flex;
   padding: 37px 60px;
   background-color: #f7f7f7;
   min-height: 107px;
   margin-bottom: 65px;
 }
-.mypageInnerTopNav {
+
+.myPageInnerTopNav {
+
   display: flex;
   width: 100%;
   -webkit-box-pack: justify;
@@ -176,7 +186,9 @@ h2#mypage a {
 aside {
   display: block;
 }
-aside.mypageTabNav {
+
+aside.myPageTabNav {
+
   float: left;
   width: 15%;
   color: rgb(155, 155, 155);
@@ -193,40 +205,48 @@ aside.mypageTabNav {
   height: 100%;
 }
 
-nav.mypageMenuList li.mypageParentMenu {
+
+nav.myPageMenuList li.myPageParentMenu {
+
   padding-top: 24px;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.3px;
 }
-nav.mypageMenuList li.mypageParentMenu b {
+
+nav.myPageMenuList li.myPageParentMenu b {
   font-weight: bold;
   color: rgb(0, 0, 0);
 }
-nav.mypageMenuList li.mypageMenu {
+
+nav.myPageMenuList li.myPageMenu {
+
   padding-top: 8px;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.5px;
 }
-nav.mypageMenuList li.mypageMenu a {
+
+nav.myPageMenuList li.myPageMenu a {
+
   cursor: pointer;
   color: #9b9b9b;
 }
 /* Content */
-.mypageContentSection {
+.myPageContentSection {
   float: right;
   width: 74%;
   background-color: #fff;
 }
-.mypageSectionWrap * {
+
+.myPageSectionWrap * {
   letter-spacing: -0.5px;
 }
-.mypageSectionWrap section {
+.myPageSectionWrap section {
   margin-bottom: 64px;
 }
 /* 최근주문 */
-.mypageSection .mypageSectionTitle {
+.myPageSection .myPageSectionTitle {
   margin: 0px;
   font-size: 26px;
   font-weight: bold;
@@ -236,7 +256,8 @@ nav.mypageMenuList li.mypageMenu a {
   font-size: 13px;
   font-weight: 500;
 }
-.mypageTable {
+
+.myPageTable {
   width: 100%;
   border-collapse: collapse;
 }
@@ -275,8 +296,9 @@ nav.mypageMenuList li.mypageMenu a {
   box-sizing: content-box;
   padding: 0px;
 }
+
 /* 내 활동 */
-.mypageCntnt hr {
+.myPageCntnt hr {
   height: 1px;
   margin: 24px 0;
   background-color: #000;

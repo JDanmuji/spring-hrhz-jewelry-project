@@ -32,5 +32,16 @@ public class MyServiceImpl implements MyService{
         myDAO.deleteMember(id);
     }
 
+    @Override
+    public void updateMember(MemberDTO memberDTO) {
+        if(memberDTO.getSmsAlarm() != null) {
+            if ("on".equals(memberDTO.getSmsAlarm())) memberDTO.setSmsAlarm("Y");
+        } else memberDTO.setSmsAlarm("N");
+        if(memberDTO.getEmailAlarm() != null) {
+            if ("on".equals(memberDTO.getEmailAlarm())) memberDTO.setEmailAlarm("Y");
+        } else memberDTO.setEmailAlarm("N");
+
+        myDAO.updateMember(memberDTO);
+    }
 
 }

@@ -32,7 +32,6 @@ public class PurchaseController {
 	 public String productDetail(Model model){
 		 return "/views/purchase/productDetail";
 	 }	
-	
 
 	 @PostMapping(value="payment")
 	 public String payment(Model model){
@@ -62,37 +61,43 @@ public class PurchaseController {
 		 return purchaseService.getProductReviews(productCode);
 	 }
 	 
-//	 @PostMapping(value = "reviewUpload", produces = "text/html; charset=UTF-8")
-//	 public String reviewUpload(@RequestParam("img[]") List<MultipartFile> list,
-//			 				  @ModelAttribute ReviewDTO reviewDTO,
-//			 				  HttpSession session) {
-//		 
-//		 System.out.println("컨트롤러");
-//		 
-//		 List<String> fileNameList = new ArrayList<String>();
-//		 String filePath = session.getServletContext().getRealPath("/WEB-INF/storage/review");
-//		 String fileName;
-//		 File file;
-//		
-//		 for(MultipartFile img : list) {
-//			 fileName = img.getOriginalFilename();
-//			 file = new File(filePath, fileName);
-//			
-//			 try {
-//				 img.transferTo(file);
-//			 } catch (IOException e) {
-//				 e.printStackTrace();
-//			 }
-//			 fileNameList.add(fileName);
-//		 }//for
-//		
-//		 purchaseService.reviewUpload(reviewDTO, fileNameList);
-//	 
-//	 	 return "/views/purchase/productDetail";
-//	 }
 	 @PostMapping(value = "reviewUpload", produces = "text/html; charset=UTF-8")
-	 public String reviewUpload(@ModelAttribute ReviewDTO reviewDTO) {
-		 purchaseService.reviewUpload(reviewDTO, null);
-		 return "/views/purchase/productDetail";
+	 @ResponseBody
+	 public void reviewUpload(@RequestParam("img[]") List<MultipartFile> list,
+			    			  @ModelAttribute ReviewDTO reviewDTO,
+			 				  HttpSession session) {
+		 List<String> fileNameList = new ArrayList<String>();
+		 
+		 String filePath = session.getServletContext().getRealPath("/WEB-INF/storage/review");
+		 String fileName;
+		 File file;
+		 
+		 if(list != null) {
+			 for(MultipartFile img : list) {
+				 fileName = img.getOriginalFilename();
+				 
+				 System.out.println(fileName);
+				 
+				 file = new File(filePath, fileName);
+				 
+				 try {
+					 img.transferTo(file);
+				 } catch (IOException e) {
+					 e.printStackTrace();
+				 }
+				 fileNameList.add(fileName);
+			 }//for
+		 }
+		 else {
+			 fileNameList = null;
+			 System.out.println(fileNameList);
+		 }
+		 purchaseService.reviewUpload(reviewDTO, fileNameList);
 	 }
+	 
+//	 @PostMapping(value = "reviewUpload", produces = "text/html; charset=UTF-8")
+//	 public String reviewUpload(@ModelAttribute ReviewDTO reviewDTO) {
+//		 purchaseService.reviewUpload(reviewDTO, null);
+//		 return "/views/purchase/productDetail";
+//	 }
 }

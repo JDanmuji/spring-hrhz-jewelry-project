@@ -39,22 +39,47 @@
                                     <tbody>
                                         <tr>
                                             <td class="productInfoBox">
+<%--                                                <input type="text" name="productCodeList" value="{P00000072, P00000020}"  hidden />--%>
+<%--                                                <input type="text" name="optionCountList" ${(param.optionCountList)}--%>
+<%--                                                <div id="optionCountList">${(param.optionCountList)}</div>--%>
+<%--                                                <input type="text" class="optionCountList" hidden--%>
+<%--                                                    value='{--%>
+<%--                                                    --%>
+<%--                                                            "P00000072": {"code":"D00000179", "count":1}--%>
+<%--                                                                        {"code":"D00000180", "count":0},--%>
+<%--                                                                        {"code":"D00000181", "count":0},--%>
+<%--                                                                        {"code":"D00000182", "count":0},--%>
+<%--                                                                        {"code":"D00000183", "count":1},--%>
+<%--                                                                        {"code":"D00000184", "count":0}]--%>
+<%--                                                            }'--%>
+<%--                                                />--%>
+<%--    "P00000020":[{"code" : "D00000023", "count":1},--%>
+<%--    {"code" : "D00000024", "count":0},--%>
+<%--    {"code" : "D00000025", "count":0},--%>
+<%--    {"code" : "D00000026", "count":0},--%>
+<%--    {"code" : "D00000027", "count":1},--%>
+<%--    {"code" : "D00000028", "count":0}]--%>
+<%--                                                 <div class="optionCountList" style="display: none">${param.optionCountList}"</div>--%>
                                                 <div class="productInfoImgBox">
                                                     <span class="productImg">
+<%--                                                        --%>
                                                         <img src="../images/purchase/product.jpeg" />
                                                     </span>
                                                 </div>
 
                                                 <div class="productInfo">
                                                     <div class="productName">
+<%--                                                        --%>
                                                         14K 슬라이드 볼 네추럴 스톤 팔찌
                                                     </div>
                                                     <div class="productOption">
+<%--                                                        --%>
                                                         배송 : 14K 슬라이드 볼 네추럴 스톤 팔찌
                                                     </div>
                                                     <div class="productCountAndPrice">
                                                         <span class="productPrice">
                                                             <span class="amount">
+<%--                                                                --%>
                                                                 227,050
                                                             </span>
                                                             <span class="unit">
@@ -66,9 +91,11 @@
                                             </td>
                                             <td class="productCount">
                                                 <span class="amount">
+<%--                                                    --%>
                                                     1
                                                 </span>
                                                 <span class="unit">
+<%--                                                    --%>
                                                     개
                                                 </span>
                                             </td>

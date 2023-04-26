@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 /* 폼 가운데 정렬*/
-.background{
+.backGround{
 	background-color: #fafafa;
 }
-.outerWrapper{
+.wrapper{
 	max-width: 1200px;
 	min-height: calc(100vh - 73px);
 	margin: 0px auto;
@@ -14,46 +14,43 @@
 	background-color: rgb(255, 255, 255);
 	box-shadow: rgba(125, 125, 125, 0.05) 0px 0px 15px 0px;
 }
-.outerWrapper .innerWrapper > * {
-	margin: 0px auto;
-}
-.innerWrapper {
+
+.signUpContainer {
 	max-width: 964px;
 	margin: 0px auto;
-}
-.signUpContainer {
 	width: 554px;
 }
+
 .signUpHeader {
 	position: relative;
 	letter-spacing: -0.5px;
 }
 
 /* 회원가입 제목 */
-.signupTitle {
+.signUpTitle span{
 	display: inline-block;
 	position: relative;
 	font-size: 40px;
 	font-weight: bold;
 	line-height: 59px;
 	letter-spacing: -1px;
-	margin-bottom: 16px;
+	
 }
 
-.signUpContainer .signupOrder {
-	display: inline-block;
-	position: relative;
-	text-align: right;
-    left: 180px;
-    bottom: 23px;
+.signUpHeader .signUpOrder {
+	position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
-.signupOrder img{
-	width: 13px;
-	height: auto;
+.signUpOrder img{
+	width: 12px;
+    height: 12px;
+    margin: 0px 8px;
+    vertical-align: middle;
 }
 
-.signupOrderActive {
+.signUpOrderActive {
 	font-size: 13px;
 	font-weight: 400;
 	text-align: right;
@@ -63,7 +60,7 @@
 	margin: 0;
 }
 
-.signupOrderInactive {
+.signUpOrderInactive {
 	font-size: 13px;
 	font-weight: 400;
 	text-align: right;
@@ -73,17 +70,20 @@
 	margin: 0;
 }
 
-.signupText {
+.signUpText {
+	margin-top: 10px;
+	margin-bottom: 80px;
+}
+
+.signUpText span {
 	font-size: 15px;
 	font-weight: 400;
 	text-align: left;
 	color: #000000;
-	margin-top: 10px;
-	margin-bottom: 82px;
 }
 
 .phoneError, .authenticationError{
-	color: red;
+	color: rgb(254, 79, 0);
 	font-size: 11px;
 	font-weight: 400;
 	margin-top: 0px;
@@ -117,10 +117,6 @@
 	outline: none;
 }
 
-/* 활성화 비활성화 이미지 */
-.signUpContainer img {
-	vertical-align: middle;
-}
 
 /* 이메일 비밀번호 비밀번호 확인*/
 .inputContainer {
@@ -184,6 +180,7 @@
 	letter-spacing: -0.3px;
 	width: 83px;
 	height: 25px;
+	line-height: 3px;
 	cursor: pointer;
 }
 button.certification { padding: 0;}
@@ -203,15 +200,11 @@ button.certification { padding: 0;}
 	font-weight: 500;
 	letter-spacing: -0.3px;
 	height: 40px;
-	width: 181px;
+	width: 100%;
 	line-height: 40px;
+	margin-top: 30px;
 }
+
 .nextButton:disabled {
 	background-color: rgb(211, 211, 211);
-}
-.signUpContent .nextButton {
-	margin: 43px 0px 24px;
-	width: 100%;
-	height: 48px;
-	cursor: pointer;
 }

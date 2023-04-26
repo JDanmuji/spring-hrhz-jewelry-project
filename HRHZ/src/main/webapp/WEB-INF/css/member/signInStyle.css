@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
 /* 로그인 폼 */
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
 .background{
   background-color: #fafafa;
 }
@@ -33,7 +36,6 @@
 /* 이메일, 비밀번호 */
 .inputContainer {
   position: relative;
-  margin-bottom: 25px;
 }
 
 .inputContainer label {
@@ -41,19 +43,18 @@
   font-size: 12px;
   color: #b8b9b8;
   font-weight: 400;
+  margin-top: 20px;
 }
 
 .inputContainer input {
   font-family: 'Barlow', sans-serif;
   border: none;
   width: 370px;
-  height: 50px;
+  height: 25px;
   font-size: 14px;
-  padding-left: 5px;
+  padding: 9px 0px 8px;
   font-weight: 400;
-  line-height: 19px;
 }
-
 .inputContainer .underline {
   position: absolute;
   bottom: 0;
@@ -62,13 +63,33 @@
   height: 1px;
   background-color: #ededed;
 }
-
 .inputContainer input:focus ~ .underline {
   background-color: #000000;
 }
-
 .inputContainer input:focus {
   outline: none;
+}
+.inputContainer img{
+  position: absolute;
+  top: 40%;
+  right:5px;
+  width: 30px;
+  height: 30px;
+}
+.email, .password{
+  color: #000000;
+}
+
+.emailError, .passwordError{
+ color: rgb(254, 79, 0);
+	font-size: 11px;
+	font-weight: 400;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+.emailValidIcon, .passwordValidIcon{
+  display: none;
 }
 
 /* 로그인 유지하기 버튼*/
@@ -78,7 +99,7 @@
   position: relative;
   cursor: pointer;
   padding-left: 25px;
-  margin-right: 15px;
+  margin: 10px 15px 5px 0;
   line-height: 13.8px;
   float: left;
   font-weight: 400;
@@ -133,7 +154,8 @@
 	text-align: right;
 	font-size: 12px;
 	position: relative;
-  right: 10px;
+    right: 10px;
+    margin: 10px 0 5px 0;
 	float: right;
 	line-height: 13.8px;
 }
@@ -145,17 +167,27 @@ a {
 
 
 /* 로그인 버튼 */
-.signinButton {
-  width: 370px;
-  height: 45px;
-  background-color: #dddddd; /* 버튼 배경색 */
-  color: #ffffff; /* 버튼 텍스트 색상 */
-  font-size: 14px; /* 버튼 텍스트 크기 */
-  border: none; /* 버튼 테두리 없애기 */
-  border-radius: 3px; /* 버튼 모서리 둥글게 만들기 */
-  cursor: pointer; /* 커서를 포인터로 변경하여 버튼임을 알리기 */
-  margin-top: 20px;
+.signInButton {
+	border-radius: 2px;
+	outline: none;
+	border: 1px solid transparent;
+	text-align: center;
+	cursor: pointer;
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: -0.3px;
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+	margin-top: 30px;
 }
+
+.signInButton:disabled {
+	background-color: rgb(211, 211, 211);
+}
+
 
 /* 일반 텍스트 */
 .text1, .text2{

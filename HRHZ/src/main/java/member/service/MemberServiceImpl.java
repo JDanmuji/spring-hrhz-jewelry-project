@@ -1,15 +1,23 @@
 package member.service;
 
+import hrhz.dto.AES256;
 import hrhz.dto.MemberDTO;
 import member.dao.MemberDAO;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.Mac;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -17,16 +25,21 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.HashMap;
 
 @PropertySource("classpath:hrhz/conf/login.properties")
 @Service
 public class MemberServiceImpl implements MemberService {
     @Autowired
     private MemberDAO memberDAO;
-
+ 
+    @Autowired
+    private AES256 aes256;
+    
     @Value("${sms.accessKey}")
     private String accessKey;   // 네이버 클라우드 플랫폼 회원에게 발급되는 개인 인증키
     @Value("${sms.secretKey}")
@@ -35,6 +48,8 @@ public class MemberServiceImpl implements MemberService {
     private String serviceId;   // 프로젝트에 할당된 SMS 서비스 ID
     @Value("${sms.myPhone}")
     private String myPhone;
+    @Value("${aes256.key}")
+	private String key;    //key는 16자 이상
 
     private String makeSignature(String url, String timestamp, String method) {
         String space = " ";                    // one space
@@ -150,6 +165,41 @@ public class MemberServiceImpl implements MemberService {
         if(memberDTO == null) { return "non_exist"; }
         else { return "exist"; }
     }
+
+	@Override
+	public void memberInsert(HashMap<String, Object> dataMap) {
+		
+    	String password = dataMap.get("password").toString();
+    	
+    	//password encode
+    	try {
+    		aes256.setAlg(key);
+			dataMap.put("password", aes256.encrypt(password));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		memberDAO.memberInsert(dataMap);
+		
+	}
+
+	@Override
+	public String loginCheck(HashMap<String, Object> dataMap) {
+
+		String password = dataMap.get("password").toString();
+    	
+    	//password encode
+    	try {
+    		aes256.setAlg(key);
+			dataMap.put("password", aes256.encrypt(password));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	
+    	
+		
+		return memberDAO.loginCheck(dataMap);
+	}
 
 }
 

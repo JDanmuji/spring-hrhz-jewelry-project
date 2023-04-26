@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Repository
 @Transactional
-public class MyDAOMyBatis implements  MyDAO{
+public class MyDAOMyBatis implements MyDAO{
     @Autowired
     private SqlSession sqlSession;
 
@@ -41,5 +41,10 @@ public class MyDAOMyBatis implements  MyDAO{
     @Override
     public void deleteMember(String id) {
         sqlSession.selectOne("mySQL.deleteMember",id);
+    }
+
+    @Override
+    public void updateMember(MemberDTO memberDTO) {
+        sqlSession.update("mySQL.updateMember", memberDTO);
     }
 }

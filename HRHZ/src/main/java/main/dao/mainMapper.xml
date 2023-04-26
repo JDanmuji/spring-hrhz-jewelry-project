@@ -16,6 +16,7 @@
 		       	,	(SELECT name FROM brand WHERE  code = p.brand_code) as "brandName" 
 		       	, 	TO_CHAR(p.price, 'FM999,999,999,999') AS "price"
 		       	,	p.like_count AS "likeCount"
+		       	,	p.color AS "color"
 		        ,   ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.SEQ DESC) AS "RN"
 				FROM   product p
 		       	INNER JOIN (SELECT  a.product_code
@@ -48,6 +49,7 @@
 		       	,	(SELECT name FROM brand WHERE  code = p.brand_code) as "brandName"
 		       	, 	TO_CHAR(p.price, 'FM999,999,999,999') AS "price" 
 		       	,	p.like_count AS "likeCount"
+		       	,	p.color AS "color"
 		        ,   ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.SEQ DESC) AS "RN"
 				FROM   product p
 		       	INNER JOIN (SELECT  a.product_code

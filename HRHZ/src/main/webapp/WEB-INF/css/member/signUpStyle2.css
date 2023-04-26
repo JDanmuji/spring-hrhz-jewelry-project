@@ -2,54 +2,56 @@
 
 
 /* 폼 가운데 정렬*/
-.background{
+.backGround{
 	background-color: #fafafa;
 }
-.outerWrapper{
-	background-color: #ffffff;
-	margin: 0 160px;
-	border: none;
-	box-shadow: 0px 0px 5px #F7F7F7;
+
+.wrapper {
+	max-width: 1200px;
+    min-height: calc(100vh - 73px);
+    margin: 0px auto;
+    padding: 70px 0px 100px;
+    font-family: NotoSansCJKkr;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(125, 125, 125, 0.05) 0px 0px 15px 0px;
 }
 
-.formContainer {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
+form {
+	max-width: 964px;
+	margin: 0px auto;
+	width: 554px;
 }
 
-.form1 {
-	width: 550px;
-	height: auto;
-	margin-top: 30px;
-	align-items: center;
-	text-align: left;
+.formHeader {
 	position: relative;
-	flex-direction: column;
+	letter-spacing: -0.5px;
 }
 
 /* 이용약관동의 제목 */
-.termsOfService {
+.termsOfServiceTitle span {
 	display: inline-block;
 	position: relative;
-	font-size: 38px;
-	font-weight: 700;
-    letter-spacing: -1px;
-	text-align: left;
-	line-height: 60px;
-	margin-right: 55px;
-	margin-top: 70px;
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 59px;
+	letter-spacing: -1px;
 }
 
-.form1 .signupOrder {
-	display: inline-block;
-	position: relative;
-	left:60px;
-	bottom:15px;
+.formHeader .signUpOrder {
+	position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
-.signupOrderActive {
+.signUpOrder img {
+	width: 12px;
+    height: 12px;
+    margin: 0px 8px;
+    vertical-align: middle;
+}
+
+.signUpOrderActive {
 	font-size: 13px;
 	font-weight: 400;
 	text-align: right;
@@ -59,7 +61,7 @@
 	margin: 0;
 }
 
-.signupOrderInactive {
+.signUpOrderInactive {
 	font-size: 13px;
 	font-weight: 400;
 	text-align: right;
@@ -69,21 +71,16 @@
 	margin: 0;
 }
 
-.signupText {
-	font-size: 15px;
-	font-weight: 400;
-	text-align: left;
-	color: #000000;
+.signUpText {
 	margin-top: 10px;
 	margin-bottom: 80px;
 }
 
-/* 활성화 비활성화 이미지 */
-.formContainer img {
-	width: 13px;
-	height: auto;
-	vertical-align: middle;
-	margin: 0;
+.signUpText span {
+	font-size: 15px;
+	font-weight: 400;
+	text-align: left;
+	color: #000000;
 }
 
 /* 이용약관동의 버튼*/

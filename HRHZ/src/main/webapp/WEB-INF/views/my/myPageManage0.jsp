@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<section class="mypageContentSection">
-  <section class="mypageSection">
+<section class="myPageContentSection">
+  <section class="myPageSection">
     <h3 class="userCheckHead">회원정보 수정</h3>
     <section class="userCheckSection">
       <div class="userCheckInfo">
