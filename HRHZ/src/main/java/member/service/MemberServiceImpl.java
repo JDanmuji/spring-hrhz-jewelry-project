@@ -176,7 +176,6 @@ public class MemberServiceImpl implements MemberService {
 		System.out.println(password);
 		String test = passEncoder.encode(password);
 		System.out.println();
-		passDe(test);
 		System.out.println(passEncoder.encode(password));
 	
 		

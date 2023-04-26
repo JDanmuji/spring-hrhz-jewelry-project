@@ -42,10 +42,24 @@
 <%--                                                <input type="text" name="productCodeList" value="{P00000072, P00000020}"  hidden />--%>
 <%--                                                <input type="text" name="optionCountList" ${(param.optionCountList)}--%>
 <%--                                                <div id="optionCountList">${(param.optionCountList)}</div>--%>
-                                                <input type="text" class="optionCountList" hidden
-                                                    value='{"P00000072": {"D00000179":1,"D00000180": 0,"D00000181":1,"D00000182":0,"D00000183":0,"D00000184":0 },
-                                                    "P00000020":{"D00000023": 0,"D00000024": 1,"D00000025": 0,"D00000026": 0,"D00000027": 0,"D00000028": 0}}'
-                                                />
+<%--                                                <input type="text" class="optionCountList" hidden--%>
+<%--                                                    value='{--%>
+<%--                                                    --%>
+<%--                                                            "P00000072": {"code":"D00000179", "count":1}--%>
+<%--                                                                        {"code":"D00000180", "count":0},--%>
+<%--                                                                        {"code":"D00000181", "count":0},--%>
+<%--                                                                        {"code":"D00000182", "count":0},--%>
+<%--                                                                        {"code":"D00000183", "count":1},--%>
+<%--                                                                        {"code":"D00000184", "count":0}]--%>
+<%--                                                            }'--%>
+<%--                                                />--%>
+<%--    "P00000020":[{"code" : "D00000023", "count":1},--%>
+<%--    {"code" : "D00000024", "count":0},--%>
+<%--    {"code" : "D00000025", "count":0},--%>
+<%--    {"code" : "D00000026", "count":0},--%>
+<%--    {"code" : "D00000027", "count":1},--%>
+<%--    {"code" : "D00000028", "count":0}]--%>
+<%--                                                 <div class="optionCountList" style="display: none">${param.optionCountList}"</div>--%>
                                                 <div class="productInfoImgBox">
                                                     <span class="productImg">
 <%--                                                        --%>
