@@ -40,5 +40,14 @@ public class CategoryDAOMyBatis implements CategoryDAO {
 		return sqlSession.selectOne("categorySQL.getTotalA");
 	}
 
+
+	@Override
+	public List<Map<String, Object>> CategoryColorList(List<String> colorArr) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("colorArr", colorArr);
+		return sqlSession.selectList("categorySQL.getCategoryBestProductList", map);
+	}
+
+
 	
 }

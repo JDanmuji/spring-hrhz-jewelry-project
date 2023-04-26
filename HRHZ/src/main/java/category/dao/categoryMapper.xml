@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="categorySQL">
 
-	<select id ="getCategoryBestProductList" resultType="java.util.Map">
+	<select id ="getCategoryBestProductList" parameterType="java.util.List" resultType="java.util.Map">
 		SELECT 
 *
 FROM  (SELECT 
@@ -19,6 +19,7 @@ FROM  (SELECT
                 ,   (SELECT name FROM brand WHERE  code = p.brand_code) as "brandName" 
                 ,    TO_CHAR(p.price, 'FM999,999,999,999') AS "price"
                 ,   p.like_count AS "likeCount"
+                , p.color as "color"
               ,   ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.SEQ DESC) AS "RN"
             FROM   product p
                 INNER JOIN (SELECT  a.product_code
@@ -31,6 +32,13 @@ FROM  (SELECT
               ON p.code = pi.product_code
             WHERE  
                1 = 1
+               <if test='colorArr != null'>
+                AND color IN 
+            <foreach item="item" index="index" collection="colorArr" open="(" separator="," close=")">
+            #{item}
+          </foreach>
+       	 </if>
+           
                 ORDER  BY p.like_count DESC
              ) k
       WHERE 
@@ -53,6 +61,7 @@ FROM  (SELECT
                 ,   (SELECT name FROM brand WHERE  code = p.brand_code) as "brandName" 
                 ,    TO_CHAR(p.price, 'FM999,999,999,999') AS "price"
                 ,   p.like_count AS "likeCount"
+                , p.color as "color"
               ,   ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.SEQ DESC) AS "RN"
             FROM   product p
                 INNER JOIN (SELECT  a.product_code
@@ -65,6 +74,11 @@ FROM  (SELECT
               ON p.code = pi.product_code
             WHERE  
                1 = 1
+                <if test='colorArr != null'>
+                
+                AND color IN #{colorArr}
+               
+            </if>
                 ORDER  BY p.like_count DESC
              ) k
       WHERE 
@@ -140,5 +154,6 @@ FROM  (SELECT
     
     <!-- colorSelectProdutList -->
     
+
 
 </mapper>

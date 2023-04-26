@@ -61,10 +61,10 @@ public class CategorySeviceImpl implements CategoryService {
 	}
 
 
+
 	@Override
-	public Map<String, Object> getCategoryColorList(String color) {
-		
-		return null;
+	public List<Map<String, Object>> CategoryColorList(List<String> colorArr) {
+		return categoryDAO.CategoryColorList(colorArr);
 	}
 
 

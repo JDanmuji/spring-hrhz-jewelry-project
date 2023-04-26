@@ -10,8 +10,9 @@ public interface CategoryService {
 
 	public void categorylikeCount(HashMap<String, String> dataMap);
 
-	public Map<String, Object> getCategoryColorList(String color);
+	public List<Map<String, Object>> CategoryColorList(List<String> colorArr);
 
+	
 	
 
 }
