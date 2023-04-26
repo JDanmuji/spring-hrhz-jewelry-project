@@ -20,7 +20,7 @@
     </head>
     <body>
 	    
-	    <input type="hidden" id="memberId" value="test"/>
+	    <input type="hidden" id="memberId" value="${sessionId}"/>
         <%@ include file="/WEB-INF/views/common/header.jsp" %>
         <main>
         

@@ -13,23 +13,29 @@
     <insert id="memberInsert" parameterType="java.util.HashMap" >
         INSERT INTO member 
         VALUES ( 
-			${joinPath} || LPAD(SEQ_MEMBERID.NEXTVAL,6,0)
-	        , 	${email}
-	        ,	${phone}
-	        ,	'${password}
+			('${joinPath}' || LPAD(SEQ_MEMBERID.NEXTVAL,6,0))
+	        , 	'${email}'
+	        ,	'${phone}'
+	        ,	'${password}'
 	        ,	null
 	        ,	null
 	        ,	null
-	        ,	${joinPath}
+	        ,	'${joinPath}'
 	        ,	'N'
 	        ,	null
 	        , 	sysdate
 	        , 	null
-	        , 	${smsAlarm}
-	        ,  	${emailAlarm}
+	        , 	'${smsAlarm}'
+	        ,  	'${emailAlarm}'
 	     )
     </insert>
     
-    
+     <select id="loginCheck" parameterType="java.util.HashMap" resultType="String">
+        SELECT id as "ID" 
+        FROM member 
+        WHERE 1=1 
+        AND email = #{email}
+        AND password = #{password}
+    </select>
 
 </mapper>
