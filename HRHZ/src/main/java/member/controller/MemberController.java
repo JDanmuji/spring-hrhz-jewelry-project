@@ -1,12 +1,15 @@
 package member.controller;
 
 import member.service.MemberService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.HashMap;
+
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +19,8 @@ import javax.servlet.http.HttpSession;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+    
+
     
    
 
@@ -92,4 +97,14 @@ public class MemberController {
         
 	    return result;
     }
+    
+    @RequestMapping(value="/callBack", method=RequestMethod.GET)
+    public String callBack(){
+    	return "/views/member/callBack";
+    }
+    
+
+
 }
+
+
