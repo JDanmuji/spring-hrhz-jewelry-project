@@ -1,179 +1,234 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<section class="adminContentSection">
-  <section class="adminSection">
-    <section>
-      <h3>회원정보수정</h3>
-      <section class="adminManage">
-        <article class="manageLoginInfo">
-          <h4 class="manageLoginHead">로그인 정보</h4>
-<%--          일반 로그인 --%>
-          <div class="normalLogin">
-            <form class="" novalidate>
-              <div class="userInfoFormArea">
-                <div class="formLeft">
-                  <label class="formLabel">아이디</label>
+  <section class="adminContentSection">
+        <div class="formContainer">
+            <div class="title">
+                <div class="productFormTitle">상품 등록 </div>
+                <span class="titleUnderline"></span>
+                <div class="brandInfoTitle">상품 브랜드</div>
+                <button class="brandSearch">브랜드 조회</button>
+                <span class="subTitleUnderline"></span>
+                <div class="brandInfo">
+                <img src="../../images/member/black.jpg" alt="images">
+                <span class="brandName">앙스모멍</span>
                 </div>
-                <div class="formRight">
-                  <div class="formText">${memberDTO.email }</div>
-                </div>
-              </div>
-              <div class="userInfoFormArea">
-                <div class="formLeft">
-                  <label class="formLabel">비밀번호</label>
-                </div>
-                <div class="formRight">
-                  <article class="modifyPwdBtnWrap">
-                    <input class="passwordForm" type="password" readonly value="0000000" />
-                    <div class="btnWrap">
-                      <button class="whiteBtn modifyPwdBtn" type="button">
-                        비밀번호 수정
-                      </button>
-                    </div>
-                  </article>
+                <span class="brandUnderline"></span>
+            </div>
 
-                  <article class="userNewPwdWrap" style="display: none">
-                    <div class="inputPlaceholder formInput">
-                      <input name="userPassword" type="password" maxlength="15" placeholder="현재 비밀번호를 입력해 주세요.">
-                    </div>
-                    <div class="inputPlaceholder formInput">
-                      <input name="userNewPassword" type="password" maxlength="15" placeholder="새 비밀번호를 입력해 주세요.">
-                    </div>
-                    <div class="inputPlaceholder formInput">
-                      <input name="userCheckPassword" type="password" maxlength="15" placeholder="새 비밀번호를 한번 더 입력해 주세요.">
-                    </div>
-                    <div class="btnWrap">
-                      <button class="whiteBtn cancelBnt" type="button">취소</button>
-                      <button class="goShopBtn submitBtn" type="button" disabled>수정</button>
-                    </div>
-                  </article>
+            <form action="">
+            <div class="producttitle">
+                <span class="titleUnderline"></span>
+                <div class="brandInfoTitle">상품 정보</div>
+                <span class="subTitleUnderline"></span>
+            </div>
+            
+                <div class="inputContainer">
+                    <label for="productName">상품 이름</label>
+                    <input type="text" class="productName" required>
+                    <span class="underline productNameUnderline"></span>
                 </div>
-              </div>
+
+                <div class="categoryAndType">
+                <div class="inputContainer">
+                    <label for="productCategory">상품 카테고리</label>
+                    <div class="dropdownCoverSelector">
+                        <div class="dropdownSelect">
+                            <p class="optionName">옵션 선택</p>
+                            <img src="../../images/purchase/arrow_bottom_outline_black_btn.png" alt="image">
+                        </div>
+                        <div class="dropdownBox" style="display:none;">
+                            <p class="dropdownOpenLabel">옵션 선택</p>
+                            <p class="dropdownOption">귀걸이</p>
+                            <p class="dropdownOption">목걸이</p>
+                            <p class="dropdownOption">반지</p>
+                            <p class="dropdownOption">팔찌</p>
+                            <p class="dropdownOption">헤어</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputContainer">
+                    <label for="productType">상품 종류</label>
+                    <div class="dropdownCoverSelector1">
+                        <div class="dropdownSelect1">
+                            <p class="optionName1">옵션 선택</p>
+                            <img src="../../images/purchase/arrow_bottom_outline_black_btn.png" alt="image">
+                        </div>
+                        <div class="dropdownBox1" style="display:none;">
+                            <p class="dropdownOpenLabel1">옵션 선택</p>
+                            <p class="dropdownOption1">원석</p>
+                            <p class="dropdownOption1">비즈</p>
+                            <p class="dropdownOption1">각인</p>
+                            <p class="dropdownOption1">실</p>
+                            <p class="dropdownOption1">커플링</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="inputContainer">
+                    <label for="productDetailsClassification">상품 상세분류</label>
+                    <div class="dropdownCoverSelector2">
+                        <div class="dropdownSelect2">
+                            <p class="optionName2">옵션 선택</p>
+                            <img src="../../images/purchase/arrow_bottom_outline_black_btn.png" alt="image">
+                        </div>
+                        <div class="dropdownBox2" style="display:none;">
+                            <p class="dropdownOpenLabel2">옵션 선택</p>
+                            <p class="dropdownOption2">색상/호수</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stockAndPrice">
+                <div class="inputContainer">
+                    <label for="productStock">상품 재고</label>
+                    <input type="text" class="productStock" required>
+                    <span class="underline productStockLine"></span>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="productPrice">상품 가격</label>
+                    <input type="text" class="productPrice" required>
+                    <span class="underline productPriceLine"></span>
+                </div>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="productdetail">상품 설명</label>
+                    <input type="text" class="productdetail1" required>
+                    <span class="underline productDetailLine1"></span>
+                </div>
+
+                <div class="productdetailtitle">
+                    <span class="titleUnderline"></span>
+                    <div class="brandInfoTitle">상품 상세 정보</div>
+                    <span class="subTitleUnderline"></span>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="productdetail">상품 상세1</label>
+                    <input type="text" class="productdetail" required>
+                    <span class="underline productdetailLine"></span>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="productdetail">상품 상세2</label>
+                    <input type="text" class="productdetail" required>
+                    <span class="underline productdetailLine"></span>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="productdetail">상품 상세3</label>
+                    <input type="text" class="productdetail" required>
+                    <span class="underline productdetailLine"></span>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="productdetail">상품 상세4</label>
+                    <input type="text" class="productdetail" required>
+                    <span class="underline productdetailLine"></span>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="productdetail">상품 상세5</label>
+                    <input type="text" class="productdetail" required>
+                    <span class="underline productdetailLine"></span>
+                </div>
+
+                <button type="submit" class="productInsert">상품 정보 등록</button>
+
             </form>
-          </div>
-
-<%--          snsLogin--%>
-<%--          <c:if test="${memberDTO.joinPath eq 'hrhz'}">--%>
-<%--            <div class="snsLogin">--%>
-<%--                <p class="snsMainText">--%>
-<%--                  <span class="snsType">${memberDTO.joinPath } </span>--%>
-<%--                  로 로그인 하였습니다.--%>
-<%--                </p>--%>
-<%--                <p class="snsSubText">--%>
-<%--                  SNS로 가입하신 분들은 SNS계정에서 비밀번호를 바꿔주세요.--%>
-<%--                </p>--%>
-<%--              </div>--%>
-<%--          </c:if>--%>
-
-        </article>
-        <article class="manageUserInfo">
-          <h4>회원 정보</h4>
-          <div class="userInfoFormWrap">
-            <form class="userInfoForm" novalidate>
-              <div class="userInfoFormArea">
-                <div class="formLeft">
-                  <label class="formLabel required">이름</label>
-                </div>
-                <div class="formRight">
-                  <div class="inputPlaceholder formInput">
-                    <input type="text" name="userName" maxlength="20" placeholder="이름을 입력해 주세요." />
-                    <label></label>
-<%--                    <img class="inputCheckIcon" src="./adminManageImg/valid-input-check-icon.png" /> --%>
-<%--                    <p class="infoErrorMsg">1~20자의 이름을 입력해 주세요.</p>--%>
-                  </div>
-                </div>
-              </div>
-              <div class="userInfoFormArea">
-                <div class="formLeft">
-                  <label class="formLabel">휴대폰 번호</label>
-                </div>
-                <div class="formRight">
-                  <div class="formText">${memberDTO.phone}</div>
-                </div>
-              </div>
-              <div class="userInfoFormArea">
-                <div class="formLeft">
-                  <label class="formLabel">이메일</label>
-                </div>
-                <div class="formRight">
-                  <div class="formInput">
-                    <input type="text" name="userEmail" maxlength="80" placeholder="이메일을 입력해 주세요." value="${memberDTO.email}" />
-                    <label></label>
-                  </div>
-                  <!-- <p class="infoErrorMsg">유효한 이메일을 입력해 주세요.</p> -->
-                  <p class="infoFormMsg">
-                    이메일 입력 시 할인, 쿠폰 등 할인 혜택을 알려드립니다.
-                  </p>
-                </div>
-              </div>
-              <div class="userInfoFormArea">
-                <div class="formLeft">
-                  <label class="formLabel">혜택정보 알림</label>
-                </div>
-                <div class="formRight">
-                  <div class="formInput receiveWrap">
-                    <div class="snsCheckbox">
-                      <input type="checkbox" name="smsReceive" id="smsReceive" />
-                      <label for="smsReceive"><span>SMS 수신동의</span></label>
-                    </div>
-                    <div class="snsCheckbox">
-                      <input type="checkbox" name="emailReceive" id="emailReceive" />
-                      <label for="emailReceive"><span>E-Mail 수신동의</span></label>
-                    </div>
-                  </div>
-                  <p class="infoFormMsg">
-                    아몬즈 회원을 위한 할인 소식, 쿠폰 등<br />
-                    특별한 맞춤 혜택을 편하게 받아보실 수 있습니다.
-                  </p>
-                </div>
-              </div>
-              <div class="userInfoFormArea">
-                <div class="formLeft">
-                  <label class="formLabel">생일</label>
-                </div>
-                <div class="formRight">
-                  <div class="reactDatepickerWrap">
-                    <div class="reactDatepicker">
-                      <button type="button" class="datepickBtn">
-                        <div class="placeholder">날짜를 선택해주세요.</div>
-                        <img alt="Date" src="../../images/my/date_picker_icon.png" />
-                      </button>
-                    </div>
-                  </div>
-                  <p class="infoFormMsg">
-                    아몬즈에서 생일 축하 쿠폰을 발급해드립니다. (계정당 연 1회)
-                  </p>
-                </div>
-              </div>
-              <div class="userInfoFormArea">
-                <div class="formLeft">
-                  <label class="formLabel">성별</label>
-                </div>
-                <div class="formRight">
-                  <div class="formInput genderWrap">
-                    <input type="radio" name="userGender" id="userGenderW" class="genderInput" value="0" checked="checked" />
-                    <label for="userGenderW">여자</label>
-                    <input type="radio" name="userGender" id="userGenderM" class="genderInput" value="1" />
-                    <label for="userGenderM">남자</label>
-                  </div>
-                  <div class="btnWrap">
-                    <button type="button" class="goShopBtn submitBtn" type="button" disabled>
-                      수정
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="userInfoFormArea">
-                <div class="formRight">
-                  <div class="userRemove">
-                    <button type="button">회원탈퇴</button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </article>
-      </section>
+        </div>
     </section>
-  </section>
-</section>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+    // ---------------------------------------------------
+    //                      option0
+    // ---------------------------------------------------
+    // option dropdown box
+    $(".dropdownCoverSelector").on(
+        "click",
+        ".dropdownSelect",
+        function (event) {
+            $(".dropdownBox").css("display", "flex");
+        }
+    );
+    $(".dropdownCoverSelector").on("click", ".dropdownBox p", function (event) {
+        $(".dropdownBox").css("display", "none");
+    });
+    
+    //display selected option box
+    $(".dropdownCoverSelector").on("click", ".dropdownOption", function (event) {
+    // get selected option name
+    var select_name = $(this).text();
+
+    // display selected option name
+    $(this).parents(".dropdownCoverSelector").find(".optionName").text(select_name);
+
+    // hide dropdown box
+    $(this).parents(".dropdownBox").css("display", "none");
+
+    // hide "옵션 선택" option name
+    $(this).parents(".dropdownCoverSelector").find(".dropdownOpenLabel").hide();
+});
+    // ---------------------------------------------------
+    //                      option1
+    // ---------------------------------------------------
+    // option dropdown box
+    $(".dropdownCoverSelector1").on(
+        "click",
+        ".dropdownSelect1",
+        function (event) {
+            $(".dropdownBox1").css("display", "flex");
+        }
+    );
+    $(".dropdownCoverSelector1").on("click", ".dropdownBox1 p", function (event) {
+        $(".dropdownBox1").css("display", "none");
+    });
+    
+    //display selected option box
+    $(".dropdownCoverSelector1").on("click", ".dropdownOption1", function (event) {
+    // get selected option name
+    var select_name = $(this).text();
+
+    // display selected option name
+    $(this).parents(".dropdownCoverSelector1").find(".optionName1").text(select_name);
+
+    // hide dropdown box
+    $(this).parents(".dropdownBox1").css("display", "none");
+
+    // hide "옵션 선택" option name
+    $(this).parents(".dropdownCoverSelector1").find(".dropdownOpenLabel1").hide();
+});
+
+    // ---------------------------------------------------
+    //                      option1
+    // ---------------------------------------------------
+    // option dropdown box
+    $(".dropdownCoverSelector2").on(
+        "click",
+        ".dropdownSelect2",
+        function (event) {
+            $(".dropdownBox2").css("display", "flex");
+        }
+    );
+    $(".dropdownCoverSelector2").on("click", ".dropdownBox2 p", function (event) {
+        $(".dropdownBox2").css("display", "none");
+    });
+    
+    //display selected option box
+    $(".dropdownCoverSelector2").on("click", ".dropdownOption2", function (event) {
+    // get selected option name
+    var select_name = $(this).text();
+
+    // display selected option name
+    $(this).parents(".dropdownCoverSelector2").find(".optionName2").text(select_name);
+
+    // hide dropdown box
+    $(this).parents(".dropdownBox2").css("display", "none");
+
+    // hide "옵션 선택" option name
+    $(this).parents(".dropdownCoverSelector2").find(".dropdownOpenLabel2").hide();
+});
+    </script>
