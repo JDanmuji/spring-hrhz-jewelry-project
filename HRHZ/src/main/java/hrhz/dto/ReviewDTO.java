@@ -13,4 +13,5 @@ public class ReviewDTO {
 	private int like;
 	private String regDate;
 	private String modDate;
+	private String imageYN;
 }
