@@ -25,26 +25,43 @@
     </select>
 
 	<select id="getProductReviews" parameterType="String" resultType="map">
-		SELECT 
-		        
-		       r.seq                             	AS "seq",
-		       ri.seq                            	AS "imgSeq",
-		       r.member_id                       	AS "memberId",
-		       r.content                         	AS "content",
-		       r.like_count                         AS "like",
-		       To_char(r.reg_date, 'YYYY.MM.DD') 	AS "regDate",
-		       ri.img_origin_name                	AS "imgName",
-		       (ri.img_path || ri.img_origin_name)  AS "imgPath"
-		FROM   review r
-		       inner join (SELECT seq,
-		                          review_seq,
-		                          img_origin_name,
-		                          img_path
-		                   FROM   review_image) ri
-		               ON r.seq = ri.review_seq
-		WHERE  1 = 1
-		       AND product_code = 'P00000072'
-		       order by r.seq
+		  SELECT          
+		  		main.seq                             AS "seq",
+                image.seq                            AS "imgSeq",
+                image.review_seq                     AS "img_review_Seq",
+                main.member_id                       AS "memberId",
+                main.content                         AS "content",
+                main.like_count                      AS "like",
+                To_char(main.reg_date, 'YYYY.MM.DD') AS "regDate",
+                image.img_origin_name                AS "imgName",
+                (image.img_path     || image.img_origin_name) AS "imgPath",
+                gup.imgCount AS 					"imgCount"
+		                            
+			FROM   review main
+			INNER JOIN
+			                (
+			                   SELECT          r.seq ,
+			                                   ri.review_seq ,
+			                                   COUNT(CASE WHEN r.seq = ri.review_seq THEN 1 END) AS imgCount
+			                   FROM            review r
+			                   LEFT OUTER JOIN
+			                                   (
+			                                          SELECT seq
+			                                                 , review_seq
+			                                                 , img_origin_name
+			                                                 , img_path
+			                                          FROM   review_image ) ri
+			                   ON              r.seq = ri.review_seq
+			                   WHERE           
+			                   		1 = 1
+			                   GROUP BY        ( r.seq , ri.review_seq) 
+			                   
+			                   ) gup
+				ON main.seq = gup.seq
+			LEFT OUTER JOIN review_image image
+				ON 	main.seq = image.review_seq
+			WHERE           main.product_code = '${productCode}'
+			ORDER BY        main.seq
     </select>
     
     <select id="getReviewSeq" resultType="int">
@@ -53,7 +70,7 @@
     
     <insert id="reviewUpload" parameterType="review">
     	INSERT INTO review VALUES(#{seq}, #{productCode}, #{brandCode}, #{memberId},
-    							  #{content}, #{like}, SYSDATE, NULL)
+    							  #{content}, #{like}, SYSDATE, NULL, #{imageYN})
     </insert>
     
     <insert id="reviewImageUpload" parameterType="reviewImage">

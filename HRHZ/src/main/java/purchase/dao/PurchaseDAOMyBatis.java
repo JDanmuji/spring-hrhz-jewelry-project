@@ -39,6 +39,12 @@ public class PurchaseDAOMyBatis implements PurchaseDAO {
 		
 		// insert review
 		reviewDTO.setSeq(reviewSeq);
+		if (fileNameList != null) {
+			reviewDTO.setImageYN("Y");
+		} else {
+			reviewDTO.setImageYN("N");	
+		}
+		
 		sqlSession.insert("purchaseSQL.reviewUpload", reviewDTO);
 		System.out.println(fileNameList);
 		

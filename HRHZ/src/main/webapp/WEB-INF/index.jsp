@@ -186,7 +186,7 @@
             </article>
         <%@ include file="/WEB-INF/views/common/loginForm.jsp" %>
         </main>
-
+ 
         <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 
         

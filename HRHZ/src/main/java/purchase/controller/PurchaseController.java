@@ -58,6 +58,7 @@ public class PurchaseController {
 	 @PostMapping(value = "getProductReviews")
 	 @ResponseBody
 	 public List<Map<String, Object>> getProductReviews(@RequestParam String productCode) {
+		 System.out.println(purchaseService.getProductReviews(productCode));
 		 return purchaseService.getProductReviews(productCode);
 	 }
 	 
@@ -72,7 +73,10 @@ public class PurchaseController {
 		 String fileName;
 		 File file;
 		 
-		 if(list != null) {
+		 System.out.println(list.get(0));
+		 System.out.println(list.get(0).getSize());
+		 
+		 if(list.get(0).getSize() > 0) {
 			 for(MultipartFile img : list) {
 				 fileName = img.getOriginalFilename();
 				 

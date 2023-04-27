@@ -1,4 +1,7 @@
 $(document).ready(function () {
+ // remove GET parameters after uploading review
+    history.replaceState({}, null, location.pathname);
+
     var productCode = $(".productCode").text();
     var memberId = $(".memberId").text();
 
@@ -132,63 +135,108 @@ $(document).ready(function () {
         data: "productCode=" + productCode,
         url: "/purchase/getProductReviews",
         success: function (data) {
-            $(".productReviewMoreText span").text(data[0].reviewCount);
-            $(".productReviewTotalCnt").text("(" + data[0].reviewCount + ")");
+        
+        	console.log(data);
+            //$(".productReviewMoreText span").text(data[0].reviewCount);
+            //$(".productReviewTotalCnt").text("(" + data[0].reviewCount + ")");
             var reviewImg = "";
             var reviewSeq = data[0].seq;
+            var imgCnt = 0;
+            var reviewHTML;	
+            var imgSeq_t = 0;	
 
             $.each(data, function (index, items) {
-                console.log(reviewSeq);
-                console.log(items.seq);
+				
+			
+				
+				if(!items.imgSeq) {
+			
+	                reviewHTML =
+	                    "<a href='#'>" +
+	                    "<div class='productReviewItem'>" +
+	                    "<div class='reviewSeq'>" +
+	                    items.seq +
+	                    "</div>" +
+	                    "<div class='reviewInfo'>" +
+	                    "<div class='rate'>" +
+	                    "<img src='../../images/purchase/product_review_star_on.png' alt='star icon' />".repeat(
+	                        items.like
+	                    ) +
+	                    "</div>" +
+	                    "<div class='accountAndDate'>" +
+	                    "<span class='account'>" +
+	                    items.memberId.substring(0, 4) +
+	                    "**</span>" +
+	                    "<span class='line'>|</span>" +
+	                    "<span class='date'>" +
+	                    items.regDate +
+	                    "</span>" +
+	                    "</div>" +
+	                    "</div>" +
+	                    "<div class='reviewContent'>" +
+	                    items.content +
+	                    "</div>" +
+	                    "<div class='reviewPhoto'>";
+	                    
+	                  reviewHTML = reviewHTML  + "</div></div></a>";
+	                  
+	                  $(".productReviewList").append(reviewHTML);
+	                  reviewHTML = "";
+	                  
+				} else {
+					
+					
+					if ((items.imgCount+1)  > imgCnt) {
+						
+						reviewImg =
+				            reviewImg +
+				            "<img src='/storage/review/" +
+				            items.imgName +
+				            "'/>";
+				     	
+					} 
+					
+					
+					if (items.imgCount === imgCnt) {
+					
+						 reviewHTML =
+		                    "<a href='#'>" +
+		                    "<div class='productReviewItem'>" +
+		                    "<div class='reviewSeq'>" +
+		                    items.seq +
+		                    "</div>" +
+		                    "<div class='reviewInfo'>" +
+		                    "<div class='rate'>" +
+		                    "<img src='../../images/purchase/product_review_star_on.png' alt='star icon' />".repeat(
+		                        items.like
+		                    ) +
+		                    "</div>" +
+		                    "<div class='accountAndDate'>" +
+		                    "<span class='account'>" +
+		                    items.memberId.substring(0, 4) +
+		                    "**</span>" +
+		                    "<span class='line'>|</span>" +
+		                    "<span class='date'>" +
+		                    items.regDate +
+		                    "</span>" +
+		                    "</div>" +
+		                    "</div>" +
+		                    "<div class='reviewContent'>" +
+		                    items.content +
+		                    "</div>" +
+		                    "<div class='reviewPhoto'>";
+		                    
+		                    reviewHTML = reviewHTML + reviewImg + "</div></div></a>";
+	                     	$(".productReviewList").append(reviewHTML);
+	                     	reviewHTML = "";
+	                     	reviewImg = "";
+	                     	imgCnt = 0;
+					}
+					
+					imgCnt++;
+					
+				}
 
-                if (reviewSeq == items.seq) {
-                    reviewImg =
-                        reviewImg +
-                        "<img src='/storage/review/" +
-                        items.imgName +
-                        "'/>";
-                    reviewSeq = items.seq;
-                } else {
-                    reviewImg =
-                        reviewImg +
-                        "<img src='/storage/review/" +
-                        items.imgName +
-                        "'/>";
-
-                    let reviewHTML =
-                        "<a href='#'>" +
-                        "<div class='productReviewItem'>" +
-                        "<div class='reviewSeq'>" +
-                        items.seq +
-                        "</div>" +
-                        "<div class='reviewInfo'>" +
-                        "<div class='rate'>" +
-                        "<img src='../../images/purchase/product_review_star_on.png' alt='star icon' />".repeat(
-                            items.like
-                        ) +
-                        "</div>" +
-                        "<div class='accountAndDate'>" +
-                        "<span class='account'>" +
-                        items.memberId.substring(0, 4) +
-                        "**</span>" +
-                        "<span class='line'>|</span>" +
-                        "<span class='date'>" +
-                        items.regDate +
-                        "</span>" +
-                        "</div>" +
-                        "</div>" +
-                        "<div class='reviewContent'>" +
-                        items.content +
-                        "</div>" +
-                        "<div class='reviewPhoto'>";
-
-                    reviewHTML = reviewHTML + reviewImg + "</div></div></a>";
-                    console.log(reviewImg);
-
-                    $(".productReviewList").append(reviewHTML);
-                    reviewImg = "";
-                    reviewSeq = items.seq;
-                } //else
             }); //each
         },
         error: function (err) {
@@ -229,6 +277,13 @@ $(document).ready(function () {
     // ---------------------------------------------------
     // main thumbnail slide
     // call the function by clicking btn
+     
+    if (img_count == 0) {
+        $(".swiperButtonPrev").css("display", "none");
+        $(".swiperButtonNext").css("display", "none");
+    }
+    
+    
     $(".swiperButtonPrev").click(function () {
         --img_position;
         imgChange();
@@ -250,7 +305,7 @@ $(document).ready(function () {
 
     function imgChange() {
         var img_left = (1 - img_position) * 550 + "px";
-        console.log(img_left);
+
         imgs.animate({
             left: img_left,
         });
