@@ -10,7 +10,7 @@ public class PaymentDTO {
     private String brandName;
     private String productCode;
     private String productName;
-    private String productPrice;
+    private int productPrice;
     private String optionCode;
     private String detailType;
     private String optionName;

@@ -29,84 +29,9 @@
                             <div class='payProductInfo'>
 
 
+<%--                                table dynamic allocation --%>
 
-<%--                                <table class='payProductTable'>--%>
-<%--                                    <thead>--%>
-<%--                                        <tr>--%>
-<%--                                            <th class='storeName'>브랜드명</th>--%>
-<%--                                            <th class='count'>수량</th>--%>
-<%--                                            <th class='benefit'>할인혜택</th>--%>
-<%--                                            <th class='price'>주문금액</th>--%>
-<%--                                        </tr>--%>
-<%--                                    </thead>--%>
-<%--                                    <tbody>--%>
-<%--                                        <tr>--%>
-<%--                                            <td class='productInfoBox'>--%>
-<%--&lt;%&ndash;                                                <input type="text" name="optionCountList" ${(param.optionCountList)}&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                                <div id="optionCountList">${(param.optionCountList)}</div>&ndash;%&gt;--%>
 
-<%--                                                <div class='productInfoImgBox'>--%>
-<%--                                                    <span class='productImg'>--%>
-<%--                                                        <img src='../images/purchase/product.jpeg' />--%>
-<%--                                                    </span>--%>
-<%--                                                </div>--%>
-
-<%--                                                <div class='productInfo'>--%>
-<%--                                                    <div class='productName'>--%>
-<%--                                                        14K 슬라이드 볼 네추럴 스톤 팔찌--%>
-<%--                                                    </div>--%>
-<%--                                                    <div class='productOption'>--%>
-<%--                                                        배송 : 14K 슬라이드 볼 네추럴 스톤 팔찌--%>
-<%--                                                    </div>--%>
-<%--                                                    <div class='productCountAndPrice'>--%>
-<%--                                                        <span class='productPrice'>--%>
-<%--                                                            <span class='amount'>--%>
-<%--                                                                227,050--%>
-<%--                                                            </span>--%>
-<%--                                                            <span class='unit'>--%>
-<%--                                                                원--%>
-<%--                                                            </span>--%>
-<%--                                                        </span>--%>
-<%--                                                    </div>--%>
-<%--                                                </div>--%>
-<%--                                            </td>--%>
-<%--                                            <td class='productCount'>--%>
-<%--                                                <span class='amount'>--%>
-<%--                                                    1--%>
-<%--                                                </span>--%>
-<%--                                                <span class='unit'>--%>
-<%--                                                    개--%>
-<%--                                                </span>--%>
-<%--                                            </td>--%>
-<%--                                            <td class='discountBenefit'>--%>
-<%--                                                <div class='applyCoupon'>--%>
-<%--                                                    <span class='applyCouponInfo'>--%>
-<%--                                                        <span>쿠폰적용</span>--%>
-<%--                                                    </span>--%>
-<%--                                                </div>--%>
-<%--                                            </td>--%>
-<%--                                            <td class='orderPrice'>--%>
-<%--                                                <span class='amount'>227,050</span>--%>
-<%--                                                <span class='unit'>원</span>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                    </tbody>--%>
-<%--                                    <tfoot>--%>
-<%--                                        <tr>--%>
-<%--                                            <td class='productTotal' colspan='4'>--%>
-<%--                                                <span class='productPrice'>--%>
-<%--                                                    <span>상품</span>--%>
-<%--                                                    <span class='amount'>227,050</span>--%>
-<%--                                                    <span>+</span>--%>
-<%--                                                    <span>배송비</span>--%>
-<%--                                                    <span class='amount'>0</span>--%>
-<%--                                                    <span>=</span>--%>
-<%--                                                </span>--%>
-<%--                                                <span class='totalPriceAmount'>227,050</span>--%>
-<%--                                            </td>--%>
-<%--                                        </tr>--%>
-<%--                                    </tfoot>--%>
-<%--                                </table>--%>
                             </div>
 
                             <div class="bothSideInfoWrap">
@@ -201,7 +126,7 @@
                                         </div>
                                         <div class="applyPointBox">
                                             <div class="applyPointInfo">
-                                                <label for="applyPointFont">Point</label>
+                                                <label>Point</label>
                                                 <div class="applyPoint">
                                                     <input name="applyPoint" type="number" min="0" max="999999" value="0" readonly value />
                                                     <span class="add-on">P</span>

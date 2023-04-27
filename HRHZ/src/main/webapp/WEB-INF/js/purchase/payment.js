@@ -1,7 +1,3 @@
-$(function () {
-    summaryInfoAnimation();
-});
-
 //selectBox function
 $(".dropDownCoverSelector").on("click", function (event) {
     $(".dropDownList").css("display", "block");
@@ -15,21 +11,6 @@ $(".dropDownListPlain li").on("click", function (event) {
     $(".dropDownSelect span").text($(this).text());
     $(".dropDownList").css("display", "none");
 });
-
-function summaryInfoAnimation() {
-    var lnb = $(".paySummaryInfo").offset().top;
-
-    $(window).scroll(function () {
-        var window = $(this).scrollTop();
-
-        if (lnb <= window) {
-            $(".paySummaryInfo").addClass("fixed");
-        } else {
-            $(".paySummaryInfo").removeClass("fixed");
-        }
-    });
-};
-
 
 //-----------------------------------
 // product
@@ -49,7 +30,7 @@ $(function (){
     list.push(listData5);
     list.push(listData6);
 
-    var listData21 = {"optionCode":"D00000023", "productCount":1};
+    var listData21 = {"optionCode":"D00000023", "productCount":2};
     var listData22 = {"optionCode":"D00000024", "productCount":0};
     var listData23 = {"optionCode":"D00000025", "productCount":0};
     var listData24 = {"optionCode":"D00000026", "productCount":0};
@@ -71,102 +52,122 @@ $(function (){
         traditional: true,
         data: jsonList,
         success: function (data) {
-            var html;
-            var thead;
-            var tbody;
-            var footer;
+            let headName = [];
 
-            let uniqueBrandName = [];
             $.each(data, function (index, items){
+                let thead="";
+                let tbody="";
+                let tfoot="";
+                let productSum = 0;
 
-                html = "<table class='payProductTable'>";
+                let brandName = items.brandName;
 
-                if(uniqueBrandName.indexOf(items.brandName) === -1 ) {
-                    thead = "<thead>" +
+                // brand remove duplicate
+                if(headName.indexOf(items.brandName) === -1 ) {
+                    thead = "<table class='payProductTable'>"+
+                            "<thead>" +
                                 "<tr>" +
-                                    "<th class='storeName'>" + items.brandName + "</th>" +
+                                    "<th class='storeName'>" + brandName + "</th>" +
                                     "<th class='count'>수량</th>" +
                                     "<th class='benefit'>할인혜택</th>" +
                                     "<th class='price'>주문금액</th>" +
                                 "</tr>" +
-                            "</thead>";
+                            "</thead>"+
+                        "<tbody>";
+                    $.each(data, function (index,items){
+                        if(brandName === items.brandName) {
+                            tbody += "<tr>" +
+                                "<td class='productInfoBox'>" +
+                                "<div class='productInfoImgBox'>" +
+                                "<span class='productImg'>" +
+                                "<img src='/storage/" + items.imgPath + "' />" +
+                                "</span>" +
+                                "</div>" +
+                                "<div class='productInfo'>" +
+                                "<div class='productName'>" +
+                                items.productName +
+                                "</div>" +
+                                "<div class='productOption'>" +
+                                items.optionName +
+                                "</div>" +
+                                "<div class='productCountAndPrice'>" +
+                                "<span class='productPrice'>" +
+                                "<span class='amount'>" +
+                                items.productPrice.toLocaleString() +
+                                "</span>" +
+                                "<span class='unit'>" +
+                                "원" +
+                                "</span>" +
+                                "</span>" +
+                                "</div>" +
+                                "</div>" +
+                                "</td>" +
+                                "<td class='productCount'>" +
+                                "<span class='amount'>" +
+                                items.productCnt +
+                                "</span>" +
+                                "<span class='unit'>" +
+                                "개" +
+                                "</span>" +
+                                "</td>" +
+                                "<td class='discountBenefit'>" +
+                                "<div class='applyCoupon'>" +
+                                "<span class='applyCouponInfo'>" +
+                                "<span>쿠폰적용</span>" +
+                                "</span>" +
+                                "</div>" +
+                                "</td>" +
+                                "<td class='orderPrice'>" +
+                                "<span class='amount productTotalPay'>" +
+                                   items.sum.toLocaleString() + "</span>" +
+                                "<span class='unit'>원</span>" +
+                                "</td>" +
+                                "</tr>"
+                            ;
+                            productSum += items.sum;
+                        };
+                    });
+                };
 
-                    uniqueBrandName.push(items.brandName);
-                } else thead = "";
-                console.log(uniqueBrandName);
-
-
-                //         "<tbody>" +
-                //         "<tr>" +
-                //             "<td class='productInfoBox'>" +
-                //                 "<div class='productInfoImgBox'>" +
-                //                     "<span class='productImg'>" +
-                //                         "<img src='/storage/" + items.imgPath +"' />" +
-                //                     "</span>" +
-                //                 "</div>" +
-                //                 "<div class='productInfo'>" +
-                //                     "<div class='productName'>" +
-                //                          items.productName +
-                //                     "</div>" +
-                //                     "<div class='productOption'>" +
-                //                         items.optionName +
-                //                     "</div>" +
-                //                     "<div class='productCountAndPrice'>" +
-                //                         "<span class='productPrice'>" +
-                //                             "<span class='amount'>" +
-                //                                 items.productPrice +
-                //                             "</span>" +
-                //                             "<span class='unit'>" +
-                //                                 "원" +
-                //                             "</span>" +
-                //                         "</span>" +
-                //                     "</div>" +
-                //                 "</div>" +
-                //             "</td>" +
-                //             "<td class='productCount'>" +
-                //                 "<span class='amount'>" +
-                //                     items.productCnt +
-                //                 "</span>" +
-                //                 "<span class='unit'>" +
-                //                     "개" +
-                //                 "</span>" +
-                //             "</td>" +
-                //             "<td class='discountBenefit'>" +
-                //                 "<div class='applyCoupon'>" +
-                //                     "<span class='applyCouponInfo'>" +
-                //                         "<span>쿠폰적용</span>" +
-                //                    "</span>" +
-                //                 "</div>" +
-                //             "</td>" +
-                //             "<td class='orderPrice'>" +
-                //                 "<span class='amount productTotalPay'>"+(items.productPrice * items.productCnt) +"</span>" +
-                //                 "<span class='unit'>원</span>" +
-                //             "</td>" +
-                //         "</tr>" +
-                //     "</tbody>" +
-                //     "<tfoot>" +
-                //         "<tr>" +
-                //             "<td class='productTotal' colspan='4'>" +
-                //                 "<span class='productPrice'>" +
-                //                     "<span>상품</span>" +
-                //                     "<span class='amount'>+" +
-                //                         $(document).find('.productTotalPay').val() +
-                //                     "</span>" +
-                //                     "<span>+</span>" +
-                //                     "<span>배송비</span>" +
-                //                     "<span class='amount'>0</span>" +
-                //                     "<span>=</span>" +
-                //                 "</span>" +
-                //                 "<span class='totalPriceAmount'>227,050</span>" +
-                //             "</td>" +
-                //         "</tr>" +
-                //     "</tfoot>" +
-                // "</table>"
-                //
-                html += thead
-                $('.payProductInfo').append(html);
+                if(headName.indexOf(items.brandName) === -1 ) {
+                    tfoot = "</tbody>" +
+                        "<tfoot>" +
+                        "<tr>" +
+                        "<td class='productTotal' colspan='4'>" +
+                        "<span class='productPrice'>" +
+                        "<span>상품</span>" +
+                        "<span class='amount'>" +
+                            productSum.toLocaleString() +
+                        "</span>" +
+                        "<span>+</span>" +
+                        "<span>배송비</span>" +
+                        "<span class='amount'>0</span>" +
+                        "<span>=</span>" +
+                        "</span>" +
+                        "<span class='totalPriceAmount'>"+ productSum.toLocaleString() +
+                        "</span>" +
+                        "</td>" +
+                        "</tr>" +
+                        "</tfoot>" +
+                        "</table>"
+                    headName.push(brandName);
+                }
+                thead += tbody + tfoot;
+                $('.payProductInfo').append(thead);
             });
         },
         err: function (err) {console.log(err)}
+    });
+});
+
+$(function (){
+    $(window).on("scroll", function () {
+        var topOffset = $('.bothSideInfoWrap').offset().top - 95;
+
+        if ($(this).scrollTop() >= topOffset) {
+            $(".paySummaryInfo").addClass("fixed");
+        } else {
+            $(".paySummaryInfo").removeClass("fixed");
+        }
     });
 });

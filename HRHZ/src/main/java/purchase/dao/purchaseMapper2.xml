@@ -13,7 +13,7 @@
                 , p.name as "productName"
                 , p.brand_code as "brandCode"
                 , (select name from brand where code=p.brand_code) as "brandName"
-                , to_char(p.price, 'FM999,999,999,999') as "productPrice"
+                , p.price as "productPrice"
                 , (p.brand_code || '/' || pi.img_origin_name) as "imgPath"
                 , ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.SEQ DESC) AS "RN"
                 , p.detail_type as "detailType"
@@ -38,6 +38,25 @@
             on "productCode"= pd.product_code
         where
             RN = 1
+    </select>
+
+    <select id="getCart" parameterType="String" resultType="cart">
+        select
+            c.code as "detailCode"
+            , pd.name as "detailName"
+            , c.product_code as "productCode"
+            , p.name as "productName"
+            , c.brand_code as "brandCode"
+            , b.name as "brandName"
+            , c.qty as "qty"
+            , c.price as "price"
+        from cart c
+            join product p on c.product_code = p.code
+            join product_detail pd on c.code = pd.code
+            join brand b on c.brand_code = b.code
+        where
+            1=1
+            and  member_id= 'A000006'
     </select>
 
 </mapper>
