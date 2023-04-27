@@ -6,13 +6,12 @@ import java.util.Map;
 
 public interface CategoryService {
 
-	public Map<String, Object> getCategoryBestProductList(String pg) throws Exception;
+	public Map<String, Object> getCategoryBestProductList(Map<String, Object> map) throws Exception;
 
 	public void categorylikeCount(HashMap<String, String> dataMap);
 
-	public List<Map<String, Object>> CategoryColorList(List<String> colorArr);
+//	public List<Map<String, Object>> CategoryColorList(Map<String, Object> map);
 
-	
 	
 
 }

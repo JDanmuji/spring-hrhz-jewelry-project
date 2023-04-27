@@ -6,13 +6,13 @@ import java.util.Map;
 
 public interface CategoryDAO {
 
-	public List<Map<String, Object>> getCategoryBestProductList(Map<String, Integer> map) throws Exception;
+	public List<Map<String, Object>> getCategoryBestProductList(Map<String, Object> map) throws Exception;
 	
 	public void categorylikeCount(HashMap<String, String> dataMap);
 
-	public int getTotalA();
+	public int getTotalA(Map<String, Object> map);
 
-	public List<Map<String, Object>> CategoryColorList(List<String> colorArr);
+//	public List<Map<String, Object>> CategoryColorList(Map<String, Object> map);
 
 
 	

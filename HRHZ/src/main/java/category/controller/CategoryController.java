@@ -24,8 +24,15 @@ public class CategoryController {
 	
 	 @RequestMapping(value = "/bestCategoryPorductList")
 	 @ResponseBody
-	    public Map<String, Object> bestCategoryPorductList(HttpSession session, @RequestParam String pg) throws Exception {
-	    	return categoryService.getCategoryBestProductList(pg);
+	    public Map<String, Object> bestCategoryPorductList(HttpSession session,  
+	    													@RequestParam(value ="colorArr[]", required = false) List<String> colorArr, 
+	    													@RequestParam String pg) throws Exception {
+	    	
+		 Map<String, Object> map = new HashMap<String, Object>(); 
+		map.put("colorArr", colorArr);
+		map.put("pg", pg);
+		 
+		 return categoryService.getCategoryBestProductList(map);
 	    	
 	    }
 	 
@@ -36,15 +43,20 @@ public class CategoryController {
 	    	categoryService.categorylikeCount(dataMap);
 	    }
 	 
-	 @PostMapping(value = "/categoryColorList")
-	 @ResponseBody
-	    public List<Map<String, Object>> CategoryColorList(HttpSession session, @RequestParam(value ="colorArr[]") List<String> colorArr) throws Exception {
-		
-			 System.out.println(colorArr);
-	    	return categoryService.CategoryColorList(colorArr);
-	    	
-	    }
-	 
+//	 @PostMapping(value = "/categoryColorList")
+//	 @ResponseBody
+//	    public List<Map<String, Object>> CategoryColorList(HttpSession session, @RequestParam(value ="colorArr[]") List<String> colorArr, @RequestParam String pg) throws Exception {
+//
+//			
+//			Map<String, Object> map = new HashMap<String, Object>(); 
+//			map.put("colorArr", colorArr);
+//			map.put("pg", pg);
+//			
+//			System.out.println(map);
+//			return categoryService.CategoryColorList(map);
+//	    	
+//	    }
+//	 
 	
 
 }

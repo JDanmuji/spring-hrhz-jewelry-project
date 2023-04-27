@@ -275,6 +275,9 @@ main {
     border: none !important;
     cursor: pointer;
 }
+.tagArea .tagSpan span{
+	display:none;
+}
 .filterResetBtn {
     margin: 6px 0 6px;
     width: 40px;
@@ -331,6 +334,10 @@ main {
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+.priceFilterChoice span{
+    display: none;
+    
 }
 .priceFilterChoice > div {
     font-weight: 400;

@@ -67,10 +67,10 @@ pageEncoding="UTF-8"%>
 
         <div class="priceFilter filterPage">
             <div class="priceFilterChoice">
-                <div class="filterDiv"><p>1만원~3만원</p></div>
-                <div class="filterDiv"><p>3만원~5만원</p></div>
-                <div class="filterDiv"><p>5만원~10만원</p></div>
-                <div class="filterDiv"><p>10만원 이상</p></div>
+                <div class="filterDiv"><span>1</span><p>1만원~3만원</p></div>
+                <div class="filterDiv"><span>2</span><p>3만원~5만원</p></div>
+                <div class="filterDiv"><span>3</span><p>5만원~10만원</p></div>
+                <div class="filterDiv"><span>4</span><p>10만원 이상</p></div>
             </div>
 
             <div class="priceFilterInput">
