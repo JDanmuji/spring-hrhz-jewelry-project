@@ -1,0 +1,103 @@
+.sectionBackGround {
+    display: none;
+	position: fixed;
+    inset: 0px;
+    font-family: NotoSansCJKkr;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+.sectionBackGround .modalBody {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    z-index: 102;
+    width: 450px;
+    height: 270px;
+}
+.brandFilterSearchDiv .searchIcon{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.brandFilterSearchDiv input {
+    display: inline-block;
+    width: 370px;
+    overflow: visible;
+    font-size: 16px;
+    color: #000000;
+}
+.brandSearch{
+    margin-top: 30px;
+}
+.brandContainer {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin: 15px 0;
+}
+.checkboxs{
+    display: inline-block;
+    position: relative;
+}
+.checkbox{
+    position: absolute;
+    opacity: 0;
+}
+.uncheck, .check{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 7px;
+}
+.uncheck {
+    z-index: 1;
+}
+.check {
+    display: none;
+}
+.brandContainer .brandImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+.brandContainer span{
+    margin-left: 20px;
+}
+.brandSelect{
+    display: block;
+    margin: auto;
+    border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+    font-weight: 700;
+	width: 420px;
+	height: 45px;
+    cursor: pointer;
+}
+.brandFilter {
+    padding: 12px 0;
+    margin: 0 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.brandFilterSearchDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 420px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ededed;
+}
+.modalCloseBtn{
+    position: right;
+    width: 20px;
+    height: 20px;
+}

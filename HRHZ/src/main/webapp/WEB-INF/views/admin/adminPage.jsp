@@ -10,7 +10,8 @@
 	<link rel="stylesheet" href="../../css/common/reset.css" />
 	<link rel="stylesheet" href="../../css/common/header_footer.css" />
     <link rel="stylesheet" href="../../css/admin/admin.css" />
-    <link rel="stylesheet" href="../../css/my/navForm.css" />
+    <link rel="stylesheet" href="../../css/admin/adminProductDisplay.css" />
+    <link rel="stylesheet" href="../../css/admin/adminBrandDisplay.css" />
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet" />
   </head>

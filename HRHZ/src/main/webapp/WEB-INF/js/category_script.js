@@ -347,7 +347,20 @@ $(document).on("click", ".filterResultBtn", function () {
 	$(".filterToggle").css("display" , "none");
 
  	
-  });
+});
+  
+  
+// ---------------------------------------------------
+//              colorSelectProductList
+// ---------------------------------------------------
+$(document).on("click", ".categoryToggle", function (e) {
+
+	console.log(e);
+	
+	console.log($(this));
+	
+ 	
+});
   
 
 

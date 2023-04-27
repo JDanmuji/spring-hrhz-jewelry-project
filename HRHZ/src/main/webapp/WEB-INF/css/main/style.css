@@ -28,10 +28,7 @@ a {
     align-items: center;
     padding: 20px 70px;
 }
-.amondzLogo {
-    width: 134px;
-    margin-right: 80px;
-}
+
 .mainMenu {
     display: flex;
     gap: 40px;

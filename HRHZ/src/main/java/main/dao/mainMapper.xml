@@ -18,6 +18,14 @@
 		       	,	p.like_count AS "likeCount"
 		       	,	p.color AS "color"
 		        ,   ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.SEQ DESC) AS "RN"
+		        <choose>
+					<when test = 'memberId != null and memberId == ""'>
+ 				,   (CASE WHEN ll.product_code is not null then 'Y' else 'N' end ) as "likeYN"
+					</when>
+					<otherwise>
+				,   'N' as "likeYN"
+					</otherwise>
+				</choose>
 				FROM   product p
 		       	INNER JOIN (SELECT  a.product_code
 		                           ,  a.img_origin_name
@@ -27,6 +35,11 @@
 		                   	GROUP  BY a.product_code, a.img_origin_name
 		                    ) pi
 		        ON p.code = pi.product_code
+		        <if test='memberId != null and memberId == ""'>
+		        LEFT OUTER JOIN like_list ll
+                ON p.code = ll.product_code
+                AND ll.id = #{memberId}
+                </if>
 				WHERE  
 					1 = 1
 		       	ORDER  BY p.like_count DESC
@@ -36,6 +49,7 @@
         AND RN = 1
         AND ROWNUM  <![CDATA[<]]>  4
     </select>
+    
     
     <select id="getTop100Product"  resultType="java.util.HashMap">
        SELECT 
@@ -51,6 +65,14 @@
 		       	,	p.like_count AS "likeCount"
 		       	,	p.color AS "color"
 		        ,   ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.SEQ DESC) AS "RN"
+		        <choose>
+					<when test = 'memberId != null and memberId == ""'>
+ 				,   (CASE WHEN ll.product_code is not null then 'Y' else 'N' end ) as "likeYN"
+					</when>
+					<otherwise>
+				,   'N' as "likeYN"
+					</otherwise>
+				</choose>
 				FROM   product p
 		       	INNER JOIN (SELECT  a.product_code
 		                           ,  a.img_origin_name
@@ -60,6 +82,11 @@
 		                   	GROUP  BY a.product_code, a.img_origin_name
 		                    ) pi
 		        ON p.code = pi.product_code
+		        <if test='memberId != null and memberId == ""'>
+		        LEFT OUTER JOIN like_list ll
+                ON p.code = ll.product_code
+                AND ll.id = #{memberId}
+                </if>
 				WHERE  
 					1 = 1
 		       	ORDER  BY p.like_count
@@ -140,7 +167,7 @@
         		like_count = like_count - 1
         	</if>
         WHERE 1=1
-        <if test='codeType != null and codeType == "B"'>
+        <if test='codeTyp e != null and codeType == "B"'>
             AND code = #{code}
         </if>
         <if test='codeType != null and codeType == "P"'>

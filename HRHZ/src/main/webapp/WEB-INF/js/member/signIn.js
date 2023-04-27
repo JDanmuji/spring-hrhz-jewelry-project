@@ -68,7 +68,7 @@ $('.signInButton').click(function (){
 
 
 $('.signUpButton').on('click', function () {
-	   location.assign('/signUp');
+	   location.assign('/signUp1');
 });
 
 
