@@ -26,108 +26,87 @@
                             <span>결제하기</span>
                         </div>
                         <form>
-                            <div class="payProductInfo">
-                                <table class="payProductTable">
-                                    <thead>
-                                        <tr>
-                                            <th class="storeName">브랜드명</th>
-                                            <th class="count">수량</th>
-                                            <th class="benefit">할인혜택</th>
-                                            <th class="price">주문금액</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="productInfoBox">
-<%--                                                <input type="text" name="productCodeList" value="{P00000072, P00000020}"  hidden />--%>
-<%--                                                <input type="text" name="optionCountList" ${(param.optionCountList)}--%>
-<%--                                                <div id="optionCountList">${(param.optionCountList)}</div>--%>
-<%--                                                <input type="text" class="optionCountList" hidden--%>
-<%--                                                    value='{--%>
-<%--                                                    --%>
-<%--                                                            "P00000072": {"code":"D00000179", "count":1}--%>
-<%--                                                                        {"code":"D00000180", "count":0},--%>
-<%--                                                                        {"code":"D00000181", "count":0},--%>
-<%--                                                                        {"code":"D00000182", "count":0},--%>
-<%--                                                                        {"code":"D00000183", "count":1},--%>
-<%--                                                                        {"code":"D00000184", "count":0}]--%>
-<%--                                                            }'--%>
-<%--                                                />--%>
-<%--    "P00000020":[{"code" : "D00000023", "count":1},--%>
-<%--    {"code" : "D00000024", "count":0},--%>
-<%--    {"code" : "D00000025", "count":0},--%>
-<%--    {"code" : "D00000026", "count":0},--%>
-<%--    {"code" : "D00000027", "count":1},--%>
-<%--    {"code" : "D00000028", "count":0}]--%>
-<%--                                                 <div class="optionCountList" style="display: none">${param.optionCountList}"</div>--%>
-                                                <div class="productInfoImgBox">
-                                                    <span class="productImg">
-<%--                                                        --%>
-                                                        <img src="../images/purchase/product.jpeg" />
-                                                    </span>
-                                                </div>
+                            <div class='payProductInfo'>
 
-                                                <div class="productInfo">
-                                                    <div class="productName">
-<%--                                                        --%>
-                                                        14K 슬라이드 볼 네추럴 스톤 팔찌
-                                                    </div>
-                                                    <div class="productOption">
-<%--                                                        --%>
-                                                        배송 : 14K 슬라이드 볼 네추럴 스톤 팔찌
-                                                    </div>
-                                                    <div class="productCountAndPrice">
-                                                        <span class="productPrice">
-                                                            <span class="amount">
-<%--                                                                --%>
-                                                                227,050
-                                                            </span>
-                                                            <span class="unit">
-                                                                원
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="productCount">
-                                                <span class="amount">
-<%--                                                    --%>
-                                                    1
-                                                </span>
-                                                <span class="unit">
-<%--                                                    --%>
-                                                    개
-                                                </span>
-                                            </td>
-                                            <td class="discountBenefit">
-                                                <div class="applyCoupon">
-                                                    <span class="applyCouponInfo">
-                                                        <span>쿠폰적용</span>
-                                                    </span>
-                                                </div>
-                                            </td>
-                                            <td class="orderPrice">
-                                                <span class="amount">227,050</span>
-                                                <span class="unit">원</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td class="productTotal" colspan="4">
-                                                <span class="productPrice">
-                                                    <span>상품</span>
-                                                    <span class="amount">227,050</span>
-                                                    <span>+</span>
-                                                    <span>배송비</span>
-                                                    <span class="amount">0</span>
-                                                    <span>=</span>
-                                                </span>
-                                                <span class="totalPriceAmount">227,050</span>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+
+
+<%--                                <table class='payProductTable'>--%>
+<%--                                    <thead>--%>
+<%--                                        <tr>--%>
+<%--                                            <th class='storeName'>브랜드명</th>--%>
+<%--                                            <th class='count'>수량</th>--%>
+<%--                                            <th class='benefit'>할인혜택</th>--%>
+<%--                                            <th class='price'>주문금액</th>--%>
+<%--                                        </tr>--%>
+<%--                                    </thead>--%>
+<%--                                    <tbody>--%>
+<%--                                        <tr>--%>
+<%--                                            <td class='productInfoBox'>--%>
+<%--&lt;%&ndash;                                                <input type="text" name="optionCountList" ${(param.optionCountList)}&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                                <div id="optionCountList">${(param.optionCountList)}</div>&ndash;%&gt;--%>
+
+<%--                                                <div class='productInfoImgBox'>--%>
+<%--                                                    <span class='productImg'>--%>
+<%--                                                        <img src='../images/purchase/product.jpeg' />--%>
+<%--                                                    </span>--%>
+<%--                                                </div>--%>
+
+<%--                                                <div class='productInfo'>--%>
+<%--                                                    <div class='productName'>--%>
+<%--                                                        14K 슬라이드 볼 네추럴 스톤 팔찌--%>
+<%--                                                    </div>--%>
+<%--                                                    <div class='productOption'>--%>
+<%--                                                        배송 : 14K 슬라이드 볼 네추럴 스톤 팔찌--%>
+<%--                                                    </div>--%>
+<%--                                                    <div class='productCountAndPrice'>--%>
+<%--                                                        <span class='productPrice'>--%>
+<%--                                                            <span class='amount'>--%>
+<%--                                                                227,050--%>
+<%--                                                            </span>--%>
+<%--                                                            <span class='unit'>--%>
+<%--                                                                원--%>
+<%--                                                            </span>--%>
+<%--                                                        </span>--%>
+<%--                                                    </div>--%>
+<%--                                                </div>--%>
+<%--                                            </td>--%>
+<%--                                            <td class='productCount'>--%>
+<%--                                                <span class='amount'>--%>
+<%--                                                    1--%>
+<%--                                                </span>--%>
+<%--                                                <span class='unit'>--%>
+<%--                                                    개--%>
+<%--                                                </span>--%>
+<%--                                            </td>--%>
+<%--                                            <td class='discountBenefit'>--%>
+<%--                                                <div class='applyCoupon'>--%>
+<%--                                                    <span class='applyCouponInfo'>--%>
+<%--                                                        <span>쿠폰적용</span>--%>
+<%--                                                    </span>--%>
+<%--                                                </div>--%>
+<%--                                            </td>--%>
+<%--                                            <td class='orderPrice'>--%>
+<%--                                                <span class='amount'>227,050</span>--%>
+<%--                                                <span class='unit'>원</span>--%>
+<%--                                            </td>--%>
+<%--                                        </tr>--%>
+<%--                                    </tbody>--%>
+<%--                                    <tfoot>--%>
+<%--                                        <tr>--%>
+<%--                                            <td class='productTotal' colspan='4'>--%>
+<%--                                                <span class='productPrice'>--%>
+<%--                                                    <span>상품</span>--%>
+<%--                                                    <span class='amount'>227,050</span>--%>
+<%--                                                    <span>+</span>--%>
+<%--                                                    <span>배송비</span>--%>
+<%--                                                    <span class='amount'>0</span>--%>
+<%--                                                    <span>=</span>--%>
+<%--                                                </span>--%>
+<%--                                                <span class='totalPriceAmount'>227,050</span>--%>
+<%--                                            </td>--%>
+<%--                                        </tr>--%>
+<%--                                    </tfoot>--%>
+<%--                                </table>--%>
                             </div>
 
                             <div class="bothSideInfoWrap">

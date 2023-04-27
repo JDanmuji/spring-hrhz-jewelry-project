@@ -7,6 +7,7 @@
  		<typeAlias type="hrhz.dto.BrandDTO" alias="brand"/>
  		<typeAlias type="hrhz.dto.ReviewDTO" alias="review"/>
  		<typeAlias type="hrhz.dto.ReviewImageDTO" alias="reviewImage"/>
+		<typeAlias type="hrhz.dto.PaymentDTO" alias="payment"/>
 	</typeAliases>
 
 </configuration>
