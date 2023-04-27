@@ -1,8 +1,7 @@
 p {
-	margin-top: 0;
-  	margin-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
 
 /* main - swiper slide */
 main {
@@ -37,7 +36,7 @@ main {
 }
 .miniMenu a img {
     border-radius: 10px;
-    padding : 0 10px 0  10px;
+    padding: 0 10px 0 10px;
     width: 100%;
     height: 100%;
 }
@@ -73,11 +72,15 @@ article {
     margin-bottom: 10px;
 }
 .timeSaleImg img {
-	
     height: 100%;
     width: 100%;
 }
 
+.articleContents {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
 
 .articleContents a:link,
 .articleContents a:visited,
@@ -89,36 +92,23 @@ article {
 .articleTitle {
     font-size: 26px;
 }
-
-.articleContents {
-    position: relative;
-   
-    width:984px;
-    
-    margin: 20px;
-    margin-bottom: 60px;
-    overflow: hidden;
-}
-
 .articleList {
-	position: relative;
+    position: relative;
     display: flex;
     gap: 20px;
 }
-
-
 .articleContent {
     position: relative;
+    width: 308px;
 }
-
 .articleImg {
-    width: 314px;
-    height: 350px;
+    width: 308px;
+    height: 308px;
     overflow: hidden;
     margin-bottom: 10px;
 }
 .articleImg img {
-    height: 350px;
+    height: 308px;
 }
 .articleDesc {
     display: flex;
@@ -147,13 +137,13 @@ article {
 .heartIcon {
     width: 16px;
     position: absolute;
-    top: 360px;
+    top: 318px;
     right: 0;
     cursor: pointer;
 }
 .heartIconWhite {
     height: 16px;
-    width: 17px;
+    width: 18px;
 }
 .heartIconViolet {
     display: none;
@@ -174,6 +164,7 @@ article {
     width: 345px;
     height: 44px;
     border: 1px solid #000;
+    margin: 20px 0 60px;
 }
 
 /* main - main article */
@@ -224,13 +215,13 @@ article {
 
 .bestImg {
     width: 100%;
-    
+
     overflow: hidden;
     margin-bottom: 10px;
 }
 .bestImg img {
     width: 100%;
-    height: 350px;
+    height: 308px;
 }
 .bestDesc {
     display: flex;
@@ -263,7 +254,9 @@ article {
 }
 
 /* main - review articles */
-
+.reviewArticle {
+    width: 100%;
+}
 .reviewContents a:link,
 .reviewContents a:visited,
 .reviewContents a:hover,
@@ -271,46 +264,51 @@ article {
     color: #000;
     margin-bottom: 16px;
 }
-
 .reviewContents {
     position: relative;
     display: flex;
-    width:984px;
+    width: 984px;
     gap: 20px;
     margin-bottom: 60px;
     overflow: hidden;
 }
-
-
 .reviewContents {
     width: 100%;
     overflow: hidden;
 }
 .reviewImg {
-    width: 100%;
+    width: 308px;
+    height: 308px;
     overflow: hidden;
-    margin-bottom: 4px;
 }
 .reviewImg img {
-    width: 300px;
-    height: 300px;
+    width: 308px;
+    height: 100%;
+    object-fit: cover;
+}
+.starIcons {
+    display: flex;
+}
+.starIcons img {
+    width: 12px;
+    height: 12px;
+    margin: 10px 2px 2px 0;
 }
 .reviewProduct {
     color: #777;
+    font-size: 12px;
 }
 
-
 .sectionBackGround {
-	display : none;
-	position: fixed;
+    display: none;
+    position: fixed;
     inset: 0px;
     font-family: NotoSansCJKkr;
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 100;
 }
-
 .sectionBackGround .modalBody {
-	position: absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -319,9 +317,8 @@ article {
     z-index: 102;
     width: 330px;
 }
-
 .modalBody .modalCloseBtn {
-	width: 24px;
+    width: 24px;
     height: 24px;
     position: absolute;
     top: 12px;
@@ -331,13 +328,13 @@ article {
 }
 
 .modalBody .confirmText {
-	margin: 44px 32px 24px;
+    margin: 44px 32px 24px;
     letter-spacing: -0.5px;
     text-align: center;
 }
 
 .confirmText .msg {
-	padding-bottom: 8px;
+    padding-bottom: 8px;
     line-height: 24px;
     font-size: 16px;
     white-space: pre;
@@ -345,7 +342,7 @@ article {
 }
 
 .confirmText .subMsg {
-	margin-top: 4px;
+    margin-top: 4px;
     font-size: 13px;
     line-height: 19px;
     color: rgb(155, 155, 155);
@@ -353,21 +350,21 @@ article {
 }
 
 .confirmText .modalFooter {
-	margin: 0px 24px 24px;
+    margin: 0px 24px 24px;
 }
 
 .modalFooter {
-	margin: 0px 24px 24px;
+    margin: 0px 24px 24px;
 }
 
 .modalFooter button {
-	width: 130px;
+    width: 130px;
     height: 40px;
     cursor: pointer;
 }
 
 .cancleModalBtn {
-	border-radius: 2px;
+    border-radius: 2px;
     outline: none;
     text-align: center;
     cursor: pointer;
@@ -379,11 +376,11 @@ article {
     letter-spacing: -0.3px;
     height: 40px;
     width: 181px;
-    line-height: 40px; 
-}    
+    line-height: 40px;
+}
 
 .confirmModalBtn {
-	border-radius: 2px;
+    border-radius: 2px;
     outline: none;
     border: 1px solid transparent;
     text-align: center;
@@ -396,12 +393,9 @@ article {
     height: 40px;
     width: 181px;
     line-height: 40px;
-}    
-
-
-.modalFooter button:first-child {
-	margin-right: 12px;
-    border-color: rgb(0, 0, 0);    
 }
 
-
+.modalFooter button:first-child {
+    margin-right: 12px;
+    border-color: rgb(0, 0, 0);
+}
