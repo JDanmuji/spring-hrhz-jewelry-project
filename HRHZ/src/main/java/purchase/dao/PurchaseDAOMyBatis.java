@@ -19,8 +19,8 @@ public class PurchaseDAOMyBatis implements PurchaseDAO {
     private SqlSession sqlSession;
 
 	@Override
-	public List<Map<String, Object>> getProductDetail(String productCode) {
-		return sqlSession.selectList("purchaseSQL.getProductDetail", productCode);
+	public List<Map<String, Object>> getProductDetail(Map<String, String> map) {
+		return sqlSession.selectList("purchaseSQL.getProductDetail", map);
 	}
 
 	@Override

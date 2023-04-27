@@ -1,17 +1,23 @@
 $(document).ready(function () {
-    var checkHTML = $("<img>").addClass("checkIcon").attr("src", "../images/category/check_icon.png").attr("alt", "check icon").hide();
-	articleContents();
+    var checkHTML = $("<img>")
+        .addClass("checkIcon")
+        .attr("src", "../images/category/check_icon.png")
+        .attr("alt", "check icon")
+        .hide();
+    articleContents();
     // add check img
     $(".filterDiv").append(checkHTML);
     $(".categoryToggle > p").append(checkHTML);
-  
 });
 
 // ---------------------------------------------------
 //                category nav
 // ---------------------------------------------------
 // Show the first category when the page loads
-$(".categoryWrap:not(:first)").find(".categoryToggle").slideUp().attr("src", "../images/category/expand_black_btn.png");
+$(".categoryWrap:not(:first)")
+    .find(".categoryToggle")
+    .slideUp()
+    .attr("src", "../images/category/expand_black_btn.png");
 
 $(".expandBtn").on("click", function () {
     $(".checkIcon").hide();
@@ -118,10 +124,16 @@ function tagUpdate() {
     $(".checkedFilter").each(function () {
         let filterName = $(this).find("> p").text();
         let filterCode = $(this).find("> span").val();
-        
+
         console.log($.type(filterCode));
-        
-        $(".tagArea").append("<span class='tagSpan'><span>"+ filterCode + "</span>" + filterName + " X</span>");
+
+        $(".tagArea").append(
+            "<span class='tagSpan'><span>" +
+                filterCode +
+                "</span>" +
+                filterName +
+                " X</span>"
+        );
     });
 }
 
@@ -238,7 +250,6 @@ String.prototype.formatNumber = function () {
     return nstr;
 };
 
-
 // ---------------------------------------------------
 //                 Best List
 // ---------------------------------------------------
@@ -248,21 +259,21 @@ function articleContents(colorArr) {
     $.ajax({
         type: "post",
         url: "/bestCategoryPorductList",
-        data : {'colorArr' : colorArr,
-			    'pg' : $("#pg").val()} ,
-        dataType : 'json',
+        data: { colorArr: colorArr, pg: $("#pg").val() },
+        dataType: "json",
 
         success: function (data) {
             //console.log(data);
-			$(".articleContent").remove();
+            $(".articleContent").remove();
             $.each(data.list, function (index, items) {
-                
                 optionItem = $(
                     "<div class='articleContent'>" +
                         "<input type='hidden' name='code' value='" +
                         items.productCode +
                         "'/>" +
-                        "<a href='/purchase/productDetail'>" +
+                        "<a href='/purchase/productDetail?productCode=" +
+                        items.productCode +
+                        "'>" +
                         "<div class='articleImg'>" +
                         "<img src='storage/" +
                         items.imgPath +
@@ -298,11 +309,10 @@ function articleContents(colorArr) {
                         "<img class='heartIcon heartIconViolet' src='../images/category/heart_violet.jpg'/>" +
                         "</div>"
                 );
-
                 $(".articleContents").append(optionItem);
             });
-            
-            //pagging 
+
+            //pagging
             $(".pagingDiv").html(data.categoryPaging.pagingHTML);
         },
         error: function (err) {
@@ -321,10 +331,10 @@ function likeCount(id, code, division) {
         type: "post",
         url: "/categorylikeCount",
         data: {
-            'id': id,
-            'code': code,
-            'codeType': code.charAt(0),
-            'division': division
+            id: id,
+            code: code,
+            codeType: code.charAt(0),
+            division: division,
         },
         success: function (data) {
             console.log(data);
@@ -338,31 +348,9 @@ function likeCount(id, code, division) {
 //              colorSelectProductList
 // ---------------------------------------------------
 $(document).on("click", ".filterResultBtn", function () {
-	
-	var color = $(".checkedFilter span").text();
-	var colorArr= color.split("");
+    var color = $(".checkedFilter span").text();
+    var colorArr = color.split("");
 
-
-	articleContents(colorArr);
-	$(".filterToggle").css("display" , "none");
-
- 	
+    articleContents(colorArr);
+    $(".filterToggle").css("display", "none");
 });
-  
-  
-// ---------------------------------------------------
-//              colorSelectProductList
-// ---------------------------------------------------
-$(document).on("click", ".categoryToggle", function (e) {
-
-	console.log(e);
-	
-	console.log($(this));
-	
- 	
-});
-  
-
-
-	
-

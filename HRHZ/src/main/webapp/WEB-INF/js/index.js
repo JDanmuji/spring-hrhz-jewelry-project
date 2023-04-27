@@ -34,10 +34,27 @@ $(function () {
             $(".swiperButtonNext").css("display", "none");
         }
     }
+    
+    
+function goPost(code) {
+	let f = document.createElement('form');
+    let i = document.createElement("input");
+    f.setAttribute('method', 'post');
+    f.setAttribute('action', '/purchase/productDetail');
+    
+    i.setAttribute("type", "text");
+    i.setAttribute("id", "newInputId");
+    i.setAttribute("value", code);
+       
+    f.appendChild(i);
+    document.body.appendChild(f);
+    f.submit();
+
+}
 });
 
 // insert like
-$(document).on("click", ".heartIcon", function () {
+$(document).on("click", ".heartIconWhite", function () {
     let memberId = $("#memberId").val();
     let code = $(this).siblings("input").val();
     let division = "I";
@@ -47,8 +64,8 @@ $(document).on("click", ".heartIcon", function () {
         return;
     }
     likeCount(memberId, code, division);
-    $(this).css("display", "none");
-    $(this).next().css("display", "block");
+    $(this).hide();
+    $(this).next().show();
 });
 
 // delete like
@@ -62,8 +79,8 @@ $(document).on("click", ".heartIconViolet", function () {
         return;
     }
     likeCount(memberId, code, division);
-    $(this).css("display", "none");
-    $(this).prev().css("display", "block");
+    $(this).hide();
+    $(this).prev().show();
 });
 
 $(".modalCloseBtn, .cancleModalBtn").click(function () {
@@ -79,60 +96,74 @@ $(".confirmModalBtn").click(function () {
 // ---------------------------------------------------
 function bestContents() {
     var optionItem;
+    var memberId =
+        $("#memberId").val().length === 0 ? null : $("#memberId").val();
 
     $.ajax({
         type: "post",
         url: "/bestProduct",
-        data: "json",
+        data: "memberId=" + memberId,
         success: function (data) {
             $.each(data, function (index, items) {
-                optionItem = $(
+                contentHTML =
                     "<div class='bestContent'>" +
-                        "<input type='hidden' name='code' value='" +
-                        items.productCode +
-                        "'/>" +
-                        "<a href='/purchase/productDetail?productCode=" +
-                        items.productCode +
-                        "'>" +
-                        "<div class='bestImg'>" +
-                        "<img src='/storage/" +
-                        items.imgPath +
-                        "' />" +
-                        "</div>" +
-                        "<div class='bestDesc'>" +
-                        "<span><strong>" +
-                        items.brandName +
-                        "</strong></span>" +
-                        "<span>" +
-                        items.productName +
-                        "</span>" +
-                        "<div class='bestPrice'>" +
-                        "<span class='percentage'>" +
-                        "<span>" +
-                        "<strong>20</strong>" +
-                        "</span>%</span>" +
-                        "<span class='price'>" +
-                        "<span><strong>" +
-                        items.price +
-                        "</strong>" +
-                        "</span>원</span>" +
-                        "</div>" +
-                        "</div>" +
-                        "<div class='likeNumber'>" +
-                        "좋아요 " +
-                        "<span>" +
-                        items.likeCount +
-                        "</span>" +
-                        "</div>" +
-                        "</a>" +
-                        "<img class='heartIcon heartIconWhite' src='../images/category/heart.jpg'/>" +
-                        "<img class='heartIcon heartIconViolet' src='../images/category/heart_violet.jpg'/>" +
-                        "</div>"
-                );
+                    "<input type='hidden' name='code' value='" +
+                    items.productCode +
+                    "'/>" +
+                    "<a href='/purchase/productDetail?productCode=" +
+                    items.productCode +
+                    "'>" +
+                    "<div class='bestImg'>" +
+                    "<img src='/storage/" +
+                    items.imgPath +
+                    "' />" +
+                    "</div>" +
+                    "<div class='bestDesc'>" +
+                    "<span><strong>" +
+                    items.brandName +
+                    "</strong></span>" +
+                    "<span>" +
+                    items.productName +
+                    "</span>" +
+                    "<div class='bestPrice'>" +
+                    "<span class='percentage'>" +
+                    "<span>" +
+                    "<strong>50</strong>" +
+                    "</span>%</span>" +
+                    "<span class='price'>" +
+                    "<span><strong>" +
+                    items.price +
+                    "</strong>" +
+                    "</span>원</span>" +
+                    "</div>" +
+                    "</div>" +
+                    "<div class='likeNumber'>" +
+                    "좋아요 " +
+                    "<span>" +
+                    items.likeCount +
+                    "</span>" +
+                    "</div>" +
+                    "</a>";
 
-                $(".bestContents").append(optionItem);
-            });
-        },
+                if (items.likeYN == "Y") {
+                    heartHTML =
+                        "<img class='heartIcon heartIconWhite' src='../images/category/heart.jpg' style='display:none'/>" +
+                        "<img class='heartIcon heartIconViolet' src='../images/category/heart_violet.jpg'/>" +
+                        "</div>";
+                } else {
+                    heartHTML =
+                        "<img class='heartIcon heartIconWhite' src='../images/category/heart.jpg'/>" +
+                        "<img class='heartIcon heartIconViolet' src='../images/category/heart_violet.jpg' style='display:none'/>" +
+                        "</div>";
+                }
+
+                $(".bestContents").append(contentHTML + heartHTML);
+
+                console.log(items.likeYN);
+                console.log(heartHTML);
+                console.log(memberId);
+            }); //each
+        }, //success
         err: function (err) {
             console.log(err);
         },
@@ -144,59 +175,74 @@ function bestContents() {
 // ---------------------------------------------------
 function articleContents() {
     var optionItem;
+    var memberId =
+        $("#memberId").val().length === 0 ? null : $("#memberId").val();
 
     $.ajax({
         type: "post",
         url: "/top100Product",
-        data: "json",
+        data: "memberId=" + memberId,
         success: function (data) {
             $.each(data, function (index, items) {
-                optionItem = $(
+                contentHTML =
                     "<div class='articleContent'>" +
-                        "<input type='hidden' name='code' value='" +
-                        items.productCode +
-                        "'/>" +
-                        "<a href='/purchase/productDetail?productCode=" +
-                        items.productCode +
-                        "'>" +
-                        "<div class='articleImg'>" +
-                        "<img src='/storage/" +
-                        items.imgPath +
-                        "' />" +
-                        "</div>" +
-                        "<div class='articleDesc'>" +
-                        "<span><strong>" +
-                        items.brandName +
-                        "</strong></span>" +
-                        "<span>" +
-                        items.productName +
-                        "</span>" +
-                        "<div class='articlePrice'>" +
-                        "<span class='percentage'>" +
-                        "<span>" +
-                        "<strong>20</strong>" +
-                        "</span>%</span>" +
-                        "<span class='price'>" +
-                        "<span><strong>" +
-                        items.price +
-                        "</strong>" +
-                        "</span>원</span>" +
-                        "</div>" +
-                        "</div>" +
-                        "<div class='likeNumber'>" +
-                        "좋아요 " +
-                        "<span>" +
-                        items.likeCount +
-                        "</span>" +
-                        "</div>" +
-                        "</a>" +
-                        "<img class='heartIcon heartIconWhite' src='../images/category/heart.jpg'/>" +
+                    "<input type='hidden' name='code' value='" +
+                    items.productCode +
+                    "'/>" +
+                    "<a href='/purchase/productDetail?productCode=" +
+                    items.productCode +
+                    "'>" +
+                    "<div class='articleImg'>" +
+                    "<img src='/storage/" +
+                    items.imgPath +
+                    "' />" +
+                    "</div>" +
+                    "<div class='articleDesc'>" +
+                    "<span><strong>" +
+                    items.brandName +
+                    "</strong></span>" +
+                    "<span>" +
+                    items.productName +
+                    "</span>" +
+                    "<div class='articlePrice'>" +
+                    "<span class='percentage'>" +
+                    "<span>" +
+                    "<strong>50</strong>" +
+                    "</span>%</span>" +
+                    "<span class='price'>" +
+                    "<span><strong>" +
+                    items.price +
+                    "</strong>" +
+                    "</span>원</span>" +
+                    "</div>" +
+                    "</div>" +
+                    "<div class='likeNumber'>" +
+                    "좋아요 " +
+                    "<span>" +
+                    items.likeCount +
+                    "</span>" +
+                    "</div>" +
+                    "</a>";
+
+                if (items.likeYN == "Y") {
+                    heartHTML =
+                        "<img class='heartIcon heartIconWhite' src='../images/category/heart.jpg' style='display:none'/>" +
                         "<img class='heartIcon heartIconViolet' src='../images/category/heart_violet.jpg'/>" +
-                        "</div>"
+                        "</div>";
+                } else {
+                    heartHTML =
+                        "<img class='heartIcon heartIconWhite' src='../images/category/heart.jpg'/>" +
+                        "<img class='heartIcon heartIconViolet' src='../images/category/heart_violet.jpg' style='display:none'/>" +
+                        "</div>";
+                }
+
+                $(".top100Article .articleList").append(
+                    contentHTML + heartHTML
                 );
 
-                $(".top100Article .articleList").append(optionItem);
-            });
+                console.log(items.likeYN);
+                console.log(heartHTML);
+            }); //each
         },
         err: function (err) {
             console.log(err);
@@ -218,8 +264,8 @@ function recentReviews() {
             $.each(data, function (index, items) {
                 optionItem = $(
                     "<a href='/purchase/productDetail?productCode=" +
-                        items.productCode +
-                        "'>" +
+                    items.productCode +
+                    "'>" +
                         "<div class='reviewImg'>" +
                         "<img src='/storage/review/" +
                         items.imgName +
@@ -270,3 +316,4 @@ function likeCount(id, code, division) {
         },
     });
 }
+

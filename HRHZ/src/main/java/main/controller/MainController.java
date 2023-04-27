@@ -48,7 +48,6 @@ public class MainController {
 		return "/views/member/signIn";
 	}
 
-	
 	@GetMapping(value="/magazineAmonzTakeALook")
 	public String magazineAmonzTakeALook() {
 		return "/views/main/magazineAmonzTakeALook";
@@ -59,12 +58,10 @@ public class MainController {
 		return "/views/main/magazineCarotcollection";
 	}
 	
-	
 	@GetMapping(value="/magazineInstargram")
 	public String magazineInstargram() {
 		return "/views/main/magazineInstargram";
 	}
-	
 	
 	@GetMapping(value="/magazineBicycle")
 	public String magazineBicycle() {
@@ -103,14 +100,14 @@ public class MainController {
 	
     @PostMapping(value = "/bestProduct")
     @ResponseBody
-    public List<Map<String, Object>> bestProduct(HttpSession session) throws Exception {
-    	return mainService.getBestProductList();
+    public List<Map<String, Object>> bestProduct(@RequestParam String memberId, HttpSession session) throws Exception {
+    	return mainService.getBestProductList(memberId);
     }
     
     @PostMapping(value = "/top100Product")
     @ResponseBody
-    public List<Map<String, Object>> top100Product(HttpSession session) throws Exception {
-    	return mainService.getTop100Product();
+    public List<Map<String, Object>> top100Product(@RequestParam String memberId, HttpSession session) throws Exception {
+    	return mainService.getTop100Product(memberId);
     }
     
     @PostMapping(value = "/getRecentReview")

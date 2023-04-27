@@ -23,8 +23,8 @@ pageEncoding="UTF-8"%>
     <body>
         <%@ include file="/WEB-INF/views/common/header.jsp" %>
         <div class="sessionData">
-	        <div class="productCode">${param.productCode}</div>
-    	    <div class="memberId">${sessionScope.memberId}</div>
+            <div class="productCode">${param.productCode}</div>
+            <div class="memberId">${sessionId}</div>
         </div>
 
         <div class="background">
@@ -217,8 +217,7 @@ pageEncoding="UTF-8"%>
                                 </div>
                                 <div class="productReviewMoreText">
                                     <a href="#productReviewSection"
-                                        ><span>reviewCount</span>개의 후기
-                                        보러가기</a
+                                        ><span>0</span>개의 후기 보러가기</a
                                     >
                                     <img
                                         src="../../images/purchase/arrow_right_btn.png"
@@ -230,15 +229,13 @@ pageEncoding="UTF-8"%>
                             <div class="productPrice">
                                 <span
                                     class="productPriceDiscountPercentUnitAmount"
-                                    >27%</span
+                                    >50%</span
                                 >
                                 <div class="productPriceSales">
                                     <span class="amount">price</span>
                                     <span class="unit">원</span>
                                 </div>
-                                <span class="productPriceOriginAmount"
-                                    >68,000</span
-                                >
+                                <span class="productPriceOriginAmount">0</span>
                             </div>
                             <div class="availableBenefit">
                                 <div class="greatestBenefitList"></div>
@@ -356,9 +353,7 @@ pageEncoding="UTF-8"%>
                                 <span class="productDetailSectionTitle"
                                     >상품 구매후기</span
                                 >
-                                <span class="productReviewTotalCnt"
-                                    >(reviewCount)</span
-                                >
+                                <span class="productReviewTotalCnt">(0)</span>
                             </div>
                             <div class="reviewBtnArea">
                                 <div class="reviewBtnDescribe">

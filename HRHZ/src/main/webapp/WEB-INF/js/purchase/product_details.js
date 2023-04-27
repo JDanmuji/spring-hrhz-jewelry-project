@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // remove GET parameters after uploading review
-    history.replaceState({}, null, location.pathname);
+  //  history.replaceState({}, null, location.pathname);
 
     var productCode = $(".productCode").text();
     var memberId = $(".memberId").text();
@@ -71,9 +71,25 @@ $(document).ready(function () {
     // ---------------------------------------------------
     $.ajax({
         type: "post",
-        data: "productCode=" + productCode,
+        data: {
+            productCode: productCode,
+            memberId: memberId,
+        },
         url: "/purchase/getProductDetail",
         success: function (data) {
+            // check sessionId & change heart color
+            console.log(productCode);
+            console.log(memberId);
+            console.log(data[0].likeYN);
+
+            if (data[0].likeYN === "Y") {
+                $(".productLikeHeart").css("display", "none");
+                $(".productLikeHeartViolet").css("display", "block");
+            } else {
+                $(".productLikeHeart").css("display", "block");
+                $(".productLikeHeartViolet").css("display", "none");
+            }
+
             // text load
             $(".storeInfo > img").attr(
                 "src",
@@ -83,6 +99,7 @@ $(document).ready(function () {
             $(".productLikeCnt").text(data[0].like);
             $(".productInfo .productName").text(data[0].productName);
             $(".productPriceSales > .amount").text(addComma(data[0].price));
+            $(".productPriceOriginAmount").text(addComma(data[0].price * 2));
             // 브랜드에서 알려드려요
             $(".storeNoticeContents > p").text(data[0].comment);
             if (data[0].comment == null) {
@@ -143,9 +160,10 @@ $(document).ready(function () {
             //$(".productReviewTotalCnt").text("(" + data[0].reviewCount + ")");
             var reviewImg = "";
             var reviewSeq = data[0].seq;
-            var imgCnt = 0;
+            var imgCnt = 1;
             var reviewHTML;
             var imgSeq_t = 0;
+            var reviewCnt = 0;
 
             $.each(data, function (index, items) {
                 if (!items.imgSeq) {
@@ -180,6 +198,7 @@ $(document).ready(function () {
 
                     $(".productReviewList").append(reviewHTML);
                     reviewHTML = "";
+                    reviewCnt++;
                 } else {
                     if (items.imgCount + 1 > imgCnt) {
                         reviewImg =
@@ -222,12 +241,16 @@ $(document).ready(function () {
                         $(".productReviewList").append(reviewHTML);
                         reviewHTML = "";
                         reviewImg = "";
-                        imgCnt = 0;
+                        imgCnt = 1;
+                        reviewCnt++;
                     }
 
                     imgCnt++;
                 }
             }); //each
+            console.log(reviewCnt);
+            $(".productReviewMoreText span").text(reviewCnt);
+            $(".productReviewTotalCnt").text("(" + reviewCnt + ")");
         },
         error: function (err) {
             console.log(err);
@@ -314,13 +337,34 @@ $(document).ready(function () {
     // ---------------------------------------------------
     // like heart icon
     $(".productLikeHeart").on("click", function (event) {
+        likeCount(memberId, productCode, "I");
         $(".productLikeHeart").css("display", "none");
         $(".productLikeHeartViolet").css("display", "block");
     });
     $(".productLikeHeartViolet").on("click", function (event) {
+        likeCount(memberId, productCode, "D");
         $(".productLikeHeart").css("display", "block");
         $(".productLikeHeartViolet").css("display", "none");
     });
+
+    function likeCount(id, code, division) {
+        $.ajax({
+            type: "post",
+            url: "/likeCount",
+            data: {
+                id: id,
+                code: code,
+                codeType: code.charAt(0),
+                division: division,
+            },
+            success: function (data) {
+                console.log(data);
+            },
+            err: function (err) {
+                console.log(err);
+            },
+        });
+    }
 
     // ---------------------------------------------------
     //                      options
