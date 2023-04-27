@@ -1,12 +1,15 @@
 package member.controller;
 
 import member.service.MemberService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.HashMap;
+
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -91,6 +94,7 @@ public class MemberController {
 	    return result;
     }
     
+
     @GetMapping(value = "/signOut")
     public String signOut(HttpServletRequest request) {
     	HttpSession session = request.getSession();
@@ -98,4 +102,12 @@ public class MemberController {
         session.invalidate();
         return "redirect:/";
     }
+
+    @RequestMapping(value="/callBack", method=RequestMethod.GET)
+    public String callBack(){
+    	return "/views/member/callBack";
+    }
+
 }
+
+

@@ -84,8 +84,76 @@ function buttonCheck() {
         $('.signInButton').attr('disabled', true);
 	}
 }
+	//-----------------------------------------------------------------------
+	//					Naver Login
+	//-----------------------------------------------------------------------
+	
+	
+/*
+$('#naverIdLogin_loginButton').on('click', function () {
+	  // location.assign('/signIn/naver');
+	  showLoginPopup();
+});
 
+  function showLoginPopup(){
+        let uri = 'https://nid.naver.com/oauth2.0/authorize?' +
+            'response_type=code' +                  // 인증과정에 대한 내부 구분값 code 로 전공 (고정값)
+            '&client_id=LXj0E58atyUZpVf3hQtj' +     // 발급받은 client_id 를 입력
+            '&state=NAVER_LOGIN_TEST' +             // CORS 를 방지하기 위한 특정 토큰값(임의값 사용)
+            '&redirect_uri=http://localhost:8080/signIn/naver';   // 어플케이션에서 등록했던 CallBack URL를 입력
 
+        // 사용자가 사용하기 편하게끔 팝업창으로 띄어준다.
+        window.open(uri, "Naver Login Test PopupScreen", "width=450, height=600");
+    }
+   */
+
+var naverLogin = new naver.LoginWithNaverId(
+	
+		{
+			clientId: "LXj0E58atyUZpVf3hQtj", //cliendId를 입력해줍니다.
+			callbackUrl: "http://localhost:8080/callBack", //주소 설정
+			isPopup : false,
+			callbackHandle : true
+		}
+	);
+	naverLogin.init();
+
+/*
+	window.addEventListener('load', function(){
+		naverLogin.getLoginStatus(function(status) {
+			if (status) {
+				var naverEmail = naverLogin.user.getEmail();
+	
+				console.log(naverLogin.user);
+			if (naverEmail == undefined || naverEmail == null) {
+				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
+				naverLogin.reprompt();
+				return;
+				}
+				
+			}else {
+				console.log("callback 처리에 실패하였습니다.");
+		}
+	});
+});
+*/
+
+/* var testPopUp;
+function openPopUp() {
+    testPopUp= window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
+}
+function closePopUp(){
+    testPopUp.close();
+}
+
+function naverLogout() {
+	openPopUp();
+	setTimeout(function() {
+		closePopUp();
+		}, 1000);
+	}
+	
+	*/
 
 
 

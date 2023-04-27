@@ -238,8 +238,9 @@ a {
 .socialIconKakao {
     background-image: url("./img/auth_social_kakao_round_btn.png");
 }
-.socialIconNaver {
-    background-image: url("./img/auth_social_naver_round_btn.png");
+.socialIconNaver img{
+    width: 45px;
+    height:45px;
 }
 .socialIconFacebook {
     background-image: url("./img/auth_social_facebook_round_btn.png");
