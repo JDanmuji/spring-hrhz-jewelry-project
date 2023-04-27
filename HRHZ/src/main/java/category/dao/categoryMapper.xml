@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="categorySQL">
 
-	<select id ="getCategoryBestProductList" parameterType="java.util.List" resultType="java.util.Map">
+	<select id ="getCategoryBestProductList" parameterType="java.util.Map" resultType="java.util.Map">
 		SELECT 
 *
 FROM  (SELECT 
@@ -32,14 +32,16 @@ FROM  (SELECT
               ON p.code = pi.product_code
             WHERE  
                1 = 1
-               <if test='colorArr != null'>
+             <if test='colorArr != null'>
                 AND color IN 
-            <foreach item="item" index="index" collection="colorArr" open="(" separator="," close=")">
-            #{item}
-          </foreach>
-       	 </if>
-           
+                <foreach item="item" index="index" collection="colorArr" open="(" separator="," close=")">
+                	
+                	
+             	#{item}
+            </foreach>
+       	 </if> 
                 ORDER  BY p.like_count DESC
+                
              ) k
       WHERE 
             1=1
@@ -48,10 +50,11 @@ FROM  (SELECT
         where 
         1=1
         AND seq <![CDATA[>=]]> #{startNum} AND seq <![CDATA[<=]]> #{endNum}
+        
     </select>
     
     <!-- totalA -->
-    <select id="getTotalA" resultType="int">
+    <select id="getTotalA" parameterType="java.util.Map"  resultType="int">
     	select count(*)             
         FROM (SELECT 
                    p.code AS "productCode"
@@ -74,17 +77,17 @@ FROM  (SELECT
               ON p.code = pi.product_code
             WHERE  
                1 = 1
-                <if test='colorArr != null'>
-                
-                AND color IN #{colorArr}
-               
-            </if>
+              <if test='colorArr != null'>
+                AND color IN 
+            <foreach item="item" index="index" collection="colorArr" open="(" separator="," close=")">
+            #{item}
+          </foreach>
+       	 </if> 
                 ORDER  BY p.like_count DESC
              ) k
       WHERE 
             1=1
         AND k.RN = 1
-     
        
     </select>
     

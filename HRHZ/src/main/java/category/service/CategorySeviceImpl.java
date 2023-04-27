@@ -21,25 +21,25 @@ public class CategorySeviceImpl implements CategoryService {
 	
 
 	@Override
-	public Map<String, Object> getCategoryBestProductList(String pg) throws Exception{
+	public Map<String, Object> getCategoryBestProductList(Map<String, Object> map) throws Exception{
 		
 		
-		int endNum = Integer.parseInt(pg) * 21;
+		int endNum = Integer.parseInt(map.get("pg").toString()) * 21;
 		int startNum = endNum - 20 ;
 		
 		System.out.println("endNum" + endNum);
 		System.out.println("startNum" + startNum);
-		Map<String, Integer> map = new HashMap<String, Integer>();
+	
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
 		
 		List<Map<String, Object>> list = categoryDAO.getCategoryBestProductList(map);
 		
 		//페이징 처리
-		int totalA =  categoryDAO.getTotalA();
+		int totalA =  categoryDAO.getTotalA(map);
 		System.out.println(totalA);
 		
-		categoryPaging.setCurrentPage(Integer.parseInt(pg));
+		categoryPaging.setCurrentPage(Integer.parseInt(map.get("pg").toString()));
 		categoryPaging.setPageBlock(5);
 		categoryPaging.setPageSize(21);
 		categoryPaging.setTotalA(totalA);
@@ -60,12 +60,11 @@ public class CategorySeviceImpl implements CategoryService {
 		
 	}
 
-
-
-	@Override
-	public List<Map<String, Object>> CategoryColorList(List<String> colorArr) {
-		return categoryDAO.CategoryColorList(colorArr);
-	}
+//	@Override
+//	public List<Map<String, Object>> CategoryColorList(Map<String, Object> map) {
+//		
+//		return categoryDAO.CategoryColorList(map);
+//	}
 
 
 

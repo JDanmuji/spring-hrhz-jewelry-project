@@ -18,7 +18,7 @@ public class CategoryDAOMyBatis implements CategoryDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Map<String, Object>> getCategoryBestProductList(Map<String, Integer> map) throws Exception{
+	public List<Map<String, Object>> getCategoryBestProductList(Map<String, Object> map) throws Exception{
 		return sqlSession.selectList("categorySQL.getCategoryBestProductList", map);
 	}
 
@@ -36,18 +36,17 @@ public class CategoryDAOMyBatis implements CategoryDAO {
 	}
 
 	@Override
-	public int getTotalA() {
-		return sqlSession.selectOne("categorySQL.getTotalA");
+	public int getTotalA(Map<String, Object> map) {
+		return sqlSession.selectOne("categorySQL.getTotalA", map);
 	}
 
-
-	@Override
-	public List<Map<String, Object>> CategoryColorList(List<String> colorArr) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("colorArr", colorArr);
-		return sqlSession.selectList("categorySQL.getCategoryBestProductList", map);
-	}
-
-
-	
+	/*
+	 * @Override public List<Map<String, Object>> CategoryColorList(Map<String,
+	 * Object> map) {
+	 * 
+	 * return sqlSession.selectList("categorySQL.getCategoryBestProductList", map);
+	 * }
+	 * 
+	 * 
+	 */
 }
