@@ -10,14 +10,19 @@ header {
     box-shadow: rgb(237, 237, 237) 0px 1px 0px 0px;
     background-color: rgb(255, 255, 255);
 }
-.headerWrap {
+.headerWrap,
+.adminHeaderWrap {
     display: flex;
     position: relative;
     align-items: center;
-    padding: 20px 70px;
+    height: 80px;
+    padding: 0 64px;
+}
+.adminHeaderWrap {
+    justify-content: space-between;
 }
 .amondzLogo {
-    width: 134px;
+	height: 30px;
     margin-right: 80px;
 }
 .mainMenu {
@@ -67,9 +72,9 @@ header {
 .authMenu a {
     cursor: pointer;
 }
-.cartBtn{
-	width: 24px;
-	height: 24px;
+.cartBtn {
+    width: 24px;
+    height: 24px;
 }
 
 /* search modal */
@@ -188,16 +193,16 @@ footer {
     min-width: 500px;
 }
 .footerGlobal {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .globalLogos {
-	display: flex;
-	gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 .globalLogos > img {
-	width: 80px;
+    width: 80px;
 }
 .footerChannels {
     display: flex;

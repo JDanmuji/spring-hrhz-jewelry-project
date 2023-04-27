@@ -1,0 +1,331 @@
+@charset "UTF-8";
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.formContainer {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+}
+.FormTitle {
+    font-size: 26px;
+	font-weight: 600;
+	line-height: 44px;
+	display: inline-block;
+	letter-spacing: -0.6px;
+}
+
+.titleUnderline {
+	display: block;
+	background-color: #000000;
+	height: 1px;
+	width: 100%;
+	margin: 20px 0 10px 0;
+}
+
+.brandInfoTitle, .brandPhotoInfoTitle {
+	font-size: 16px;
+	font-weight: bold;
+	display: inline-block;
+	letter-spacing: -0.3px;
+}
+
+.brandSearch, .productSearch, .thumbnailPhotoInsert, .detailPhotoInsert{
+	background-color: #000000;
+	color: #ffffff;
+	border-radius: 1px;
+	margin-left: 7px;
+    cursor: pointer;
+}
+
+.brandInfo {
+	display: flex;
+	align-items: center;
+}
+.brandInfo img{
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
+.brandName{
+	font-size: 15px;
+	margin-left: 7px;	
+}
+.brandPhotoName{
+	margin-left: 50px;
+}
+
+.brandSearch1 {
+	background-color: #000000;
+	color: #ffffff;
+	border-radius: 1px;
+	margin-left: 7px;
+	cursor: pointer;
+}
+.subTitleUnderline {
+	display: block;
+	background-color: #DDDDDD;
+	height: 1px;
+	width: 100%;
+	margin: 10px 0;
+}
+.inputContainer {
+	display: inline-block;
+	position: relative;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	margin: 20px 0 20px 0px;
+}
+.inputContainer label {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 300;
+	letter-spacing: -0.5px;
+	width: 100px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	color: #000000;
+}
+.inputContainer	 input {
+	border: none;
+	height: 40px;
+	font-size: 13px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+}
+.inputContainer input:focus ~ .underline {
+	background-color: #000000;
+}
+.inputContainer input:focus {
+	outline: none;
+}
+.brandNameUnderline, .representativeNumberUnderline, .brandEmailUnderline, .deliveryChargeUnderline, .kakaotalkUnderline, .instagramUnderline{
+	position: absolute;
+	bottom: 0;
+	margin-left: 50px;
+	height: 1px;
+	background-color: #EDEDED;
+	left: 20px;
+	width: 300px;
+}
+.brandName, .representativeNumber, .brandEmail, .deliveryCharge, .kakaotalk, .instagram{
+	width: 290px;
+}
+.branddeleteform{
+	display: inline-block;
+	width: 400px;
+	margin-right: 70px;
+}
+.brandphoto{
+	display: inline-block;
+	right: 0;
+}
+.brandphoto img {
+	width: 170px;
+	height: 170px;
+	border-radius: 50%;
+}
+.adminBrandDelete{
+	border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+	width: 350px;
+	height: 70px;
+	margin-left: 170px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	cursor: pointer;
+}
+
+.businessLocation1, .businessLocation2, .returnAddress1, .returnAddress2{
+	width: 450px;
+}
+.searchBusinessLocation, .searchReturnAddress {
+	border: 1px solid #000000;
+	border-radius: 3px;
+	background-color: #ffffff;
+	color: #000000;
+	font-size: 13px;
+	width: 70px;
+	height: 30px;
+	margin-left: 0px;
+	cursor: pointer;
+}
+.businessLocation1Underline, .returnAddress1line {
+    position: absolute;
+    bottom: 0;
+    margin-left: 50px;
+    height: 1px;
+    background-color: #ededed;
+    left: 20px;
+    width: 530px;
+}
+.businessLocation2Underline, .returnAddress2line {
+    position: absolute;
+    bottom: 0;
+    margin-left: 50px;
+    height: 1px;
+    background-color: #ededed;
+    left: 20px;
+    width: 450px;
+}
+.businessLocation2:focus ~ .businessLocation2Underline {
+    background-color: #000000;
+}
+.adminBrandInsert{
+	border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+	width: 350px;
+	height: 70px;
+	margin-left: 170px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	cursor: pointer;
+}
+
+.adminBrandUpdate{
+	border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+	width: 350px;
+	height: 70px;
+	margin-left: 170px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	cursor: pointer;
+}
+
+.brandphoto{
+	display: inline-block;
+	right: 0;
+}
+.brandphoto img {
+	width: 170px;
+	height: 170px;
+	border-radius: 50%;
+}
+.adminBrandDelete{
+	border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+	width: 350px;
+	height: 70px;
+	margin-left: 170px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	cursor: pointer;
+}
+
+.sectionBackGround {
+    display: none;
+	position: fixed;
+    inset: 0px;
+    font-family: NotoSansCJKkr;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+.sectionBackGround .modalBody {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    z-index: 102;
+    width: 450px;
+    height: 270px;
+}
+.brandFilterSearchDiv .searchIcon{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.brandFilterSearchDiv input {
+    display: inline-block;
+    width: 370px;
+    overflow: visible;
+    font-size: 16px;
+    color: #000000;
+}
+/* .brandSearch{
+    margin-top: 30px;
+} */
+.brandContainer {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin: 15px 0;
+}
+.checkboxs{
+    display: inline-block;
+    position: relative;
+}
+.checkbox{
+    position: absolute;
+    opacity: 0;
+}
+.uncheck, .check{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 7px;
+}
+.uncheck {
+    z-index: 1;
+}
+.check {
+    display: none;
+}
+.brandContainer .brandImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+.brandContainer span{
+    margin-left: 20px;
+}
+.brandSelect{
+    display: block;
+    margin: auto;
+    border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+    font-weight: 700;
+	width: 420px;
+	height: 45px;
+    cursor: pointer;
+}
+.brandFilter {
+    padding: 12px 0;
+    margin: 0 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.brandFilterSearchDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 420px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ededed;
+}
+.modalCloseBtn{
+    position: right;
+    width: 20px;
+    height: 20px;
+}

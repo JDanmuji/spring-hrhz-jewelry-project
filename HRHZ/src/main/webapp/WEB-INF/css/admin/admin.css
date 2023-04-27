@@ -1,10 +1,13 @@
 /* 초기화 */
+/*
 * {
   vertical-align: baseline;
 }
 html {
   text-size-adjust: 100%;
 }
+*/
+
 /* HTML5 display-role reset for older browsers */
 /*
 article,
@@ -40,16 +43,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-h4 {
-  display: block;
-  margin-block-start: 1.33em;
-  margin-block-end: 1.33em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
-
 hr {
   box-sizing: content-box;
   overflow: visible;
@@ -70,14 +63,13 @@ input {
 
 /* main */
 main {
-  width: 1074px;
-  margin: auto;
+  min-width: 1024px;
+  max-width: 1024px;
+  min-height: calc(100vh - 214px);
+  margin: 0 auto;
 }
 .adminHome .adminOuterWrap {
-  max-width: 1200px;
-  min-height: calc(100vh - 73px);
-  margin: 0px auto;
-  padding: 40px 30px 100px;
+  max-width: 100%;
   font-family: NotoSansCJKkr;
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
@@ -90,13 +82,12 @@ main {
 }
 .adminInnerWrap::after {
   content: "";
-  display: block;
   clear: both;
+  padding: 0 60px;
 }
 h2#admin {
   width: 100%;
-  margin: 0px;
-  padding-bottom: 40px;
+  padding: 40px 0;
   font-size: 40px;
   line-height: 59px;
   letter-spacing: -1px;
@@ -118,6 +109,11 @@ h2#admin a {
   width: 100%;
   -webkit-box-pack: justify;
   justify-content: space-between;
+}
+.adminContent{
+	width: 100%;
+	display: flex;
+	gap: 100px;
 }
 .leftTopNav {
   display: flex;
@@ -177,8 +173,8 @@ aside {
   display: block;
 }
 aside.adminTabNav {
-  float: left;
-  width: 15%;
+  /*float: left;*/
+  width: 100%;
   color: rgb(155, 155, 155);
   margin-right: 11%;
   background-color: #fff;

@@ -1,0 +1,513 @@
+@charset "UTF-8";
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.innerWrapper {
+    max-width: 700px;
+    margin: 0px auto;
+}
+.formContainer {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+}
+.productFormTitle {
+    font-size: 26px;
+	font-weight: 600;
+	line-height: 44px;
+	display: inline-block;
+	letter-spacing: -0.6px;
+}
+
+.subTitleUnderline, .brandUnderline {
+	display: block;
+	background-color: #DDDDDD;
+	height: 1px;
+	width: 100%;
+	margin: 10px 0;
+}
+.brandInfo {
+	display: flex;
+	align-items: center;
+}
+.brandName{
+	font-size: 15px;
+	margin-left: 7px;	
+}
+.title img{
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+}
+.inputContainer label{
+	display: inline-block;
+}
+.productInfoTitle, .thumbnailTitle, .productDetailImgTitle  {
+	font-size: 16px;
+	font-weight: bold;
+	display: inline-block;
+	letter-spacing: -0.3px;
+}
+
+.productDetailTitle {
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: -0.3px;
+}
+
+
+/* 옵션 선택 */
+.dropdownCoverSelector,.dropdownCoverSelector1, .dropdownCoverSelector2 {
+	display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+.dropdownSelect, .dropdownSelect1, .dropdownSelect2 {
+    margin-top: 0px;
+    border: 1px solid #e1e1e1;
+    padding: 12px 20px;
+    width: 130px;
+	height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dropdownSelect > img , .dropdownSelect1 > img, .dropdownSelect2 > img {
+    width: 12px;
+    height: 12px;
+}
+.dropdownBox, .dropdownBox1, .dropdownBox2 {
+    font-size: 14px;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    border: 1px solid #000;
+    background-color: #fff;
+}
+.dropdownBox p, .dropdownBox1 p, .dropdownBox2 p {
+    border-bottom: 1px solid #e1e1e1;
+    padding: 12px 20px;
+    width: 130px;
+	height: 20px;
+	margin: 0;
+}
+.optionName , .optionName1, .optionName2{
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+    word-break: break-all;
+}
+.dropdownCoverSelector, .dropdownCoverSelector1{
+	z-index: 10;
+}
+.dropdownCoverSelector2{
+	z-index: 9;
+}
+
+/* 옵션 선택 끝! */
+
+.categoryAndType{
+	display: flex;
+}
+.productType {
+	display: inline-block;
+}
+.inputContainer, .inputContainer1 {
+	display: block;
+	position: relative;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	width: 100%;
+	margin: 20px 0 20px 0px;
+}
+.inputContainer label, .inputContainer1 label {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 300;
+	letter-spacing: -0.5px;
+	width: 100px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	color: #000000;
+}
+.inputContainer	 input, .inputContainer1 input {
+	border: none;
+	height: 40px;
+	font-size: 13px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+}
+.inputContainer input:focus ~ .underline {
+	background-color: #000000;
+}
+.inputContainer input:focus {
+	outline: none;
+}
+.productName, .productCategory, .productType {
+	width: 290px;
+}
+.productNameUnderline, .productDetailLine{
+	position: absolute;
+	bottom: 0;
+	margin-left: 65px;
+	height: 1px;
+	background-color: #EDEDED;
+	left: 20px;
+	width: 300px;
+}
+
+.businessLocation1, .businessLocation2, .returnAddress1, .returnAddress2{
+	width: 450px;
+}
+
+.searchBusinessLocation, .searchReturnAddress {
+	border: 1px solid #000000;
+	border-radius: 3px;
+	background-color: #ffffff;
+	color: #000000;
+	font-size: 13px;
+	width: 70px;
+	height: 30px;
+	margin-left: 0px;
+}
+.businessLocation1Underline, .returnAddress1line {
+    position: absolute;
+    bottom: 0;
+    margin-left: 50px;
+    height: 1px;
+    background-color: #ededed;
+    left: 20px;
+    width: 530px;
+}
+.businessLocation2Underline, .returnAddress2line {
+    position: absolute;
+    bottom: 0;
+    margin-left: 50px;
+    height: 1px;
+    background-color: #ededed;
+    left: 20px;
+    width: 450px;
+}
+.businessLocation2:focus ~ .businessLocation2Underline {
+    background-color: #000000;
+}
+.adminBrandUpdate{
+	border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+	width: 350px;
+	height: 70px;
+	margin-left: 170px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.stockAndPrice{
+	display: flex;
+}
+.productdetailLine{
+	position: absolute;
+    bottom: 0;
+    margin-left: 50px;
+    height: 1px;
+    background-color: #ededed;
+    left: 30px;
+    width: 450px;
+}
+/* .productdetailtitle{
+	margin-top: 100px;
+} */
+.productdetail{
+	width: 430px;
+}
+.productInsert{
+	border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+	width: 350px;
+	height: 70px;
+	margin-left: 170px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.productUpdate{
+	border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+	width: 350px;
+	height: 70px;
+	margin-left: 170px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.productdetail1{
+	width: 540px;
+}
+.productDetailLine1{
+	position: absolute;
+    bottom: 0;
+    margin-left: 50px;
+    height: 1px;
+    background-color: #ededed;
+    left: 30px;
+    width: 550px;
+}
+
+/* 브랜드 조회 모달창 */
+.sectionBackGround {
+    display: none;
+	position: fixed;
+    inset: 0px;
+    font-family: NotoSansCJKkr;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.sectionBackGround .modalBody {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    z-index: 102;
+    width: 500px;
+    height: 300px;
+}
+
+.brandFilterSearchDiv .searchIcon{
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+.brandFilterSearchDiv input {
+    width: 500px;
+    overflow: visible;
+    font-size: 16px;
+    color: #d9d9d9;
+	border: none;
+}
+
+/* .brandSearch1{
+    margin-top: 30px;
+} */
+.brandContainer {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.checkboxs{
+    display: inline-block;
+    position: relative;
+}
+.checkbox{
+    position: absolute;
+    opacity: 0;
+}
+.uncheck, .check{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.uncheck {
+    z-index: 1;
+}
+.check {
+    display: none;
+}
+
+.brandContainer .brandImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+.brandContainer span{
+    margin-left: 20px;
+}
+.brandSelect{
+    display: block;
+    margin: auto;
+    border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+	width: 300px;
+	height: 50px;
+    cursor: pointer;
+}
+
+.brandFilter {
+    padding: 12px 0;
+    margin: 0 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.brandFilterSearchDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ededed;
+}
+
+.modalCloseBtn{
+    position: right;
+    width: 20px;
+    height: 20px;
+}
+
+.productStockLine, .productPriceLine{
+	width: 200px;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	margin-left: 65px;
+	height: 1px;
+	background-color: #ededed;
+	left: 20px;
+}
+.title > h{
+    font-size: 10px;
+    margin-left: 50px;
+}
+
+.thumbnail img, .productImages img{
+    width: 90px;
+    height: 90px;
+    margin: 0 10px 0 10px;
+}
+.productPhotoInsert{
+    border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+	width: 350px;
+	height: 70px;
+	margin-left: 170px;
+	margin-top: 70px;
+	margin-bottom: 50px;
+    cursor: pointer;
+}
+
+
+/* modal */
+.sectionBackGround {
+    display: none;
+	position: fixed;
+    inset: 0px;
+    font-family: NotoSansCJKkr;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.sectionBackGround .modalBody {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    z-index: 102;
+    width: 330px;
+}
+
+.modalBody .modalCloseBtn {
+	width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.modalBody .confirmText {
+	margin: 44px 32px 24px;
+    letter-spacing: -0.5px;
+    text-align: center;
+}
+
+.confirmText .msg {
+	padding-bottom: 8px;
+    line-height: 24px;
+    font-size: 16px;
+    white-space: pre;
+    font-weight: 500;
+}
+
+.confirmText .modalFooter {
+	margin: 0px 24px 24px;
+}
+
+.modalFooter {
+	margin: 0px 24px 24px;
+}
+
+.modalFooter button {
+	width: 130px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.yesModalBtn {
+	border-radius: 2px;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(225, 225, 225);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    height: 40px;
+    width: 181px;
+    line-height: 40px; 
+}    
+
+.noModalBtn {
+	border-radius: 2px;
+    outline: none;
+    border: 1px solid transparent;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    height: 40px;
+    width: 181px;
+    line-height: 40px;
+}    
+
+
+
+.modalFooter button:first-child {
+	margin-right: 12px;
+    border-color: rgb(0, 0, 0);    
+}
+
+.productDelete{
+	border: 0.5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 17px;
+	width: 350px;
+	height: 70px;
+	margin-left: 170px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	cursor: pointer;
+}

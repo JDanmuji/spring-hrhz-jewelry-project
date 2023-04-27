@@ -21,9 +21,6 @@ public class MemberController {
     private MemberService memberService;
     
 
-    
-   
-
     @GetMapping(value = "/signUp1")
     public String signUp1(){
         return "/views/member/signUp1";
@@ -67,9 +64,6 @@ public class MemberController {
 
             return numStr;
         }
-
-        
-        
     }
 
     
@@ -89,6 +83,8 @@ public class MemberController {
     	String id = memberService.loginCheck(dataMap);  
     	
     	if (id != null) { // 로그인 성공 시
+    		System.out.println(id);
+    		
     	   session.setAttribute("sessionId", id);
     	   result = "success";
     	} else { // 로그인 실패 시
@@ -98,12 +94,19 @@ public class MemberController {
 	    return result;
     }
     
+
+    @GetMapping(value = "/signOut")
+    public String signOut(HttpServletRequest request) {
+    	HttpSession session = request.getSession();
+//		session.removeAttribute("sessionId");
+        session.invalidate();
+        return "redirect:/";
+    }
+
     @RequestMapping(value="/callBack", method=RequestMethod.GET)
     public String callBack(){
     	return "/views/member/callBack";
     }
-    
-
 
 }
 
