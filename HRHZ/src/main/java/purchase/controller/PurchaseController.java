@@ -1,3 +1,4 @@
+
 package purchase.controller;
 
 import java.io.File;
@@ -29,7 +30,8 @@ public class PurchaseController {
 	PurchaseService purchaseService;
 
 	 @GetMapping(value="productDetail")
-	 public String productDetail(Model model){
+	 public String productDetail(@RequestParam(required = false) String code, Model model){
+		 System.out.println(code);
 		 return "/views/purchase/productDetail";
 	 }
 
@@ -45,8 +47,8 @@ public class PurchaseController {
 	 
 	 @PostMapping(value = "getProductDetail")
 	 @ResponseBody
-	 public List<Map<String, Object>> getProductDetail(@RequestParam String productCode) {
-		 return purchaseService.getProductDetail(productCode);
+	 public List<Map<String, Object>> getProductDetail(@RequestParam Map<String, String> map) {
+		 return purchaseService.getProductDetail(map);
 	 }
 	 
 	 @PostMapping(value = "getProductImages")
@@ -64,7 +66,7 @@ public class PurchaseController {
 	 
 	 @PostMapping(value = "reviewUpload", produces = "text/html; charset=UTF-8")
 	 @ResponseBody
-	 public void reviewUpload(@RequestParam("img[]") List<MultipartFile> list,
+	 public String reviewUpload(@RequestParam("img[]") List<MultipartFile> list,
 			    			  @ModelAttribute ReviewDTO reviewDTO,
 			 				  HttpSession session) {
 		 List<String> fileNameList = new ArrayList<String>();
@@ -97,6 +99,7 @@ public class PurchaseController {
 			 System.out.println(fileNameList);
 		 }
 		 purchaseService.reviewUpload(reviewDTO, fileNameList);
+		 return "/views/purchase/productDetail";
 	 }
 	 
 //	 @PostMapping(value = "reviewUpload", produces = "text/html; charset=UTF-8")

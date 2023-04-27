@@ -287,7 +287,6 @@
     cursor: pointer;
 }
 .productLikeHeartViolet {
-    display: none;
     height: 17px;
     width: 19px;
     cursor: pointer;
@@ -631,7 +630,10 @@
 }
 .reviewPhoto {
     display: flex;
-    gap: 8px;
+    gap: 10px;
+    max-width: 1000px;
+    overflow-x: scroll;
+    margin-top: 14px;
 }
 .reviewPhoto img {
     height: 100px;
@@ -920,21 +922,25 @@ div.modalBackground {
     overflow-x: overlay;
 }
 /* scroll bar design */
-.imgPreview::-webkit-scrollbar {
+.imgPreview::-webkit-scrollbar,
+.reviewPhoto::-webkit-scrollbar {
     width: 14px;
     height: 14px;
 }
-.imgPreview::-webkit-scrollbar-thumb {
+.imgPreview::-webkit-scrollbar-thumb,
+.reviewPhoto::-webkit-scrollbar-thumb {
     outline: none;
     border-radius: 10px;
     border: 4px solid transparent;
     box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.15);
 }
-.imgPreview::-webkit-scrollbar-thumb:hover {
+.imgPreview::-webkit-scrollbar-thumb:hover,
+.reviewPhoto::-webkit-scrollbar-thumb:hover {
     border: 4px solid transparent;
     box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.3);
 }
-.imgPreview::-webkit-scrollbar-track {
+.imgPreview::-webkit-scrollbar-track,
+.reviewPhoto::-webkit-scrollbar-track {
     box-shadow: none;
     background-color: transparent;
 }

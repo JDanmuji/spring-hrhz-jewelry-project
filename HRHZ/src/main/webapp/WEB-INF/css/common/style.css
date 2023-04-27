@@ -1,8 +1,3 @@
-p {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
 /* main - swiper slide */
 main {
     max-width: 1024px;
@@ -10,7 +5,6 @@ main {
     padding: 20px 30px;
     margin: 0 auto;
 }
-
 #carouselExampleSlidesOnly {
     display: flex;
     justify-content: center;
@@ -25,7 +19,6 @@ main {
     margin: 0 auto;
     margin-bottom: 100px;
 }
-
 .miniMenu a {
     display: flex;
     gap: 10px;
@@ -58,7 +51,6 @@ article {
     color: #000;
     margin-bottom: 16px;
 }
-
 .timeSaleContents {
     position: relative;
     display: flex;
@@ -66,7 +58,6 @@ article {
     margin-bottom: 60px;
     overflow: hidden;
 }
-
 .timeSaleImg {
     overflow: hidden;
     margin-bottom: 10px;
@@ -81,7 +72,6 @@ article {
     width: 100%;
     overflow: hidden;
 }
-
 .articleContents a:link,
 .articleContents a:visited,
 .articleContents a:hover,
@@ -123,7 +113,6 @@ article {
 .articlePrice {
     display: flex;
     font-family: Barlow;
-    margin-top: 16px;
 }
 .percentage {
     color: rgb(98, 0, 240);
@@ -134,6 +123,7 @@ article {
 .deliveryIcon {
     width: 60px;
 }
+
 .heartIcon {
     width: 16px;
     position: absolute;
@@ -146,7 +136,6 @@ article {
     width: 18px;
 }
 .heartIconViolet {
-    display: none;
     height: 17px;
     width: 18px;
 }
@@ -212,7 +201,6 @@ article {
 .bestContent {
     position: relative;
 }
-
 .bestImg {
     width: 100%;
 

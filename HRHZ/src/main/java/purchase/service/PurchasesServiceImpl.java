@@ -15,8 +15,8 @@ public class PurchasesServiceImpl implements PurchaseService {
 	PurchaseDAO purchaseDAO;
 
 	@Override
-	public List<Map<String, Object>> getProductDetail(String productCode) {
-		return purchaseDAO.getProductDetail(productCode);
+	public List<Map<String, Object>> getProductDetail(Map<String, String> map) {
+		return purchaseDAO.getProductDetail(map);
 	}
 
 	@Override
