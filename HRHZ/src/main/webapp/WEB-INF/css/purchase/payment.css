@@ -17,6 +17,7 @@ header {
 body {
     margin: 0 auto;
     line-height: 1.15;
+    min-width: 1024px;
     
 }
 
@@ -191,21 +192,8 @@ tbody {
 }
 
 /* main */
-main {
-    max-width: 1024px;
-    min-width: 1024px;
-    max-height: 2000px;
-    min-height: 2000px;
-    padding: 0 30px;
-    margin: 0 auto;
-    display: flex;
-}
-
-.mainSection {
-    padding: 0 60px;
-    width: 80%;
-    height: 1000px;
-    position: relative;
+.paymentMain1 {
+    background-color: rgb(250, 250, 250);
 }
 
 .paymentMain1 {
@@ -234,9 +222,6 @@ main {
     font-family: Barlow;
 }
 
-.payProductInfo {
-    line-height: 56px;
-}
 
 .title {
     display: inline-block;
@@ -257,12 +242,19 @@ form {
     border-collapse: collapse;
     font-family: Barlow;
 }
+.payProductTable:not(:last-child){
+    margin-bottom: 56px;
+}
 
-
+/* thead */
 thead {
     display: table-header-group;
     vertical-align: middle;
     border-color: inherit;
+}
+
+.payProductTable thead tr {
+    height: 54px;
 }
 
 thead tr:first-child {
@@ -305,6 +297,8 @@ thead tr:last-child {
     border-bottom: 1px solid rgb(237, 237, 237);
 }
 
+/*----------------*/
+/* tbody */
 tbody tr td {
     text-align: center;
     padding: 24px 0px;
@@ -313,11 +307,14 @@ tbody tr td {
 tbody tr td.productInfoBox {
     text-align: left;
 }
-
-tbody tr:last-child div.productInfoImgBox {
+.productInfoBox .productInfoImgBox {
+    display: inline-block;
     margin-right: 16px;
-    float: left;
     vertical-align: top;
+    line-height: 0;
+    width: 100px;
+    height: 100px;
+    float: left;
 }
 
 .productImg {
@@ -327,9 +324,9 @@ tbody tr:last-child div.productInfoImgBox {
     height: initial;
     background: none;
     opacity: 1;
-    border: 0px;
-    margin: 0px;
-    padding: 0px;
+    border: 0;
+    margin: 0;
+    padding: 0;
     max-width: 100%;
 }
 
@@ -349,10 +346,14 @@ span.productImg img {
     border-radius: 2px;
 }
 
+.payProductTable tbody tr {
+    border-top: 1px solid rgb(237, 237, 237);
+}
 
 tbody tr:last-child {
     border-bottom: 1px solid rgb(237, 237, 237);
 }
+
 
 
 div.productInfo {
@@ -462,6 +463,8 @@ td.productBundleTotalPrice .productPrice .unit {
     font-family: Barlow;
 }
 
+/*--------------------*/
+/* tfoot */
 tfoot {
     display: table-footer-group;
     vertical-align: middle;
@@ -475,6 +478,10 @@ tfoot tr {
 }
 
 tfoot td {
+    padding-top: 13px;
+    text-align: right;
+}
+.payProductTable tfoot tr.productTotal {
     padding-top: 13px;
     text-align: right;
 }
@@ -595,7 +602,7 @@ tfoot td {
     border: 1px solid rgb(225, 225, 225);
     position: relative;
     padding: 11px 15px 11px;
-    height: 20-px;
+    height: 20px;
 }
 
 .dropDownSelect .dropDownSelectLabel {
@@ -736,7 +743,7 @@ tfoot td {
 .applyPointInfo > label {
     display: inline-block;
     font-size: 13px;
-    font-weight: 500px;
+    font-weight: 500;
     letter-spacing: -0.5px;
     pointer-events: none;  
 }
@@ -860,7 +867,7 @@ tfoot td {
 }
 
 button, [type="button"], [type="reset"], [type="submit"] {
-    appearance: button;
+    appearance: menulist-button;
 }
 
 .payComment {
@@ -914,14 +921,19 @@ button, [type="button"], [type="reset"], [type="submit"] {
     
     bottom: auto;
 }
-
 .paySummaryInfo.fixed {
     position: fixed;
     top: 104px;
     margin: 0px;
-    left: 1100px;
+    left: 687px;
     bottom: auto;
 }
+@media screen and (min-width: 1040px) {
+    .paySummaryInfo.fixed {
+        left: 64.87vw;
+    }
+}
+
 
 .paySummaryTitle {
     padding-bottom: 20px;

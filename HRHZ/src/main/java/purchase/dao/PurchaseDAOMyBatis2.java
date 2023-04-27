@@ -1,5 +1,6 @@
 package purchase.dao;
 
+import hrhz.dto.CartDTO;
 import hrhz.dto.PaymentDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,12 @@ public class PurchaseDAOMyBatis2 implements PurchaseDAO2 {
             PaymentDTO dto = sqlSession.selectOne("purchaseSQL2.getPaymentInfo",paymentDTO);
             list.add(dto);
         }
-        System.out.println(list);
         return list;
+    }
+
+    @Override
+    public List<CartDTO> getCart(String id) {
+        return sqlSession.selectList("purchaseSQL2.getCart", id);
     }
 }
 

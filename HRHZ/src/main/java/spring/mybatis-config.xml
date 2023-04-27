@@ -11,6 +11,7 @@
  		<typeAlias type="hrhz.dto.ReviewDTO" alias="review"/>
  		<typeAlias type="hrhz.dto.ReviewImageDTO" alias="reviewImage"/>
 		<typeAlias type="hrhz.dto.PaymentDTO" alias="payment"/>
+		<typeAlias type="hrhz.dto.CartDTO" alias="cart"/>
 	</typeAliases>
 
 </configuration>

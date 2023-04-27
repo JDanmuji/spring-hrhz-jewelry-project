@@ -17,9 +17,6 @@ public class MyController {
     @Autowired
     private MyService myService;
 
-//        HttpSession session = request.getSession();
-//        String id = (String) request.getAttribute("id"); // id session value
-
     @GetMapping(value = "reviewForm")
     public String reviewForm(Model model){
         model.addAttribute("display", "reviewForm.jsp");
@@ -58,7 +55,8 @@ public class MyController {
 
     @GetMapping(value = "myPageManage")
     public String myPageManage(Model model, HttpServletRequest request){
-        String id = "k00001"; //hard coding
+        HttpSession session = request.getSession();
+        String id = (String) session.getAttribute("sessionId"); // id session value
 
         MemberDTO memberDTO = myService.getMemberInfo(id); //memberDTO 가져오기
         model.addAttribute("memberDTO",memberDTO);
@@ -73,8 +71,10 @@ public class MyController {
         return "/views/my/myPage";
     }
     @GetMapping(value = "myPageManage1")
-    public String myPageManage1(Model model){
-        String id = "k00001"; //hard coding
+    public String myPageManage1(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String id = (String) session.getAttribute("sessionId"); // id session value
+        System.out.println(id);
 
         MemberDTO memberDTO = myService.getMemberInfo(id); //memberDTO 가져오기
         model.addAttribute("memberDTO",memberDTO);
@@ -86,7 +86,8 @@ public class MyController {
     @PostMapping(value = "getMember")
     @ResponseBody
     public String getMember(@RequestParam String password, HttpServletRequest request){
-        String id = "k00001"; //hard coding
+        HttpSession session = request.getSession();
+        String id = (String) session.getAttribute("sessionId"); // id session value
         return myService.getMember(id, password);
     }
 
@@ -95,8 +96,10 @@ public class MyController {
     // update pwd
     @PostMapping(value = "updateNewPwd")
     @ResponseBody
-    public void updateNewPwd(@RequestParam("checkPassword") String checkPassword) {
-        String id = "k00001"; //hard coding
+    public void updateNewPwd(@RequestParam("checkPassword") String checkPassword, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String id = (String) session.getAttribute("sessionId"); // id session value
+
         myService.updateNewPwd(id, checkPassword);
     }
 
@@ -110,8 +113,10 @@ public class MyController {
     // delete member
     @PostMapping(value = "deleteMember")
     @ResponseBody
-    public void deleteMember() {
-        String id = "k00001"; //hard coding
+    public void deleteMember(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String id = (String) session.getAttribute("sessionId"); // id session value
+
         myService.deleteMember(id);
     }
     @GetMapping(value = "deleteMemberModal")
@@ -123,8 +128,10 @@ public class MyController {
     // update member info
     @PostMapping(value = "updateMember")
     @ResponseBody
-    public void updateMember(@ModelAttribute MemberDTO memberDTO) {
-        String id = "k00001"; //hard coding
+    public void updateMember(@ModelAttribute MemberDTO memberDTO, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String id = (String) session.getAttribute("sessionId"); // id session value
+
         myService.updateMember(memberDTO);
     }
     @GetMapping(value = "updateMemberModal")
