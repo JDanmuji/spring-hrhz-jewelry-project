@@ -22,11 +22,9 @@ pageEncoding="UTF-8"%>
 
     <body>
         <%@ include file="/WEB-INF/views/common/header.jsp" %>
-        <!-- <div class="productCode">${productCode}</div> -->
-        <!-- <div class="memberId">${memberId}</div> -->
         <div class="sessionData">
-            <div class="productCode">P00000072</div>
-            <div class="memberId">moon</div>
+	        <div class="productCode">${param.productCode}</div>
+    	    <div class="memberId">${sessionScope.memberId}</div>
         </div>
 
         <div class="background">
