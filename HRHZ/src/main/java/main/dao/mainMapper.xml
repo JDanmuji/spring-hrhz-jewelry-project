@@ -70,6 +70,23 @@
         AND ROWNUM  <![CDATA[<]]>  10
     </select>
     
+    <select id="getRecentReview"  resultType="java.util.HashMap">
+		SELECT *
+		FROM (
+		  SELECT r.seq AS "seq",
+		         r.content AS "content",
+		         ri.img_origin_name AS "imgName",
+		         p.name AS "productName",
+         		 p.code AS "productCode",
+		         ROW_NUMBER() OVER (PARTITION BY r.seq ORDER BY r.reg_date DESC) AS rn
+		  FROM review r
+		  JOIN review_image ri ON r.seq = ri.review_seq
+		  JOIN product p ON r.product_code = p.code
+		  WHERE r.like_count = 5 AND r.IMAGE_YN = 'Y'
+		)
+		WHERE rn = 1 AND ROWNUM <![CDATA[<]]> 4
+    </select>
+    
     <insert id="likeInsert" parameterType="java.util.HashMap">
     	INSERT INTO like_list
     	VALUES (#{id} 

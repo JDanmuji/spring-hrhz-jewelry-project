@@ -1,5 +1,5 @@
 $(document).ready(function () {
- // remove GET parameters after uploading review
+    // remove GET parameters after uploading review
     history.replaceState({}, null, location.pathname);
 
     var productCode = $(".productCode").text();
@@ -57,6 +57,9 @@ $(document).ready(function () {
 
             // review modal hiddenInput
             $(".hiddenInputs input[name='brandCode']").val(data[0].brandCode);
+
+            // remove arrow btns when it has only 1 thumbnail
+            imgChange();
         },
         error: function (err) {
             console.log(err);
@@ -135,108 +138,95 @@ $(document).ready(function () {
         data: "productCode=" + productCode,
         url: "/purchase/getProductReviews",
         success: function (data) {
-        
-        	console.log(data);
+            console.log(data);
             //$(".productReviewMoreText span").text(data[0].reviewCount);
             //$(".productReviewTotalCnt").text("(" + data[0].reviewCount + ")");
             var reviewImg = "";
             var reviewSeq = data[0].seq;
             var imgCnt = 0;
-            var reviewHTML;	
-            var imgSeq_t = 0;	
+            var reviewHTML;
+            var imgSeq_t = 0;
 
             $.each(data, function (index, items) {
-				
-			
-				
-				if(!items.imgSeq) {
-			
-	                reviewHTML =
-	                    "<a href='#'>" +
-	                    "<div class='productReviewItem'>" +
-	                    "<div class='reviewSeq'>" +
-	                    items.seq +
-	                    "</div>" +
-	                    "<div class='reviewInfo'>" +
-	                    "<div class='rate'>" +
-	                    "<img src='../../images/purchase/product_review_star_on.png' alt='star icon' />".repeat(
-	                        items.like
-	                    ) +
-	                    "</div>" +
-	                    "<div class='accountAndDate'>" +
-	                    "<span class='account'>" +
-	                    items.memberId.substring(0, 4) +
-	                    "**</span>" +
-	                    "<span class='line'>|</span>" +
-	                    "<span class='date'>" +
-	                    items.regDate +
-	                    "</span>" +
-	                    "</div>" +
-	                    "</div>" +
-	                    "<div class='reviewContent'>" +
-	                    items.content +
-	                    "</div>" +
-	                    "<div class='reviewPhoto'>";
-	                    
-	                  reviewHTML = reviewHTML  + "</div></div></a>";
-	                  
-	                  $(".productReviewList").append(reviewHTML);
-	                  reviewHTML = "";
-	                  
-				} else {
-					
-					
-					if ((items.imgCount+1)  > imgCnt) {
-						
-						reviewImg =
-				            reviewImg +
-				            "<img src='/storage/review/" +
-				            items.imgName +
-				            "'/>";
-				     	
-					} 
-					
-					
-					if (items.imgCount === imgCnt) {
-					
-						 reviewHTML =
-		                    "<a href='#'>" +
-		                    "<div class='productReviewItem'>" +
-		                    "<div class='reviewSeq'>" +
-		                    items.seq +
-		                    "</div>" +
-		                    "<div class='reviewInfo'>" +
-		                    "<div class='rate'>" +
-		                    "<img src='../../images/purchase/product_review_star_on.png' alt='star icon' />".repeat(
-		                        items.like
-		                    ) +
-		                    "</div>" +
-		                    "<div class='accountAndDate'>" +
-		                    "<span class='account'>" +
-		                    items.memberId.substring(0, 4) +
-		                    "**</span>" +
-		                    "<span class='line'>|</span>" +
-		                    "<span class='date'>" +
-		                    items.regDate +
-		                    "</span>" +
-		                    "</div>" +
-		                    "</div>" +
-		                    "<div class='reviewContent'>" +
-		                    items.content +
-		                    "</div>" +
-		                    "<div class='reviewPhoto'>";
-		                    
-		                    reviewHTML = reviewHTML + reviewImg + "</div></div></a>";
-	                     	$(".productReviewList").append(reviewHTML);
-	                     	reviewHTML = "";
-	                     	reviewImg = "";
-	                     	imgCnt = 0;
-					}
-					
-					imgCnt++;
-					
-				}
+                if (!items.imgSeq) {
+                    reviewHTML =
+                        "<a href='#'>" +
+                        "<div class='productReviewItem'>" +
+                        "<div class='reviewSeq'>" +
+                        items.seq +
+                        "</div>" +
+                        "<div class='reviewInfo'>" +
+                        "<div class='rate'>" +
+                        "<img src='../../images/purchase/product_review_star_on.png' alt='star icon' />".repeat(
+                            items.like
+                        ) +
+                        "</div>" +
+                        "<div class='accountAndDate'>" +
+                        "<span class='account'>" +
+                        items.memberId.substring(0, 4) +
+                        "**</span>" +
+                        "<span class='line'>|</span>" +
+                        "<span class='date'>" +
+                        items.regDate +
+                        "</span>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class='reviewContent'>" +
+                        items.content +
+                        "</div>" +
+                        "<div class='reviewPhoto'>";
 
+                    reviewHTML = reviewHTML + "</div></div></a>";
+
+                    $(".productReviewList").append(reviewHTML);
+                    reviewHTML = "";
+                } else {
+                    if (items.imgCount + 1 > imgCnt) {
+                        reviewImg =
+                            reviewImg +
+                            "<img src='/storage/review/" +
+                            items.imgName +
+                            "'/>";
+                    }
+
+                    if (items.imgCount === imgCnt) {
+                        reviewHTML =
+                            "<a href='#'>" +
+                            "<div class='productReviewItem'>" +
+                            "<div class='reviewSeq'>" +
+                            items.seq +
+                            "</div>" +
+                            "<div class='reviewInfo'>" +
+                            "<div class='rate'>" +
+                            "<img src='../../images/purchase/product_review_star_on.png' alt='star icon' />".repeat(
+                                items.like
+                            ) +
+                            "</div>" +
+                            "<div class='accountAndDate'>" +
+                            "<span class='account'>" +
+                            items.memberId.substring(0, 4) +
+                            "**</span>" +
+                            "<span class='line'>|</span>" +
+                            "<span class='date'>" +
+                            items.regDate +
+                            "</span>" +
+                            "</div>" +
+                            "</div>" +
+                            "<div class='reviewContent'>" +
+                            items.content +
+                            "</div>" +
+                            "<div class='reviewPhoto'>";
+
+                        reviewHTML =
+                            reviewHTML + reviewImg + "</div></div></a>";
+                        $(".productReviewList").append(reviewHTML);
+                        reviewHTML = "";
+                        reviewImg = "";
+                        imgCnt = 0;
+                    }
+
+                    imgCnt++;
+                }
             }); //each
         },
         error: function (err) {
@@ -277,13 +267,6 @@ $(document).ready(function () {
     // ---------------------------------------------------
     // main thumbnail slide
     // call the function by clicking btn
-     
-    if (img_count == 0) {
-        $(".swiperButtonPrev").css("display", "none");
-        $(".swiperButtonNext").css("display", "none");
-    }
-    
-    
     $(".swiperButtonPrev").click(function () {
         --img_position;
         imgChange();

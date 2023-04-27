@@ -26,6 +26,10 @@ public class MainDAOMyBatis implements MainDAO{
 		return sqlSession.selectList("mainSQL.getTop100Product");
 	}
 
+	@Override
+	public List<Map<String, Object>> getRecentReview() throws Exception {
+		return sqlSession.selectList("mainSQL.getRecentReview");
+	}
 
 	@Override
 	public void likeCount(HashMap<String, String> dataMap) throws Exception {
@@ -36,9 +40,6 @@ public class MainDAOMyBatis implements MainDAO{
 		} else {
 			sqlSession.delete("mainSQL.likeDelete", dataMap);
 		}
-		
 		sqlSession.update("mainSQL.likeCount", dataMap);
-		
 	}
-
 }
