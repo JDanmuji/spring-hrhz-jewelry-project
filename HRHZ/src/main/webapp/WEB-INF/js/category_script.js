@@ -8,6 +8,7 @@ $(document).ready(function () {
     // add check img
     $(".filterDiv").append(checkHTML);
     $(".categoryToggle > p").append(checkHTML);
+    
 });
 
 // ---------------------------------------------------
@@ -253,13 +254,13 @@ String.prototype.formatNumber = function () {
 // ---------------------------------------------------
 //                 Best List
 // ---------------------------------------------------
-function articleContents(colorArr) {
+function articleContents(data) {
     var optionItem;
 
     $.ajax({
         type: "post",
         url: "/bestCategoryPorductList",
-        data: { colorArr: colorArr, pg: $("#pg").val() },
+        data: { selectList : data, pg: $("#pg").val() },
         dataType: "json",
 
         success: function (data) {
@@ -354,3 +355,47 @@ $(document).on("click", ".filterResultBtn", function () {
     articleContents(colorArr);
     $(".filterToggle").css("display", "none");
 });
+
+$(document).on("click", ".categoryToggle", function () {
+	var select = $(this).prev().get(0).innerText;
+    var checkData= $(".categoryToggle p.checkedCategory").get();
+	var selectList = new Array();
+
+	$.each(checkData, function(index, item){
+	
+		
+	
+		selectList.push(checkData[index].innerText);
+			
+	});
+	
+	 articleContents(selectList) 
+	
+});
+
+
+
+function categoryPaging(pg) {
+    location.href = "/category?pg=" + pg;
+}
+
+
+function caseInSwitch(val) {
+  var answer = "";
+  switch (val){
+    case 1: 
+      answer = "alpha";
+      break; 
+    case 2:
+      answer = "beta";
+      break;
+    case 3:
+      answer = "gamma"; 
+      break;
+    case 4:
+      answer = "delta"; 
+      break; 
+  }
+  return answer;
+}
+
