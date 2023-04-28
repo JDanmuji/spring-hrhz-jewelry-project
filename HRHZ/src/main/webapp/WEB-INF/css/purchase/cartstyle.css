@@ -39,11 +39,11 @@
     height: 12px;
     margin: 0 8px;
 }
-.cartListCheckBnt {
+.cartListCheckBtn {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
-.cartListCheckBnt input {
+.cartListCheckBtn input {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -53,11 +53,15 @@
     clip: rect(0px, 0px, 0px, 0px);
     border: 0;
 }
-.cartListCheckBnt input + label {
+.cartListCheckBtn input + label {
     cursor: pointer;
     user-select: none;
+    font-size: 14px;
+    font-weight: 500;
+    vertical-align: middle;
+    letter-spacing: -0.5px;
 }
-.cartListCheckBnt input + label::before {
+.cartListCheckBtn input + label::before {
     content: " ";
     display: inline-block;
     width: 20px;
@@ -69,12 +73,12 @@
     background-image: url(../../images/purchase/uncheck_round_icon.png);
     background-size: cover;
 }
-.cartListCheckBnt input:checked + label::before {
+.cartListCheckBtn input:checked + label::before {
     background-image: url(../../images/purchase/check_round_purple_icon.png);
     background-size: cover;
 }
 
-.deleteSectionBnt {
+.deleteSectionBtn {
     color: lightgray;
     text-decoration: underline;
     cursor: pointer;
@@ -98,6 +102,7 @@
     width: 100%;
     border-collapse: collapse;
     font-family: NotoSansCJKkr;
+    margin-bottom: 56px;
 }
 .cartTable thead tr:first-child {
     border-top: 1px solid black;
@@ -259,18 +264,27 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-.countUpBnt,
-.countDownBnt {
+.countUpBtn,
+.countDownBtn {
     cursor: pointer;
 }
 .productPrice {
     color: #9b9b9b;
 }
-.productPrice .amount , .totalPriceAmount{
+.productPrice .amount {
     font-size: 16px;
     font-weight: bold;
     font-family: Barlow;
+    color: black;
 }
+
+.productBundleTotalPrice  .amount, .totalPriceAmount{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Barlow;
+    color: #9b9b9b;
+}
+
 
 .productBundleTotalPrice {
     text-align: right;

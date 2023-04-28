@@ -32,14 +32,14 @@
                         </div>
                         <div class="middlearea">
                             <div class="cartListWrap">
-                                <div class="cartListCheckBnt">
+                                <div class="cartListCheckBtn">
                                     <div class="cartListCheckBox">
                                         <input id="checkedAll1" type="checkbox" checked />
                                         <label for="checkedAll1">
                                             <span style="font-size: 14px">전체선택</span>
                                         </label>
                                     </div>
-                                    <button class="deleteSectionBnt" type="button">선택삭제</button>
+                                    <button class="deleteSectionBtn" type="button">선택삭제</button>
                                 </div>
                                 <div class="cartList">
                                     <article class="cartListTotal">
@@ -134,7 +134,7 @@
                             <div class="totalPriceMainBox">
                                 <div class="orderPrePrice">
                                     <div class="title">주문 예정 금액</div>
-                                    <div class="text">9,900</div>
+                                    <div class="text"></div>
                                 </div>
                                 <div class="orderQty">
                                     <div class="title">상품 수량</div>
@@ -142,7 +142,7 @@
                                 </div>
                                 <div class="prePoint">
                                     <div class="title">적립 예정 포인트</div>
-                                    <div class="text">+99P</div>
+                                    <div class="text"></div>
                                 </div>
                                 <div class="deliveryFee">
                                     <div class="title">배송비</div>

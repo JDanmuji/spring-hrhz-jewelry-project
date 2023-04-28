@@ -74,11 +74,11 @@ $(function (){
                                 "</td>" +
                                 "<td class='productCountWrap'>" +
                                 "<div class='productCount'>" +
-                                "<img class='countDownBnt' src='../images/purchase/product_quantity_minus_btn.png' width='20' />" +
+                                "<img class='countDownBtn' src='../images/purchase/product_quantity_minus_btn.png' width='20' />" +
                                 "<span>" +
                                     items.qty +
                                 "</span>" +
-                                "<img class='countUpBnt' src='../images/purchase/product_quantity_plus_btn.png' width='20' />" +
+                                "<img class='countUpBtn' src='../images/purchase/product_quantity_plus_btn.png' width='20' />" +
                                 "</div>" +
                                 "</td>" +
                                 "<td>" +
@@ -101,6 +101,7 @@ $(function (){
                         }
                     });
                 };
+                
                 if(headName.indexOf(items.brandName) === -1 ) {
                     tfoot = "</tobody>" + "<tfoot>" +
                         "<tr>" +
@@ -108,14 +109,14 @@ $(function (){
                         "<span class='productPrice'>" +
                         "<span style='font-size: 14px'>상품</span>" +
                         "<span class='amount'>" +
-                            productSum +
+                            productSum.toLocaleString() +
                         "</span>" +
                         "<span>+</span>" +
                         "<span style='font-size: 14px'>배송비</span>" +
                         "<span class='amount'>0</span>" +
                         "<span>=</span>" +
                         "<span class='totalPriceAmount'>" +
-                            productSum +
+                            productSum.toLocaleString() +
                         "</span>" +
                         "</span>" +
                         "</td>" +
@@ -135,3 +136,115 @@ $(function (){
 
     });
 });
+
+$('.cartListCheckBox').on('click', function() {
+	
+	if($(this).children("input").is(":checked")) {
+		$('.tableBody td.tdCheck01 input').prop("checked", true);
+		$('.deleteSectionBtn').css("display", "block");
+	} else {
+		$('.tableBody td.tdCheck01 input').prop("checked", false);
+		$('.deleteSectionBtn').css("display", "none");
+	}
+
+});
+
+
+$(document).on("click", ".productCheckBox", function () {
+
+	if($(this).children("input").prop("checked")) {
+		$(this).children("input").prop("checked", false);
+	} else {
+		$(this).children("input").prop("checked", true);
+	}
+				
+ 	allCheckYN();
+		
+});
+
+$(document).on("click", ".countDownBtn", function () {
+	let $amountCount = $(this).next();
+	let $productAmount = $(this).parents('tr').children().prev().eq(3).children().find('span.amount');
+	let $productPrice = $(this).parents('tr').children().prev().eq(1).children().find('span.amount');
+    let $footerPrice = $(this).parents('table').children('tfoot').children().find('span.amount').first();
+	let $footerPriceTotal = $(this).parents('table').children('tfoot').children().find('span.totalPriceAmount');
+	
+    let $productAmountNum =  parseInt($productAmount.text().replace(",", "")); 
+	let $productPriceNum = parseInt($productPrice.text().replace(",", ""));
+	
+	let $footerPriceNum = parseInt($footerPrice.text().replace(",", "")); 
+	let $footerPriceTotalNum = parseInt($footerPriceTotal.text().replace(",", ""));
+
+	let countSub = parseInt($amountCount.text()) - 1;
+	let productSub =  $productAmountNum -  $productPriceNum ;
+	
+	let footerPriceSub = $footerPriceNum -  $productPriceNum ;
+	let footerPriceTotalSub = $footerPriceTotalNum -  $productPriceNum ;
+
+
+	
+    if( parseInt($amountCount.text()) < 0 ) {
+        return;
+    }
+	
+	$amountCount.text(countSub.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+	$productAmount.text(productSub.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    
+	$footerPrice.text(footerPriceSub.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+	$footerPriceTotal.text(footerPriceTotalSub.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+	
+	
+});
+
+$(document).on("click", ".countUpBtn", function () {
+	
+	let $amountCount = $(this).prev();
+	let $productAmount = $(this).parents('tr').children().prev().eq(3).children().find('span.amount');
+	let $productPrice = $(this).parents('tr').children().prev().eq(1).children().find('span.amount');
+	let $footerPrice = $(this).parents('table').children('tfoot').children().find('span.amount').first();
+	let $footerPriceTotal = $(this).parents('table').children('tfoot').children().find('span.totalPriceAmount');
+	
+	let $productAmountNum =  parseInt($productAmount.text().replace(",", "")); 
+	let $productPriceNum = parseInt($productPrice.text().replace(",", ""));
+	
+	let $footerPriceNum = parseInt($footerPrice.text().replace(",", "")); 
+	let $footerPriceTotalNum = parseInt($footerPriceTotal.text().replace(",", ""));
+	
+	let countAdd = parseInt($amountCount.text()) + 1;
+	let productAdd =  $productAmountNum +  $productPriceNum ;
+	
+	let footerPriceAdd = $footerPriceNum +  $productPriceNum ;
+	let footerPriceTotalAdd = $footerPriceTotalNum +  $productPriceNum ;
+	
+	
+	
+	console.log($(this).parents('table').children('tfoot').children().find('span.totalPriceAmount').text());
+	
+	
+	
+	$amountCount.text(countAdd.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+	$productAmount.text(productAdd.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+	
+	$footerPrice.text(footerPriceAdd.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+	$footerPriceTotal.text(footerPriceTotalAdd.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+	
+		
+});
+
+
+function allCheckYN() {
+	var total =  $('.tableBody td.tdCheck01 input').length;
+	var checked = 	$('.tableBody td.tdCheck01 input:checked').length;
+	
+	if(total !== checked) {
+		$('.cartListCheckBox').children("input").prop("checked", false);
+	} else {
+		$('.cartListCheckBox').children("input").prop("checked", true); 
+	}
+	
+	if(checked > 0) {
+		$('.deleteSectionBtn').css("display", "block");
+	} else {
+		$('.deleteSectionBtn').css("display", "none");
+	}
+}

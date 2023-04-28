@@ -41,10 +41,10 @@
     </select>
 
     <select id="getCart" parameterType="String" resultType="cart">
-        select
+        SELECT
             *
-        from
-            (select
+        FROM
+            (SELECT
                 c.code as "detailCode"
                 , (select code_name from code where code= p.detail_type) as "detailType"
                 , (select pd.name from product_detail pd where pd.code=c.code) as "detailName"
@@ -57,20 +57,21 @@
                 , (p.brand_code || '/' || pi.img_origin_name) as "imgPath"
                 , ROW_NUMBER() OVER(PARTITION BY c.code ORDER BY PI.SEQ DESC) AS "RN"
                 , c.member_id
-            from cart c
-                join product p on c.product_code = p.code
-                join (select a.product_code
-                , a.img_origin_name
-                , min(a.seq) as seq
-                from product_image a
-                where a.thumbanil_yn = 'Y'
-                GROUP BY a.product_code, a.img_origin_name
-                ) pi
+            FROM cart c
+            JOIN product p 
+            	ON c.product_code = p.code
+            JOIN (SELECT a.product_code
+                		, a.img_origin_name
+                		, min(a.seq) as seq
+                  FROM product_image a
+                  WHERE a.thumbanil_yn = 'Y'
+                  GROUP BY a.product_code, a.img_origin_name
+                	) pi
                 on p.code = pi.product_code
                 )
-        where
+        WHERE
             RN =1
-            and  member_id= #{id}
+            AND  member_id= #{id}
         order by "productCode"
     </select>
 
