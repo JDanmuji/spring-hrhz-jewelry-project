@@ -61,9 +61,10 @@ $(function (){
                 let productSum = 0;
 
                 let brandName = items.brandName;
+                console.log(headName);
 
                 // brand remove duplicate
-                if(headName.indexOf(items.brandName) === -1 ) {
+                if(headName.indexOf(brandName) === -1 ) {
                     thead = "<table class='payProductTable'>"+
                             "<thead>" +
                                 "<tr>" +
@@ -88,7 +89,7 @@ $(function (){
                                 items.productName +
                                 "</div>" +
                                 "<div class='productOption'>" +
-                                items.optionName +
+                                items.detailType +" : " + items.optionName +
                                 "</div>" +
                                 "<div class='productCountAndPrice'>" +
                                 "<span class='productPrice'>" +
@@ -149,7 +150,7 @@ $(function (){
                         "</td>" +
                         "</tr>" +
                         "</tfoot>" +
-                        "</table>"
+                        "</table>";
                     headName.push(brandName);
                 }
                 thead += tbody + tfoot;
