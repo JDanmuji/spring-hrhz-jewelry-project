@@ -57,7 +57,7 @@
 <%--                                            <tobody>--%>
 <%--                                                <tr class="tableBody">--%>
 <%--                                                    <td class="tdCheck01">--%>
-<%--                                                        <div class="productCheckBnt">--%>
+<%--                                                        <div class="productCheckBox">--%>
 <%--                                                            <input id="checkedAll2" type="checkbox" checked />--%>
 <%--                                                            <label for="checkedAll2"> </label>--%>
 <%--                                                            <!-- <img class="uncheckRound" src="../images/cart/uncheck_round_icon.png" />--%>
@@ -66,12 +66,12 @@
 <%--                                                    </td>--%>
 <%--                                                    <td class="td01">--%>
 <%--                                                        <div class="productInfoBox">--%>
-<%--                                                            <div class="productImag">--%>
+<%--                                                            <div class="productInfoImg">--%>
 <%--                                                                <a href="">--%>
 <%--                                                                    <img class="sampleImg" alt="" src="../images/purchase/loveonot.jpeg" />--%>
 <%--                                                                </a>--%>
 <%--                                                            </div>--%>
-<%--                                                            <div class="productinfoText">--%>
+<%--                                                            <div class="productInfoText">--%>
 <%--                                                                <a href="">--%>
 <%--                                                                    <div class="productName">Deep Orange Fine Color Beads Ring</div>--%>
 <%--                                                                </a>--%>
@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="orderQty">
                                     <div class="title">상품 수량</div>
-                                    <div class="text">1</div>
+                                    <div class="text"></div>
                                 </div>
                                 <div class="prePoint">
                                     <div class="title">적립 예정 포인트</div>
