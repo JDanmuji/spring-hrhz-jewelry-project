@@ -18,5 +18,5 @@ public interface MemberService {
 	public String naverloginCheck(NaverDTO naver);
 
 
-	
+    public String googleLoginCheck(String email);
 }

@@ -327,7 +327,7 @@ main {
     flex-direction: column;
     gap: 16px;
 }
-.priceFilterChoice span {
+.priceFilterChoice h4 {
     display: none;
 }
 .priceFilterChoice > div {

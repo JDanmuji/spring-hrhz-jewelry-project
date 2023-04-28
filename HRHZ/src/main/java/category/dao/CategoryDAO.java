@@ -12,7 +12,7 @@ public interface CategoryDAO {
 
 	public int getTotalA(Map<String, Object> map);
 
-//	public List<Map<String, Object>> CategoryColorList(Map<String, Object> map);
+	
 
 
 	

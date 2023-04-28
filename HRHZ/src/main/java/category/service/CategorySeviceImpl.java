@@ -60,11 +60,6 @@ public class CategorySeviceImpl implements CategoryService {
 		
 	}
 
-//	@Override
-//	public List<Map<String, Object>> CategoryColorList(Map<String, Object> map) {
-//		
-//		return categoryDAO.CategoryColorList(map);
-//	}
 
 
 
