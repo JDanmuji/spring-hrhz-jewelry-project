@@ -31,8 +31,8 @@ pageEncoding="UTF-8"%>
         </p>
         <div class="categoryToggle">
             <p>커플링</p>
-            <p>원석</p>
-            <p>각인</p>
+            <p>원석반지</p>
+            <p>각인반지</p>
             <p>실반지</p>
             <p>비즈반지</p>
         </div>
@@ -48,10 +48,10 @@ pageEncoding="UTF-8"%>
         </p>
         <div class="categoryToggle">
             <p>피어싱</p>
-            <p>링</p>
-            <p>원석</p>
-            <p>진주</p>
-            <p>드롭</p>
+            <p>링귀걸이</p>
+            <p>원석귀걸이</p>
+            <p>진주귀걸이</p>
+            <p>드롭귀걸이</p>
         </div>
     </div>
     <div class="categoryWrap">
@@ -64,11 +64,11 @@ pageEncoding="UTF-8"%>
             />
         </p>
         <div class="categoryToggle">
-            <p>원석</p>
-            <p>비즈</p>
-            <p>커플</p>
-            <p>팬던트</p>
-            <p>진주</p>
+            <p>원석팔찌</p>
+            <p>비즈팔찌</p>
+            <p>커플팔찌</p>
+            <p>팬던트팔찌</p>
+            <p>진주팔찌</p>
         </div>
     </div>
     <div class="categoryWrap">
@@ -81,11 +81,11 @@ pageEncoding="UTF-8"%>
             />
         </p>
         <div class="categoryToggle">
-            <p>진주</p>
-            <p>원석</p>
-            <p>초커</p>
-            <p>비즈</p>
-            <p>팬던트</p>
+            <p>진주목걸이</p>
+            <p>원석목걸이</p>
+            <p>초커목걸이</p>
+            <p>비즈목걸이</p>
+            <p>팬던트목걸이</p>
         </div>
     </div>
     <div class="categoryWrap">
