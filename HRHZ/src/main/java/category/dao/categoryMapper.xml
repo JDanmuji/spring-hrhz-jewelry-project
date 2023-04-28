@@ -33,18 +33,52 @@
 			            WHERE  
 			               1 = 1
 			             <if test='colorArr != null'>
-			                AND color IN 
+			                AND p.color IN 
 			                <foreach item="item" index="index" collection="colorArr" open="(" separator="," close=")">
 			             		#{item}
 			            	</foreach>
+			       	 	</if>
+						
+			       	 	 <if test='price != null and price != ""'>
+				       	 	 <choose>
+								<when test ='price =="1"'>
+									  AND p.price between 10000 and 30000 
+								</when>
+								<when test ='price =="2"'>
+									  AND p.price between 30000 and 50000 
+								</when>
+								<when test ='price =="3"'>
+								 	 AND p.price between 50000 and 100000 
+								</when>
+								<otherwise>
+							 		 AND p.price <![CDATA[>=]]> 100000
+								</otherwise>
+								</choose>
 			       	 	</if> 
-			       	 	<if test='colorArr != null'>
-			                AND color IN 
-			                <foreach item="item" index="index" collection="colorArr" open="(" separator="," close=")">
-			             		#{item}
-			            	</foreach>
-			       	 	</if> 
-			                ORDER  BY p.like_count DESC
+					<if test='parentCode != null and parentCode != null'>
+                          <choose>
+                        <when test='parentCode != "BEST"'>
+                           AND p.category  = (select code from code where code_name = #{parentCode})
+                           <if test='checkList != null and checkList != ""'>
+                               AND p.type IN 
+                               <foreach item="item" index="index" collection="checkList" open="(" separator="," close=")">
+                                  (select code from code where code_name = #{item})
+                              </foreach>
+                           </if>
+                        </when>
+                        <otherwise>
+                           <if test='parentCode == "BEST"'>
+                              <if test='checkList != null and checkList != ""'>
+                               AND p.category  IN
+                               <foreach item="item" index="index" collection="checkList" open="(" separator="," close=")">
+                                   (select code from code where code_name = #{item})
+                              </foreach>
+                              </if>
+                           </if>
+                        </otherwise>
+                     </choose>
+                  </if>
+			       	 	ORDER  BY p.like_count DESC
 			                
 			             ) k
 		      WHERE 
@@ -85,8 +119,48 @@
                 AND color IN 
             <foreach item="item" index="index" collection="colorArr" open="(" separator="," close=")">
             #{item}
-          </foreach>
-       	 </if> 
+           </foreach>
+       	   </if> 
+       	 
+	       	  <if test='price != null and price != ""'>
+				 <choose>
+					<when test ='price =="1"'>
+						AND p.price between 10000 and 30000 
+					</when>
+					<when test ='price =="2"'>
+						 AND p.price between 30000 and 50000 
+					</when>
+					<when test ='price =="3"'>
+						AND p.price between 50000 and 100000 
+					</when>
+					<otherwise>
+						 AND p.price <![CDATA[>=]]> 100000
+					</otherwise>
+				</choose>
+			 </if> 
+			 <if test='parentCode != null and parentCode != null'>
+                          <choose>
+                        <when test='parentCode != "BEST"'>
+                           AND p.category  = (select code from code where code_name = #{parentCode})
+                           <if test='checkList != null and checkList != ""'>
+                               AND p.type IN 
+                               <foreach item="item" index="index" collection="checkList" open="(" separator="," close=")">
+                                  (select code from code where code_name = #{item})
+                              </foreach>
+                           </if>
+                        </when>
+                        <otherwise>
+                           <if test='parentCode == "BEST"'>
+                              <if test='checkList != null and checkList != ""'>
+                               AND p.category  IN
+                               <foreach item="item" index="index" collection="checkList" open="(" separator="," close=")">
+                                   (select code from code where code_name = #{item})
+                              </foreach>
+                              </if>
+                           </if>
+                        </otherwise>
+                     </choose>
+                  </if>
                 ORDER  BY p.like_count DESC
              ) k
       WHERE 
