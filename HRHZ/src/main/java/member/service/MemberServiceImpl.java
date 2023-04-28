@@ -36,7 +36,9 @@ public class MemberServiceImpl implements MemberService {
  
     @Autowired
     private AES256 aes256;
-    
+
+    //-------------------------------------
+    //NAVER login api
     @Value("${sms.accessKey}")
     private String accessKey;   // 네이버 클라우드 플랫폼 회원에게 발급되는 개인 인증키
     @Value("${sms.secretKey}")
@@ -47,6 +49,9 @@ public class MemberServiceImpl implements MemberService {
     private String myPhone;
     @Value("${aes256.key}")
 	private String key;    //key는 16자 이상
+
+
+
 
     private String makeSignature(String url, String timestamp, String method) {
         String space = " ";                    // one space
@@ -193,17 +198,19 @@ public class MemberServiceImpl implements MemberService {
 			e.printStackTrace();
 		}
     	
-    	
-		
 		return memberDAO.loginCheck(dataMap);
 	}
 
 	@Override
 	public String naverloginCheck(NaverDTO naver) {
 		String email = naver.getN_email();
-		return memberDAO.naverloginCheck(naver);
+		return memberDAO.snsLoginCheck(email);
 	}
 
+    @Override
+    public String googleLoginCheck(String email) {
+        return memberDAO.snsLoginCheck(email);
+    }
 
 
 }

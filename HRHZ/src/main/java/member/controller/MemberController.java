@@ -1,28 +1,53 @@
 package member.controller;
 
+import hrhz.dto.GoogleInfResponse;
+import hrhz.dto.GoogleRequest;
+import hrhz.dto.GoogleResponse;
 import member.service.MemberService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import hrhz.dto.NaverDTO;
+import org.springframework.web.client.RestTemplate;
 
+import java.io.IOException;
 import java.util.HashMap;
 
+import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
+@PropertySource("classpath:hrhz/conf/login.properties")
 public class MemberController {
     @Autowired
     private MemberService memberService;
-    
 
-    @GetMapping(value = "/signUp1")
+	//-------------------------------------
+	//GOOGLE login api
+	@Value("${google.auth.url}")
+	private String googleAuthUrl;
+	@Value("${google.login.url}")
+	private String googleLoginUrl;
+	@Value("${google.redirect.url}")
+	private String googleRedirectUrl;
+	@Value("${google.client.id}")
+	private String googleClientId;
+	@Value("${google.client.pw}")
+	private String googleClientPw;
+
+
+
+	@GetMapping(value = "/signUp1")
     public String signUp1(){
         return "/views/member/signUp1";
     }
@@ -157,6 +182,48 @@ public class MemberController {
     
 	}
 
+	@GetMapping(value="/google")
+	public void loginUrlGoogle(HttpServletResponse response) throws IOException {
+		String reqUrl = "https://accounts.google.com/o/oauth2/v2/auth?client_id=" + googleClientId
+				+ "&redirect_uri=http://localhost:8080/api/v1/oauth2/google&response_type=code&scope=email%20profile%20openid&access_type=offline";
+		System.out.println(reqUrl);
+		response.sendRedirect(reqUrl);
+	}
+
+	@GetMapping(value="/api/v1/oauth2/google")
+	public void loginGoogle(@RequestParam(value = "code") String authCode, HttpServletRequest request,HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+
+		RestTemplate restTemplate = new RestTemplate();
+		GoogleRequest googleOAuthRequestParam = GoogleRequest
+				.builder()
+				.clientId(googleClientId)
+				.clientSecret(googleClientPw)
+				.code(authCode)
+				.redirectUri("http://localhost:8080/api/v1/oauth2/google")
+				.grantType("authorization_code").build();
+		ResponseEntity<GoogleResponse> resultEntity = restTemplate.postForEntity("https://oauth2.googleapis.com/token",
+				googleOAuthRequestParam, GoogleResponse.class);
+		String jwtToken=resultEntity.getBody().getId_token();
+		Map<String, String> map=new HashMap<>();
+		map.put("id_token",jwtToken);
+		ResponseEntity<GoogleInfResponse> resultEntity2 = restTemplate.postForEntity("https://oauth2.googleapis.com/tokeninfo",
+				map, GoogleInfResponse.class);
+		String email=resultEntity2.getBody().getEmail();
+		System.out.println(email);
+
+		String id = memberService.googleLoginCheck(email);
+		System.out.println(id);
+
+		if(id == null){
+			System.out.println("아이디 없음");
+			response.sendRedirect("/signUp1");
+		} else {
+			session.setAttribute("sessionId", id);
+			response.sendRedirect("/signIn");
+		}
+
+	}
 
 }
 

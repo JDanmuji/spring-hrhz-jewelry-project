@@ -67,8 +67,12 @@
 							<span class="socialIconNaver">
 								<a id ="naverIdLogin_loginButton" href="javascript:void(0)">
 									<img src="./images/member/btnG_icon_circle.png"/></a></span>
-									 <span class="socialIconFacebook"><a href="#"></a></span> 
-									<span class="socialIconApple"><a href="#"></a></span>
+							<span class="socialIconGoogle">
+								<a href="/google">
+									<img src="../../images/member/google_btn.png" />
+								</a>
+							</span>
+
 						</div>
 					</div>
 				</div>
@@ -80,7 +84,8 @@
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
-        
+
+
         <script type="text/javascript" src="../../js/header_footer.js"></script>
         <script type="text/javascript" src="../../js/member/signIn.js"></script>
  

@@ -13,5 +13,6 @@ public interface MemberDAO {
 
 	public String loginCheck(HashMap<String, Object> dataMap);
 
-	public String naverloginCheck(NaverDTO naver);
+	public String snsLoginCheck(String email);
+
 }
