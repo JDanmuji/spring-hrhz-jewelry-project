@@ -18,7 +18,8 @@
 	</select> -->
 	
     <select id="getProductDetail" parameterType="map" resultType="map">
-		SELECT p.name AS "productName", detail_type AS "detailType",
+		SELECT p.name AS "productName", 
+				(Select code_name from code where code = detail_type ) AS "detailType",
 		       price AS "price", "LIKE" AS "like", p."COMMENT" AS "comment",
 		       pd.name AS "detailName",
 		       b.code AS "brandCode", b.name AS "brandName",

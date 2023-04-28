@@ -36,7 +36,9 @@ $(document).ready(function () {
                 // <li> appending
                 let brandLi = $(
                     "<li class='scBrand'>" +
-                        "<a class='brandLink' href='/brand/brandDetail'>" +
+                        "<a class='brandLink' href='/brand/brandDetail?brandCode=" +
+                        items.code +
+                        "&pg=1'>" +
                         "<span class='brandRankingNumber'>" +
                         (index + 1) +
                         "</span>" +
