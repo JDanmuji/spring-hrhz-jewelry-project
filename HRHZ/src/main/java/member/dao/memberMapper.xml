@@ -37,5 +37,12 @@
         AND email = #{email}
         AND password = #{password}
     </select>
+    
+    <select id="naverloginCheck" parameterType="hrhz.dto.NaverDTO" resultType="String">
+        SELECT id as "id" 
+        FROM member 
+        WHERE 1=1 
+        AND email = #{n_email}       
+    </select>
 
 </mapper>

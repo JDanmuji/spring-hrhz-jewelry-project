@@ -1,6 +1,7 @@
 package member.dao;
 
 import hrhz.dto.MemberDTO;
+import hrhz.dto.NaverDTO;
 
 import java.util.HashMap;
 
@@ -17,7 +18,6 @@ public class MemberDAOMyBatis implements MemberDAO {
 
     @Override
     public MemberDTO getMember(String phone) {
-        System.out.println("마이바티스 이다");
         MemberDTO memberDTO = sqlSession.selectOne("memberSQL.getMember", phone);
         System.out.println(memberDTO);
         return memberDTO;
@@ -31,5 +31,11 @@ public class MemberDAOMyBatis implements MemberDAO {
 	@Override
 	public String loginCheck(HashMap<String, Object> dataMap) {
 		return sqlSession.selectOne("memberSQL.loginCheck", dataMap);
+	}
+
+	@Override
+	public String naverloginCheck(NaverDTO naver) {
+		return sqlSession.selectOne("memberSQL.naverloginCheck", naver);
+		
 	}
 }
