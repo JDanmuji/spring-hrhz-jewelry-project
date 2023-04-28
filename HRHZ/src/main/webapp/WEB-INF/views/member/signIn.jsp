@@ -61,7 +61,9 @@
 						<div class="text2">SNS계정으로 아몬즈를 이용해보세요!</div>
 						<!-- SNS 계정 버튼 -->
 						<div class="socialIcon">
-							<span class="socialIconKakao"><a href="#"></a></span> 
+							<span class="socialIconKakao">
+								<a id ="kakaoIdLogin_loginButton" href="javascript:void(0)" href="#">
+									<img src="./images/member/auth_social_kakao_round_btn.png"/></a></span> 
 							<span class="socialIconNaver">
 								<a id ="naverIdLogin_loginButton" href="javascript:void(0)">
 									<img src="./images/member/btnG_icon_circle.png"/></a></span>

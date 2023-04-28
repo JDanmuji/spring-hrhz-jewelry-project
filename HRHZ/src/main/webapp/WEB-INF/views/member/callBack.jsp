@@ -33,13 +33,13 @@
 		var gender = naverLogin.user.getGender();
 		var id = naverLogin.user.getId();
 		var name = naverLogin.user.getName();
-		var nickName = naverLogin.user.getNickName();
+		
 		
 
-		/* $.ajax({
+		 $.ajax({
 			type: 'post',
-			url: 'naverSave',
-			data: {'n_age':age, 'n_birthday':birthday, 'n_email':email, 'n_gender':gender, 'n_id':id, 'n_name':name, 'n_nickName':nickName},
+			url: '/naverSave',
+			data: {'n_age':age, 'n_birthday':birthday, 'n_email':email, 'n_gender':gender, 'n_id':id, 'n_name':name},
 			dataType: 'text',
 			success: function(result) {
 				if(result=='ok') {
@@ -47,13 +47,13 @@
 					location.replace("http://localhost:8080/") 
 				} else if(result=='no') {
 					console.log('실패')
-					location.replace("http://localhost:8080/member/signIn")
+					location.replace("http://localhost:8080/signUp1")
 				}
 			},
 			error: function(result) {
 				console.log('오류 발생')
 			} 
-		})*/
+		})
 
 	} else {
 		console.log("callback 처리에 실패하였습니다.");

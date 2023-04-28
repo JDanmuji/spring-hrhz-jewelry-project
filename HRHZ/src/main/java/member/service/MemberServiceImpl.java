@@ -2,6 +2,7 @@ package member.service;
 
 import hrhz.dto.AES256;
 import hrhz.dto.MemberDTO;
+import hrhz.dto.NaverDTO;
 import member.dao.MemberDAO;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -195,6 +196,12 @@ public class MemberServiceImpl implements MemberService {
     	
 		
 		return memberDAO.loginCheck(dataMap);
+	}
+
+	@Override
+	public String naverloginCheck(NaverDTO naver) {
+		String email = naver.getN_email();
+		return memberDAO.naverloginCheck(naver);
 	}
 
 

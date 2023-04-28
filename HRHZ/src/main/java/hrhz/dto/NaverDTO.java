@@ -12,7 +12,7 @@ public class NaverDTO {
 	private String n_gender;
 	private String n_id;
 	private String n_name;
-	private String n_nickName;
+	
 	
 
 }
