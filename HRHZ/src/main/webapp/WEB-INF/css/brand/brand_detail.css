@@ -1,28 +1,31 @@
 .hiddenData {
     display: none;
 }
+.mainMenu a:nth-child(1) {
+    color: #9b9b9b !important;
+}
+.mainMenu a:nth-child(2) {
+    color: #000;
+}
 
 /* main */
 main {
     margin: 0 auto;
-    display: block;
+    min-height: calc(100vh - 218px);
     background-color: rgb(255, 255, 255);
 }
 
 .brandDetailMain {
     position: relative;
     max-width: 1024px;
-    min-height: calc(100vh - 73px);
     margin: 0px auto 100px;
     padding: 0px 30px;
     font-family: NotoSansCJKkr;
     color: rgb(0, 0, 0);
 }
-
 .brandDetailSection {
     padding-top: 40px;
 }
-
 .brandDetailHeader {
     display: flex;
     -webkit-box-pack: justify;
@@ -31,72 +34,47 @@ main {
     align-items: center;
     margin-bottom: 20px;
 }
-
 .brandDetailHeader .brandInfoCard {
     padding: 0px;
     display: flex;
 }
-
-.brandLogo span {
-    box-sizing: border-box;
-    display: inline-block;
+.brandLogo {
     overflow: hidden;
     width: 80px;
     height: 80px;
-    background: none;
-    opacity: 1;
-    border: 0px;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
+    border-radius: 50px;
 }
-
-.brandLogo span img {
-    position: absolute;
-    inset: 0px;
-    box-sizing: border-box;
-    padding: 0px;
-    border: none;
-    margin: auto;
-    display: block;
-    width: 0px;
-    height: 0px;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 100%;
-    max-height: 100%;
+.brandLogo img {
+    width: 80px;
+    height: 80px;
 }
 
 .brandInfoContentSection {
-    display: flex;
-    flex-direction: column;
+    height: 80px;
     margin-left: 24px;
-    -webkit-box-pack: center;
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
     justify-content: center;
 }
-
 .brandInfoCard > div:last-child > span {
     font-size: 26px;
 }
-
 .brandInfoCard > div:last-child > div {
     margin-top: 2px;
 }
-
 .brandName {
     font-size: 14px;
     font-weight: bold;
     letter-spacing: -0.3px;
     line-height: normal;
 }
-
 .brandTagList {
     color: rgb(155, 155, 155);
     font-size: 13px;
     letter-spacing: -0.5px;
     margin-top: 3px;
 }
-
 .brandTagList span {
     display: inline-block;
     max-width: 105px;
@@ -104,91 +82,51 @@ main {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
 .brandTagList span:not(:first-child) {
     max-width: 116px;
 }
-
 .brandInfoLogo {
     font-size: 13px;
     font-weight: 500;
     letter-spacing: -0.5px;
 }
-
 .brandMenuList {
     display: flex;
-    padding: 20px 0px;
 }
-
 .brandMenuList > li {
-    width: auto;
-    height: 40px;
     display: flex;
     flex-direction: column;
-    -webkit-box-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
     align-items: center;
     cursor: pointer;
 }
-
-.brandMenuList > li:first-child {
-    padding-right: 33px;
+.brandMenuList > li:not(:last-child) {
+    padding-right: 18px;
+    margin-right: 18px;
     border-right: 1px solid rgb(237, 237, 237);
 }
-
-.brandInfoLogo .brandMenuList > li:nth-child(2) {
-    padding: 0px 33px;
-    border-right: 1px solid rgb(237, 237, 237);
-}
-
 .brandInfoLogo .brandMenuList > li img,
 .brandInfoLogo .brandMenuList > li button {
     width: 24px;
     height: 24px;
     margin-bottom: 5px;
 }
-
-.productLikeBtn {
-    border: none;
-    background-color: transparent;
-    font-size: 0px;
-    cursor: pointer;
+.brandHeartIcon {
+    width: 24px;
 }
-
-.productLikeBtn img:last-child {
-    display: none;
-}
-
-.brandInfoLogo .brandInstagramMenu {
-    cursor: pointer;
-}
-
 .brandInfoLogo .brandMenuList > li > a {
     display: flex;
     flex-direction: column;
-    -webkit-box-align: center;
     align-items: center;
     cursor: pointer;
 }
-
-.brandInfoLogo .brandMenuList > li:last-child {
-    padding-left: 33px;
-}
-
-.brandInfoLogo .brandMenuList > li > a > span {
-    color: rgb(0, 0, 0);
-}
-
 .brandDetailProduct {
     padding-bottom: 101px;
 }
-
 .brnadDetailProductList {
     padding: 0px;
     display: flex;
 }
-
 .productListSection {
     width: 100%;
     padding-left: 0px;
@@ -196,7 +134,6 @@ main {
     position: relative;
     display: inline-block;
 }
-
 .productListSectionHeadWrap {
     padding-top: 20px;
     max-width: 1920px;
@@ -261,7 +198,7 @@ main {
 .heartIcon {
     width: 16px;
     position: absolute;
-    top: 0 !important;
+    top: 318px !important;
     right: 0;
 }
 .likeNumber {

@@ -22,8 +22,7 @@ public class BrandDAOMyBatis implements BrandDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Map<String, Object>> getBrandDetail(Map<String, Object> map) {
-		sqlSession.selectList("brandSQL.getBrandDetail", map);
-		return null;
+		return sqlSession.selectList("brandSQL.getBrandDetail", map);
 	}
 
 	@Override

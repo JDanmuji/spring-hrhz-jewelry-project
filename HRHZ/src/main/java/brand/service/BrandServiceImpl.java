@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import brand.dao.BrandDAO;
-import hrhz.dto.CategoryPaing;
+import hrhz.dto.BrandPaging;
 
 @Service
 public class BrandServiceImpl implements BrandService {
 	@Autowired
 	private BrandDAO brandDAO;
 	@Autowired
-	private CategoryPaing categoryPaging = null;
+	private BrandPaging brandPaging;
 
 	@Override
 	public List<Map<String, Object>> getBrandList() {
@@ -41,16 +41,16 @@ public class BrandServiceImpl implements BrandService {
 		int totalA =  brandDAO.getTotalA(map);
 		System.out.println(totalA);
 		
-		categoryPaging.setCurrentPage(Integer.parseInt(map.get("pg").toString()));
-		categoryPaging.setPageBlock(5);
-		categoryPaging.setPageSize(21);
-		categoryPaging.setTotalA(totalA);
+		brandPaging.setCurrentPage(Integer.parseInt(map.get("pg").toString()));
+		brandPaging.setPageBlock(5);
+		brandPaging.setPageSize(21);
+		brandPaging.setTotalA(totalA);
 		
-		categoryPaging.makPagingHTML();
+		brandPaging.makePagingHTML();
 		
 		Map<String, Object> map2 = new HashMap<String, Object>();
 		map2.put("list", list);
-		map2.put("categoryPaging", categoryPaging);
+		map2.put("brandPaging", brandPaging);
 	
 		return map2;
 	}

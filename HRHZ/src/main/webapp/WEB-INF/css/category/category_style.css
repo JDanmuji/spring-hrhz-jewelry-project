@@ -420,7 +420,6 @@ main {
     width: 14px;
 }
 .heartIconViolet {
-    display: none;
     height: 13px;
     width: 14px;
 }
@@ -435,7 +434,7 @@ main {
 }
 .pagingDiv {
     text-align: center;
-    text-size: 17px;
+    font-size: 17px;
     cursor: pointer;
 }
 

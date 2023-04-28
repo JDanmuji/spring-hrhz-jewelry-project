@@ -6,6 +6,7 @@ pageEncoding="UTF-8"%>
         <title></title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/images/favicon48.ico" />
         <link rel="stylesheet" href="../../css/common/reset.css" />
         <link rel="stylesheet" href="../../css/common/header_footer.css" />
         <link rel="stylesheet" href="../../css/brand/brand_style.css" />

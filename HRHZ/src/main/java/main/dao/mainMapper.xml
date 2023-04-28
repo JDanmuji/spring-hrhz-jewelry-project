@@ -168,7 +168,7 @@
               like_count = like_count - 1
            </if>
         WHERE 1=1
-        <if test='codeTyp e != null and codeType == "B"'>
+        <if test='codeType != null and codeType == "B"'>
             AND code = #{code}
         </if>
         <if test='codeType != null and codeType == "P"'>
