@@ -16,7 +16,6 @@ $(document).ready(function () {
     // add check img
     $(".filterDiv").append(checkHTML);
     $(".categoryToggle > p").append(checkHTML);
-    
 });
 
 // ---------------------------------------------------
@@ -198,15 +197,11 @@ $(document).on("click", ".heartIconWhite", function () {
     var code = $(this).parents().eq(0).children("input").val();
     var division = "I";
 
-    //console.log(code);
-
     if (!memberId) {
         $("section.sectionBackGround").css("display", "flex");
         return;
     }
-
     likeCount(memberId, code, division);
-
     $(this).css("display", "none");
     $(this).parent().find(".heartIconViolet").css("display", "block");
 });
@@ -216,15 +211,11 @@ $(document).on("click", ".heartIconViolet", function () {
     var memberId = $("#memberId").val();
     var code = $(this).parents().eq(0).children("input").val();
 
-    //console.log(code);
-
     if (!memberId) {
         $("section.sectionBackGround").css("display", "flex");
         return;
     }
-
     likeCount(memberId, code, division);
-
     $(this).css("display", "none");
     $(this).parent().find(".heartIconWhite").css("display", "block");
 });

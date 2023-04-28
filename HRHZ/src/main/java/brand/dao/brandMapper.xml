@@ -13,7 +13,7 @@
     </select>
     
     <select id ="getBrandDetail" parameterType="java.util.Map" resultType="java.util.Map">
-		SELECT 
+     SELECT 
 			*
 			FROM  (SELECT 
 			   rownum as seq,
@@ -24,12 +24,30 @@
 			                ,   p.name AS "productName"
 			              ,   P.brand_code as "brandCode"
 			              ,   (P.brand_code || '/' ||  pi.img_origin_name)as "imgPath"
-			                ,   (SELECT name FROM brand WHERE  code = p.brand_code) as "brandName" 
+			                ,   (SELECT tt.name FROM brand tt WHERE  tt.code = p.brand_code) as "brandName" 
+			                ,   (SELECT bb.like_count FROM brand bb WHERE  bb.code = p.brand_code) as "brandLikeCount" 
 			                ,    TO_CHAR(p.price, 'FM999,999,999,999') AS "price"
-			                ,   p.like_count AS "likeCount"
+			                ,   p.like_count AS "productLikeCount"
 			                , p.color as "color"
+			                , bi.img_name as "brandLogoName"
 			              ,   ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.SEQ DESC) AS "RN"
+			               
+			              <choose>
+			               <when test = 'memberId != null and memberId != ""'>
+			             ,   (CASE WHEN ll.brand_code is not null then 'Y' else 'N' end ) as "brandLikeYN"
+			             ,   (CASE WHEN ll.product_code is not null then 'Y' else 'N' end ) as "productLikeYN"
+			               </when>
+			               <otherwise>
+			            ,   'N' as "brandLikeYN"
+			            ,   'N' as "productLikeYN"
+			               </otherwise>
+			            </choose>
+			                
 			            FROM   product p
+			            
+			            	inner JOIN brand_image bi 
+			            	ON p.brand_code = bi.brand_code
+                            --and b.code =  bi.brand_code
 			                INNER JOIN (SELECT  a.product_code
 			                                 ,  a.img_origin_name
 			                                , MIN(a.seq) AS SEQ
@@ -37,8 +55,16 @@
 			                            WHERE  a.thumbanil_yn = 'Y'
 			                            GROUP  BY a.product_code, a.img_origin_name
 			                          ) pi
-			              ON p.code = pi.product_code
-			              AND p.brand_code = #{brandCode}
+			              ON p.code = pi.product_code AND p.brand_code = #{brandCode}
+			              <if test='memberId != null and memberId != ""'>
+				              LEFT OUTER JOIN like_list ll
+				              ON p.code = ll.product_code
+				              AND ll.id = #{memberId}
+				              
+				              LEFT OUTER JOIN like_list ll
+				              ON p.brand_code = ll.brand_code
+				              AND ll.id = #{memberId}
+			              </if>
 			            WHERE  
 			               1 = 1
 			             <if test='colorArr != null'>
@@ -47,6 +73,7 @@
 			             	#{item}
 			            </foreach>
 			       	 </if>
+			              
 			                ORDER  BY p.like_count DESC
 			                
 			             ) k
@@ -56,7 +83,48 @@
 			        )
 			        where 
 			        1=1
-			        AND seq <![CDATA[>=]]> #{startNum} AND seq <![CDATA[<=]]> #{endNum}
-    </select>
+    	</select>
+    
+	    <select id ="getTotalA" parameterType="java.util.Map" resultType="int">
+			SELECT 
+				count(*)
+				FROM  (SELECT 
+				   rownum as seq,
+				    k.*
+				        FROM (SELECT 
+				                   p.code AS "productCode"
+				                ,   p.name AS "productName"
+				              ,   P.brand_code as "brandCode"
+				              ,   (P.brand_code || '/' ||  pi.img_origin_name)as "imgPath"
+				                ,   (SELECT name FROM brand WHERE  code = p.brand_code) as "brandName" 
+				                ,    TO_CHAR(p.price, 'FM999,999,999,999') AS "price"
+				                ,   p.like_count AS "likeCount"
+				                , p.color as "color"
+				              ,   ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.SEQ DESC) AS "RN"
+				            FROM   product p
+				                INNER JOIN (SELECT  a.product_code
+				                                 ,  a.img_origin_name
+				                                , MIN(a.seq) AS SEQ
+				                            FROM   product_image a
+				                            WHERE  a.thumbanil_yn = 'Y'
+				                            GROUP  BY a.product_code, a.img_origin_name
+				                          ) pi
+				              ON p.code = pi.product_code
+				              AND p.brand_code = #{brandCode}
+				            WHERE  
+				               1 = 1
+				             <if test='colorArr != null'>
+				                AND color IN 
+				                <foreach item="item" index="index" collection="colorArr" open="(" separator="," close=")">
+				             	#{item}
+				            </foreach>
+				       	 </if>
+				                ORDER  BY p.like_count DESC
+				                
+				             ) k
+				      WHERE 
+				            1=1
+				        AND k.RN = 1)
+	    </select>
 
 </mapper>

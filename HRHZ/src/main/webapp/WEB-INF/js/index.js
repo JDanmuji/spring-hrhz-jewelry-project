@@ -34,23 +34,21 @@ $(function () {
             $(".swiperButtonNext").css("display", "none");
         }
     }
-    
-    
-function goPost(code) {
-	let f = document.createElement('form');
-    let i = document.createElement("input");
-    f.setAttribute('method', 'post');
-    f.setAttribute('action', '/purchase/productDetail');
-    
-    i.setAttribute("type", "text");
-    i.setAttribute("id", "newInputId");
-    i.setAttribute("value", code);
-       
-    f.appendChild(i);
-    document.body.appendChild(f);
-    f.submit();
 
-}
+    function goPost(code) {
+        let f = document.createElement("form");
+        let i = document.createElement("input");
+        f.setAttribute("method", "post");
+        f.setAttribute("action", "/purchase/productDetail");
+
+        i.setAttribute("type", "text");
+        i.setAttribute("id", "newInputId");
+        i.setAttribute("value", code);
+
+        f.appendChild(i);
+        document.body.appendChild(f);
+        f.submit();
+    }
 });
 
 // insert like
@@ -60,7 +58,7 @@ $(document).on("click", ".heartIconWhite", function () {
     let division = "I";
 
     if (!memberId) {
-        $("section.sectionBackGround").css("display", "flex");
+        $("section.modalBackGround").css("display", "flex");
         return;
     }
     likeCount(memberId, code, division);
@@ -75,7 +73,7 @@ $(document).on("click", ".heartIconViolet", function () {
     let division = "D";
 
     if (!memberId) {
-        $("section.sectionBackGround").css("display", "flex");
+        $("section.modalBackGround").css("display", "flex");
         return;
     }
     likeCount(memberId, code, division);
@@ -84,7 +82,7 @@ $(document).on("click", ".heartIconViolet", function () {
 });
 
 $(".modalCloseBtn, .cancleModalBtn").click(function () {
-    $("section.sectionBackGround").css("display", "none");
+    $("section.modalBackGround").css("display", "none");
 });
 
 $(".confirmModalBtn").click(function () {
@@ -95,7 +93,7 @@ $(".confirmModalBtn").click(function () {
 // 			Best product selectList
 // ---------------------------------------------------
 function bestContents() {
-    var optionItem;
+    var contentHTML;
     var memberId =
         $("#memberId").val().length === 0 ? null : $("#memberId").val();
 
@@ -264,8 +262,8 @@ function recentReviews() {
             $.each(data, function (index, items) {
                 optionItem = $(
                     "<a href='/purchase/productDetail?productCode=" +
-                    items.productCode +
-                    "'>" +
+                        items.productCode +
+                        "'>" +
                         "<div class='reviewImg'>" +
                         "<img src='/storage/review/" +
                         items.imgName +
@@ -297,8 +295,6 @@ function recentReviews() {
 // 			           likeCount
 // ---------------------------------------------------
 function likeCount(id, code, division) {
-    var optionItem;
-
     $.ajax({
         type: "post",
         url: "/likeCount",
@@ -316,4 +312,3 @@ function likeCount(id, code, division) {
         },
     });
 }
-

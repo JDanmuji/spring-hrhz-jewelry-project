@@ -20,7 +20,7 @@
     <select id="getProductDetail" parameterType="map" resultType="map">
 		SELECT p.name AS "productName", 
 				(Select code_name from code where code = detail_type ) AS "detailType",
-		       price AS "price", "LIKE" AS "like", p."COMMENT" AS "comment",
+		       price AS "price", p.like_count AS "like", p."COMMENT" AS "comment",
 		       pd.name AS "detailName",
 		       b.code AS "brandCode", b.name AS "brandName",
 		       bi.img_path AS "brandImgPath", img_name AS "brandImgName"

@@ -5,8 +5,10 @@ pageEncoding="UTF-8"%>
     <head>
         <meta charset="UTF-8" />
         <title>HRHZ</title>
+        <link rel="icon" href="/images/favicon48.ico" />
         <link rel="stylesheet" href="../../css/common/reset.css" />
         <link rel="stylesheet" href="../../css/common/header_footer.css" />
+        <link rel="stylesheet" href="../../css/common/loginModal.css" />
         <link rel="stylesheet" href="../../css/brand/brand_detail.css" />
         <link rel="stylesheet" href="../../css/category/category_style.css" />
         <link
@@ -30,37 +32,32 @@ pageEncoding="UTF-8"%>
                 <section class="brandDetailSection">
                     <section class="brandDetailHeader">
                         <article class="brandInfoCard">
-                            <div class="brandLogo">
-                                <span>
-                                    <img src="../images/brand/SAI_6521.png" />
-                                </span>
-                            </div>
+                            <div class="brandLogo"></div>
                             <div class="brandInfoContentSection">
-                                <span class="brandName"> a14 </span>
+                                <span class="brandName">brandName</span>
                                 <div class="brandTagList">
-                                    <span>트렌드</span>
-                                    <span>클래식</span>
+                                    <span></span>
                                 </div>
                             </div>
                         </article>
                         <article class="brandInfoLogo">
                             <ul class="brandMenuList">
                                 <li class="brandLikeMenu">
-                                    <button class="productLikeBtn">
+                                    <button class="brandLikeBtn">
                                         <img
-                                            src="../images/brand/product_like_disable_btn.svg"
-                                            alt="product like disable btn"
-                                        />
-                                        <img
-                                            src="../images/brand/product_like_btn.svg"
-                                            alt="product like able btn"
+                                            class="brandHeartIcon brandHeartIconWhite"
+                                            src="../../images/category/heart.jpg"
+                                        /><img
+                                            class="brandHeartIcon brandHeartIconViolet"
+                                            src="../../images/category/heart_violet.jpg"
                                         />
                                     </button>
-                                    <span>좋아요 2,475</span>
+                                    <span
+                                        >좋아요 <span class="likeCount"></span
+                                    ></span>
                                 </li>
                                 <li class="brandInfoMenu">
                                     <img
-                                        alt
                                         src="../images/brand/noti_info_24.png"
                                     />
                                     <span>브랜드 정보</span>
@@ -147,6 +144,7 @@ pageEncoding="UTF-8"%>
                     </section>
                 </section>
             </div>
+            <%@ include file="/WEB-INF/views/common/loginModal.jsp" %>
         </main>
         <%@ include file="/WEB-INF/views/common/footer.jsp" %>
         <script

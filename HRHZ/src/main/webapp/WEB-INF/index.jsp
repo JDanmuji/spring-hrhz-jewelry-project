@@ -3,10 +3,9 @@ pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <title>HRHZ</title>
         <meta charset="UTF-8" />
         <link rel="icon" href="/images/favicon48.ico" />
-        <title>HRHZ</title>
-
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -23,8 +22,8 @@ pageEncoding="UTF-8"%>
         />
         <link rel="stylesheet" href="css/common/reset.css" />
         <link rel="stylesheet" href="css/common/header_footer.css" />
+        <link rel="stylesheet" href="css/common/loginModal.css" />
         <link rel="stylesheet" href="css/common/style.css" />
-        <!-- <link rel="stylesheet" href="css/main/URLCopyForm_modal.css" /> -->
 
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -199,7 +198,7 @@ pageEncoding="UTF-8"%>
                     </a> -->
                 </div>
             </article>
-            <%@ include file="/WEB-INF/views/common/loginForm.jsp" %>
+            <%@ include file="/WEB-INF/views/common/loginModal.jsp" %>
         </main>
 
         <%@ include file="/WEB-INF/views/common/footer.jsp" %>
