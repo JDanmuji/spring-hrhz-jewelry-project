@@ -63,7 +63,7 @@ $(function () {
     $(document).on("click", ".sortToggle > div", function() {
     	$(".selectedSort").text($(this).text());
         $(".sortToggle").toggle(0);		
-   		});
+   	});
 });
 
 // ---------------------------------------------------
