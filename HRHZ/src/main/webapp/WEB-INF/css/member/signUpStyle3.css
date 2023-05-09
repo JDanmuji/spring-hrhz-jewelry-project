@@ -1,0 +1,314 @@
+@charset "UTF-8";
+
+.backGround {
+    background-color: #fafafa;
+}
+
+
+.outWrapper {
+	max-width: 1200px;
+    min-height: calc(100vh - 73px);
+    margin: 0 auto;
+    padding: 70px 0 100px;
+    font-family: NotoSansCJKkr;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(125, 125, 125, 0.05) 0 0 15px 0;
+}
+
+
+.inWrapper {
+	max-width: 964px;
+	margin: 0 auto;
+	width: 554px;
+
+}
+
+.formHeader {
+    position: relative;
+    letter-spacing: -0.5px;
+}
+
+/* 회원가입 제목 */
+.signUpTitle span {
+    display: inline-block;
+    position: relative;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 59px;
+    letter-spacing: -1px;
+}
+
+.formHeader .signUpOrder {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.signUpOrder img {
+    width: 12px;
+    height: 12px;
+    margin: 0px 8px;
+    vertical-align: middle;
+}
+
+.signUpOrderActive {
+    font-size: 13px;
+    font-weight: 400;
+    text-align: right;
+    color: #000000;
+    line-height: 60px;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.signUpOrderInactive {
+    font-size: 13px;
+    font-weight: 400;
+    text-align: right;
+    color: #d5d4d5;
+    line-height: 60px;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.signUpText {
+    margin-top: 10px;
+    margin-bottom: 80px;
+}
+
+.signUpText span {
+    margin-top: 10px;
+    margin-bottom: 80px;
+}
+
+.inputContainer {
+    position: relative;
+    margin-bottom: 2px;
+    margin-top: 20px;
+    color: #000000;
+}
+
+.inputContainer label {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    color: #b8b9b8;
+}
+
+.inputContainer input {
+    border: none;
+    width: 510px;
+    height: 40px;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-bottom: 0px;
+}
+.certification {
+    border-radius: 3px;
+    background-color: #dddddd;
+    color: #ffffff;
+    font-size: 12px;
+    width: 88px;
+    height: 25px;
+    margin-left: 0px;
+}
+
+.inputContainer .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 550px;
+    height: 1px;
+    background-color: #ededed;
+}
+
+.inputContainer input:focus ~ .underline {
+    background-color: #000000;
+}
+
+.inputContainer input:focus {
+    outline: none;
+}
+
+.emailError,
+.passwordErrorCheck,
+.passwordError {
+    color: rgb(254, 79, 0);
+    font-size: 11px;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.emailValidIcon,
+.passwordValidIcon,
+.passwordValidIcon1 {
+    width: 30px;
+    height: 30px;
+    display: none;
+    margin: 0 5px 0 0px;
+    padding-bottom: 0;
+}
+.email,
+.password,
+.passwordCheck {
+    color: #000000;
+}
+
+
+/* 선택 정보 입력 */
+/* date */
+.signUpFormSection .extraInfoSection {
+	margin-top: 73px;
+}
+.extraInfoSection .extraInfoTitle {
+	font-size: 28px;
+	font-weight: bold;
+	margin-bottom: 16px;
+}
+.extraInfoSection .extraInfoSubTitle{
+	font-size: 15px;
+	margin-bottom: 33px;
+}
+.extraFormSection .datepickerWrap {
+	display: inline-block;
+	padding: 0;
+	border: 0;
+}
+.extraFormSection .datepickerWrap .datepicker {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+.datepickerBtn {
+	position: relative;
+	font-family: NotoSansCJKkr;
+	height: 36px;
+	width: 308px;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-image: initial;
+	border-bottom: 1px solid rgb(217, 217, 217);
+	background-color: transparent;
+	outline: none;
+	cursor: none;
+}
+.extraFormSection .datepickerWrap .datepicker .datepickerBtn {
+	width: 316px;
+}
+.datepickerBtn .placeholder {
+	width: 90%;
+	font-family: NotoSansCJKkr;
+	line-height: 36px;
+	font-size: 13px;
+	color: rgb(155, 155, 155);
+	letter-spacing: -0.5px;
+	text-align: left;
+	cursor: pointer;
+}
+.flatpickr-input .placeholder{
+	color: rgb(0, 0, 0);
+	font-family: Barlow;
+	font-size: 14px;
+}
+.datepickerBtn img {
+	position: absolute;
+	top: 6px;
+	right: 0;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+}
+
+/* gender */
+.genderRadioGroup {
+	position: relative;
+	margin-top: 16px;
+}
+.genderRadioGroup .radioBox {
+	height: 24px;
+}
+.genderRadioGroup:not(.vertical) .radioBox {
+	display: inline-block;
+}
+.genderRadioGroup:not(.vertical) .radioBox:first-child {
+	margin-right: 32px;
+}
+.genderRadioGroup .radioBox input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0px;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0px, 0px, 0px, 0px);
+	border: 0px;
+}
+.genderRadioGroup .radioBox input + label {
+	display: inline-block;
+	height: 18px;
+	position: relative;
+	cursor: pointer;
+	user-select: none;
+}
+
+.genderRadioGroup .radioBox input + label::before {
+	content: " ";
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	text-align: center;
+	border-radius: 50%;
+	vertical-align: top;
+	background-image: url(../../images/my/radio-btn-off.png);
+	background-size: contain;
+}
+.genderRadioGroup .radioBox input:checked + label::before {
+	background-image: url(../../images/my/radio-btn-on.png);
+}
+.genderRadioGroup .radioBox label > span {
+	display: inline-block;
+	vertical-align: text-top;
+	margin-top: 2px;
+	margin-left: 8px;
+	font-size: 13px;
+	letter-spacing: -0.5px;
+	color: rgb(155, 155, 155);
+}
+.genderRadioGroup .radioBox input:checked ~ label > span  {
+	color: rgb(0, 0, 0);
+}
+
+
+/* 다음 버튼 */
+.goShopBtn {
+	border-radius: 2px;
+	outline: none;
+	border: 1px solid transparent;
+	text-align: center;
+	cursor: pointer;
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: -0.3px;
+	height: 40px;
+	width: 181px;
+	line-height: 40px;
+}
+.goShopBtn:disabled {
+	background-color: rgb(221, 221, 221);
+}
+
+.extraInfoSection .nextButton {
+	margin: 43px 0 24px;
+	width: 100%;
+	height: 48px;
+	cursor: pointer;
+}
+
+
+
+

@@ -1,0 +1,567 @@
+.hiddenData {
+    display: none;
+}
+
+/* cartTop */
+.outerWrapper {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    max-width: 1200px;
+    padding: 40px 40px 118px;
+    color: black;
+    box-shadow: rgba(125, 125, 125, 0.05) 0 0 15px 0;
+    margin: 0 auto;
+}
+.cartTotalView {
+    width: 964px;
+}
+
+.toparea {
+    height: 59px;
+    line-height: 59px;
+    margin-bottom: 40px;
+}
+.toparea .title {
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: black;
+}
+.paymentStepList {
+    float: right;
+    line-height: 59px;
+}
+.inactiveMiddle,
+.inactive {
+    color: #9b9b9b;
+}
+.paymentStepList img {
+    width: 12px;
+    height: 12px;
+    margin: 0 8px;
+}
+.cartListCheckBtn {
+    display: flex;
+    margin-bottom: 20px;
+}
+.cartListCheckBtn input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0px, 0px, 0px, 0px);
+    border: 0;
+}
+.cartListCheckBtn input + label {
+    cursor: pointer;
+    user-select: none;
+    font-size: 14px;
+    font-weight: 500;
+    vertical-align: middle;
+    letter-spacing: -0.5px;
+}
+.cartListCheckBtn input + label::before {
+    content: " ";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 8px;
+    background-image: url(../../images/purchase/uncheck_round_icon.png);
+    background-size: cover;
+}
+.cartListCheckBtn input:checked + label::before {
+    background-image: url(../../images/purchase/check_round_purple_icon.png);
+    background-size: cover;
+}
+
+.deleteSectionBtn {
+    color: lightgray;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0 0 0 16px;
+}
+
+/*--------------*/
+.cartListTotal {
+    margin-bottom: 56px;
+}
+
+.tdCheck01 {
+    width: 48px;
+}
+.sampleImg {
+    width: 100px;
+    height: 100px;
+}
+/**/
+.cartTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: NotoSansCJKkr;
+    margin-bottom: 56px;
+}
+.cartTable thead tr:first-child {
+    border-top: 1px solid black;
+    border-bottom: 0.5px solid lightgray;
+}
+.cartTable tbody tr {
+    border-top: 1px solid rgb(237, 237, 237);
+}
+.cartTable tfoot tr:first-child {
+    border-top: 0.2px solid lightgray;
+}
+
+.qty {
+    width: 156px;
+    text-align: center;
+    font-size: 13px;
+}
+.price {
+    width: 156px;
+    text-align: center;
+    font-size: 13px;
+}
+.storeName {
+    width: 604px;
+    height: 54px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+.cartListTotal .count {
+    width: 156px;
+}
+.tableBody {
+    height: 148px;
+}
+.cartTable tbody tr td {
+    text-align: center;
+    padding: 24px 0;
+}
+.tableBody td:nth-of-type(1){
+    width: 48px;
+    vertical-align: top;
+}
+.productCheckBox {
+    position: relative;
+    display: inline-block;
+    height: 24px;
+}
+.tableBody td:nth-of-type(1) .productCheckBox {
+    margin: 38px 0;
+}
+.productCheckBox input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0px, 0px, 0px, 0px);
+    border: 0;
+}
+.productCheckBox input + label {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+.productCheckBox input + label::before {
+    content: " ";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url(../../images/purchase/uncheck_round_icon.png);
+    background-size: cover;
+    margin-right: 8px;
+}
+
+.productCheckBox input:checked + label::before {
+    background-image: url(../../images/purchase/check_round_purple_icon.png);
+    background-size: cover;
+}
+.productInfoBox {
+    display: flex;
+}
+
+.productInfoBox .productInfoImg {
+    display: inline-block;
+    margin-right: 16px;
+    vertical-align: top;
+    line-height: 0;
+    width: 100px;
+    height: 100px;
+}
+
+.productImg {
+    box-sizing: border-box;
+    display: block;
+    width: initial;
+    height: initial;
+    background: none;
+    opacity: 1;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+}
+.productInfoBox .productInfoImg img {
+    inset: 0;
+    box-sizing: border-box;
+    padding: 0;
+    border: none;
+    margin: auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    border-radius: 2px;
+    background-color: rgb(237, 237, 237);
+}
+.productInfoText {
+    display: inline-block;
+    width: calc(100% - 116px);
+    vertical-align: top;
+    font-family: NotoSansCJKkr;
+    text-align: left;
+}
+.productName {
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    word-break: break-all;
+    font-family: NotoSansCJKkr;
+    margin-bottom: 6px;
+    margin-top: 6px;
+}
+.productOption {
+    font-size: 12px;
+    color: #9b9b9b;
+    margin-bottom: 6px;
+}
+
+.productCount {
+    display: inline-flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 92px;
+    text-align: center;
+    font-family: Barlow;
+    font-size: 14px;
+    font-weight: 600;
+}
+.productCount span {
+    margin-top: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.countUpBtn,
+.countDownBtn {
+    cursor: pointer;
+}
+.productPrice {
+    color: #9b9b9b;
+}
+.productPrice .amount {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Barlow;
+    color: black;
+}
+
+.productBundleTotalPrice  .amount, .totalPriceAmount{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Barlow;
+    color: #9b9b9b;
+}
+
+
+.productBundleTotalPrice {
+    text-align: right;
+    padding-top: 13px;
+}
+.productSumPrice {
+    width: 156px;
+    text-align: center;
+}
+.productSumPrice .amount {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Barlow;
+}
+
+.unit {
+    font-size: 11px;
+    font-weight: 500;
+}
+.deleteBtn {
+    width: 24px;
+    padding-left: 24px;
+    cursor: pointer;
+}
+.totalPricetop {
+    margin-bottom: 12px;
+}
+.totalPricetop strong {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 29px;
+    letter-spacing: -0.5px;
+}
+.totalPricetop span {
+    float: right;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 29px;
+    letter-spacing: -0.5px;
+}
+.totalPriceMainBox {
+    display: flex;
+    padding: 44px 0;
+    border: 1px solid rgb(237, 237, 237);
+    background-color: rgb(247, 247, 247);
+}
+
+.orderPreWrap {
+    width: 964px;
+    height: 150px;
+}
+.orderPrePrice {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    position: relative;
+}
+.orderPrePrice .title {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+}
+.orderPrePrice .text {
+    font-family: Barlow;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 34px;
+}
+.orderQty ,.prePoint{
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    position: relative;
+}
+.orderQty .title , .prePoint .title, .deliveryFee .title {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+}
+.orderQty .text, .prePoint .text, .deliveryFee .text {
+    font-family: Barlow;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 34px;
+}
+
+.deliveryFee {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    position: relative;
+}
+
+.totalPriceMainBox > div:not(:first-of-type)::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 62px;
+    background-color: rgb(229, 229, 229);
+    position: absolute;
+    top: 0;
+    left: -1px;
+}
+.cartBntWrap {
+    margin: 40px -10px 0;
+    padding-top: 30px;
+}
+.cartBntWrap > button {
+    width: 468px;
+    height: 48px;
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+.cancelBtn {
+    border-radius: 2px;
+    outline: none;
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(225, 225, 225);
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 40px;
+}
+
+.submitBtn {
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid transparent;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    height: 40px;
+    line-height: 40px;
+}
+.submitBtn:disabled{
+    background-color: rgb(221, 221, 221);
+}
+* {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.modalBackGround {
+    display: none;
+    position: fixed;
+    inset: 0px;
+    font-family: NotoSansCJKkr;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.modalBackGround .modalBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    z-index: 102;
+    width: 330px;
+}
+
+.modalBox {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: rgb(255, 255, 255);
+   border-radius: 2px;
+   z-index: 102;
+}
+
+.modalBox .modalCloseBtn {
+   width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.modalCloseBtn {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.confirmText {
+    width: 250px;
+    margin: 44px 32px 24px;
+    letter-spacing: -0.5px;
+    text-align: center;
+}
+
+.copyText span {
+    padding-bottom: 8px;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.modalFooter {
+    margin: 0px 24px 24px;
+}
+
+
+.modalFooter button {
+    width: 130px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.modalFooter button:first-child {
+   	line-height: 40px;
+    margin-right: 12px;
+    border-color: rgb(0, 0, 0);
+}
+
+
+.cancleModalBtn {
+	border-radius: 2px;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(225, 225, 225);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    height: 40px;
+    width: 181px;
+}
+
+.confirmModalBtn {
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid transparent;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    height: 40px;
+    width: 181px;
+    line-height: 40px;
+}
+
+.cartDeleteArea {
+    text-align: center;
+    margin-top: 75px;
+}
+.cartEmptyContent {
+    font-size: 14px;
+    color: #9b9b9b;
+    margin-bottom: 15px;
+}
+
+.cartEmptysubmitBnt {
+    border-radius:2px;
+    width: 140px;
+    font-weight: 500;
+    font-size: 13px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    padding-bottom: 12px;
+    background-color : black;
+    color:white;
+}

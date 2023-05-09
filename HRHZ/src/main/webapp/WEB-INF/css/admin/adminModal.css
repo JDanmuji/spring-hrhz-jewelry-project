@@ -1,0 +1,398 @@
+/*----------------------------------------*/
+/* deleteModal*/
+/*----------------------------------------*/
+.sectionBackGroundDelete {
+    display: none;
+    position: fixed;
+    z-index: 100;
+}
+
+.sectionBackGroundDelete .modalBody {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    z-index: 102;
+    width: 330px;
+}
+
+.modalBody .modalCloseBtn {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.modalBody .confirmText {
+    margin: 44px 32px 24px;
+    letter-spacing: -0.5px;
+    text-align: center;
+}
+
+.confirmText .msg {
+    padding-bottom: 8px;
+    line-height: 24px;
+    font-size: 16px;
+    white-space: pre;
+    font-weight: 500;
+}
+
+.confirmText .modalFooter {
+    margin: 0px 24px 24px;
+}
+
+.modalFooter {
+    margin: 0px 24px 24px;
+}
+
+.modalFooter button {
+    width: 130px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.yesModalBtn {
+    border-radius: 2px;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(225, 225, 225);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    height: 40px;
+    width: 181px;
+    line-height: 40px;
+}
+
+.noModalBtn {
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid transparent;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    height: 40px;
+    width: 181px;
+    line-height: 40px;
+}
+
+.modalFooter button:first-child {
+    margin-right: 12px;
+    border-color: rgb(0, 0, 0);
+}
+/*----------------------------------------*/
+/* SearchBrandModal*/
+/*----------------------------------------*/
+.sectionBackGroundBrand {
+    display: none;
+    position: fixed;
+    inset: 0px;
+    font-family: NotoSansCJKkr;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.sectionBackGroundBrand .modalBody1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    z-index: 102;
+    width: 450px;
+    height: 320px;
+}
+.brandFilterSearchDiv .searchIcon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.brandFilterSearchDiv input {
+    display: inline-block;
+    width: 370px;
+    overflow: visible;
+    font-size: 16px;
+    color: #000000;
+    border: none;
+}
+.brandContainer {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ededed;
+    text-align: center;
+    justify-content: left;
+    background-color: #fff;
+    z-index: 10;
+}
+.radios {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+brandFilter input.radio {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0px, 0px, 0px, 0px);
+    border: 0;
+}
+
+.brandFilter input.radio + label::before {
+    content: " ";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 8px;
+    background-image: url(../../images/purchase/uncheck_round_icon.png);
+    background-size: cover;
+}
+.brandFilter input.radio:checked + label::before {
+    background-image: url(../../images/purchase/check_round_purple_icon.png);
+    background-size: cover;
+}
+
+.brandContainer .brandImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+.brandContainer span {
+    margin-left: 20px;
+    z-index: auto;
+    color: black;
+}
+.brandSelect {
+    margin: auto;
+    border: 0.5px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 17px;
+    width: 300px;
+    height: 50px;
+    cursor: pointer;
+}
+.brandFilter {
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.brandFilterSearchDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 420px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ededed;
+}
+.modalCloseBtn {
+    position: right;
+    width: 20px;
+    height: 20px;
+}
+.sectionBackGroundBrand .brandSearch1 {
+    overflow-y: scroll;
+    width: 410px;
+    height: 200px;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+.brandSearch1 {
+    color: #ffffff;
+    border-radius: 1px;
+    cursor: pointer;
+    margin-left: 7px;
+}
+/*----------------------------------------*/
+/* SearchProductModal*/
+/*----------------------------------------*/
+.sectionBackGroundProduct {
+    display: none;
+    position: fixed;
+    inset: 0px;
+    font-family: NotoSansCJKkr;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.sectionBackGroundProduct .modalBody2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    z-index: 102;
+    width: 900px;
+    height: 500px;
+}
+.brandFilter2 {
+    padding: 12px 0;
+    margin: 0 5px 0 20px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.brandFilterSearchDiv2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 870px;
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ededed;
+}
+.brandFilterSearchDiv2 .searchIcon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.brandFilterSearchDiv2 input {
+    display: inline-block;
+    width: 870px;
+    overflow: visible;
+    font-size: 16px;
+    color: #000000;
+    border: none;
+}
+.brandContainer2 {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-items: center;
+}
+.brandContainer2 .brandImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+.brandContainer2 span {
+    width: 100px;
+    text-align: center;
+}
+.brandSelect2 {
+    display: block;
+    margin: 25px 40px 25px 25px;
+    border: 0.5px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    width: 800px;
+    height: 45px;
+    cursor: pointer;
+}
+.modalCloseBtn {
+    position: right;
+    width: 20px;
+    height: 20px;
+}
+
+.itemInfo {
+    display: flex;
+    margin-left: 0px;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    padding-right: 0;
+    width: 830px;
+    margin: 10px 0;
+}
+.productCode {
+    margin-left: 100px;
+}
+.productCode {
+    margin-left: 20px;
+}
+.gap {
+    width: 20px;
+}
+.productCode,
+.brandCode,
+.categoryClassification {
+    display: inline-block;
+    margin-left: 0;
+    width: 100px;
+    text-align: center;
+    margin: 10px 0;
+}
+.productClassification {
+    display: inline-block;
+    margin-left: 0;
+    width: 100px;
+    text-align: center;
+    margin: 10px 0;
+}
+.productName {
+    display: inline-block;
+    margin-left: 0;
+    width: 375px;
+    text-align: left;
+    margin: 10px 0 10px 16px;
+}
+.brandContainer2 {
+    border-bottom: 1px solid #ededed;
+    height: 50px;
+}
+.brandSearch2 {
+    overflow-y: scroll;
+    margin-top: 30px;
+}
+.brandContainer2 .productCode1,
+.brandContainer2 .brandCode1,
+.brandContainer2 .categoryClassification1,
+.brandContainer2 .productClassification1 {
+    display: block;
+    width: 100px;
+    word-wrap: break-word;
+    overflow: auto;
+}
+.brandContainer2 .productName1 {
+    display: block;
+    width: 380px;
+    word-wrap: break-word;
+    overflow: auto;
+    text-align: left;
+    margin-left: 16px;
+}
+.brandScroll {
+    overflow-y: scroll;
+    height: auto;
+    width: 850px;
+    height: 300px;
+}

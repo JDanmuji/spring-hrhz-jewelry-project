@@ -1,0 +1,62 @@
+.magazineTotalPage {
+    background-color: rgb(250, 250, 250);
+    max-width: 1200px;
+    min-height: calc(100vh - 73px);
+    margin: 0 auto;
+    padding: 40px 30px 100px;
+    font-family: NotoSansCJKkr;
+    background-color: rgb(250, 250, 250);
+    box-shadow: rgba(125, 125, 125, 0.05) 0px 0px 15px 0px;
+}
+.magazineOuterWrapper {
+    width: 964px;
+    margin: 0 auto;
+}
+.topTitleText {
+    display: flex;
+    position: relative;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.topTitleText h3 {
+    display: inline-block;
+    width: calc(100% - 200px);
+    margin: 0px;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 38px;
+    letter-spacing: -0.6px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.topTitleSecondText {
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+    color: rgb(155, 155, 155);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.productShareImg {
+    position: absolute;
+    right: 0px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.magazineSection {
+    width: 100%;
+}
+.magazineSection img {
+    width: 100%;
+    height: auto;
+}

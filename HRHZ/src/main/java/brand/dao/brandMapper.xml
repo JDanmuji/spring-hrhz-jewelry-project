@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="brandSQL">
+
+    <select id="getBrandList" parameterType="String" resultType="map">
+      SELECT b.code AS "code", b.name AS "name",
+            bi.img_path AS "imgPath", bi.img_name AS "imgName"
+      
+      <choose>
+           <when test = 'memberId != null and memberId != ""'>
+               ,   (CASE WHEN ll.brand_code is not null then 'Y' else 'N' end ) as "brandLikeYN"
+           </when>
+           <otherwise>
+              ,   'N' as "brandLikeYN"
+           </otherwise>
+        </choose>
+        
+      FROM brand b
+      INNER JOIN brand_image bi
+      ON b.code=bi.brand_code
+      
+        <if test='memberId != null and memberId != ""'>
+         LEFT OUTER JOIN like_list ll
+         ON b.code = ll.brand_code
+         AND ll.id = #{memberId}
+      </if>
+    </select>
+
+     
+      <select id ="getBrandDetail" parameterType="java.util.Map" resultType="java.util.Map">
+      SELECT 
+               pInfo.productCode AS "productCode"
+         ,   pInfo.productName AS "productName"
+         ,   b.code as "brandCode"
+         ,   pInfo.imgPath as "imgPath"
+         ,     b.name as "brandName" 
+         ,   b.like_count as "brandLikeCount" 
+         ,   pInfo.price AS "price"
+         ,   pInfo.productLikeCount AS "productLikeCount"
+         ,    pInfo.color as "color"
+         ,    bi.img_name as "brandLogoName"
+         <if test='memberId != null and memberId != ""'>
+         ,     (CASE WHEN ll2.brand_code is not null then 'Y' else 'N' end ) as "brandLikeYN"
+            ,   pInfo.productLikeYN as "productLikeYN"
+         </if>
+      FROM
+            brand b
+      INNER JOIN brand_image bi
+         ON b.code = bi.brand_code
+      LEFT OUTER JOIN (SELECT 
+                           k.*
+                       FROM   (SELECT 
+                                   p.code         AS productCode
+                                      ,   p.name                                AS productName
+                                      ,   P.brand_code                          AS brandCode
+                                      ,   ( P.brand_code || '/'  || pi.img_origin_name )             AS imgPath
+                                      ,   (SELECT 
+                                               tt.name
+                                          FROM   brand tt
+                                          WHERE  tt.code = p.brand_code)       AS brandName
+                                      ,   (SELECT 
+                                               bb.like_count
+                                          FROM   brand bb
+                                          WHERE  bb.code = p.brand_code)      AS brandLikeCount
+                                      ,   TO_CHAR(p.price, 'FM999,999,999,999')    AS price
+                                      ,   p.like_count                             AS productLikeCount
+                                      ,   p.color                               AS color
+                                     ,   ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.seq DESC)             AS RN
+                                     <if test='memberId != null and memberId != ""'>
+                                      ,   (CASE WHEN ll.product_code is not null then 'Y' else 'N' end ) as productLikeYN
+                                      </if>
+                               FROM   product p
+                                INNER JOIN (SELECT 
+                                            a.product_code
+                                                ,   a.img_origin_name
+                                                ,   MIN(a.seq) AS SEQ
+                                               FROM   product_image a
+                                               WHERE  
+                                                  a.thumbanil_yn = 'Y'
+                                               GROUP  BY a.product_code, a.img_origin_name) pi
+                                     ON p.code = pi.product_code
+                                     <if test='memberId != null and memberId != ""'>
+                                  LEFT OUTER JOIN like_list ll
+                                   ON p.code = ll.product_code
+                                       AND ll.id = #{memberId}
+                                       AND ll.type = 'P'
+                                    </if>
+                              WHERE  
+                                  1 = 1
+                         ORDER  BY p.like_count DESC) k
+        WHERE  1 = 1
+        AND k.rn = 1) pInfo
+         ON b.code = pInfo.brandCode
+      <if test='memberId != null and memberId != ""'>
+      LEFT OUTER join  like_list ll2
+          ON b.code = ll2.brand_code
+         AND ll2.id = #{memberId}
+         AND  ll2.type = 'B'
+      </if>
+      WHERE 
+         b. code =  #{brandCode}              
+      </select>
+     
+ 
+    <select id ="getTotalA" parameterType="java.util.Map" resultType="int">
+      SELECT 
+            count(*)
+      FROM
+            brand b
+      INNER JOIN brand_image bi
+         ON b.code = bi.brand_code
+      LEFT OUTER JOIN (SELECT 
+                           k.*
+                       FROM   (SELECT 
+                                   p.code         AS productCode
+                                      ,   p.name                                AS productName
+                                      ,   P.brand_code                          AS brandCode
+                                      ,   ( P.brand_code || '/'  || pi.img_origin_name )             AS imgPath
+                                      ,   (SELECT 
+                                               tt.name
+                                          FROM   brand tt
+                                          WHERE  tt.code = p.brand_code)       AS brandName
+                                      ,   (SELECT 
+                                               bb.like_count
+                                          FROM   brand bb
+                                          WHERE  bb.code = p.brand_code)      AS brandLikeCount
+                                      ,   TO_CHAR(p.price, 'FM999,999,999,999')    AS price
+                                      ,   p.like_count                             AS productLikeCount
+                                      ,   p.color                               AS color
+                                     ,   ROW_NUMBER() OVER(PARTITION BY p.code ORDER BY PI.seq DESC)             AS RN
+                               FROM   product p
+                                INNER JOIN (SELECT 
+                                            a.product_code
+                                                ,   a.img_origin_name
+                                                ,   MIN(a.seq) AS SEQ
+                                               FROM   product_image a
+                                               WHERE  
+                                                  a.thumbanil_yn = 'Y'
+                                               GROUP  BY a.product_code, a.img_origin_name) pi
+                                     ON p.code = pi.product_code
+                              WHERE  
+                                  1 = 1
+                         ORDER  BY p.like_count DESC) k
+        WHERE  1 = 1
+        AND k.rn = 1) pInfo
+         ON b.code = pInfo.brandCode
+      WHERE 
+         b. code =  #{brandCode}   
+       </select>
+
+  
+</mapper>

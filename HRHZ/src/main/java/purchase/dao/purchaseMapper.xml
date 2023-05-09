@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="purchaseSQL">
+
+<!--     <select id="getProductDetail" parameterType="String" resultType="map">
+	    SELECT p.name AS "productName", detail_type AS "detailType",
+	    	   price AS "price", "LIKE" AS "like", p."COMMENT" AS "comment",
+		       pd.name AS "detailName",
+		       b.code AS "brandCode", b.name AS "brandName",
+		       bi.img_path AS "brandImgPath", img_name AS "brandImgName"
+		FROM product p
+		JOIN product_detail pd ON p.code=pd.product_code
+		JOIN brand b ON p.brand_code=b.code
+		JOIN brand_image bi ON p.brand_code=bi.brand_code
+		WHERE p.code = #{productCode}
+	</select> -->
+	
+    <select id="getProductDetail" parameterType="map" resultType="map">
+		SELECT p.name AS "productName", 
+				(Select code_name from code where code = detail_type ) AS "detailType",
+		       price AS "price", p.like_count AS "like", p."COMMENT" AS "comment",
+		       pd.name AS "detailName",
+			   pd.code AS "detailCode",
+		       b.code AS "brandCode", b.name AS "brandName",
+		       bi.img_path AS "brandImgPath", img_name AS "brandImgName"
+		       <choose>
+		           <when test = 'memberId != null and memberId != ""'>
+		           ,(CASE WHEN ll.id is not null then 'Y' else 'N' end ) AS "likeYN"
+		           </when>
+		           <otherwise>
+		           ,'N' AS "likeYN"
+		           </otherwise>
+		       </choose>
+		FROM product p
+		JOIN product_detail pd ON p.code=pd.product_code
+		JOIN brand b ON p.brand_code=b.code
+		JOIN brand_image bi ON p.brand_code=bi.brand_code
+		<if test='memberId != null and memberId != ""'>
+		 LEFT OUTER JOIN like_list ll 
+		 	ON p.code=ll.product_code
+		 	AND ll.id=#{memberId}
+		</if>
+		WHERE p.code = #{productCode}
+	</select>
+
+	<select id="getProductImages" parameterType="String" resultType="map">
+		SELECT brand_code AS "brandCode", img_origin_name AS "imgName", thumbanil_yn AS "thumbnailYn"
+		FROM product
+		JOIN product_image ON code=product_code
+		WHERE product_code = #{productCode}
+    </select>
+
+	<select id="getProductReviews" parameterType="String" resultType="map">
+		  SELECT          
+		  		main.seq                             AS "seq",
+                image.seq                            AS "imgSeq",
+                image.review_seq                     AS "img_review_Seq",
+                main.member_id                       AS "memberId",
+                main.content                         AS "content",
+                main.like_count                      AS "like",
+                To_char(main.reg_date, 'YYYY.MM.DD') AS "regDate",
+                image.img_origin_name                AS "imgName",
+                (image.img_path     || image.img_origin_name) AS "imgPath",
+                gup.imgCount AS 					"imgCount"
+		                            
+			FROM   review main
+			INNER JOIN
+			                (
+			                   SELECT          r.seq ,
+			                                   ri.review_seq ,
+			                                   COUNT(CASE WHEN r.seq = ri.review_seq THEN 1 END) AS imgCount
+			                   FROM            review r
+			                   LEFT OUTER JOIN
+			                                   (
+			                                          SELECT seq
+			                                                 , review_seq
+			                                                 , img_origin_name
+			                                                 , img_path
+			                                          FROM   review_image ) ri
+			                   ON              r.seq = ri.review_seq
+			                   WHERE           
+			                   		1 = 1
+			                   GROUP BY        ( r.seq , ri.review_seq) 
+			                   
+			                   ) gup
+				ON main.seq = gup.seq
+			LEFT OUTER JOIN review_image image
+				ON 	main.seq = image.review_seq
+			WHERE           main.product_code = '${productCode}'
+			ORDER BY        main.seq
+    </select>
+    
+    <select id="getReviewSeq" resultType="int">
+    	SELECT seq_review.NEXTVAL FROM DUAL
+    </select>
+    
+    <insert id="reviewUpload" parameterType="review">
+    	INSERT INTO review VALUES(#{seq}, #{productCode}, #{brandCode}, #{memberId},
+    							  #{content}, #{like}, SYSDATE, NULL, #{imageYN})
+    </insert>
+    
+    <insert id="reviewImageUpload" parameterType="reviewImage">
+    	INSERT INTO review_image VALUES(seq_reviewimage.NEXTVAL, #{reviewSeq},
+    							  #{imgOriginName}, #{imgPath}, #{regId}, NULL, SYSDATE, NULL)
+    </insert>
+    
+    <select id="cartCount" parameterType="java.util.Map" resultType="int">
+    	SELECT
+    		count(*) as cnt
+    	FROM cart
+    	WHERE member_id = #{memberId}
+    	AND code = #{optionCode}
+    </select>
+    
+    <insert id="cartInsert" parameterType="java.util.Map">
+		INSERT INTO cart
+			(SELECT
+				pd.code
+			,   pd.product_code
+			,   pd.brand_code
+			,   #{memberId}
+			,   #{productCount}
+			, 	(p.price * #{productCount}) 
+			FROM product_detail pd
+			INNER JOIN product p 
+			ON pd.product_code = p.code
+			where 
+				pd.code = #{optionCode})
+    </insert>
+    
+    
+    <delete id="cartDelete" parameterType="java.util.Map">
+		DELETE from cart 
+		WHERE
+			code = #{deleteCode}
+		AND  member_id = #{memberId}
+    </delete>
+    
+</mapper>

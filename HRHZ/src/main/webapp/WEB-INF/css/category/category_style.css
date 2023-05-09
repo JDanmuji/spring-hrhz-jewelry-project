@@ -1,0 +1,471 @@
+/* header */
+.mainMenu a:first-child {
+    color: #000;
+}
+
+/* main */
+main {
+    max-width: 1024px;
+    min-width: 1024px;
+    padding: 0 30px;
+    margin: 0 auto;
+
+    display: flex;
+}
+
+/* left section */
+.leftSection {
+    width: 20%;
+    border-right: 1px solid #ededed;
+    padding: 30px 0;
+}
+.leftSection h2 {
+    padding: 0px 0px 12px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 29px;
+    letter-spacing: -0.5px;
+}
+.categoryTitle {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    padding: 13px 0px;
+    border-bottom: 1px solid #f7f7f7;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.leftSection img {
+    cursor: pointer;
+}
+.expandBtn {
+    width: 24px;
+    height: 24px;
+    padding: 10px 20px;
+}
+.categoryToggle {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px 0px 22px 16px;
+    border-bottom: 1px solid #f7f7f7;
+    font-weight: 500;
+    color: #9b9b9b;
+}
+.categoryToggle p {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 24px;
+    width: 114px;
+    padding-right: 16px;
+}
+.categoryToggle p:hover {
+    color: #000;
+}
+.checkedCategory {
+    color: #000;
+}
+.checkIcon {
+    width: 24px;
+    height: 24px;
+}
+
+/* right section */
+/* sticky menu */
+.rightSection {
+    padding: 0 40px;
+    width: 80%;
+    position: relative;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.stickyMenu {
+    position: sticky;
+    top: 80px;
+    padding: 30px 20px 0;
+    z-index: 80;
+    background-color: #fff;
+}
+.selectedCategory img {
+    width: 24px;
+    height: 24px;
+}
+.selectedCategory {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+    width: 784px;
+    padding-left: 40px;
+}
+.filterBox {
+    margin: 0px auto;
+    width: calc(100%-2px);
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    border: 1px solid #ededed;
+
+    display: flex;
+    justify-content: end;
+    position: relative;
+}
+.filterBox > span {
+    padding: 16px 20px;
+    width: 150px;
+    cursor: pointer;
+}
+.filterBox span:nth-child(3) {
+    border-left: 2px solid #ededed;
+}
+
+/* sort toggle */
+
+.selectedSort p {
+    display: none;
+}
+.sortToggle {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 190px;
+    border: 1px solid #ededed;
+    background-color: #fff;
+    z-index: 80;
+}
+.sortToggle span {
+    display: none;
+}
+.sortToggle div {
+    width: 180px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.sortToggle div:hover,
+.sortToggle div:active {
+    background-color: #eee;
+}
+
+.sortToggle a:link,
+.sortToggle a:visited,
+.sortToggle a:hover,
+.sortToggle a:active {
+    color: #000;
+}
+
+/* filter toggle - brand filter */
+.filterToggle {
+    display: flex;
+    flex-direction: column;
+}
+.filterToggle {
+    width: 400px;
+    height: auto;
+    border: 1px solid #ededed;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    right: -1px;
+    z-index: 70;
+}
+.filterMenu {
+    display: flex;
+    gap: 20px;
+}
+.filterMenu > p:first-child {
+    color: #000;
+}
+.filterMenu,
+.brandFilter {
+    padding: 12px 0;
+    margin: 0 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    border-bottom: 1px solid #ededed;
+}
+.brandFilterSearchDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ededed;
+}
+.filterMenu > p {
+    color: #d9d9d9;
+    cursor: pointer;
+}
+.filterMenu p:last-child {
+    margin-left: auto;
+}
+.filterToggle .searchIcon {
+    width: 18px;
+    height: 18px;
+    margin-right: 20px;
+}
+.filterToggle input {
+    width: 100%;
+    overflow: visible;
+    font-size: 16px;
+    color: #d9d9d9;
+}
+.filterToggle .recommendBrand {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    justify-content: center;
+    align-items: start;
+    border-bottom: none;
+}
+.filterToggle div h3 {
+    color: #000;
+    line-height: 45px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+.filterToggle .brandImg {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.filterToggle p {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 24px;
+}
+.filterDiv {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    color: #000;
+    font-weight: 500;
+}
+.filterDiv span {
+    display: none;
+}
+.filterDiv p {
+    font-weight: inherit;
+}
+.filterBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+.tagArea {
+    margin: 16px 0 0 16px;
+}
+.tagArea .tagSpan {
+    display: inline-block;
+    margin: 8px 8px 0px 0px;
+    padding: 6px;
+    background-color: #fafafa;
+    border-radius: 2px;
+    border: none !important;
+    cursor: pointer;
+}
+.tagArea .tagSpan span {
+    display: none;
+}
+.filterResetBtn {
+    margin: 6px 0 6px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e1e1e1;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.filterResetBtn img {
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+}
+.filterResultBtn {
+    border-radius: 2px;
+    border: 1px solid transparent;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 2px 0;
+    width: 320px;
+    line-height: 40px;
+    margin: 10px;
+}
+
+/* filter toggle - color filter */
+.colorFilter {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px;
+    margin-bottom: 0;
+    gap: 16px;
+}
+.colorFilter > div {
+    cursor: pointer;
+    color: #000;
+    font-weight: 400;
+}
+
+/* filter toggle - price filter */
+.priceFilter {
+    display: none;
+    flex-direction: column;
+    margin: 20px;
+    margin-bottom: 0;
+    gap: 16px;
+}
+.priceFilterChoice {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.priceFilterChoice h4 {
+    display: none;
+}
+.priceFilterChoice > div {
+    font-weight: 400;
+    cursor: pointer;
+}
+.priceFilterInput > input {
+    width: 80px;
+    font-size: 14px;
+    color: #999;
+    padding: 10px 8px;
+    border: 1px solid #ededed;
+    margin: 10px 4px 0 4px;
+}
+.priceFilterInput > button {
+    width: auto;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin-left: 30px;
+    background-color: #000;
+    color: #fff;
+}
+
+/* contents */
+.articleContents a:link,
+.articleContents a:visited,
+.articleContents a:hover,
+.articleContents a:active {
+    color: #000;
+    margin-bottom: 16px;
+}
+.articleContents {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin: 20px;
+    margin-bottom: 60px;
+}
+.articleContent {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 230px;
+    height: 100%;
+    justify-content: space-between;
+}
+.articleImg {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.articleImg img {
+    width: 100%;
+}
+.articleDesc {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+}
+.articleDesc span:first-child,
+.articleDesc span:nth-child(2) {
+    font-size: 13px;
+}
+.articlePrice {
+    display: flex;
+    font-family: Barlow;
+    margin-top: 10px;
+}
+.percentage {
+    color: #6200f0;
+}
+.price {
+    margin-left: 5px;
+    color: black;
+}
+.deliveryIcon {
+    width: 60px;
+}
+.heartIcon {
+    width: 16px;
+    position: absolute;
+    top: 256px;
+    right: 0;
+    cursor: pointer;
+}
+.heartIconWhite {
+    height: 13px;
+    width: 14px;
+}
+.heartIconViolet {
+    height: 13px;
+    width: 14px;
+}
+.likeNumber {
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 15px;
+    color: #9b9b9b;
+}
+.likeNumber span {
+    margin-left: 5px;
+}
+.pagingDiv {
+    text-align: center;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.currentPage {
+    color: black;
+    text-decoration: underline;
+
+    margin-right: 30px;
+    font-weight: 600;
+}
+.page {
+    color: lightgray;
+    text-decoration: none;
+
+    margin-right: 30px;
+}
+.afterPage {
+    width: 50px;
+    color: lightgray;
+    width: 20px;
+}
+.prePage {
+    margin-right: 30px;
+    color: lightgray;
+    width: 50px;
+}

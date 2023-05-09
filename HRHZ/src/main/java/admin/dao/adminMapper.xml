@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminSQL">
+
+
+	<select id="getMemberList" resultType="java.util.HashMap">
+		SELECT email as "email", member.name as "name", phone as "phone",
+			   TO_CHAR(reg_date, 'YYYY-MM-DD') as "regDate"
+		FROM member
+		ORDER BY name
+	</select>
+
+	<insert id="brandMemberInsert" parameterType="java.util.HashMap" >
+        INSERT INTO brand 
+        VALUES ( 
+			('B' || LPAD(SEQ_BRANDCODE.NEXTVAL,6,0))
+	        , 	'${name}'
+	        ,	'${phone}'
+	        ,	'${address}'
+	        ,	'${returnAddress}'
+	        ,	'${deliveryFee}'
+	        ,	'${email}'
+	        ,	'${kakaoId}'
+	        ,	'${instagramId}'
+	        ,	null
+	        ,   null
+	        ,   null
+	        
+	        
+	     )
+    </insert>
+
+
+	<select id="getBrand" parameterType="String" resultType="java.util.HashMap">
+		SELECT
+			brand.name as "name", phone as "phone",
+		   	address as "address", return_address as "returnAddress",
+		   	TO_CHAR(delivery_fee, 'FM999,999,999') as "deliveryFee", email as "email",
+			kakao_id as "kakaoId", instagram_id as "instagramId",
+			(bi.img_path || '/' || bi.img_name) as "imgPath"
+		FROM brand
+			join brand_image bi
+			on brand.code = bi.brand_code
+		WHERE code=#{brandCode}
+		ORDER BY code
+	</select>
+
+	<select id="getBrandList" resultType="java.util.HashMap">
+		SELECT
+			b.code as "code",
+			b.name as "name",
+			b.phone as "phone",
+			b.address as "address",
+			b.return_address as "returnAddress",
+			b.delivery_fee as "deliveryFee",
+			b.email as "email",
+			b.kakao_id as "kakaoId",
+			b.instagram_id as "instagramId",
+			b.like_count as "like",
+			b.reg_date as "regDate",
+			b.mod_date as "modDate",
+			(bi.img_path || '/' || bi.img_name) as "imgPath"
+		FROM brand b
+			join brand_image bi
+			on b.code = bi.brand_code
+		ORDER BY code
+	</select>
+
+
+	<select id="brandUpdateSubmit" parameterType="java.util.HashMap">
+		UPDATE brand
+		SET brand.name=#{name}, phone=#{phone},
+			address=#{address}, return_address=#{returnAddress},
+			delivery_fee=#{deliveryFee}, email=#{email},
+			kakao_id=#{kakaoId}, instagram_id=#{instagramId},
+			mod_date=SYSDATE
+		WHERE code=#{brandCode}
+	</select>
+
+</mapper>
