@@ -14,8 +14,9 @@
 ### WE ARE 🤼‍♂️
 > - [JDanmuji](https://github.com/JDanmuji)
 > - [mintcoffeee](https://github.com/mintcoffeee)
-> - [jihyelisa](https://github.com/jihyelisa)
 > - [eunyeoung22](https://github.com/eunyeoung22)
+> - [jihyelisa](https://github.com/jihyelisa)
+> - [awesomecreative](https://github.com/awesomecreative)
 
 #
 
