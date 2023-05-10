@@ -1,10 +1,9 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&height=300&color=black&text=HRHZ&animation=fadeIn&fontColor=FAFAFA)
 
 
-#
+
 
 # Hello, Welcome to HRHZ Project
-
 
 ## What is this project ✋
 ### This project is a mini-project created by cloning [AMONZ](https://www.amondz.com/) sites
