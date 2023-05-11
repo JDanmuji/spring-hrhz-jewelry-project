@@ -5,10 +5,10 @@
 
 # Hello, Welcome to HRHZ Project
 
-## What is this project ✋
-### This project is a mini-project created by cloning [AMONZ](https://www.amondz.com/) sites
-> - This site is an accessories online shopping mall
-> - The site was developed for two weeks and will be maintained in the future.
+## About This Project ✋
+### This is a website cloning project
+> - This project involved cloning an international online accessory market, called [AMONZ](https://www.amondz.com/).
+> - We worked on it for three weeks and are still maintaining it.
 
 
 ### WE ARE 🤼‍♂️
