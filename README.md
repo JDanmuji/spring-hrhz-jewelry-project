@@ -16,7 +16,7 @@
 > - [mintcoffeee](https://github.com/mintcoffeee)
 > - [eunyeoung22](https://github.com/eunyeoung22)
 > - [jihyelisa](https://github.com/jihyelisa)
-> - [awesomecreative](https://github.com/awesomecreative)
+
 
 #
 
