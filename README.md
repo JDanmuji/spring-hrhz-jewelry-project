@@ -33,5 +33,5 @@
 #
 
 ### What about our project? 🤷‍♀️
->  [HRHZ PDF]([https://docs.google.com/presentation/d/1YyPUHKg8av69-1GCWedfqvGQIY1fhYzs/edit?usp=drive_link&ouid=107000350492122968972&rtpof=true&sd=true](https://drive.google.com/file/d/1YCRSJ-S6Hc1z3NXghQC5eG3sUNo0Rxcq/view?usp=drive_link)https://drive.google.com/file/d/1YCRSJ-S6Hc1z3NXghQC5eG3sUNo0Rxcq/view?usp=drive_link)
+>  [HRHZ PDF](https://docs.google.com/presentation/d/1YyPUHKg8av69-1GCWedfqvGQIY1fhYzs/edit?usp=drive_link&ouid=107000350492122968972&rtpof=true&sd=true](https://drive.google.com/file/d/1YCRSJ-S6Hc1z3NXghQC5eG3sUNo0Rxcq/view?usp=drive_link)https://drive.google.com/file/d/1YCRSJ-S6Hc1z3NXghQC5eG3sUNo0Rxcq/view?usp=drive_link)
 
